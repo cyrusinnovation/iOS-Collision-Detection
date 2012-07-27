@@ -7,6 +7,5 @@ Why is this?
 This exists to allow me to experiment with
 * Writing significant amounts of functionality in Objective-C
 * Writing a non-trivial model in Objective-C
-* Writing a CocoaTouch library
 * Using Xcode to do the above
 * Writing unit tests in Xcode
