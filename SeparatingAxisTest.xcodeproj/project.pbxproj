@@ -15,6 +15,16 @@
 		08028DF815C1C55E002DC0B4 /* libSeparatingAxisTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE015C1C55E002DC0B4 /* libSeparatingAxisTest.a */; };
 		08028DFE15C1C55E002DC0B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08028DFC15C1C55E002DC0B4 /* InfoPlist.strings */; };
 		08028E0115C1C55E002DC0B4 /* SeparatingAxisTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E0015C1C55E002DC0B4 /* SeparatingAxisTestTests.m */; };
+		08028E1115C1CDD5002DC0B4 /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E0F15C1CDD5002DC0B4 /* Polygon.h */; };
+		08028E1215C1CDD5002DC0B4 /* Polygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E1015C1CDD5002DC0B4 /* Polygon.m */; };
+		08028E1615C1D035002DC0B4 /* Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E1415C1D035002DC0B4 /* Vector.h */; };
+		08028E1715C1D035002DC0B4 /* Vector.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E1515C1D035002DC0B4 /* Vector.m */; };
+		08028E2215C1E39B002DC0B4 /* Range.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2015C1E39B002DC0B4 /* Range.h */; };
+		08028E2315C1E39B002DC0B4 /* Range.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2115C1E39B002DC0B4 /* Range.m */; };
+		08028E2615C2048D002DC0B4 /* SATResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2415C2048D002DC0B4 /* SATResult.h */; };
+		08028E2715C2048D002DC0B4 /* SATResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2515C2048D002DC0B4 /* SATResult.m */; };
+		08028E2A15C238D9002DC0B4 /* Overlap.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2815C238D9002DC0B4 /* Overlap.h */; };
+		08028E2B15C238D9002DC0B4 /* Overlap.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2915C238D9002DC0B4 /* Overlap.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +40,26 @@
 /* Begin PBXFileReference section */
 		08028DE015C1C55E002DC0B4 /* libSeparatingAxisTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSeparatingAxisTest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		08028DE315C1C55E002DC0B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		08028DE715C1C55E002DC0B4 /* SeparatingAxisTest-Prefix.pch */ = {isa = PBXFileReference; path = "SeparatingAxisTest-Prefix.pch"; sourceTree = "<group>"; };
-		08028DE815C1C55E002DC0B4 /* SeparatingAxisTest.h */ = {isa = PBXFileReference; path = SeparatingAxisTest.h; sourceTree = "<group>"; };
+		08028DE715C1C55E002DC0B4 /* SeparatingAxisTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SeparatingAxisTest-Prefix.pch"; sourceTree = "<group>"; };
+		08028DE815C1C55E002DC0B4 /* SeparatingAxisTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeparatingAxisTest.h; sourceTree = "<group>"; };
 		08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeparatingAxisTest.m; sourceTree = "<group>"; };
 		08028DF015C1C55E002DC0B4 /* SeparatingAxisTestTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeparatingAxisTestTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08028DF115C1C55E002DC0B4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		08028DF315C1C55E002DC0B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		08028DFB15C1C55E002DC0B4 /* SeparatingAxisTestTests-Info.plist */ = {isa = PBXFileReference; path = "SeparatingAxisTestTests-Info.plist"; sourceTree = "<group>"; };
+		08028DFB15C1C55E002DC0B4 /* SeparatingAxisTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SeparatingAxisTestTests-Info.plist"; sourceTree = "<group>"; };
 		08028DFD15C1C55E002DC0B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		08028DFF15C1C55E002DC0B4 /* SeparatingAxisTestTests.h */ = {isa = PBXFileReference; path = SeparatingAxisTestTests.h; sourceTree = "<group>"; };
+		08028DFF15C1C55E002DC0B4 /* SeparatingAxisTestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeparatingAxisTestTests.h; sourceTree = "<group>"; };
 		08028E0015C1C55E002DC0B4 /* SeparatingAxisTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeparatingAxisTestTests.m; sourceTree = "<group>"; };
+		08028E0F15C1CDD5002DC0B4 /* Polygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polygon.h; sourceTree = "<group>"; };
+		08028E1015C1CDD5002DC0B4 /* Polygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polygon.m; sourceTree = "<group>"; };
+		08028E1415C1D035002DC0B4 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
+		08028E1515C1D035002DC0B4 /* Vector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vector.m; sourceTree = "<group>"; };
+		08028E2015C1E39B002DC0B4 /* Range.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range.h; sourceTree = "<group>"; };
+		08028E2115C1E39B002DC0B4 /* Range.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Range.m; sourceTree = "<group>"; };
+		08028E2415C2048D002DC0B4 /* SATResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATResult.h; sourceTree = "<group>"; };
+		08028E2515C2048D002DC0B4 /* SATResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATResult.m; sourceTree = "<group>"; };
+		08028E2815C238D9002DC0B4 /* Overlap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Overlap.h; sourceTree = "<group>"; };
+		08028E2915C238D9002DC0B4 /* Overlap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Overlap.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +119,16 @@
 			children = (
 				08028DE815C1C55E002DC0B4 /* SeparatingAxisTest.h */,
 				08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.m */,
+				08028E0F15C1CDD5002DC0B4 /* Polygon.h */,
+				08028E1015C1CDD5002DC0B4 /* Polygon.m */,
+				08028E1415C1D035002DC0B4 /* Vector.h */,
+				08028E1515C1D035002DC0B4 /* Vector.m */,
+				08028E2015C1E39B002DC0B4 /* Range.h */,
+				08028E2115C1E39B002DC0B4 /* Range.m */,
+				08028E2415C2048D002DC0B4 /* SATResult.h */,
+				08028E2515C2048D002DC0B4 /* SATResult.m */,
+				08028E2815C238D9002DC0B4 /* Overlap.h */,
+				08028E2915C238D9002DC0B4 /* Overlap.m */,
 				08028DE615C1C55E002DC0B4 /* Supporting Files */,
 			);
 			path = SeparatingAxisTest;
@@ -138,6 +168,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08028E1115C1CDD5002DC0B4 /* Polygon.h in Headers */,
+				08028E1615C1D035002DC0B4 /* Vector.h in Headers */,
+				08028E2215C1E39B002DC0B4 /* Range.h in Headers */,
+				08028E2615C2048D002DC0B4 /* SATResult.h in Headers */,
+				08028E2A15C238D9002DC0B4 /* Overlap.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +275,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				08028DEA15C1C55E002DC0B4 /* SeparatingAxisTest.m in Sources */,
+				08028E1215C1CDD5002DC0B4 /* Polygon.m in Sources */,
+				08028E1715C1D035002DC0B4 /* Vector.m in Sources */,
+				08028E2315C1E39B002DC0B4 /* Range.m in Sources */,
+				08028E2715C2048D002DC0B4 /* SATResult.m in Sources */,
+				08028E2B15C238D9002DC0B4 /* Overlap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +359,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/SeparatingAxisTest.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SeparatingAxisTest/SeparatingAxisTest-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
@@ -331,6 +375,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/SeparatingAxisTest.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SeparatingAxisTest/SeparatingAxisTest-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
@@ -388,6 +436,7 @@
 				08028E0615C1C55E002DC0B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		08028E0715C1C55E002DC0B4 /* Build configuration list for PBXNativeTarget "SeparatingAxisTestTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +445,7 @@
 				08028E0915C1C55E002DC0B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

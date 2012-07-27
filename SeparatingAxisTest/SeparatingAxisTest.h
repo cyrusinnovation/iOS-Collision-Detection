@@ -8,6 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SeparatingAxisTest : NSObject
+#import "SATResult.h"
 
+#import "Polygon.h"
+
+@interface SeparatingAxisTest : NSObject {
+    Boolean separated;
+    Vector* penetration;
+    float minimumSeparationSquared;
+    
+    Polygon *a;
+    Polygon *b;
+}
+
+@property (readonly) SATResult* result;
+
+-(id) initWith:(Polygon *) _a and: (Polygon *) _b;
+    
 @end
