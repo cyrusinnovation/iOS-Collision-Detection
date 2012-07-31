@@ -6,23 +6,17 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #import "SATResult.h"
 
 #import "Polygon.h"
 
-@interface SeparatingAxisTest : NSObject {
+typedef struct {
     Boolean separated;
     Vector* penetration;
     float minimumSeparationSquared;
     
     Polygon *a;
     Polygon *b;
-}
+} SeparatingAxisTestState;
 
-@property (readonly) SATResult* result;
-
--(id) initWith:(Polygon *) _a and: (Polygon *) _b;
-    
-@end
+SATResult test(Polygon a, Polygon b);

@@ -6,20 +6,13 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #import "Overlap.h"
 
-@interface Range : NSObject {
+typedef struct {
     float min;
     float max;
-}
+} Range;
 
-@property (readonly) float min;
-@property (readonly) float max;
+Range range_from(float min, float max);
 
--(id) initWithMax:(float) _max andMin:(float) _min;
-
--(Overlap*) overlapWith:(Range *) that;
-
-@end
+Overlap overlap(Range a, Range b);

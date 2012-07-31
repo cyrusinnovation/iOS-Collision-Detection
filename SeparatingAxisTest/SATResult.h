@@ -10,11 +10,7 @@
 
 #import "Vector.h"
 
-@interface SATResult : NSObject
-
-@property (readonly) Vector* penetration;
-@property (readonly) Boolean penetrating;
-
--(id) initWithPenetration:(Vector*) _penetration andSeparated:(Boolean) separated;
-
-@end
+typedef struct {
+    Vector penetration;
+    bool penetrating;
+} SATResult;

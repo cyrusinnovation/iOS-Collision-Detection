@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08028DE415C1C55E002DC0B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE315C1C55E002DC0B4 /* Foundation.framework */; };
-		08028DEA15C1C55E002DC0B4 /* SeparatingAxisTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.m */; };
+		08028DEA15C1C55E002DC0B4 /* SeparatingAxisTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.c */; };
 		08028DF215C1C55E002DC0B4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DF115C1C55E002DC0B4 /* SenTestingKit.framework */; };
 		08028DF415C1C55E002DC0B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DF315C1C55E002DC0B4 /* UIKit.framework */; };
 		08028DF515C1C55E002DC0B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE315C1C55E002DC0B4 /* Foundation.framework */; };
@@ -20,11 +20,11 @@
 		08028E1615C1D035002DC0B4 /* Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E1415C1D035002DC0B4 /* Vector.h */; };
 		08028E1715C1D035002DC0B4 /* Vector.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E1515C1D035002DC0B4 /* Vector.c */; };
 		08028E2215C1E39B002DC0B4 /* Range.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2015C1E39B002DC0B4 /* Range.h */; };
-		08028E2315C1E39B002DC0B4 /* Range.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2115C1E39B002DC0B4 /* Range.m */; };
+		08028E2315C1E39B002DC0B4 /* Range.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2115C1E39B002DC0B4 /* Range.c */; };
 		08028E2615C2048D002DC0B4 /* SATResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2415C2048D002DC0B4 /* SATResult.h */; };
-		08028E2715C2048D002DC0B4 /* SATResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2515C2048D002DC0B4 /* SATResult.m */; };
+		08028E2715C2048D002DC0B4 /* SATResult.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2515C2048D002DC0B4 /* SATResult.c */; };
 		08028E2A15C238D9002DC0B4 /* Overlap.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2815C238D9002DC0B4 /* Overlap.h */; };
-		08028E2B15C238D9002DC0B4 /* Overlap.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2915C238D9002DC0B4 /* Overlap.m */; };
+		08028E2B15C238D9002DC0B4 /* Overlap.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2915C238D9002DC0B4 /* Overlap.c */; };
 		080EAB9815C6D58A00476E17 /* GrahamScanComparatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 080EAB9715C6D58A00476E17 /* GrahamScanComparatorTests.m */; };
 		080EAB9B15C7347C00476E17 /* GrahamScanComparator.h in Headers */ = {isa = PBXBuildFile; fileRef = 080EAB9915C7347C00476E17 /* GrahamScanComparator.h */; };
 		080EAB9C15C7347C00476E17 /* GrahamScanComparator.c in Sources */ = {isa = PBXBuildFile; fileRef = 080EAB9A15C7347C00476E17 /* GrahamScanComparator.c */; };
@@ -45,7 +45,7 @@
 		08028DE315C1C55E002DC0B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		08028DE715C1C55E002DC0B4 /* SeparatingAxisTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SeparatingAxisTest-Prefix.pch"; sourceTree = "<group>"; };
 		08028DE815C1C55E002DC0B4 /* SeparatingAxisTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeparatingAxisTest.h; sourceTree = "<group>"; };
-		08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeparatingAxisTest.m; sourceTree = "<group>"; };
+		08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SeparatingAxisTest.c; sourceTree = "<group>"; };
 		08028DF015C1C55E002DC0B4 /* SeparatingAxisTestTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeparatingAxisTestTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08028DF115C1C55E002DC0B4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		08028DF315C1C55E002DC0B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -58,11 +58,11 @@
 		08028E1415C1D035002DC0B4 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
 		08028E1515C1D035002DC0B4 /* Vector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Vector.c; sourceTree = "<group>"; };
 		08028E2015C1E39B002DC0B4 /* Range.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range.h; sourceTree = "<group>"; };
-		08028E2115C1E39B002DC0B4 /* Range.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Range.m; sourceTree = "<group>"; };
+		08028E2115C1E39B002DC0B4 /* Range.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Range.c; sourceTree = "<group>"; };
 		08028E2415C2048D002DC0B4 /* SATResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATResult.h; sourceTree = "<group>"; };
-		08028E2515C2048D002DC0B4 /* SATResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATResult.m; sourceTree = "<group>"; };
+		08028E2515C2048D002DC0B4 /* SATResult.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SATResult.c; sourceTree = "<group>"; };
 		08028E2815C238D9002DC0B4 /* Overlap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Overlap.h; sourceTree = "<group>"; };
-		08028E2915C238D9002DC0B4 /* Overlap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Overlap.m; sourceTree = "<group>"; };
+		08028E2915C238D9002DC0B4 /* Overlap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Overlap.c; sourceTree = "<group>"; };
 		080EAB9615C6D58A00476E17 /* GrahamScanComparatorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanComparatorTests.h; sourceTree = "<group>"; };
 		080EAB9715C6D58A00476E17 /* GrahamScanComparatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrahamScanComparatorTests.m; sourceTree = "<group>"; };
 		080EAB9915C7347C00476E17 /* GrahamScanComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanComparator.h; sourceTree = "<group>"; };
@@ -163,13 +163,13 @@
 			isa = PBXGroup;
 			children = (
 				08028DE815C1C55E002DC0B4 /* SeparatingAxisTest.h */,
-				08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.m */,
+				08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.c */,
 				08028E2015C1E39B002DC0B4 /* Range.h */,
-				08028E2115C1E39B002DC0B4 /* Range.m */,
+				08028E2115C1E39B002DC0B4 /* Range.c */,
 				08028E2415C2048D002DC0B4 /* SATResult.h */,
-				08028E2515C2048D002DC0B4 /* SATResult.m */,
+				08028E2515C2048D002DC0B4 /* SATResult.c */,
 				08028E2815C238D9002DC0B4 /* Overlap.h */,
-				08028E2915C238D9002DC0B4 /* Overlap.m */,
+				08028E2915C238D9002DC0B4 /* Overlap.c */,
 			);
 			name = SAT;
 			sourceTree = "<group>";
@@ -326,12 +326,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08028DEA15C1C55E002DC0B4 /* SeparatingAxisTest.m in Sources */,
+				08028DEA15C1C55E002DC0B4 /* SeparatingAxisTest.c in Sources */,
 				08028E1215C1CDD5002DC0B4 /* Polygon.c in Sources */,
 				08028E1715C1D035002DC0B4 /* Vector.c in Sources */,
-				08028E2315C1E39B002DC0B4 /* Range.m in Sources */,
-				08028E2715C2048D002DC0B4 /* SATResult.m in Sources */,
-				08028E2B15C238D9002DC0B4 /* Overlap.m in Sources */,
+				08028E2315C1E39B002DC0B4 /* Range.c in Sources */,
+				08028E2715C2048D002DC0B4 /* SATResult.c in Sources */,
+				08028E2B15C238D9002DC0B4 /* Overlap.c in Sources */,
 				080EAB9C15C7347C00476E17 /* GrahamScanComparator.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

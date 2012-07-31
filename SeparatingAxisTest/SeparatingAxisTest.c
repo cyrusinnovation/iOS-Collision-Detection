@@ -10,10 +10,6 @@
 
 #import "Range.h"
 
-@implementation SeparatingAxisTest
-
-@synthesize result;
-
 -(void) considerAxis:(Vector*) axis {
     Range* aProjection = [a projectOnto:axis];
     Range* bProjection = [b projectOnto:axis];
@@ -49,7 +45,7 @@
     }
 }
 
--(id) initWith:(Polygon *) _a and: (Polygon *) _b {
+SATResult initWith:(Polygon *) _a and: (Polygon *) _b {
     self = [super init];
     if (!self) return nil;
         
@@ -69,4 +65,3 @@
     return self;
 }
 
-@end

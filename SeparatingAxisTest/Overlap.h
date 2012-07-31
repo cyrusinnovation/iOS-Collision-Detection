@@ -8,11 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Overlap : NSObject
-
-@property (readonly) Boolean overlaps;
-@property (readonly) float correction;
-
--(id) initFrom:(Boolean) overlaps and: (float) correction;
-
-@end
+typedef struct {
+    bool overlaps;
+    float correction;
+} Overlap;
