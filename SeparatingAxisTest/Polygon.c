@@ -8,33 +8,13 @@
 
 #import "Polygon.h"
 
-#import "Vector.h"
-
-@implementation Polygon
-
-@synthesize points;
-
--(id) init: (Vector *) first, ... {
-    if (self = [super init]) {
-        NSMutableArray *_vectors = [NSMutableArray array];
-
-        va_list args;
-        va_start(args, first);
-        for (Vector* vector = first; vector != nil; vector = va_arg(args, Vector*))
-        {
-            [_vectors addObject:vector];
-        }
-        va_end(args);
-        
-        points = _vectors;
-    }
-    return self;
-}
-              
--(void) dealloc {
+Polygon polygon_from(int count, Vector* points) {
+    Polygon ret;
+    ret.point_count = count;
+    ret.points = points;
 }
 
--(Range *) projectOnto:(Vector *)vector {
+Range projectPolgon(Polygon polgon, Vector vector) {
     float max = FLT_MIN;
     float min = FLT_MAX;
     
@@ -53,9 +33,6 @@
     return [[Range alloc] initWithMax:max*lengthSquaredOverOne andMin:min*lengthSquaredOverOne];
 }
 
-+(Polygon *) makeBlock:(float)x1 :(float)y1 :(float)x2 :(float)y2 {
+Polygon makeBlock(float x1, float y1, float x2, float y2) {
     return [[Polygon alloc] init:[Vector x:x1 y:y1], [Vector x:x2 y:y1], [Vector x:x2 y:y2], [Vector x:x1 y:y2], nil];
 }
-
-
-@end

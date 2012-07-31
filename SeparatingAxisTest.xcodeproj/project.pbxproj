@@ -16,15 +16,18 @@
 		08028DFE15C1C55E002DC0B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08028DFC15C1C55E002DC0B4 /* InfoPlist.strings */; };
 		08028E0115C1C55E002DC0B4 /* SeparatingAxisTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E0015C1C55E002DC0B4 /* SeparatingAxisTestTests.m */; };
 		08028E1115C1CDD5002DC0B4 /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E0F15C1CDD5002DC0B4 /* Polygon.h */; };
-		08028E1215C1CDD5002DC0B4 /* Polygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E1015C1CDD5002DC0B4 /* Polygon.m */; };
+		08028E1215C1CDD5002DC0B4 /* Polygon.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E1015C1CDD5002DC0B4 /* Polygon.c */; };
 		08028E1615C1D035002DC0B4 /* Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E1415C1D035002DC0B4 /* Vector.h */; };
-		08028E1715C1D035002DC0B4 /* Vector.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E1515C1D035002DC0B4 /* Vector.m */; };
+		08028E1715C1D035002DC0B4 /* Vector.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E1515C1D035002DC0B4 /* Vector.c */; };
 		08028E2215C1E39B002DC0B4 /* Range.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2015C1E39B002DC0B4 /* Range.h */; };
 		08028E2315C1E39B002DC0B4 /* Range.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2115C1E39B002DC0B4 /* Range.m */; };
 		08028E2615C2048D002DC0B4 /* SATResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2415C2048D002DC0B4 /* SATResult.h */; };
 		08028E2715C2048D002DC0B4 /* SATResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2515C2048D002DC0B4 /* SATResult.m */; };
 		08028E2A15C238D9002DC0B4 /* Overlap.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2815C238D9002DC0B4 /* Overlap.h */; };
 		08028E2B15C238D9002DC0B4 /* Overlap.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2915C238D9002DC0B4 /* Overlap.m */; };
+		080EAB9815C6D58A00476E17 /* GrahamScanComparatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 080EAB9715C6D58A00476E17 /* GrahamScanComparatorTests.m */; };
+		080EAB9B15C7347C00476E17 /* GrahamScanComparator.h in Headers */ = {isa = PBXBuildFile; fileRef = 080EAB9915C7347C00476E17 /* GrahamScanComparator.h */; };
+		080EAB9C15C7347C00476E17 /* GrahamScanComparator.c in Sources */ = {isa = PBXBuildFile; fileRef = 080EAB9A15C7347C00476E17 /* GrahamScanComparator.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,15 +54,19 @@
 		08028DFF15C1C55E002DC0B4 /* SeparatingAxisTestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeparatingAxisTestTests.h; sourceTree = "<group>"; };
 		08028E0015C1C55E002DC0B4 /* SeparatingAxisTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeparatingAxisTestTests.m; sourceTree = "<group>"; };
 		08028E0F15C1CDD5002DC0B4 /* Polygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polygon.h; sourceTree = "<group>"; };
-		08028E1015C1CDD5002DC0B4 /* Polygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polygon.m; sourceTree = "<group>"; };
+		08028E1015C1CDD5002DC0B4 /* Polygon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Polygon.c; sourceTree = "<group>"; };
 		08028E1415C1D035002DC0B4 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
-		08028E1515C1D035002DC0B4 /* Vector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vector.m; sourceTree = "<group>"; };
+		08028E1515C1D035002DC0B4 /* Vector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Vector.c; sourceTree = "<group>"; };
 		08028E2015C1E39B002DC0B4 /* Range.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range.h; sourceTree = "<group>"; };
 		08028E2115C1E39B002DC0B4 /* Range.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Range.m; sourceTree = "<group>"; };
 		08028E2415C2048D002DC0B4 /* SATResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATResult.h; sourceTree = "<group>"; };
 		08028E2515C2048D002DC0B4 /* SATResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATResult.m; sourceTree = "<group>"; };
 		08028E2815C238D9002DC0B4 /* Overlap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Overlap.h; sourceTree = "<group>"; };
 		08028E2915C238D9002DC0B4 /* Overlap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Overlap.m; sourceTree = "<group>"; };
+		080EAB9615C6D58A00476E17 /* GrahamScanComparatorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanComparatorTests.h; sourceTree = "<group>"; };
+		080EAB9715C6D58A00476E17 /* GrahamScanComparatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrahamScanComparatorTests.m; sourceTree = "<group>"; };
+		080EAB9915C7347C00476E17 /* GrahamScanComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanComparator.h; sourceTree = "<group>"; };
+		080EAB9A15C7347C00476E17 /* GrahamScanComparator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GrahamScanComparator.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,18 +124,9 @@
 		08028DE515C1C55E002DC0B4 /* SeparatingAxisTest */ = {
 			isa = PBXGroup;
 			children = (
-				08028DE815C1C55E002DC0B4 /* SeparatingAxisTest.h */,
-				08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.m */,
-				08028E0F15C1CDD5002DC0B4 /* Polygon.h */,
-				08028E1015C1CDD5002DC0B4 /* Polygon.m */,
-				08028E1415C1D035002DC0B4 /* Vector.h */,
-				08028E1515C1D035002DC0B4 /* Vector.m */,
-				08028E2015C1E39B002DC0B4 /* Range.h */,
-				08028E2115C1E39B002DC0B4 /* Range.m */,
-				08028E2415C2048D002DC0B4 /* SATResult.h */,
-				08028E2515C2048D002DC0B4 /* SATResult.m */,
-				08028E2815C238D9002DC0B4 /* Overlap.h */,
-				08028E2915C238D9002DC0B4 /* Overlap.m */,
+				080EAB9315C6D54300476E17 /* GrahamScan */,
+				080EAB9215C6D52500476E17 /* Geometry */,
+				080EAB9015C6D51000476E17 /* SAT */,
 				08028DE615C1C55E002DC0B4 /* Supporting Files */,
 			);
 			path = SeparatingAxisTest;
@@ -145,8 +143,8 @@
 		08028DF915C1C55E002DC0B4 /* SeparatingAxisTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				08028DFF15C1C55E002DC0B4 /* SeparatingAxisTestTests.h */,
-				08028E0015C1C55E002DC0B4 /* SeparatingAxisTestTests.m */,
+				080EAB9515C6D56400476E17 /* GrahamScan */,
+				080EAB9415C6D55500476E17 /* SAT */,
 				08028DFA15C1C55E002DC0B4 /* Supporting Files */,
 			);
 			path = SeparatingAxisTestTests;
@@ -161,6 +159,59 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		080EAB9015C6D51000476E17 /* SAT */ = {
+			isa = PBXGroup;
+			children = (
+				08028DE815C1C55E002DC0B4 /* SeparatingAxisTest.h */,
+				08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.m */,
+				08028E2015C1E39B002DC0B4 /* Range.h */,
+				08028E2115C1E39B002DC0B4 /* Range.m */,
+				08028E2415C2048D002DC0B4 /* SATResult.h */,
+				08028E2515C2048D002DC0B4 /* SATResult.m */,
+				08028E2815C238D9002DC0B4 /* Overlap.h */,
+				08028E2915C238D9002DC0B4 /* Overlap.m */,
+			);
+			name = SAT;
+			sourceTree = "<group>";
+		};
+		080EAB9215C6D52500476E17 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				08028E0F15C1CDD5002DC0B4 /* Polygon.h */,
+				08028E1015C1CDD5002DC0B4 /* Polygon.c */,
+				08028E1415C1D035002DC0B4 /* Vector.h */,
+				08028E1515C1D035002DC0B4 /* Vector.c */,
+			);
+			name = Geometry;
+			sourceTree = "<group>";
+		};
+		080EAB9315C6D54300476E17 /* GrahamScan */ = {
+			isa = PBXGroup;
+			children = (
+				080EAB9915C7347C00476E17 /* GrahamScanComparator.h */,
+				080EAB9A15C7347C00476E17 /* GrahamScanComparator.c */,
+			);
+			name = GrahamScan;
+			sourceTree = "<group>";
+		};
+		080EAB9415C6D55500476E17 /* SAT */ = {
+			isa = PBXGroup;
+			children = (
+				08028DFF15C1C55E002DC0B4 /* SeparatingAxisTestTests.h */,
+				08028E0015C1C55E002DC0B4 /* SeparatingAxisTestTests.m */,
+			);
+			name = SAT;
+			sourceTree = "<group>";
+		};
+		080EAB9515C6D56400476E17 /* GrahamScan */ = {
+			isa = PBXGroup;
+			children = (
+				080EAB9615C6D58A00476E17 /* GrahamScanComparatorTests.h */,
+				080EAB9715C6D58A00476E17 /* GrahamScanComparatorTests.m */,
+			);
+			name = GrahamScan;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -173,6 +224,7 @@
 				08028E2215C1E39B002DC0B4 /* Range.h in Headers */,
 				08028E2615C2048D002DC0B4 /* SATResult.h in Headers */,
 				08028E2A15C238D9002DC0B4 /* Overlap.h in Headers */,
+				080EAB9B15C7347C00476E17 /* GrahamScanComparator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,11 +327,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				08028DEA15C1C55E002DC0B4 /* SeparatingAxisTest.m in Sources */,
-				08028E1215C1CDD5002DC0B4 /* Polygon.m in Sources */,
-				08028E1715C1D035002DC0B4 /* Vector.m in Sources */,
+				08028E1215C1CDD5002DC0B4 /* Polygon.c in Sources */,
+				08028E1715C1D035002DC0B4 /* Vector.c in Sources */,
 				08028E2315C1E39B002DC0B4 /* Range.m in Sources */,
 				08028E2715C2048D002DC0B4 /* SATResult.m in Sources */,
 				08028E2B15C238D9002DC0B4 /* Overlap.m in Sources */,
+				080EAB9C15C7347C00476E17 /* GrahamScanComparator.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08028E0115C1C55E002DC0B4 /* SeparatingAxisTestTests.m in Sources */,
+				080EAB9815C6D58A00476E17 /* GrahamScanComparatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

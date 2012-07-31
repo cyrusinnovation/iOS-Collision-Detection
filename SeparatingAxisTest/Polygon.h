@@ -6,21 +6,17 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #import "Vector.h"
 #import "Range.h"
 
-@interface Polygon : NSObject {
-    NSArray *points;
-}
+typedef struct {
+    Vector points[];
+    int point_count;
+} Polygon;
 
-@property (readonly) NSArray* points;
+Polygon polygon_from(int count, Vector* points);
+Range projectPolgon(Polygon polgon, Vector vector);
 
--(id) init:(Vector *) first, ... NS_REQUIRES_NIL_TERMINATION;
-
--(Range *) projectOnto:(Vector *)vector;
-
-+(Polygon *) makeBlock: (float) x1 : (float) y1 : (float) x2 : (float) y2;
+Polygon makeBlock(float x1, float y1, float x2, float y2);
 
 @end
