@@ -36,6 +36,9 @@
     STAssertTrue(test.penetrating, @"");
     STAssertEquals(test.penetration.x, 1.0f, @"");
     STAssertEquals(test.penetration.y, 0.0f, @"");
+    
+    free_polygon(a);
+    free_polygon(b);
 }
 
 - (void) testEasyBox {
@@ -46,6 +49,9 @@
     STAssertTrue(test.penetrating, 0);
     STAssertEquals(test.penetration.x, 1.0f, @"");
     STAssertEquals(test.penetration.y, 0.0f, @"");
+    
+    free_polygon(a);
+    free_polygon(b);
 }
 
 - (void) testBoxInBox {
@@ -56,6 +62,9 @@
     STAssertTrue(test.penetrating, @"");
     STAssertEquals(test.penetration.x, 2.0f, @"");
     STAssertEquals(test.penetration.y, 0.0f, @"");
+    
+    free_polygon(a);
+    free_polygon(b);
 }
 
 -(void) testBoxOnSpike {
@@ -66,6 +75,9 @@
     
     SATResult test = sat_test(a, b);
     STAssertFalse(test.penetrating, @"");
+    
+    free_polygon(a);
+    free_polygon(b);
 }
 
 
