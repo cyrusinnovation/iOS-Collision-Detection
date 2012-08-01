@@ -10,12 +10,26 @@
 
 #import <float.h>
 #import <stdlib.h>
+#import <stdarg.h>
 
-Polygon polygon_from(int count, Vector* points) {
+Polygon polygon_from(int count, ...) {
+    va_list args;
+    va_start(args, count);
+    
     Polygon ret;
     ret.point_count = count;
-    ret.points = points;
+    ret.points = malloc(count * sizeof(Vector));
+    
+    for (int i = 0; i < count; i++) {
+        ret.points[i] = va_arg(args, Vector);
+    }
+    va_end(args);
+    
     return ret;
+}
+
+void free_polygon(Polygon p) {
+    free(p.points);
 }
 
 Range project_polygon(Polygon polygon, Vector vector) {
@@ -39,10 +53,8 @@ Range project_polygon(Polygon polygon, Vector vector) {
 }
 
 Polygon make_block(float x1, float y1, float x2, float y2) {
-    Vector *vectors = malloc(4 * sizeof(Vector));
-    vectors[0] = vector_from(x1, y1);
-    vectors[1] = vector_from(x2, y1);
-    vectors[2] = vector_from(x2, y2);
-    vectors[3] = vector_from(x1, y2);
-    return polygon_from(4, vectors);
+    return polygon_from(4, vector_from(x1, y1),
+                        vector_from(x2, y1),
+                        vector_from(x2, y2),
+                        vector_from(x1, y2));
 }

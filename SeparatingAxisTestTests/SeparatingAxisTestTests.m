@@ -59,12 +59,9 @@
 }
 
 -(void) testBoxOnSpike {
-    Vector vectors[] = {
-        vector_from(0, -1), 
-        vector_from(1, 2), 
-        vector_from(2, -1)
-    };
-    Polygon a = polygon_from(3, vectors);
+    Polygon a = polygon_from(3, vector_from(0, -1), 
+                                vector_from(1, 2), 
+                                vector_from(2, -1));
     Polygon b = make_block(0, 2, 2, 4);
     
     SATResult test = sat_test(a, b);
