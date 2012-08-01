@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#include <stdbool.h>
 
 typedef struct {
     bool overlaps;

@@ -8,31 +8,32 @@
 
 #import "Range.h"
 
-@implementation Range
+#import <stdbool.h>
+#import <math.h>
 
-@synthesize min;
-@synthesize max;
-
--(id) initWithMax:(float) _max andMin:(float) _min {
-    if (self = [super init]) {
-        max = _max;
-        min = _min;
-    }
-    return self;
+Range range_from(float min, float max) {
+    Range r;
+    r.min = min;
+    r.max = max;
+    return r;
 }
 
--(Overlap *) overlapWith:(Range *) that {
-    Boolean overlaps = !(([self max] < [that min]) || ([that max] < [self min]));
+Overlap create_overlap(Range a, Range b) {
+    bool overlaps = !((a.max < b.min) || (b.max < a.min));
+    
+    Overlap overlap;
     
     if (!overlaps) {
-        return [[Overlap alloc] initFrom:false and:0];
+        overlap.overlaps = false;
+        overlap.correction = 0;
+    } else {
+        float left = -(a.max - b.min);
+        float right = b.max - a.min;
+        float correction = fabsf(left) < fabsf(right) ? left : right;
+        
+        overlap.overlaps = true;
+        overlap.correction = correction;
     }
     
-    float left = -([self max] - [that min]);
-    float right = [that max] - [self min];
-    float correction = fabsf(left) < fabsf(right) ? left : right;
-    return [[Overlap alloc] initFrom:true and:correction];
+    return overlap;
 }
-
-
-@end

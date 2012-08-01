@@ -10,13 +10,15 @@
 
 #import "Polygon.h"
 
+#import <stdbool.h>
+
 typedef struct {
-    Boolean separated;
-    Vector* penetration;
+    bool separated;
+    Vector penetration;
     float minimumSeparationSquared;
     
-    Polygon *a;
-    Polygon *b;
+    Polygon a;
+    Polygon b;
 } SeparatingAxisTestState;
 
-SATResult test(Polygon a, Polygon b);
+SATResult sat_test(Polygon a, Polygon b);

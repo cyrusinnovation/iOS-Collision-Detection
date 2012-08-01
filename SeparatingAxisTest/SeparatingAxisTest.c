@@ -10,58 +10,55 @@
 
 #import "Range.h"
 
--(void) considerAxis:(Vector*) axis {
-    Range* aProjection = [a projectOnto:axis];
-    Range* bProjection = [b projectOnto:axis];
+#import <float.h>
 
-    Overlap *overlap = [aProjection overlapWith: bProjection];
+void consider_axis(SeparatingAxisTestState* state, Vector axis) {
+    Range aProjection = project_polygon(state->a, axis);
+    Range bProjection = project_polygon(state->b, axis);
+
+    Overlap overlap = create_overlap(aProjection, bProjection);
     
-    if (![overlap overlaps]) {
-        separated |= true;
+    if (!overlap.overlaps) {
+        state->separated |= true;
     } else {
-        float lengthSquaredOfOverlapAlongThisAxis = [overlap correction]*[overlap correction];
+        float lengthSquaredOfOverlapAlongThisAxis = overlap.correction*overlap.correction;
         
-        if(lengthSquaredOfOverlapAlongThisAxis < minimumSeparationSquared) {
-            minimumSeparationSquared = lengthSquaredOfOverlapAlongThisAxis;
-            
-            [penetration copyFrom:axis];
-            [penetration normalize];
-            [penetration scaleBy:[overlap correction]];
+        if(lengthSquaredOfOverlapAlongThisAxis < state->minimumSeparationSquared) {
+            state->minimumSeparationSquared = lengthSquaredOfOverlapAlongThisAxis;
+
+            state->penetration = axis;
+            vector_normalize(&state->penetration);
+            vector_scale(&state->penetration, overlap.correction);
         }
     }
 }
 
--(void) computeNormals: (Polygon *) polygon {
-    Vector *start = [[polygon points] objectAtIndex:0];
-    for (int i = 0; i < [[polygon points] count]; i++) {
-        Vector *end = [[polygon points] objectAtIndex:i];
-        Vector *perpendicular = [end minus: start];
-        [perpendicular normalize];
-        [perpendicular flop];
+void compute_normals(SeparatingAxisTestState *state, Polygon polygon) {
+    Vector start = polygon.points[polygon.point_count - 1];
+    for (int i = 0; i < polygon.point_count; i++) {
+        Vector perpendicular = vector_subtract(polygon.points[i], start);
+        vector_normalize(&perpendicular);
+        vector_flop(&perpendicular);
         
-        [self considerAxis:perpendicular];
+        consider_axis(state, perpendicular);
         
-        start = end;
+        start = polygon.points[i];
     }
 }
 
-SATResult initWith:(Polygon *) _a and: (Polygon *) _b {
-    self = [super init];
-    if (!self) return nil;
+SATResult sat_test(Polygon a, Polygon b) {
+    SeparatingAxisTestState state;
+
+    state.a = a;
+    state.b = b;
         
-    a = _a;
-    b = _b;
+    state.separated = false;
     
-    separated = false;
-    penetration = [[Vector alloc] init];
+    state.minimumSeparationSquared = FLT_MAX;
     
-    minimumSeparationSquared = FLT_MAX;
-    
-    [self computeNormals: a];
-    [self computeNormals: b];
-    
-    result = [[SATResult alloc] initWithPenetration:penetration andSeparated:separated];
-    
-    return self;
+    compute_normals(&state, a);
+    compute_normals(&state, b);
+
+    return sat_result_for(state.penetration, state.separated);
 }
 

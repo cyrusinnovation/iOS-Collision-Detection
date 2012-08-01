@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#include <stdbool.h>
 
 #import "Vector.h"
 
@@ -14,3 +14,5 @@ typedef struct {
     Vector penetration;
     bool penetrating;
 } SATResult;
+
+SATResult sat_result_for(Vector _penetration, bool separated);

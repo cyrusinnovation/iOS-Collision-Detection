@@ -15,6 +15,6 @@ typedef struct {
 } Polygon;
 
 Polygon polygon_from(int count, Vector* points);
-Range projectPolgon(Polygon polgon, Vector vector);
+Range project_polygon(Polygon polgon, Vector vector);
 
-Polygon makeBlock(float x1, float y1, float x2, float y2);
+Polygon make_block(float x1, float y1, float x2, float y2);

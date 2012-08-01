@@ -15,4 +15,4 @@ typedef struct {
 
 Range range_from(float min, float max);
 
-Overlap overlap(Range a, Range b);
+Overlap create_overlap(Range a, Range b);

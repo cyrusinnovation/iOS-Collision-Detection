@@ -8,18 +8,23 @@
 
 #import "Polygon.h"
 
+#import <float.h>
+#import <stdlib.h>
+
 Polygon polygon_from(int count, Vector* points) {
     Polygon ret;
     ret.point_count = count;
     ret.points = points;
+    return ret;
 }
 
-Range projectPolgon(Polygon polgon, Vector vector) {
+Range project_polygon(Polygon polygon, Vector vector) {
     float max = FLT_MIN;
     float min = FLT_MAX;
     
-    for (id point in points) {
-        float dot = [vector dot:point];
+    for (int i = 0; i < polygon.point_count; i++) {
+        Vector point = polygon.points[i];
+        float dot = vector_dot(vector, point);
         
         if (dot < min) {
             min = dot;
@@ -29,10 +34,15 @@ Range projectPolgon(Polygon polgon, Vector vector) {
         }
     }
     
-    float lengthSquaredOverOne = 1/[vector lengthSquared];
-    return [[Range alloc] initWithMax:max*lengthSquaredOverOne andMin:min*lengthSquaredOverOne];
+    float lengthSquaredOverOne = 1/vector_length_squared(vector);
+    return range_from(min*lengthSquaredOverOne, max*lengthSquaredOverOne);
 }
 
-Polygon makeBlock(float x1, float y1, float x2, float y2) {
-    return [[Polygon alloc] init:[Vector x:x1 y:y1], [Vector x:x2 y:y1], [Vector x:x2 y:y2], [Vector x:x1 y:y2], nil];
+Polygon make_block(float x1, float y1, float x2, float y2) {
+    Vector *vectors = malloc(4 * sizeof(Vector));
+    vectors[0] = vector_from(x1, y1);
+    vectors[1] = vector_from(x2, y1);
+    vectors[2] = vector_from(x2, y2);
+    vectors[3] = vector_from(x1, y2);
+    return polygon_from(4, vectors);
 }
