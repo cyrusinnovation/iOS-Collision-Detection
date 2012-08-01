@@ -8,4 +8,4 @@
 
 #import "Vector.h"
 
-int graham_comparator(void *, void const *, void const *);
+int graham_comparator(void *_min, void const *_a, void const *_b);

@@ -8,9 +8,8 @@
 
 #import "GrahamScanComparator.h"
 
-
-int cmptr(void *_min, const void *_a, const void *_b) {
-    const Vector *min = _min;
+int graham_comparator(void *_min, void const *_a, void const *_b) {
+    Vector *min = _min;
     const Vector *a = _a;
     const Vector *b = _b;
     
@@ -20,6 +19,9 @@ int cmptr(void *_min, const void *_a, const void *_b) {
     Vector unitX = vector_from(1, 0);
     float dotUnitXWithA = vector_dot(unitX, vector_normal(minToA));
     float dotUnitXWithB = vector_dot(unitX, vector_normal(minToB));
+    
+    if (dotUnitXWithA < dotUnitXWithB) return -1;
+    if (dotUnitXWithA > dotUnitXWithB) return 1;
     
     return 0;
 }
