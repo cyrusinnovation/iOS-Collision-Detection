@@ -27,6 +27,9 @@
 		080EAB9815C6D58A00476E17 /* GrahamScanComparatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 080EAB9715C6D58A00476E17 /* GrahamScanComparatorTests.m */; };
 		080EAB9B15C7347C00476E17 /* GrahamScanComparator.h in Headers */ = {isa = PBXBuildFile; fileRef = 080EAB9915C7347C00476E17 /* GrahamScanComparator.h */; };
 		080EAB9C15C7347C00476E17 /* GrahamScanComparator.c in Sources */ = {isa = PBXBuildFile; fileRef = 080EAB9A15C7347C00476E17 /* GrahamScanComparator.c */; };
+		08ACE54815CAEAC1001B7DA6 /* GrahamScanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ACE54715CAEAC1001B7DA6 /* GrahamScanTests.m */; };
+		08ACE54B15CAEFD4001B7DA6 /* GrahamScan.h in Headers */ = {isa = PBXBuildFile; fileRef = 08ACE54A15CAEFD4001B7DA6 /* GrahamScan.h */; };
+		08ACE54D15CAEFE0001B7DA6 /* GrahamScan.c in Sources */ = {isa = PBXBuildFile; fileRef = 08ACE54C15CAEFE0001B7DA6 /* GrahamScan.c */; };
 		08FA2C3115C8A5D60034B089 /* PolygonProjectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FA2C3015C8A5D60034B089 /* PolygonProjectionTests.m */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,10 @@
 		080EAB9715C6D58A00476E17 /* GrahamScanComparatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrahamScanComparatorTests.m; sourceTree = "<group>"; };
 		080EAB9915C7347C00476E17 /* GrahamScanComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanComparator.h; sourceTree = "<group>"; };
 		080EAB9A15C7347C00476E17 /* GrahamScanComparator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GrahamScanComparator.c; sourceTree = "<group>"; };
+		08ACE54615CAEAC1001B7DA6 /* GrahamScanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanTests.h; sourceTree = "<group>"; };
+		08ACE54715CAEAC1001B7DA6 /* GrahamScanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrahamScanTests.m; sourceTree = "<group>"; };
+		08ACE54A15CAEFD4001B7DA6 /* GrahamScan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScan.h; sourceTree = "<group>"; };
+		08ACE54C15CAEFE0001B7DA6 /* GrahamScan.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GrahamScan.c; sourceTree = "<group>"; };
 		08FA2C2F15C8A5D60034B089 /* PolygonProjectionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonProjectionTests.h; sourceTree = "<group>"; };
 		08FA2C3015C8A5D60034B089 /* PolygonProjectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolygonProjectionTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,6 +197,8 @@
 			children = (
 				080EAB9915C7347C00476E17 /* GrahamScanComparator.h */,
 				080EAB9A15C7347C00476E17 /* GrahamScanComparator.c */,
+				08ACE54A15CAEFD4001B7DA6 /* GrahamScan.h */,
+				08ACE54C15CAEFE0001B7DA6 /* GrahamScan.c */,
 			);
 			name = GrahamScan;
 			sourceTree = "<group>";
@@ -210,6 +219,8 @@
 			children = (
 				080EAB9615C6D58A00476E17 /* GrahamScanComparatorTests.h */,
 				080EAB9715C6D58A00476E17 /* GrahamScanComparatorTests.m */,
+				08ACE54615CAEAC1001B7DA6 /* GrahamScanTests.h */,
+				08ACE54715CAEAC1001B7DA6 /* GrahamScanTests.m */,
 			);
 			name = GrahamScan;
 			sourceTree = "<group>";
@@ -227,6 +238,7 @@
 				08028E2615C2048D002DC0B4 /* SATResult.h in Headers */,
 				08028E2A15C238D9002DC0B4 /* Overlap.h in Headers */,
 				080EAB9B15C7347C00476E17 /* GrahamScanComparator.h in Headers */,
+				08ACE54B15CAEFD4001B7DA6 /* GrahamScan.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +346,7 @@
 				08028E2315C1E39B002DC0B4 /* Range.c in Sources */,
 				08028E2715C2048D002DC0B4 /* SATResult.c in Sources */,
 				080EAB9C15C7347C00476E17 /* GrahamScanComparator.c in Sources */,
+				08ACE54D15CAEFE0001B7DA6 /* GrahamScan.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +357,7 @@
 				08028E0115C1C55E002DC0B4 /* SeparatingAxisTestTests.m in Sources */,
 				080EAB9815C6D58A00476E17 /* GrahamScanComparatorTests.m in Sources */,
 				08FA2C3115C8A5D60034B089 /* PolygonProjectionTests.m in Sources */,
+				08ACE54815CAEAC1001B7DA6 /* GrahamScanTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
