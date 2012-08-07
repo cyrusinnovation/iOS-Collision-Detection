@@ -45,3 +45,47 @@ bool gs_is_invalid_segment(CGPoint a, CGPoint b, CGPoint c) {
     bool less_than_minimum_angle = gs_is_less_than_minimum_angle(a, b, c);
     return straight_or_clockwise || less_than_minimum_angle;
 }
+
+bool gs_validate(CGPolygon poly) {
+    if (poly.point_count < 3) return false; // degenerate polygon
+    
+    CGPoint min = poly.points[0];
+    for (int i = 0; i < poly.point_count ; i++) {
+        CGPoint point = poly.points[i];
+        if (point.y < min.y) {
+            min = point;
+        } else if (point.y == min.y && point.x < min.x) {
+            min = point;
+        }
+    }
+    
+    int flag = 0;
+    
+    for (int i = 0; i < poly.point_count; i++) {
+        CGPoint a = poly.points[i];
+        CGPoint b = poly.points[(i+1)%poly.point_count];
+        CGPoint c = poly.points[(i+2)%poly.point_count];
+        float z = CCW(a, b, c);
+        
+        if (z == 0) return false; // linear point
+        
+        if (z < 0) flag |= 1;
+        if (z > 0) flag |= 2;
+        
+        if (flag == 3) return false; // concave
+        
+        CGPoint minToA = cgp_subtract(a, min);
+        cgp_normalize(&minToA);
+        CGPoint minToB = cgp_subtract(b, min);
+        cgp_normalize(&minToB);
+        
+        CGPoint unitX = cgp_from(1, 0);
+        
+        float dotXWithA = cgp_dot(unitX, minToA);
+        float dotXWithB = cgp_dot(unitX, minToB);
+        
+        if (dotXWithB > dotXWithA) return false; // complex
+    }
+    
+    return true;
+}
