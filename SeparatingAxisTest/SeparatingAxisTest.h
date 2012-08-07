@@ -6,19 +6,19 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import "SATResult.h"
+#include "SATResult.h"
 
-#import "Polygon.h"
+#include "Polygon.h"
 
-#import <stdbool.h>
+#include <stdbool.h>
 
 typedef struct {
     bool separated;
-    Vector penetration;
+    CGPoint penetration;
     float minimumSeparationSquared;
     
-    Polygon a;
-    Polygon b;
+    CGPolygon a;
+    CGPolygon b;
 } SeparatingAxisTestState;
 
-SATResult sat_test(Polygon a, Polygon b);
+SATResult sat_test(CGPolygon a, CGPolygon b);

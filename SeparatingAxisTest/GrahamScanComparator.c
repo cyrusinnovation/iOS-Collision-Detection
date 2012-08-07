@@ -6,19 +6,19 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import "GrahamScanComparator.h"
+#include "GrahamScanComparator.h"
 
 int graham_comparator(void *_min, void const *_a, void const *_b) {
-    Vector *min = _min;
-    const Vector *a = _a;
-    const Vector *b = _b;
+    CGPoint *min = _min;
+    const CGPoint *a = _a;
+    const CGPoint *b = _b;
     
-    Vector minToA = vector_subtract(*a, *min);
-    Vector minToB = vector_subtract(*b, *min);
+    CGPoint minToA = cgp_subtract(*a, *min);
+    CGPoint minToB = cgp_subtract(*b, *min);
     
-    Vector unitX = vector_from(1, 0);
-    float dotUnitXWithA = vector_dot(unitX, vector_normal(minToA));
-    float dotUnitXWithB = vector_dot(unitX, vector_normal(minToB));
+    CGPoint unitX = cgp_from(1, 0);
+    float dotUnitXWithA = cgp_dot(unitX, cgp_normal(minToA));
+    float dotUnitXWithB = cgp_dot(unitX, cgp_normal(minToB));
     
     if (dotUnitXWithA < dotUnitXWithB) return -1;
     if (dotUnitXWithA > dotUnitXWithB) return 1;

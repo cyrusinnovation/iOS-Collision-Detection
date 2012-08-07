@@ -6,7 +6,10 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import "Overlap.h"
+#ifndef RANGE_H
+#define RANGE_H
+
+#include "Overlap.h"
 
 typedef struct {
     float min;
@@ -16,3 +19,5 @@ typedef struct {
 Range range_from(float min, float max);
 
 Overlap create_overlap(Range a, Range b);
+
+#endif

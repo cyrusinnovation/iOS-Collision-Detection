@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import "SeparatingAxisTest.h"
+#include "SeparatingAxisTest.h"
 
-#import "Range.h"
+#include "Range.h"
 
-#import <float.h>
+#include <float.h>
 
-void consider_axis(SeparatingAxisTestState* state, Vector axis) {
+void consider_axis(SeparatingAxisTestState* state, CGPoint axis) {
     Range aProjection = project_polygon(state->a, axis);
     Range bProjection = project_polygon(state->b, axis);
 
@@ -27,18 +27,18 @@ void consider_axis(SeparatingAxisTestState* state, Vector axis) {
             state->minimumSeparationSquared = lengthSquaredOfOverlapAlongThisAxis;
 
             state->penetration = axis;
-            vector_normalize(&state->penetration);
-            vector_scale(&state->penetration, overlap.correction);
+            cgp_normalize(&state->penetration);
+            cgp_scale(&state->penetration, overlap.correction);
         }
     }
 }
 
-void compute_normals(SeparatingAxisTestState *state, Polygon polygon) {
-    Vector start = polygon.points[polygon.point_count - 1];
+void compute_normals(SeparatingAxisTestState *state, CGPolygon polygon) {
+    CGPoint start = polygon.points[polygon.point_count - 1];
     for (int i = 0; i < polygon.point_count; i++) {
-        Vector perpendicular = vector_subtract(polygon.points[i], start);
-        vector_normalize(&perpendicular);
-        vector_flop(&perpendicular);
+        CGPoint perpendicular = cgp_subtract(polygon.points[i], start);
+        cgp_normalize(&perpendicular);
+        cgp_flop(&perpendicular);
         
         consider_axis(state, perpendicular);
         
@@ -46,7 +46,7 @@ void compute_normals(SeparatingAxisTestState *state, Polygon polygon) {
     }
 }
 
-SATResult sat_test(Polygon a, Polygon b) {
+SATResult sat_test(CGPolygon a, CGPolygon b) {
     SeparatingAxisTestState state;
 
     state.a = a;

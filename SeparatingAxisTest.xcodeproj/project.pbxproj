@@ -17,8 +17,8 @@
 		08028E0115C1C55E002DC0B4 /* SeparatingAxisTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E0015C1C55E002DC0B4 /* SeparatingAxisTestTests.m */; };
 		08028E1115C1CDD5002DC0B4 /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E0F15C1CDD5002DC0B4 /* Polygon.h */; };
 		08028E1215C1CDD5002DC0B4 /* Polygon.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E1015C1CDD5002DC0B4 /* Polygon.c */; };
-		08028E1615C1D035002DC0B4 /* Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E1415C1D035002DC0B4 /* Vector.h */; };
-		08028E1715C1D035002DC0B4 /* Vector.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E1515C1D035002DC0B4 /* Vector.c */; };
+		08028E1615C1D035002DC0B4 /* CGPoint_ops.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E1415C1D035002DC0B4 /* CGPoint_ops.h */; };
+		08028E1715C1D035002DC0B4 /* CGPoint_ops.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E1515C1D035002DC0B4 /* CGPoint_ops.c */; };
 		08028E2215C1E39B002DC0B4 /* Range.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2015C1E39B002DC0B4 /* Range.h */; };
 		08028E2315C1E39B002DC0B4 /* Range.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2115C1E39B002DC0B4 /* Range.c */; };
 		08028E2615C2048D002DC0B4 /* SATResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2415C2048D002DC0B4 /* SATResult.h */; };
@@ -58,8 +58,8 @@
 		08028E0015C1C55E002DC0B4 /* SeparatingAxisTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeparatingAxisTestTests.m; sourceTree = "<group>"; };
 		08028E0F15C1CDD5002DC0B4 /* Polygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polygon.h; sourceTree = "<group>"; };
 		08028E1015C1CDD5002DC0B4 /* Polygon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Polygon.c; sourceTree = "<group>"; };
-		08028E1415C1D035002DC0B4 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
-		08028E1515C1D035002DC0B4 /* Vector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Vector.c; sourceTree = "<group>"; };
+		08028E1415C1D035002DC0B4 /* CGPoint_ops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPoint_ops.h; sourceTree = "<group>"; };
+		08028E1515C1D035002DC0B4 /* CGPoint_ops.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CGPoint_ops.c; sourceTree = "<group>"; };
 		08028E2015C1E39B002DC0B4 /* Range.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range.h; sourceTree = "<group>"; };
 		08028E2115C1E39B002DC0B4 /* Range.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Range.c; sourceTree = "<group>"; };
 		08028E2415C2048D002DC0B4 /* SATResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATResult.h; sourceTree = "<group>"; };
@@ -186,8 +186,8 @@
 			children = (
 				08028E0F15C1CDD5002DC0B4 /* Polygon.h */,
 				08028E1015C1CDD5002DC0B4 /* Polygon.c */,
-				08028E1415C1D035002DC0B4 /* Vector.h */,
-				08028E1515C1D035002DC0B4 /* Vector.c */,
+				08028E1415C1D035002DC0B4 /* CGPoint_ops.h */,
+				08028E1515C1D035002DC0B4 /* CGPoint_ops.c */,
 			);
 			name = Geometry;
 			sourceTree = "<group>";
@@ -233,7 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08028E1115C1CDD5002DC0B4 /* Polygon.h in Headers */,
-				08028E1615C1D035002DC0B4 /* Vector.h in Headers */,
+				08028E1615C1D035002DC0B4 /* CGPoint_ops.h in Headers */,
 				08028E2215C1E39B002DC0B4 /* Range.h in Headers */,
 				08028E2615C2048D002DC0B4 /* SATResult.h in Headers */,
 				08028E2A15C238D9002DC0B4 /* Overlap.h in Headers */,
@@ -342,7 +342,7 @@
 			files = (
 				08028DEA15C1C55E002DC0B4 /* SeparatingAxisTest.c in Sources */,
 				08028E1215C1CDD5002DC0B4 /* Polygon.c in Sources */,
-				08028E1715C1D035002DC0B4 /* Vector.c in Sources */,
+				08028E1715C1D035002DC0B4 /* CGPoint_ops.c in Sources */,
 				08028E2315C1E39B002DC0B4 /* Range.c in Sources */,
 				08028E2715C2048D002DC0B4 /* SATResult.c in Sources */,
 				080EAB9C15C7347C00476E17 /* GrahamScanComparator.c in Sources */,

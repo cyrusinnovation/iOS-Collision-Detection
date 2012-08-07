@@ -6,9 +6,14 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
+#ifndef OVERLAP_H
+#define OVERLAP_H
+
 #include <stdbool.h>
 
 typedef struct {
     bool overlaps;
     float correction;
 } Overlap;
+
+#endif

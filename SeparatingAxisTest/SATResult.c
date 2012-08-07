@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import "SATResult.h"
+#include "SATResult.h"
 
 double const EPSILON = 0.000001*0.000001;
 
-SATResult sat_result_for(Vector _penetration, bool separated) {
+SATResult sat_result_for(CGPoint _penetration, bool separated) {
     SATResult ret;
     ret.penetration = _penetration;
-    ret.penetrating = !separated && vector_length_squared(_penetration) > EPSILON;
+    ret.penetrating = !separated && cgp_length_squared(_penetration) > EPSILON;
     return ret;
 }

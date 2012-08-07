@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import "Range.h"
+#include "Range.h"
 
-#import <stdbool.h>
-#import <math.h>
+#include <stdbool.h>
+#include <math.h>
 
 Range range_from(float min, float max) {
     Range r;

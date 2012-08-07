@@ -6,13 +6,18 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
+#ifndef SATRESULT_H
+#define SATRESULT_H
+
 #include <stdbool.h>
 
-#import "Vector.h"
+#include "CGPoint_ops.h"
 
 typedef struct {
-    Vector penetration;
+    CGPoint penetration;
     bool penetrating;
 } SATResult;
 
-SATResult sat_result_for(Vector _penetration, bool separated);
+SATResult sat_result_for(CGPoint _penetration, bool separated);
+
+#endif

@@ -6,17 +6,22 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import "Vector.h"
-#import "Range.h"
+#ifndef POLYGON_H
+#define POLYGON_H
+
+#include "CGPoint_ops.h"
+#include "Range.h"
 
 typedef struct {
-    Vector *points;
+    CGPoint *points;
     int point_count;
-} Polygon;
+} CGPolygon;
 
-Polygon polygon_from(int count, ...);
-void free_polygon(Polygon p);
+CGPolygon polygon_from(int count, ...);
+void free_polygon(CGPolygon p);
 
-Range project_polygon(Polygon polgon, Vector vector);
+Range project_polygon(CGPolygon polgon, CGPoint vector);
 
-Polygon make_block(float x1, float y1, float x2, float y2);
+CGPolygon make_block(float x1, float y1, float x2, float y2);
+
+#endif

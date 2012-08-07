@@ -6,39 +6,39 @@
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#import "Polygon.h"
+#include "Polygon.h"
 
-#import <float.h>
-#import <stdlib.h>
-#import <stdarg.h>
+#include <float.h>
+#include <stdlib.h>
+#include <stdarg.h>
 
-Polygon polygon_from(int count, ...) {
+CGPolygon polygon_from(int count, ...) {
     va_list args;
     va_start(args, count);
     
-    Polygon ret;
+    CGPolygon ret;
     ret.point_count = count;
-    ret.points = malloc(count * sizeof(Vector));
+    ret.points = malloc(count * sizeof(CGPoint));
     
     for (int i = 0; i < count; i++) {
-        ret.points[i] = va_arg(args, Vector);
+        ret.points[i] = va_arg(args, CGPoint);
     }
     va_end(args);
     
     return ret;
 }
 
-void free_polygon(Polygon p) {
+void free_polygon(CGPolygon p) {
     free(p.points);
 }
 
-Range project_polygon(Polygon polygon, Vector vector) {
+Range project_polygon(CGPolygon polygon, CGPoint vector) {
     float max = FLT_MIN;
     float min = FLT_MAX;
     
     for (int i = 0; i < polygon.point_count; i++) {
-        Vector point = polygon.points[i];
-        float dot = vector_dot(vector, point);
+        CGPoint point = polygon.points[i];
+        float dot = cgp_dot(vector, point);
         
         if (dot < min) {
             min = dot;
@@ -48,13 +48,13 @@ Range project_polygon(Polygon polygon, Vector vector) {
         }
     }
     
-    float lengthSquaredOverOne = 1/vector_length_squared(vector);
+    float lengthSquaredOverOne = 1/cgp_length_squared(vector);
     return range_from(min*lengthSquaredOverOne, max*lengthSquaredOverOne);
 }
 
-Polygon make_block(float x1, float y1, float x2, float y2) {
-    return polygon_from(4, vector_from(x1, y1),
-                        vector_from(x2, y1),
-                        vector_from(x2, y2),
-                        vector_from(x1, y2));
+CGPolygon make_block(float x1, float y1, float x2, float y2) {
+    return polygon_from(4, cgp_from(x1, y1),
+                        cgp_from(x2, y1),
+                        cgp_from(x2, y2),
+                        cgp_from(x1, y2));
 }

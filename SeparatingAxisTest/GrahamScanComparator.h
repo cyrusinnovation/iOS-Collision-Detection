@@ -9,7 +9,7 @@
 #ifndef SeparatingAxisTest_GrahamScanComparator_h
 #define SeparatingAxisTest_GrahamScanComparator_h
 
-#import "Vector.h"
+#include "CGPoint_ops.h"
 
 int graham_comparator(void *_min, void const *_a, void const *_b);
 
