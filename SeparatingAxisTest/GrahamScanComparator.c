@@ -8,6 +8,8 @@
 
 #include "GrahamScanComparator.h"
 
+#include "CGPoint_ops.h"
+
 int graham_comparator(void *_min, void const *_a, void const *_b) {
     CGPoint *min = _min;
     const CGPoint *a = _a;
@@ -20,8 +22,13 @@ int graham_comparator(void *_min, void const *_a, void const *_b) {
     float dotUnitXWithA = cgp_dot(unitX, cgp_normal(minToA));
     float dotUnitXWithB = cgp_dot(unitX, cgp_normal(minToB));
     
-    if (dotUnitXWithA < dotUnitXWithB) return -1;
-    if (dotUnitXWithA > dotUnitXWithB) return 1;
+    if (dotUnitXWithA > dotUnitXWithB) return -1;
+    if (dotUnitXWithA < dotUnitXWithB) return 1;
+    
+    float lengthToA = cgp_length_squared(minToA);
+    float lengthToB = cgp_length_squared(minToB);
+    if (lengthToA < lengthToB) return -1;
+    if (lengthToA > lengthToB) return 1;
     
     return 0;
 }

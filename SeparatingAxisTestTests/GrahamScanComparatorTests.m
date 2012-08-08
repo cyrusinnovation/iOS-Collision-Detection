@@ -20,9 +20,76 @@
         cgp_from(1, 1), cgp_from(-1, 1), cgp_from(0, 1)
     };
     qsort_r(vectors, 3, sizeof(CGPoint), &vector, graham_comparator);
-
+    
     STAssertEquals(vectors[1].y, 1.0f, @"");
     STAssertEquals(vectors[1].x, 0.0f, @"");
+}
+
+-(void) testEquals {
+    CGPoint min = cgp_from(0, 0);
+    CGPoint a = cgp_from(1, 1);
+    CGPoint b = cgp_from(1, 1);
+    STAssertEquals(0, graham_comparator(&min, &a, &b), @"");
+}
+
+-(void) testColinearLessThan {
+    CGPoint min = cgp_from(0, 0);
+    CGPoint a = cgp_from(1, 1);
+    CGPoint b = cgp_from(2, 2);
+    STAssertEquals(-1, graham_comparator(&min, &a, &b), @"");
+}
+
+-(void) testColinearGreaterThan {
+    CGPoint min = cgp_from(0, 0);
+    CGPoint a = cgp_from(2, 2);
+    CGPoint b = cgp_from(1, 1);
+    STAssertEquals(1, graham_comparator(&min, &a, &b), @"");
+}
+
+-(void) assert: (CGPoint) p is: (float) x and: (float) y line:(int) line {
+    NSString *errar = [NSString stringWithFormat: @"Expected [%f, %f], actual [%f, %f]", x, y, p.x, p.y];
+    
+    if (p.x == x && p.y == y)
+        return;
+    else {
+        // This is kinda shitty.
+        [self failWithException:[NSException 
+                                 failureInCondition: @"Point equality"
+                                 isTrue:true 
+                                 inFile:[NSString stringWithUTF8String:__FILE__] 
+                                 atLine:line 
+                                 withDescription:errar]];
+    }
+}
+
+-(void) testSquare {
+    CGPoint vector = cgp_from(0, 0);
+    
+    CGPoint vectors[] = {
+        cgp_from(0, 2), cgp_from(2, 2), cgp_from(0, 0), cgp_from(2, 0)
+    };
+    qsort_r(vectors, 4, sizeof(CGPoint), &vector, graham_comparator);
+    
+    [self assert: vectors[0] is: 0 and: 0 line:__LINE__];
+    [self assert: vectors[1] is: 2 and: 0 line:__LINE__];
+    [self assert: vectors[2] is: 2 and: 2 line:__LINE__];
+    [self assert: vectors[3] is: 0 and: 2 line:__LINE__];
+}
+
+-(void) testColinearsAreNearestFirst {
+    CGPoint vector = cgp_from(0, 0);
+    
+    CGPoint vectors[] = {
+        cgp_from(0, 1), cgp_from(0, 2), cgp_from(2, 2), cgp_from(0, 0), cgp_from(1, 1), cgp_from(2, 0)
+    };
+    qsort_r(vectors, 6, sizeof(CGPoint), &vector, graham_comparator);
+    
+    [self assert: vectors[0] is: 0 and: 0 line:__LINE__];
+    [self assert: vectors[1] is: 2 and: 0 line:__LINE__];
+    [self assert: vectors[2] is: 1 and: 1 line:__LINE__];
+    [self assert: vectors[3] is: 2 and: 2 line:__LINE__];
+    [self assert: vectors[4] is: 0 and: 1 line:__LINE__];
+    [self assert: vectors[5] is: 0 and: 2 line:__LINE__];
 }
 
 

@@ -12,6 +12,11 @@
 
 #include "CGPoint_ops.h"
 
+#include "GrahamScanComparator.h"
+
+#include <math.h>
+#include <stdlib.h>
+
 #define CCW_EPSILON 0.00001f;
 
 const float minimum_edge_length = 0.00001f;
@@ -46,9 +51,21 @@ bool gs_is_invalid_segment(CGPoint a, CGPoint b, CGPoint c) {
     return straight_or_clockwise || less_than_minimum_angle;
 }
 
-bool gs_validate(CGPolygon poly) {
-    if (poly.point_count < 3) return false; // degenerate polygon
+bool gs_are_points_colinear(CGPoint basis, CGPoint a, CGPoint b) {
+    CGPoint minToA = cgp_subtract(a, basis);
+    cgp_normalize(&minToA);
+    CGPoint minToB = cgp_subtract(b, basis);
+    cgp_normalize(&minToB);
     
+    CGPoint unitX = cgp_from(1, 0);
+    
+    float dotXWithA = cgp_dot(unitX, minToA);
+    float dotXWithB = cgp_dot(unitX, minToB);
+    
+    return fabs(dotXWithB - dotXWithA) < 0.0000001f;
+}
+
+CGPoint gs_get_min(CGPolygon poly) {
     CGPoint min = poly.points[0];
     for (int i = 0; i < poly.point_count ; i++) {
         CGPoint point = poly.points[i];
@@ -58,6 +75,13 @@ bool gs_validate(CGPolygon poly) {
             min = point;
         }
     }
+    return min;
+}
+
+bool gs_validate(CGPolygon poly) {
+    if (poly.point_count < 3) return false; // degenerate polygon
+    
+    CGPoint min = gs_get_min(poly);
     
     int flag = 0;
     
@@ -88,4 +112,27 @@ bool gs_validate(CGPolygon poly) {
     }
     
     return true;
+}
+
+void gs_filter_colinears(CGPolygon poly, CGPoint min) {
+//    int removed = 0;
+//    for (int i = 0; i < poly.point_count - 1; i++) {
+//        if (gs_are_points_colinear(min, poly.points[i], poly.points[i + 1])) {
+//            removed++;
+//        }
+//        poly.points[i] = poly.points[
+//    }
+}
+
+CGPolygon gs_go(CGPolygon source) {
+    CGPoint min = gs_get_min(source);
+    
+    CGPolygon sorted;
+    sorted.point_count = source.point_count;
+    sorted.points = malloc(source.point_count*sizeof(CGPoint));
+    
+    qsort_r(sorted.points, sorted.point_count, sizeof(CGPoint), &min, graham_comparator);
+    gs_filter_colinears(sorted, min);
+    
+    return sorted; // WRONG
 }
