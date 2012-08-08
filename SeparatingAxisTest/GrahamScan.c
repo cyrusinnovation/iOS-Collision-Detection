@@ -114,16 +114,6 @@ bool gs_validate(CGPolygon poly) {
     return true;
 }
 
-void gs_filter_colinears(CGPolygon poly, CGPoint min) {
-//    int removed = 0;
-//    for (int i = 0; i < poly.point_count - 1; i++) {
-//        if (gs_are_points_colinear(min, poly.points[i], poly.points[i + 1])) {
-//            removed++;
-//        }
-//        poly.points[i] = poly.points[
-//    }
-}
-
 CGPolygon gs_go(CGPolygon source) {
     CGPoint min = gs_get_min(source);
     
@@ -132,7 +122,7 @@ CGPolygon gs_go(CGPolygon source) {
     sorted.points = malloc(source.point_count*sizeof(CGPoint));
     
     qsort_r(sorted.points, sorted.point_count, sizeof(CGPoint), &min, graham_comparator);
-    gs_filter_colinears(sorted, min);
+    graham_filter_colinears(&sorted);
     
     return sorted; // WRONG
 }

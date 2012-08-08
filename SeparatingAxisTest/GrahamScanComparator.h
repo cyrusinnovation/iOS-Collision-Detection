@@ -10,7 +10,9 @@
 #define SeparatingAxisTest_GrahamScanComparator_h
 
 #include "CGPoint_ops.h"
+#include "Polygon.h"
 
 int graham_comparator(void *_min, void const *_a, void const *_b);
+void graham_filter_colinears(CGPolygon *poly);
 
 #endif
