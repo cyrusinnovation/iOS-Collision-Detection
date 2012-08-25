@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'SeparatingAxisTest' target in the 'SeparatingAxisTest' project
+//
+
+#ifdef __OBJC__
+    #include <Foundation/Foundation.h>
+#endif
