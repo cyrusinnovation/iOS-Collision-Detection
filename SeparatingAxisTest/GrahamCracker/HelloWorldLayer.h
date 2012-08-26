@@ -16,9 +16,13 @@
 @interface HelloWorldLayer : CCLayer
 {
     Stack stack;
+    
+    NSMutableArray *arms;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
 
 @end
+
+void drawShape(CGPoint *points, int count);

@@ -147,6 +147,7 @@
 		08D36A7215E9991F00027AD6 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D36A7115E9991F00027AD6 /* RootViewController.m */; };
 		08D36A7515E9991F00027AD6 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D36A7415E9991F00027AD6 /* HelloWorldLayer.m */; };
 		08D36A7C15E99ACD00027AD6 /* libSeparatingAxisTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE015C1C55E002DC0B4 /* libSeparatingAxisTest.a */; };
+		08D36A7F15E9A46E00027AD6 /* SwingArm.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D36A7E15E9A46E00027AD6 /* SwingArm.m */; };
 		08DBB3A315E95AEC00BB6EBF /* Stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 08DBB3A215E95AEC00BB6EBF /* Stack.c */; };
 		08DBB3A815E95B5900BB6EBF /* StackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DBB3A715E95B5900BB6EBF /* StackTests.m */; };
 		08DBB3AC15E95CD400BB6EBF /* VectorAssert.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DBB3AB15E95CD400BB6EBF /* VectorAssert.m */; };
@@ -435,6 +436,8 @@
 		08D36A7315E9991F00027AD6 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
 		08D36A7415E9991F00027AD6 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		08D36A7615E9991F00027AD6 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		08D36A7D15E9A46E00027AD6 /* SwingArm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwingArm.h; sourceTree = "<group>"; };
+		08D36A7E15E9A46E00027AD6 /* SwingArm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwingArm.m; sourceTree = "<group>"; };
 		08DBB3A215E95AEC00BB6EBF /* Stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Stack.c; sourceTree = "<group>"; };
 		08DBB3A415E95AF800BB6EBF /* Stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		08DBB3A615E95B5900BB6EBF /* StackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackTests.h; sourceTree = "<group>"; };
@@ -632,6 +635,8 @@
 				08D36A7315E9991F00027AD6 /* HelloWorldLayer.h */,
 				08D36A7415E9991F00027AD6 /* HelloWorldLayer.m */,
 				08D36A7615E9991F00027AD6 /* GameConfig.h */,
+				08D36A7D15E9A46E00027AD6 /* SwingArm.h */,
+				08D36A7E15E9A46E00027AD6 /* SwingArm.m */,
 				08D3691C15E9991D00027AD6 /* Resources */,
 				08D3693015E9991D00027AD6 /* libs */,
 				08D36A6915E9991F00027AD6 /* Supporting Files */,
@@ -1271,6 +1276,7 @@
 				08D36A6F15E9991F00027AD6 /* AppDelegate.m in Sources */,
 				08D36A7215E9991F00027AD6 /* RootViewController.m in Sources */,
 				08D36A7515E9991F00027AD6 /* HelloWorldLayer.m in Sources */,
+				08D36A7F15E9A46E00027AD6 /* SwingArm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

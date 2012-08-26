@@ -23,7 +23,7 @@
 
 const float minimum_edge_length_squared = 0.00001f * 0.00001f;
 const float room_for_error = 0.000005f; // This is enough for the unit tests to pass
-const float cosine_of_half_minimum_angle = 0.965925826f - room_for_error; // cosine of 30deg = 12 sides polies
+const float cosine_of_half_minimum_angle = 0.99999; // (0.965925826f - room_for_error); // cosine of 30deg = 12 sides polies
 
 float CCW(CGPoint a, CGPoint b, CGPoint c) {
     return (b.x - a.x)*(c.y - b.y) - (b.y - a.y)*(c.x - b.x);
@@ -69,7 +69,7 @@ bool gs_are_points_colinear(CGPoint basis, CGPoint a, CGPoint b) {
 
 CGPoint gs_get_min(CGPolygon poly) {
     CGPoint min = poly.points[0];
-    for (int i = 0; i < poly.point_count ; i++) {
+    for (int i = 0; i < poly.count ; i++) {
         CGPoint point = poly.points[i];
         if (point.y < min.y) {
             min = point;
@@ -81,16 +81,16 @@ CGPoint gs_get_min(CGPolygon poly) {
 }
 
 bool gs_validate(CGPolygon poly) {
-    if (poly.point_count < 3) return false; // degenerate polygon
+    if (poly.count < 3) return false; // degenerate polygon
     
     CGPoint min = gs_get_min(poly);
     
     int flag = 0;
     
-    for (int i = 0; i < poly.point_count; i++) {
+    for (int i = 0; i < poly.count; i++) {
         CGPoint a = poly.points[i];
-        CGPoint b = poly.points[(i+1)%poly.point_count];
-        CGPoint c = poly.points[(i+2)%poly.point_count];
+        CGPoint b = poly.points[(i+1)%poly.count];
+        CGPoint c = poly.points[(i+2)%poly.count];
         float z = CCW(a, b, c);
         
         if (z == 0) return false; // linear point
@@ -121,7 +121,7 @@ bool get_next_point(CGPolygon* other_points, Stack* point_stack, int currentPoin
     *nextPoint = currentPoint;
     while (true)
     {
-        if (*nextPoint >= other_points->point_count) break;
+        if (*nextPoint >= other_points->count) break;
 
         CGPoint a = other_points->points[*nextPoint];
         CGPoint b = point_stack->points[point_stack->count - 1];
@@ -131,7 +131,7 @@ bool get_next_point(CGPolygon* other_points, Stack* point_stack, int currentPoin
         
         (*nextPoint)++;
     }
-    return *nextPoint < other_points->point_count;
+    return *nextPoint < other_points->count;
 }
 
 
@@ -139,14 +139,14 @@ CGPolygon gs_go(CGPolygon source) {
     CGPoint min = gs_get_min(source);
     
     CGPolygon sorted;
-    sorted.point_count = source.point_count;
-    sorted.points = malloc(source.point_count*sizeof(CGPoint));
+    sorted.count = source.count;
+    sorted.points = malloc(source.count*sizeof(CGPoint));
     
-    memcpy(sorted.points, source.points, source.point_count*sizeof(CGPoint)); 
-    qsort_r(sorted.points, sorted.point_count, sizeof(CGPoint), &min, graham_comparator);
+    memcpy(sorted.points, source.points, source.count*sizeof(CGPoint)); 
+    qsort_r(sorted.points, sorted.count, sizeof(CGPoint), &min, graham_comparator);
     graham_filter_colinears(&sorted);
     
-    Stack stack = new_stack(sorted.point_count + 3);
+    Stack stack = new_stack(sorted.count + 3);
     CGPoint lever = cgp_subtract(min, CGPointMake(1, 0));
     s_push(&stack, lever);
     s_push(&stack, min);
@@ -168,8 +168,8 @@ CGPolygon gs_go(CGPolygon source) {
     }
     
     free(sorted.points);
-    sorted.point_count = stack.count - 1;
-    int points_data_size = sorted.point_count * sizeof(CGPoint);
+    sorted.count = stack.count - 1;
+    int points_data_size = sorted.count * sizeof(CGPoint);
     sorted.points = malloc(points_data_size);
     memcpy(sorted.points, &(stack.points[1]), points_data_size); 
     return sorted;

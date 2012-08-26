@@ -10,6 +10,11 @@
 // Import the interfaces
 #import "HelloWorldLayer.h"
 
+#include "Polygon.h"
+#include "GrahamScan.h"
+
+#import "SwingArm.h"
+
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
 
@@ -33,28 +38,48 @@
 {
     NSLog(@"init");
     
-	if( (self=[super init])) {
+	if( (self=[super init])) {     
+        [self scheduleUpdate];
         self.isTouchEnabled = YES; 
         
-        stack = new_stack(30);
+        stack = new_stack(300);
+        
+        arms = [[NSMutableArray alloc] init];
     }
 	return self;
 }
 
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc
-{
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
-	
-	// don't forget to call "super dealloc"
-	[super dealloc];
+-(void)update:(ccTime)dt {
+    for (SwingArm *arm in arms) {
+        [arm update:dt];
+    }
 }
 
 - (void) draw
 {
-    ccDrawLine(CGPointMake(10, 10), CGPointMake(20, 20));
+    for (int i = 0; i < [arms count]; i++) {
+        SwingArm *arm = [arms objectAtIndex:i];
+        ccDrawPoint([arm endOfArm]);
+        stack.points[i] = [arm endOfArm];
+    }
+
+    if (stack.count >= 3) {    
+        CGPolygon shape;
+        shape.points = stack.points;
+        shape.count = stack.count;
+        
+        CGPolygon better_shape = gs_go(shape);
+        
+        glLineWidth(4);
+        glColor4ub(0, 0, 255, 0);
+        drawShape(better_shape.points, better_shape.count);
+        
+        free_polygon(better_shape);
+    }
+    
+    glPointSize(6);
+    glColor4ub(255, 0, 255, 0);
+    ccDrawPoints(stack.points, stack.count);
 }
 
 - (void)registerWithTouchDispatcher {
@@ -65,7 +90,21 @@
 {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
     s_push(&stack, location);
+    
+    [arms addObject:[[SwingArm alloc] initAt:location withLength:20]];
+    
     return true;
 }
+
+void drawShape(CGPoint *points, int count)
+{
+    int i = 0;
+    for (; i < count-1; i++) {
+        ccDrawLine(points[i], points[i+1]);
+    }
+    ccDrawLine(points[i], points[0]);
+}
+
+
 
 @end

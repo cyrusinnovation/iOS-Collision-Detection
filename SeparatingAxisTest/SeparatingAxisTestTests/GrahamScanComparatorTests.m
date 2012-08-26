@@ -123,7 +123,7 @@
     CGPolygon poly = { vectors, 8 };
     graham_filter_colinears(&poly);
     
-    STAssertEquals(6, poly.point_count, @"");
+    STAssertEquals(6, poly.count, @"");
     VectorAssertEquals(vectors[0], 0, 0);
     VectorAssertEquals(vectors[1], 3, 0);
     VectorAssertEquals(vectors[2], 3, 3);
@@ -146,7 +146,7 @@
     CGPolygon poly = { vectors, 5 };
     graham_filter_colinears(&poly);
     
-    STAssertEquals(4, poly.point_count, @"");
+    STAssertEquals(4, poly.count, @"");
     VectorAssertEquals(vectors[0], 0, 0);
     VectorAssertEquals(vectors[1], 2, 0);
     VectorAssertEquals(vectors[2], 2, 2);

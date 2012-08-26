@@ -89,7 +89,7 @@
 #endif
 	
 	[director setAnimationInterval:1.0/60];
-	[director setDisplayFPS:FALSE];
+	[director setDisplayFPS:NO];
 	
 	
 	// make the OpenGLView a child of the view controller

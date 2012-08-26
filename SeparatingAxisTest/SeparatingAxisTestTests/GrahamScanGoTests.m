@@ -48,7 +48,7 @@
     VectorAssertEquals(block.points[3], 2, 2);
     VectorAssertEquals(block.points[4], 1, 2);
     VectorAssertEquals(block.points[5], 0, 1);
-    STAssertEquals(block.point_count, 6, @"");
+    STAssertEquals(block.count, 6, @"");
     STAssertTrue(gs_validate(block), @"");
 }
 
@@ -69,7 +69,7 @@
     VectorAssertEquals(block.points[1], 3, -1);
     VectorAssertEquals(block.points[2], 3, 3);
     VectorAssertEquals(block.points[3], -1, 3);
-    STAssertEquals(block.point_count, 4, @"");
+    STAssertEquals(block.count, 4, @"");
     STAssertTrue(gs_validate(block), @"");
 }
 

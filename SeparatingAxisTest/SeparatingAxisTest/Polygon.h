@@ -14,7 +14,7 @@
 
 typedef struct {
     CGPoint *points;
-    int point_count;
+    int count;
 } CGPolygon;
 
 CGPolygon polygon_from(int count, ...);

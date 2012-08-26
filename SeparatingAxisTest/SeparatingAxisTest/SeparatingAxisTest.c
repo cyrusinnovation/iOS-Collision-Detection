@@ -34,8 +34,8 @@ void consider_axis(SeparatingAxisTestState* state, CGPoint axis) {
 }
 
 void compute_normals(SeparatingAxisTestState *state, CGPolygon polygon) {
-    CGPoint start = polygon.points[polygon.point_count - 1];
-    for (int i = 0; i < polygon.point_count; i++) {
+    CGPoint start = polygon.points[polygon.count - 1];
+    for (int i = 0; i < polygon.count; i++) {
         CGPoint perpendicular = cgp_subtract(polygon.points[i], start);
         cgp_normalize(&perpendicular);
         cgp_flop(&perpendicular);

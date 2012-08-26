@@ -45,7 +45,7 @@ void graham_filter_colinears(CGPolygon *poly) {
     int filtered_count = 1;
     
     CGPoint min = poly->points[0];
-    for (int i = 1; i < poly->point_count; i++) {
+    for (int i = 1; i < poly->count; i++) {
         CGPoint a = poly->points[i];
         CGPoint b = poly->points[filtered_count-1];
         if (gs_are_points_colinear(min, a, b)) {
@@ -56,5 +56,5 @@ void graham_filter_colinears(CGPolygon *poly) {
         }
     }
     
-    poly->point_count = filtered_count;
+    poly->count = filtered_count;
 }

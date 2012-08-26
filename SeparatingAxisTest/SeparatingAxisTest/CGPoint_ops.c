@@ -26,6 +26,11 @@ CGPoint cgp_subtract(CGPoint minuend, CGPoint subtrahend) {
     return difference;
 }
 
+CGPoint cgp_add(CGPoint one, CGPoint another) {
+    return CGPointMake(one.x + another.x, one.y + another.y);
+}
+
+
 CGPoint cgp_normal(CGPoint v) {
     cgp_normalize(&v);
     return v;

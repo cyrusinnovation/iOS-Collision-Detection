@@ -17,7 +17,7 @@ CGPolygon polygon_from(int count, ...) {
     va_start(args, count);
     
     CGPolygon ret;
-    ret.point_count = count;
+    ret.count = count;
     ret.points = malloc(count * sizeof(CGPoint));
     
     for (int i = 0; i < count; i++) {
@@ -36,7 +36,7 @@ Range project_polygon(CGPolygon polygon, CGPoint vector) {
     float max = FLT_MIN;
     float min = FLT_MAX;
     
-    for (int i = 0; i < polygon.point_count; i++) {
+    for (int i = 0; i < polygon.count; i++) {
         CGPoint point = polygon.points[i];
         float dot = cgp_dot(vector, point);
         

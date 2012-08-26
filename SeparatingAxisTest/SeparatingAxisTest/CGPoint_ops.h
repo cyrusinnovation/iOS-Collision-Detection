@@ -11,6 +11,7 @@
 CGPoint cgp_from(float x, float y);
 CGPoint cgp_copy(CGPoint b);
 CGPoint cgp_subtract(CGPoint minuend, CGPoint subtrahend);
+CGPoint cgp_add(CGPoint one, CGPoint another);
 CGPoint cgp_normal(CGPoint v);
 
 float cgp_dot(CGPoint a, CGPoint b);
