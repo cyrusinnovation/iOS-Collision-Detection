@@ -45,6 +45,8 @@
         stack = new_stack(300);
         
         arms = [[NSMutableArray alloc] init];
+        
+        dragging = false;
     }
 	return self;
 }
@@ -55,14 +57,34 @@
     }
 }
 
+-(void) drawSwingArmFrom: (CGPoint) from to: (CGPoint) to
+{    
+    glColor4ub(20, 20, 20, 0);
+    glLineWidth(3);
+    ccDrawLine(from, to);
+    
+    glPointSize(6);
+    glColor4ub(100, 100, 100, 0);
+    ccDrawPoint(from);
+
+    glPointSize(4);
+    glColor4ub(255, 0, 255, 0);
+    ccDrawPoint(to);
+}
+
+-(void) drawSwingArm: (SwingArm *) arm
+{
+    [self drawSwingArmFrom: [arm center] to: [arm endOfArm]];
+}
+
 - (void) draw
 {
     for (int i = 0; i < [arms count]; i++) {
         SwingArm *arm = [arms objectAtIndex:i];
-        ccDrawPoint([arm endOfArm]);
+        [self drawSwingArm:arm];
         stack.points[i] = [arm endOfArm];
     }
-
+    
     if (stack.count >= 3) {    
         CGPolygon shape;
         shape.points = stack.points;
@@ -76,10 +98,10 @@
         
         free_polygon(better_shape);
     }
-    
-    glPointSize(6);
-    glColor4ub(255, 0, 255, 0);
-    ccDrawPoints(stack.points, stack.count);
+        
+    if (dragging) {
+        [self drawSwingArmFrom:dragStart to:dragEnd];
+    }
 }
 
 - (void)registerWithTouchDispatcher {
@@ -89,11 +111,30 @@
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-    s_push(&stack, location);
     
-    [arms addObject:[[SwingArm alloc] initAt:location withLength:20]];
+    dragStart = location;
+    dragEnd = location;
+    
+    dragging = true;
     
     return true;
+}
+
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event  
+{
+    CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+    
+    dragEnd = location;
+}
+
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+    
+    s_push(&stack, CGPointMake(0, 0));    
+    [arms addObject:[[SwingArm alloc] initFrom:dragStart to:location]];
+    
+    dragging = false;
 }
 
 void drawShape(CGPoint *points, int count)

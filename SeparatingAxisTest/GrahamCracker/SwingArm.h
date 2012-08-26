@@ -20,9 +20,11 @@
 }
 
 -(id)initAt: (CGPoint) center withLength: (float) length;
+-(id)initFrom: (CGPoint) center to: (CGPoint) endPoint;
 
 -(void)update:(ccTime)dt;
 
 -(CGPoint)endOfArm;
+-(CGPoint)center;
 
 @end

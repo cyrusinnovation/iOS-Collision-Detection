@@ -24,6 +24,16 @@
     return self;
 }
 
+-(id)initFrom: (CGPoint) _center to: (CGPoint) end_point {
+    if (self == [super init]) {
+        center = _center;
+        arm_length = cgp_length(cgp_subtract(end_point, _center));
+        [self update:0];
+    }
+    return self;    
+}
+
+
 const float two_pi = 2*M_PI;
 
 -(void)update:(ccTime)dt {
@@ -39,6 +49,10 @@ const float two_pi = 2*M_PI;
 
 -(CGPoint)endOfArm {
     return cgp_add(center, arm);
+}
+
+-(CGPoint)center {
+    return center;
 }
 
 @end

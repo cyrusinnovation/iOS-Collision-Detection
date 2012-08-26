@@ -45,6 +45,9 @@ float cgp_length_squared(CGPoint v) {
     return v.x*v.x + v.y*v.y;
 }
 
+float cgp_length(CGPoint v) {
+    return sqrtf(cgp_length_squared(v));
+}
 
 void cgp_scale(CGPoint *v, float scale) {
     (*v).x = (*v).x * scale;

@@ -18,6 +18,10 @@
     Stack stack;
     
     NSMutableArray *arms;
+    
+    Boolean dragging;
+    CGPoint dragStart;
+    CGPoint dragEnd;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

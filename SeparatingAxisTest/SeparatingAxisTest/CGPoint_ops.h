@@ -16,6 +16,7 @@ CGPoint cgp_normal(CGPoint v);
 
 float cgp_dot(CGPoint a, CGPoint b);
 float cgp_length_squared(CGPoint v);
+float cgp_length(CGPoint v);
 
 void cgp_normalize(CGPoint *v);
 void cgp_scale(CGPoint *v, float scale);
