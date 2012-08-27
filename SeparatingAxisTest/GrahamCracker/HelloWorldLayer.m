@@ -22,7 +22,7 @@
 {
 	CCScene *scene = [CCScene node];
 	HelloWorldLayer *layer = [HelloWorldLayer node];
-	[scene addChild: layer z:0 tag:"spinners"];
+	[scene addChild: layer z:0 tag:@"spinners"];
 	return scene;
 }
 
