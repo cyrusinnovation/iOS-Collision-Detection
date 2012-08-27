@@ -27,7 +27,10 @@
 -(id)initFrom: (CGPoint) _center to: (CGPoint) end_point {
     if (self == [super init]) {
         center = _center;
-        arm_length = cgp_length(cgp_subtract(end_point, _center));
+        CGPoint start_arm = cgp_subtract(end_point, _center);
+        arm_length = cgp_length(start_arm);
+        
+        age = (atan2f(start_arm.y, start_arm.x)/M_PI)/2;
         [self update:0];
     }
     return self;    
@@ -35,9 +38,10 @@
 
 
 const float two_pi = 2*M_PI;
+const float speed = 0.333f;
 
 -(void)update:(ccTime)dt {
-    age += dt;
+    age += dt*speed;
     if (age > 1) {
         age -= 1;
     }

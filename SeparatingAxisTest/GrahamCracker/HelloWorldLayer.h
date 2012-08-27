@@ -28,5 +28,3 @@
 +(CCScene *) scene;
 
 @end
-
-void drawShape(CGPoint *points, int count);

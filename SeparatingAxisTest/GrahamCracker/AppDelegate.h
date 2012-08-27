@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "HelloWorldLayer.h"
+
 @class RootViewController;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
+    HelloWorldLayer     *spinners;
 	UIWindow			*window;
 	RootViewController	*viewController;
 }

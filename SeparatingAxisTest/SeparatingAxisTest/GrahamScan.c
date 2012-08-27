@@ -162,7 +162,7 @@ CGPolygon gs_go(CGPolygon source) {
         s_push(&stack, sorted.points[next_point]);
     }
 
-    while (gs_is_invalid_segment(stack.points[stack.count - 2], stack.points[stack.count - 1], stack.points[1]))
+    while (stack.count > 3 && gs_is_invalid_segment(stack.points[stack.count - 2], stack.points[stack.count - 1], stack.points[1]))
     {
         s_pop(&stack);
     }

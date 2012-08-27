@@ -20,30 +20,19 @@
 
 +(CCScene *) scene
 {
-	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
-	
-	// 'layer' is an autorelease object.
 	HelloWorldLayer *layer = [HelloWorldLayer node];
-	
-	// add layer as a child to scene
-	[scene addChild: layer];
-	
-	// return the scene
+	[scene addChild: layer z:0 tag:"spinners"];
 	return scene;
 }
 
-// on "init" you need to initialize your instance
 -(id) init
 {
-    NSLog(@"init");
-    
 	if( (self=[super init])) {     
         [self scheduleUpdate];
         self.isTouchEnabled = YES; 
         
         stack = new_stack(300);
-        
         arms = [[NSMutableArray alloc] init];
         
         dragging = false;
@@ -59,8 +48,8 @@
 
 -(void) drawSwingArmFrom: (CGPoint) from to: (CGPoint) to
 {    
-    glColor4ub(20, 20, 20, 0);
     glLineWidth(3);
+    glColor4ub(60, 60, 60, 0);
     ccDrawLine(from, to);
     
     glPointSize(6);
@@ -75,6 +64,15 @@
 -(void) drawSwingArm: (SwingArm *) arm
 {
     [self drawSwingArmFrom: [arm center] to: [arm endOfArm]];
+}
+
+void drawShape(CGPoint *points, int count)
+{
+    int i = 0;
+    for (; i < count-1; i++) {
+        ccDrawLine(points[i], points[i+1]);
+    }
+    ccDrawLine(points[i], points[0]);
 }
 
 - (void) draw
@@ -108,6 +106,12 @@
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];    
 }
 
+-(void) applicationWillResignActive:(UIApplication *)application
+{
+    stack.count == 0;
+    [arms removeAllObjects];
+}
+
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
@@ -136,16 +140,5 @@
     
     dragging = false;
 }
-
-void drawShape(CGPoint *points, int count)
-{
-    int i = 0;
-    for (; i < count-1; i++) {
-        ccDrawLine(points[i], points[i+1]);
-    }
-    ccDrawLine(points[i], points[0]);
-}
-
-
 
 @end
