@@ -8,7 +8,7 @@
 
 
 // Import the interfaces
-#import "HelloWorldLayer.h"
+#import "GrahamLayer.h"
 
 #include "Polygon.h"
 #include "GrahamScan.h"
@@ -16,13 +16,13 @@
 #import "SwingArm.h"
 
 // HelloWorldLayer implementation
-@implementation HelloWorldLayer
+@implementation GrahamLayer
 
 +(CCScene *) scene
 {
 	CCScene *scene = [CCScene node];
-	HelloWorldLayer *layer = [HelloWorldLayer node];
-	[scene addChild: layer z:0 tag:@"spinners"];
+	GrahamLayer *layer = [GrahamLayer node];
+	[scene addChild: layer z:0 tag:@"graham"];
 	return scene;
 }
 

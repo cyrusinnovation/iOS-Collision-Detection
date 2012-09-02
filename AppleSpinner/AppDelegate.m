@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  SeparatingAxisTest
 //
-//  Created by Najati Imam on 8/25/12.
+//  Created by Najati Imam on 9/2/12.
 //  Copyright Cyrus Innovation 2012. All rights reserved.
 //
 
@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
+#import "SpinnerLayer.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -64,6 +65,7 @@
 								   pixelFormat:kEAGLColorFormatRGB565	// kEAGLColorFormatRGBA8
 								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
 						];
+    [glView setMultipleTouchEnabled:YES];
 	
 	// attach the openglView to the director
 	[director setOpenGLView:glView];
@@ -90,6 +92,7 @@
 	[director setAnimationInterval:1.0/60];
 	[director setDisplayFPS:NO];
 	
+	
 	// make the OpenGLView a child of the view controller
 	[viewController setView:glView];
 	
@@ -108,7 +111,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [GrahamLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [SpinnerLayer scene]];
 }
 
 
