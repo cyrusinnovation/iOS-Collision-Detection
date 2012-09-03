@@ -1,13 +1,12 @@
 //
 //  GrahamScan.h
-//  SeparatingAxisTest
 //
 //  Created by Najati Imam on 8/2/12.
 //  Copyright (c) 2012 Cyrus Innovation. All rights reserved.
 //
 
-#ifndef SeparatingAxisTest_GrahamScan_h
-#define SeparatingAxisTest_GrahamScan_h
+#ifndef GrahamScan_h
+#define GrahamScan_h
 
 #include "stdbool.h"
 
