@@ -7,26 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08028DE415C1C55E002DC0B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE315C1C55E002DC0B4 /* Foundation.framework */; };
-		08028DEA15C1C55E002DC0B4 /* SeparatingAxisTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.c */; };
-		08028DF215C1C55E002DC0B4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DF115C1C55E002DC0B4 /* SenTestingKit.framework */; };
-		08028DF415C1C55E002DC0B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DF315C1C55E002DC0B4 /* UIKit.framework */; };
-		08028DF515C1C55E002DC0B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE315C1C55E002DC0B4 /* Foundation.framework */; };
-		08028DF815C1C55E002DC0B4 /* libSeparatingAxisTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE015C1C55E002DC0B4 /* libSeparatingAxisTest.a */; };
-		08028DFE15C1C55E002DC0B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08028DFC15C1C55E002DC0B4 /* InfoPlist.strings */; };
-		08028E0115C1C55E002DC0B4 /* SeparatingAxisTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028E0015C1C55E002DC0B4 /* SeparatingAxisTestTests.m */; };
-		08028E1115C1CDD5002DC0B4 /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E0F15C1CDD5002DC0B4 /* Polygon.h */; };
-		08028E1215C1CDD5002DC0B4 /* Polygon.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E1015C1CDD5002DC0B4 /* Polygon.c */; };
-		08028E1615C1D035002DC0B4 /* CGPoint_ops.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E1415C1D035002DC0B4 /* CGPoint_ops.h */; };
-		08028E1715C1D035002DC0B4 /* CGPoint_ops.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E1515C1D035002DC0B4 /* CGPoint_ops.c */; };
-		08028E2215C1E39B002DC0B4 /* Range.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2015C1E39B002DC0B4 /* Range.h */; };
-		08028E2315C1E39B002DC0B4 /* Range.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2115C1E39B002DC0B4 /* Range.c */; };
-		08028E2615C2048D002DC0B4 /* SATResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2415C2048D002DC0B4 /* SATResult.h */; };
-		08028E2715C2048D002DC0B4 /* SATResult.c in Sources */ = {isa = PBXBuildFile; fileRef = 08028E2515C2048D002DC0B4 /* SATResult.c */; };
-		08028E2A15C238D9002DC0B4 /* Overlap.h in Headers */ = {isa = PBXBuildFile; fileRef = 08028E2815C238D9002DC0B4 /* Overlap.h */; };
-		080EAB9815C6D58A00476E17 /* GrahamScanComparatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 080EAB9715C6D58A00476E17 /* GrahamScanComparatorTests.m */; };
-		080EAB9B15C7347C00476E17 /* GrahamScanComparator.h in Headers */ = {isa = PBXBuildFile; fileRef = 080EAB9915C7347C00476E17 /* GrahamScanComparator.h */; };
-		080EAB9C15C7347C00476E17 /* GrahamScanComparator.c in Sources */ = {isa = PBXBuildFile; fileRef = 080EAB9A15C7347C00476E17 /* GrahamScanComparator.c */; };
 		082668C915F3F31F00DFD0AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE315C1C55E002DC0B4 /* Foundation.framework */; };
 		082669C715F3F39500DFD0AB /* CCAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 082668ED15F3F39500DFD0AB /* CCAction.h */; };
 		082669C815F3F39500DFD0AB /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 082668EE15F3F39500DFD0AB /* CCAction.m */; };
@@ -232,10 +212,6 @@
 		08266A9015F3F39500DFD0AB /* CJSONSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 082669C415F3F39500DFD0AB /* CJSONSerializer.h */; };
 		08266A9115F3F39500DFD0AB /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 082669C515F3F39500DFD0AB /* CJSONSerializer.m */; };
 		08266A9215F3F39500DFD0AB /* JSONRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = 082669C615F3F39500DFD0AB /* JSONRepresentation.h */; };
-		08A76BBB15E970F600CC1B93 /* GrahamScanGoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A76BBA15E970F600CC1B93 /* GrahamScanGoTests.m */; };
-		08ACE54815CAEAC1001B7DA6 /* GrahamScanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ACE54715CAEAC1001B7DA6 /* GrahamScanTests.m */; };
-		08ACE54B15CAEFD4001B7DA6 /* GrahamScan.h in Headers */ = {isa = PBXBuildFile; fileRef = 08ACE54A15CAEFD4001B7DA6 /* GrahamScan.h */; };
-		08ACE54D15CAEFE0001B7DA6 /* GrahamScan.c in Sources */ = {isa = PBXBuildFile; fileRef = 08ACE54C15CAEFE0001B7DA6 /* GrahamScan.c */; };
 		08D3690E15E9991D00027AD6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3690D15E9991D00027AD6 /* QuartzCore.framework */; };
 		08D3691015E9991D00027AD6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3690F15E9991D00027AD6 /* OpenGLES.framework */; };
 		08D3691215E9991D00027AD6 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3691115E9991D00027AD6 /* OpenAL.framework */; };
@@ -257,12 +233,7 @@
 		08D36A6F15E9991F00027AD6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D36A6E15E9991F00027AD6 /* AppDelegate.m */; };
 		08D36A7215E9991F00027AD6 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D36A7115E9991F00027AD6 /* RootViewController.m */; };
 		08D36A7515E9991F00027AD6 /* GrahamLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D36A7415E9991F00027AD6 /* GrahamLayer.m */; };
-		08D36A7C15E99ACD00027AD6 /* libSeparatingAxisTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE015C1C55E002DC0B4 /* libSeparatingAxisTest.a */; };
 		08D36A7F15E9A46E00027AD6 /* SwingArm.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D36A7E15E9A46E00027AD6 /* SwingArm.m */; };
-		08DBB3A315E95AEC00BB6EBF /* Stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 08DBB3A215E95AEC00BB6EBF /* Stack.c */; };
-		08DBB3A815E95B5900BB6EBF /* StackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DBB3A715E95B5900BB6EBF /* StackTests.m */; };
-		08DBB3AC15E95CD400BB6EBF /* VectorAssert.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DBB3AB15E95CD400BB6EBF /* VectorAssert.m */; };
-		08FA2C3115C8A5D60034B089 /* PolygonProjectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FA2C3015C8A5D60034B089 /* PolygonProjectionTests.m */; };
 		08FE524115F3F3DF009A3127 /* libCocosLibs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 082668C815F3F31F00DFD0AB /* libCocosLibs.a */; };
 		08FE524915F3F4E2009A3127 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3690D15E9991D00027AD6 /* QuartzCore.framework */; };
 		08FE524A15F3F4E2009A3127 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3690F15E9991D00027AD6 /* OpenGLES.framework */; };
@@ -286,52 +257,54 @@
 		08FE53A815F3F4E5009A3127 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FE53A715F3F4E5009A3127 /* RootViewController.m */; };
 		08FE53AB15F3F4E5009A3127 /* SpinnerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FE53AA15F3F4E5009A3127 /* SpinnerLayer.m */; };
 		08FE53B015F3F4FB009A3127 /* libCocosLibs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 082668C815F3F31F00DFD0AB /* libCocosLibs.a */; };
-		08FE53B715F3FDE8009A3127 /* libSeparatingAxisTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE015C1C55E002DC0B4 /* libSeparatingAxisTest.a */; };
+		08FE53BE15F43142009A3127 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE315C1C55E002DC0B4 /* Foundation.framework */; };
+		08FE53CB15F43142009A3127 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DF115C1C55E002DC0B4 /* SenTestingKit.framework */; };
+		08FE53CC15F43142009A3127 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DF315C1C55E002DC0B4 /* UIKit.framework */; };
+		08FE53CD15F43142009A3127 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE315C1C55E002DC0B4 /* Foundation.framework */; };
+		08FE53D015F43142009A3127 /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FE53BD15F43142009A3127 /* libiOSGeometryTools.a */; };
+		08FE53D615F43142009A3127 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08FE53D415F43142009A3127 /* InfoPlist.strings */; };
+		08FE53F215F431FE009A3127 /* CGPoint_ops.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FE53E015F431FE009A3127 /* CGPoint_ops.c */; };
+		08FE53F315F431FE009A3127 /* CGPoint_ops.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FE53E115F431FE009A3127 /* CGPoint_ops.h */; };
+		08FE53F415F431FE009A3127 /* GrahamScan.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FE53E215F431FE009A3127 /* GrahamScan.c */; };
+		08FE53F515F431FE009A3127 /* GrahamScan.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FE53E315F431FE009A3127 /* GrahamScan.h */; };
+		08FE53F615F431FE009A3127 /* GrahamScanComparator.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FE53E415F431FE009A3127 /* GrahamScanComparator.c */; };
+		08FE53F715F431FE009A3127 /* GrahamScanComparator.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FE53E515F431FE009A3127 /* GrahamScanComparator.h */; };
+		08FE53F815F431FE009A3127 /* Overlap.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FE53E615F431FE009A3127 /* Overlap.h */; };
+		08FE53F915F431FE009A3127 /* Polygon.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FE53E715F431FE009A3127 /* Polygon.c */; };
+		08FE53FA15F431FE009A3127 /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FE53E815F431FE009A3127 /* Polygon.h */; };
+		08FE53FB15F431FE009A3127 /* Range.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FE53E915F431FE009A3127 /* Range.c */; };
+		08FE53FC15F431FE009A3127 /* Range.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FE53EA15F431FE009A3127 /* Range.h */; };
+		08FE53FD15F431FE009A3127 /* SATResult.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FE53EB15F431FE009A3127 /* SATResult.c */; };
+		08FE53FE15F431FE009A3127 /* SATResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FE53EC15F431FE009A3127 /* SATResult.h */; };
+		08FE540015F431FE009A3127 /* SeparatingAxisTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FE53EE15F431FE009A3127 /* SeparatingAxisTest.c */; };
+		08FE540115F431FE009A3127 /* SeparatingAxisTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FE53EF15F431FE009A3127 /* SeparatingAxisTest.h */; };
+		08FE540215F431FE009A3127 /* Stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FE53F015F431FE009A3127 /* Stack.c */; };
+		08FE540315F431FE009A3127 /* Stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 08FE53F115F431FE009A3127 /* Stack.h */; };
+		08FE541315F43221009A3127 /* GrahamScanComparatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FE540515F43221009A3127 /* GrahamScanComparatorTests.m */; };
+		08FE541415F43221009A3127 /* GrahamScanGoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FE540715F43221009A3127 /* GrahamScanGoTests.m */; };
+		08FE541515F43221009A3127 /* GrahamScanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FE540915F43221009A3127 /* GrahamScanTests.m */; };
+		08FE541615F43221009A3127 /* PolygonProjectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FE540B15F43221009A3127 /* PolygonProjectionTests.m */; };
+		08FE541815F43221009A3127 /* SeparatingAxisTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FE540E15F43221009A3127 /* SeparatingAxisTestTests.m */; };
+		08FE541915F43221009A3127 /* StackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FE541015F43221009A3127 /* StackTests.m */; };
+		08FE541A15F43221009A3127 /* VectorAssert.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FE541215F43221009A3127 /* VectorAssert.m */; };
+		08FE542315F43487009A3127 /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FE53BD15F43142009A3127 /* libiOSGeometryTools.a */; };
+		08FE542415F4348C009A3127 /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FE53BD15F43142009A3127 /* libiOSGeometryTools.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		08028DF615C1C55E002DC0B4 /* PBXContainerItemProxy */ = {
+		08FE53CE15F43142009A3127 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08028DD715C1C55E002DC0B4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 08028DDF15C1C55E002DC0B4;
-			remoteInfo = SeparatingAxisTest;
-		};
-		08D36A7A15E9995700027AD6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08028DD715C1C55E002DC0B4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 08028DDF15C1C55E002DC0B4;
-			remoteInfo = SeparatingAxisTest;
+			remoteGlobalIDString = 08FE53BC15F43142009A3127;
+			remoteInfo = iOSGeometryTools;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08028DE015C1C55E002DC0B4 /* libSeparatingAxisTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSeparatingAxisTest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		08028DE315C1C55E002DC0B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		08028DE715C1C55E002DC0B4 /* SeparatingAxisTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SeparatingAxisTest-Prefix.pch"; sourceTree = "<group>"; };
-		08028DE815C1C55E002DC0B4 /* SeparatingAxisTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeparatingAxisTest.h; sourceTree = "<group>"; };
-		08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SeparatingAxisTest.c; sourceTree = "<group>"; };
-		08028DF015C1C55E002DC0B4 /* SeparatingAxisTestTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeparatingAxisTestTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08028DF115C1C55E002DC0B4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		08028DF315C1C55E002DC0B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		08028DFB15C1C55E002DC0B4 /* SeparatingAxisTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SeparatingAxisTestTests-Info.plist"; sourceTree = "<group>"; };
-		08028DFD15C1C55E002DC0B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		08028DFF15C1C55E002DC0B4 /* SeparatingAxisTestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeparatingAxisTestTests.h; sourceTree = "<group>"; };
-		08028E0015C1C55E002DC0B4 /* SeparatingAxisTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeparatingAxisTestTests.m; sourceTree = "<group>"; };
-		08028E0F15C1CDD5002DC0B4 /* Polygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polygon.h; sourceTree = "<group>"; };
-		08028E1015C1CDD5002DC0B4 /* Polygon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Polygon.c; sourceTree = "<group>"; };
-		08028E1415C1D035002DC0B4 /* CGPoint_ops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPoint_ops.h; sourceTree = "<group>"; };
-		08028E1515C1D035002DC0B4 /* CGPoint_ops.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CGPoint_ops.c; sourceTree = "<group>"; };
-		08028E2015C1E39B002DC0B4 /* Range.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range.h; sourceTree = "<group>"; };
-		08028E2115C1E39B002DC0B4 /* Range.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Range.c; sourceTree = "<group>"; };
-		08028E2415C2048D002DC0B4 /* SATResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATResult.h; sourceTree = "<group>"; };
-		08028E2515C2048D002DC0B4 /* SATResult.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SATResult.c; sourceTree = "<group>"; };
-		08028E2815C238D9002DC0B4 /* Overlap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Overlap.h; sourceTree = "<group>"; };
-		080EAB9615C6D58A00476E17 /* GrahamScanComparatorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanComparatorTests.h; sourceTree = "<group>"; };
-		080EAB9715C6D58A00476E17 /* GrahamScanComparatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrahamScanComparatorTests.m; sourceTree = "<group>"; };
-		080EAB9915C7347C00476E17 /* GrahamScanComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanComparator.h; sourceTree = "<group>"; };
-		080EAB9A15C7347C00476E17 /* GrahamScanComparator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GrahamScanComparator.c; sourceTree = "<group>"; };
 		082668C815F3F31F00DFD0AB /* libCocosLibs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocosLibs.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		082668CC15F3F31F00DFD0AB /* CocosLibs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CocosLibs-Prefix.pch"; sourceTree = "<group>"; };
 		082668ED15F3F39500DFD0AB /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
@@ -542,12 +515,6 @@
 		082669C415F3F39500DFD0AB /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		082669C515F3F39500DFD0AB /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		082669C615F3F39500DFD0AB /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
-		08A76BB915E970F600CC1B93 /* GrahamScanGoTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanGoTests.h; sourceTree = "<group>"; };
-		08A76BBA15E970F600CC1B93 /* GrahamScanGoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrahamScanGoTests.m; sourceTree = "<group>"; };
-		08ACE54615CAEAC1001B7DA6 /* GrahamScanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanTests.h; sourceTree = "<group>"; };
-		08ACE54715CAEAC1001B7DA6 /* GrahamScanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrahamScanTests.m; sourceTree = "<group>"; };
-		08ACE54A15CAEFD4001B7DA6 /* GrahamScan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScan.h; sourceTree = "<group>"; };
-		08ACE54C15CAEFE0001B7DA6 /* GrahamScan.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GrahamScan.c; sourceTree = "<group>"; };
 		08D3690B15E9991D00027AD6 /* GrahamCracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrahamCracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D3690D15E9991D00027AD6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		08D3690F15E9991D00027AD6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -576,14 +543,6 @@
 		08D36A7615E9991F00027AD6 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		08D36A7D15E9A46E00027AD6 /* SwingArm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwingArm.h; sourceTree = "<group>"; };
 		08D36A7E15E9A46E00027AD6 /* SwingArm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwingArm.m; sourceTree = "<group>"; };
-		08DBB3A215E95AEC00BB6EBF /* Stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Stack.c; sourceTree = "<group>"; };
-		08DBB3A415E95AF800BB6EBF /* Stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
-		08DBB3A615E95B5900BB6EBF /* StackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackTests.h; sourceTree = "<group>"; };
-		08DBB3A715E95B5900BB6EBF /* StackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackTests.m; sourceTree = "<group>"; };
-		08DBB3AA15E95CD400BB6EBF /* VectorAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorAssert.h; sourceTree = "<group>"; };
-		08DBB3AB15E95CD400BB6EBF /* VectorAssert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VectorAssert.m; sourceTree = "<group>"; };
-		08FA2C2F15C8A5D60034B089 /* PolygonProjectionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonProjectionTests.h; sourceTree = "<group>"; };
-		08FA2C3015C8A5D60034B089 /* PolygonProjectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolygonProjectionTests.m; sourceTree = "<group>"; };
 		08FE524715F3F4E2009A3127 /* AppleSpinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleSpinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08FE525315F3F4E3009A3127 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		08FE525515F3F4E3009A3127 /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = Resources/fps_images.png; sourceTree = "<group>"; };
@@ -604,28 +563,45 @@
 		08FE53A915F3F4E5009A3127 /* SpinnerLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpinnerLayer.h; sourceTree = "<group>"; };
 		08FE53AA15F3F4E5009A3127 /* SpinnerLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpinnerLayer.m; sourceTree = "<group>"; };
 		08FE53AC15F3F4E5009A3127 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		08FE53BD15F43142009A3127 /* libiOSGeometryTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOSGeometryTools.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		08FE53C115F43142009A3127 /* iOSGeometryTools-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSGeometryTools-Prefix.pch"; sourceTree = "<group>"; };
+		08FE53CA15F43142009A3127 /* iOSGeometryToolsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSGeometryToolsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		08FE53D315F43142009A3127 /* iOSGeometryToolsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOSGeometryToolsTests-Info.plist"; sourceTree = "<group>"; };
+		08FE53D515F43142009A3127 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		08FE53E015F431FE009A3127 /* CGPoint_ops.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CGPoint_ops.c; sourceTree = "<group>"; };
+		08FE53E115F431FE009A3127 /* CGPoint_ops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPoint_ops.h; sourceTree = "<group>"; };
+		08FE53E215F431FE009A3127 /* GrahamScan.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GrahamScan.c; sourceTree = "<group>"; };
+		08FE53E315F431FE009A3127 /* GrahamScan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScan.h; sourceTree = "<group>"; };
+		08FE53E415F431FE009A3127 /* GrahamScanComparator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GrahamScanComparator.c; sourceTree = "<group>"; };
+		08FE53E515F431FE009A3127 /* GrahamScanComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanComparator.h; sourceTree = "<group>"; };
+		08FE53E615F431FE009A3127 /* Overlap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Overlap.h; sourceTree = "<group>"; };
+		08FE53E715F431FE009A3127 /* Polygon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Polygon.c; sourceTree = "<group>"; };
+		08FE53E815F431FE009A3127 /* Polygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polygon.h; sourceTree = "<group>"; };
+		08FE53E915F431FE009A3127 /* Range.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Range.c; sourceTree = "<group>"; };
+		08FE53EA15F431FE009A3127 /* Range.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range.h; sourceTree = "<group>"; };
+		08FE53EB15F431FE009A3127 /* SATResult.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SATResult.c; sourceTree = "<group>"; };
+		08FE53EC15F431FE009A3127 /* SATResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATResult.h; sourceTree = "<group>"; };
+		08FE53EE15F431FE009A3127 /* SeparatingAxisTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SeparatingAxisTest.c; sourceTree = "<group>"; };
+		08FE53EF15F431FE009A3127 /* SeparatingAxisTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatingAxisTest.h; sourceTree = "<group>"; };
+		08FE53F015F431FE009A3127 /* Stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Stack.c; sourceTree = "<group>"; };
+		08FE53F115F431FE009A3127 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		08FE540415F43221009A3127 /* GrahamScanComparatorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanComparatorTests.h; sourceTree = "<group>"; };
+		08FE540515F43221009A3127 /* GrahamScanComparatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrahamScanComparatorTests.m; sourceTree = "<group>"; };
+		08FE540615F43221009A3127 /* GrahamScanGoTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanGoTests.h; sourceTree = "<group>"; };
+		08FE540715F43221009A3127 /* GrahamScanGoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrahamScanGoTests.m; sourceTree = "<group>"; };
+		08FE540815F43221009A3127 /* GrahamScanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrahamScanTests.h; sourceTree = "<group>"; };
+		08FE540915F43221009A3127 /* GrahamScanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrahamScanTests.m; sourceTree = "<group>"; };
+		08FE540A15F43221009A3127 /* PolygonProjectionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonProjectionTests.h; sourceTree = "<group>"; };
+		08FE540B15F43221009A3127 /* PolygonProjectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolygonProjectionTests.m; sourceTree = "<group>"; };
+		08FE540D15F43221009A3127 /* SeparatingAxisTestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatingAxisTestTests.h; sourceTree = "<group>"; };
+		08FE540E15F43221009A3127 /* SeparatingAxisTestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeparatingAxisTestTests.m; sourceTree = "<group>"; };
+		08FE540F15F43221009A3127 /* StackTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackTests.h; sourceTree = "<group>"; };
+		08FE541015F43221009A3127 /* StackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackTests.m; sourceTree = "<group>"; };
+		08FE541115F43221009A3127 /* VectorAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorAssert.h; sourceTree = "<group>"; };
+		08FE541215F43221009A3127 /* VectorAssert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VectorAssert.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		08028DDD15C1C55E002DC0B4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08028DE415C1C55E002DC0B4 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		08028DEC15C1C55E002DC0B4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08028DF215C1C55E002DC0B4 /* SenTestingKit.framework in Frameworks */,
-				08028DF415C1C55E002DC0B4 /* UIKit.framework in Frameworks */,
-				08028DF515C1C55E002DC0B4 /* Foundation.framework in Frameworks */,
-				08028DF815C1C55E002DC0B4 /* libSeparatingAxisTest.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		082668C515F3F31F00DFD0AB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -638,8 +614,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08FE542315F43487009A3127 /* libiOSGeometryTools.a in Frameworks */,
 				08FE524115F3F3DF009A3127 /* libCocosLibs.a in Frameworks */,
-				08D36A7C15E99ACD00027AD6 /* libSeparatingAxisTest.a in Frameworks */,
 				08D3690E15E9991D00027AD6 /* QuartzCore.framework in Frameworks */,
 				08D3691015E9991D00027AD6 /* OpenGLES.framework in Frameworks */,
 				08D3691215E9991D00027AD6 /* OpenAL.framework in Frameworks */,
@@ -655,7 +631,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08FE53B715F3FDE8009A3127 /* libSeparatingAxisTest.a in Frameworks */,
+				08FE542415F4348C009A3127 /* libiOSGeometryTools.a in Frameworks */,
 				08FE53B015F3F4FB009A3127 /* libCocosLibs.a in Frameworks */,
 				08FE524915F3F4E2009A3127 /* QuartzCore.framework in Frameworks */,
 				08FE524A15F3F4E2009A3127 /* OpenGLES.framework in Frameworks */,
@@ -668,14 +644,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		08FE53BA15F43142009A3127 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08FE53BE15F43142009A3127 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08FE53C615F43142009A3127 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08FE53CB15F43142009A3127 /* SenTestingKit.framework in Frameworks */,
+				08FE53CC15F43142009A3127 /* UIKit.framework in Frameworks */,
+				08FE53CD15F43142009A3127 /* Foundation.framework in Frameworks */,
+				08FE53D015F43142009A3127 /* libiOSGeometryTools.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		08028DD515C1C55E002DC0B4 = {
 			isa = PBXGroup;
 			children = (
-				08028DE515C1C55E002DC0B4 /* SeparatingAxisTest */,
-				08028DF915C1C55E002DC0B4 /* SeparatingAxisTestTests */,
+				08FE53BF15F43142009A3127 /* iOSGeometryTools */,
+				08FE53D115F43142009A3127 /* iOSGeometryToolsTests */,
 				08D3691B15E9991D00027AD6 /* GrahamCracker */,
 				082668CA15F3F31F00DFD0AB /* CocosLibs */,
 				08FE525115F3F4E3009A3127 /* AppleSpinner */,
@@ -687,11 +682,11 @@
 		08028DE115C1C55E002DC0B4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				08028DE015C1C55E002DC0B4 /* libSeparatingAxisTest.a */,
-				08028DF015C1C55E002DC0B4 /* SeparatingAxisTestTests.octest */,
 				08D3690B15E9991D00027AD6 /* GrahamCracker.app */,
 				082668C815F3F31F00DFD0AB /* libCocosLibs.a */,
 				08FE524715F3F4E2009A3127 /* AppleSpinner.app */,
+				08FE53BD15F43142009A3127 /* libiOSGeometryTools.a */,
+				08FE53CA15F43142009A3127 /* iOSGeometryToolsTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -710,107 +705,6 @@
 				08D3691915E9991D00027AD6 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		08028DE515C1C55E002DC0B4 /* SeparatingAxisTest */ = {
-			isa = PBXGroup;
-			children = (
-				08DBB3A115E95AD400BB6EBF /* Stack */,
-				080EAB9315C6D54300476E17 /* GrahamScan */,
-				080EAB9215C6D52500476E17 /* Geometry */,
-				080EAB9015C6D51000476E17 /* SAT */,
-				08028DE615C1C55E002DC0B4 /* Supporting Files */,
-			);
-			path = SeparatingAxisTest;
-			sourceTree = "<group>";
-		};
-		08028DE615C1C55E002DC0B4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				08028DE715C1C55E002DC0B4 /* SeparatingAxisTest-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		08028DF915C1C55E002DC0B4 /* SeparatingAxisTestTests */ = {
-			isa = PBXGroup;
-			children = (
-				08DBB3A915E95CBE00BB6EBF /* Utils */,
-				08DBB3A515E95B3600BB6EBF /* Stack */,
-				080EAB9515C6D56400476E17 /* GrahamScan */,
-				080EAB9415C6D55500476E17 /* SAT */,
-				08028DFA15C1C55E002DC0B4 /* Supporting Files */,
-			);
-			path = SeparatingAxisTestTests;
-			sourceTree = "<group>";
-		};
-		08028DFA15C1C55E002DC0B4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				08028DFB15C1C55E002DC0B4 /* SeparatingAxisTestTests-Info.plist */,
-				08028DFC15C1C55E002DC0B4 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		080EAB9015C6D51000476E17 /* SAT */ = {
-			isa = PBXGroup;
-			children = (
-				08028DE815C1C55E002DC0B4 /* SeparatingAxisTest.h */,
-				08028DE915C1C55E002DC0B4 /* SeparatingAxisTest.c */,
-				08028E2015C1E39B002DC0B4 /* Range.h */,
-				08028E2115C1E39B002DC0B4 /* Range.c */,
-				08028E2415C2048D002DC0B4 /* SATResult.h */,
-				08028E2515C2048D002DC0B4 /* SATResult.c */,
-				08028E2815C238D9002DC0B4 /* Overlap.h */,
-			);
-			name = SAT;
-			sourceTree = "<group>";
-		};
-		080EAB9215C6D52500476E17 /* Geometry */ = {
-			isa = PBXGroup;
-			children = (
-				08028E0F15C1CDD5002DC0B4 /* Polygon.h */,
-				08028E1015C1CDD5002DC0B4 /* Polygon.c */,
-				08028E1415C1D035002DC0B4 /* CGPoint_ops.h */,
-				08028E1515C1D035002DC0B4 /* CGPoint_ops.c */,
-			);
-			name = Geometry;
-			sourceTree = "<group>";
-		};
-		080EAB9315C6D54300476E17 /* GrahamScan */ = {
-			isa = PBXGroup;
-			children = (
-				080EAB9915C7347C00476E17 /* GrahamScanComparator.h */,
-				080EAB9A15C7347C00476E17 /* GrahamScanComparator.c */,
-				08ACE54A15CAEFD4001B7DA6 /* GrahamScan.h */,
-				08ACE54C15CAEFE0001B7DA6 /* GrahamScan.c */,
-			);
-			name = GrahamScan;
-			sourceTree = "<group>";
-		};
-		080EAB9415C6D55500476E17 /* SAT */ = {
-			isa = PBXGroup;
-			children = (
-				08028DFF15C1C55E002DC0B4 /* SeparatingAxisTestTests.h */,
-				08028E0015C1C55E002DC0B4 /* SeparatingAxisTestTests.m */,
-				08FA2C2F15C8A5D60034B089 /* PolygonProjectionTests.h */,
-				08FA2C3015C8A5D60034B089 /* PolygonProjectionTests.m */,
-			);
-			name = SAT;
-			sourceTree = "<group>";
-		};
-		080EAB9515C6D56400476E17 /* GrahamScan */ = {
-			isa = PBXGroup;
-			children = (
-				080EAB9615C6D58A00476E17 /* GrahamScanComparatorTests.h */,
-				080EAB9715C6D58A00476E17 /* GrahamScanComparatorTests.m */,
-				08ACE54615CAEAC1001B7DA6 /* GrahamScanTests.h */,
-				08ACE54715CAEAC1001B7DA6 /* GrahamScanTests.m */,
-				08A76BB915E970F600CC1B93 /* GrahamScanGoTests.h */,
-				08A76BBA15E970F600CC1B93 /* GrahamScanGoTests.m */,
-			);
-			name = GrahamScan;
 			sourceTree = "<group>";
 		};
 		082668CA15F3F31F00DFD0AB /* CocosLibs */ = {
@@ -1169,33 +1063,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		08DBB3A115E95AD400BB6EBF /* Stack */ = {
-			isa = PBXGroup;
-			children = (
-				08DBB3A215E95AEC00BB6EBF /* Stack.c */,
-				08DBB3A415E95AF800BB6EBF /* Stack.h */,
-			);
-			name = Stack;
-			sourceTree = "<group>";
-		};
-		08DBB3A515E95B3600BB6EBF /* Stack */ = {
-			isa = PBXGroup;
-			children = (
-				08DBB3A615E95B5900BB6EBF /* StackTests.h */,
-				08DBB3A715E95B5900BB6EBF /* StackTests.m */,
-			);
-			name = Stack;
-			sourceTree = "<group>";
-		};
-		08DBB3A915E95CBE00BB6EBF /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				08DBB3AA15E95CD400BB6EBF /* VectorAssert.h */,
-				08DBB3AB15E95CD400BB6EBF /* VectorAssert.m */,
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
 		08FE525115F3F4E3009A3127 /* AppleSpinner */ = {
 			isa = PBXGroup;
 			children = (
@@ -1238,23 +1105,137 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		08FE53BF15F43142009A3127 /* iOSGeometryTools */ = {
+			isa = PBXGroup;
+			children = (
+				08FE541D15F43248009A3127 /* Geometry */,
+				08FE541B15F4322B009A3127 /* Stack */,
+				08FE541E15F43265009A3127 /* SeparatinAxisTest */,
+				08FE541C15F43238009A3127 /* GrahamScan */,
+				08FE53C015F43142009A3127 /* Supporting Files */,
+			);
+			path = iOSGeometryTools;
+			sourceTree = "<group>";
+		};
+		08FE53C015F43142009A3127 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				08FE53C115F43142009A3127 /* iOSGeometryTools-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		08FE53D115F43142009A3127 /* iOSGeometryToolsTests */ = {
+			isa = PBXGroup;
+			children = (
+				08FE541F15F432C6009A3127 /* TestUtils */,
+				08FE542215F43314009A3127 /* GrahamScan */,
+				08FE542115F43303009A3127 /* SeparatingAxisTest */,
+				08FE542015F432DF009A3127 /* Stack */,
+				08FE53D215F43142009A3127 /* Supporting Files */,
+			);
+			path = iOSGeometryToolsTests;
+			sourceTree = "<group>";
+		};
+		08FE53D215F43142009A3127 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				08FE53D315F43142009A3127 /* iOSGeometryToolsTests-Info.plist */,
+				08FE53D415F43142009A3127 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		08FE541B15F4322B009A3127 /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				08FE53F015F431FE009A3127 /* Stack.c */,
+				08FE53F115F431FE009A3127 /* Stack.h */,
+			);
+			name = Stack;
+			sourceTree = "<group>";
+		};
+		08FE541C15F43238009A3127 /* GrahamScan */ = {
+			isa = PBXGroup;
+			children = (
+				08FE53E215F431FE009A3127 /* GrahamScan.c */,
+				08FE53E315F431FE009A3127 /* GrahamScan.h */,
+				08FE53E415F431FE009A3127 /* GrahamScanComparator.c */,
+				08FE53E515F431FE009A3127 /* GrahamScanComparator.h */,
+			);
+			name = GrahamScan;
+			sourceTree = "<group>";
+		};
+		08FE541D15F43248009A3127 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				08FE53E015F431FE009A3127 /* CGPoint_ops.c */,
+				08FE53E115F431FE009A3127 /* CGPoint_ops.h */,
+				08FE53E715F431FE009A3127 /* Polygon.c */,
+				08FE53E815F431FE009A3127 /* Polygon.h */,
+			);
+			name = Geometry;
+			sourceTree = "<group>";
+		};
+		08FE541E15F43265009A3127 /* SeparatinAxisTest */ = {
+			isa = PBXGroup;
+			children = (
+				08FE53E615F431FE009A3127 /* Overlap.h */,
+				08FE53E915F431FE009A3127 /* Range.c */,
+				08FE53EA15F431FE009A3127 /* Range.h */,
+				08FE53EB15F431FE009A3127 /* SATResult.c */,
+				08FE53EC15F431FE009A3127 /* SATResult.h */,
+				08FE53EE15F431FE009A3127 /* SeparatingAxisTest.c */,
+				08FE53EF15F431FE009A3127 /* SeparatingAxisTest.h */,
+			);
+			name = SeparatinAxisTest;
+			sourceTree = "<group>";
+		};
+		08FE541F15F432C6009A3127 /* TestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				08FE541115F43221009A3127 /* VectorAssert.h */,
+				08FE541215F43221009A3127 /* VectorAssert.m */,
+			);
+			name = TestUtils;
+			sourceTree = "<group>";
+		};
+		08FE542015F432DF009A3127 /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				08FE540F15F43221009A3127 /* StackTests.h */,
+				08FE541015F43221009A3127 /* StackTests.m */,
+			);
+			name = Stack;
+			sourceTree = "<group>";
+		};
+		08FE542115F43303009A3127 /* SeparatingAxisTest */ = {
+			isa = PBXGroup;
+			children = (
+				08FE540A15F43221009A3127 /* PolygonProjectionTests.h */,
+				08FE540B15F43221009A3127 /* PolygonProjectionTests.m */,
+				08FE540D15F43221009A3127 /* SeparatingAxisTestTests.h */,
+				08FE540E15F43221009A3127 /* SeparatingAxisTestTests.m */,
+			);
+			name = SeparatingAxisTest;
+			sourceTree = "<group>";
+		};
+		08FE542215F43314009A3127 /* GrahamScan */ = {
+			isa = PBXGroup;
+			children = (
+				08FE540415F43221009A3127 /* GrahamScanComparatorTests.h */,
+				08FE540515F43221009A3127 /* GrahamScanComparatorTests.m */,
+				08FE540615F43221009A3127 /* GrahamScanGoTests.h */,
+				08FE540715F43221009A3127 /* GrahamScanGoTests.m */,
+				08FE540815F43221009A3127 /* GrahamScanTests.h */,
+				08FE540915F43221009A3127 /* GrahamScanTests.m */,
+			);
+			name = GrahamScan;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		08028DDE15C1C55E002DC0B4 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08028E1115C1CDD5002DC0B4 /* Polygon.h in Headers */,
-				08028E1615C1D035002DC0B4 /* CGPoint_ops.h in Headers */,
-				08028E2215C1E39B002DC0B4 /* Range.h in Headers */,
-				08028E2615C2048D002DC0B4 /* SATResult.h in Headers */,
-				08028E2A15C238D9002DC0B4 /* Overlap.h in Headers */,
-				080EAB9B15C7347C00476E17 /* GrahamScanComparator.h in Headers */,
-				08ACE54B15CAEFD4001B7DA6 /* GrahamScan.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		082668C615F3F31F00DFD0AB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1372,45 +1353,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		08FE53BB15F43142009A3127 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08FE53F315F431FE009A3127 /* CGPoint_ops.h in Headers */,
+				08FE53F515F431FE009A3127 /* GrahamScan.h in Headers */,
+				08FE53F715F431FE009A3127 /* GrahamScanComparator.h in Headers */,
+				08FE53F815F431FE009A3127 /* Overlap.h in Headers */,
+				08FE53FA15F431FE009A3127 /* Polygon.h in Headers */,
+				08FE53FC15F431FE009A3127 /* Range.h in Headers */,
+				08FE53FE15F431FE009A3127 /* SATResult.h in Headers */,
+				08FE540115F431FE009A3127 /* SeparatingAxisTest.h in Headers */,
+				08FE540315F431FE009A3127 /* Stack.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		08028DDF15C1C55E002DC0B4 /* SeparatingAxisTest */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 08028E0415C1C55E002DC0B4 /* Build configuration list for PBXNativeTarget "SeparatingAxisTest" */;
-			buildPhases = (
-				08028DDC15C1C55E002DC0B4 /* Sources */,
-				08028DDD15C1C55E002DC0B4 /* Frameworks */,
-				08028DDE15C1C55E002DC0B4 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SeparatingAxisTest;
-			productName = SeparatingAxisTest;
-			productReference = 08028DE015C1C55E002DC0B4 /* libSeparatingAxisTest.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		08028DEF15C1C55E002DC0B4 /* SeparatingAxisTestTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 08028E0715C1C55E002DC0B4 /* Build configuration list for PBXNativeTarget "SeparatingAxisTestTests" */;
-			buildPhases = (
-				08028DEB15C1C55E002DC0B4 /* Sources */,
-				08028DEC15C1C55E002DC0B4 /* Frameworks */,
-				08028DED15C1C55E002DC0B4 /* Resources */,
-				08028DEE15C1C55E002DC0B4 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				08028DF715C1C55E002DC0B4 /* PBXTargetDependency */,
-			);
-			name = SeparatingAxisTestTests;
-			productName = SeparatingAxisTestTests;
-			productReference = 08028DF015C1C55E002DC0B4 /* SeparatingAxisTestTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 		082668C715F3F31F00DFD0AB /* CocosLibs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 082668E915F3F31F00DFD0AB /* Build configuration list for PBXNativeTarget "CocosLibs" */;
@@ -1439,7 +1400,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				08D36A7B15E9995700027AD6 /* PBXTargetDependency */,
 			);
 			name = GrahamCracker;
 			productName = GrahamCracker;
@@ -1463,6 +1423,42 @@
 			productReference = 08FE524715F3F4E2009A3127 /* AppleSpinner.app */;
 			productType = "com.apple.product-type.application";
 		};
+		08FE53BC15F43142009A3127 /* iOSGeometryTools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08FE53DA15F43142009A3127 /* Build configuration list for PBXNativeTarget "iOSGeometryTools" */;
+			buildPhases = (
+				08FE53B915F43142009A3127 /* Sources */,
+				08FE53BA15F43142009A3127 /* Frameworks */,
+				08FE53BB15F43142009A3127 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSGeometryTools;
+			productName = iOSGeometryTools;
+			productReference = 08FE53BD15F43142009A3127 /* libiOSGeometryTools.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		08FE53C915F43142009A3127 /* iOSGeometryToolsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08FE53DD15F43142009A3127 /* Build configuration list for PBXNativeTarget "iOSGeometryToolsTests" */;
+			buildPhases = (
+				08FE53C515F43142009A3127 /* Sources */,
+				08FE53C615F43142009A3127 /* Frameworks */,
+				08FE53C715F43142009A3127 /* Resources */,
+				08FE53C815F43142009A3127 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				08FE53CF15F43142009A3127 /* PBXTargetDependency */,
+			);
+			name = iOSGeometryToolsTests;
+			productName = iOSGeometryToolsTests;
+			productReference = 08FE53CA15F43142009A3127 /* iOSGeometryToolsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1484,24 +1480,16 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				08028DDF15C1C55E002DC0B4 /* SeparatingAxisTest */,
-				08028DEF15C1C55E002DC0B4 /* SeparatingAxisTestTests */,
 				08D3690A15E9991D00027AD6 /* GrahamCracker */,
 				08FE524615F3F4E2009A3127 /* AppleSpinner */,
 				082668C715F3F31F00DFD0AB /* CocosLibs */,
+				08FE53BC15F43142009A3127 /* iOSGeometryTools */,
+				08FE53C915F43142009A3127 /* iOSGeometryToolsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		08028DED15C1C55E002DC0B4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08028DFE15C1C55E002DC0B4 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		08D3690915E9991D00027AD6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1534,10 +1522,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		08FE53C715F43142009A3127 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08FE53D615F43142009A3127 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08028DEE15C1C55E002DC0B4 /* ShellScript */ = {
+		08FE53C815F43142009A3127 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1553,35 +1549,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		08028DDC15C1C55E002DC0B4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08028DEA15C1C55E002DC0B4 /* SeparatingAxisTest.c in Sources */,
-				08028E1215C1CDD5002DC0B4 /* Polygon.c in Sources */,
-				08028E1715C1D035002DC0B4 /* CGPoint_ops.c in Sources */,
-				08028E2315C1E39B002DC0B4 /* Range.c in Sources */,
-				08028E2715C2048D002DC0B4 /* SATResult.c in Sources */,
-				080EAB9C15C7347C00476E17 /* GrahamScanComparator.c in Sources */,
-				08ACE54D15CAEFE0001B7DA6 /* GrahamScan.c in Sources */,
-				08DBB3A315E95AEC00BB6EBF /* Stack.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		08028DEB15C1C55E002DC0B4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08028E0115C1C55E002DC0B4 /* SeparatingAxisTestTests.m in Sources */,
-				080EAB9815C6D58A00476E17 /* GrahamScanComparatorTests.m in Sources */,
-				08FA2C3115C8A5D60034B089 /* PolygonProjectionTests.m in Sources */,
-				08ACE54815CAEAC1001B7DA6 /* GrahamScanTests.m in Sources */,
-				08DBB3A815E95B5900BB6EBF /* StackTests.m in Sources */,
-				08DBB3AC15E95CD400BB6EBF /* VectorAssert.m in Sources */,
-				08A76BBB15E970F600CC1B93 /* GrahamScanGoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		082668C415F3F31F00DFD0AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1706,26 +1673,50 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		08FE53B915F43142009A3127 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08FE53F215F431FE009A3127 /* CGPoint_ops.c in Sources */,
+				08FE53F415F431FE009A3127 /* GrahamScan.c in Sources */,
+				08FE53F615F431FE009A3127 /* GrahamScanComparator.c in Sources */,
+				08FE53F915F431FE009A3127 /* Polygon.c in Sources */,
+				08FE53FB15F431FE009A3127 /* Range.c in Sources */,
+				08FE53FD15F431FE009A3127 /* SATResult.c in Sources */,
+				08FE540015F431FE009A3127 /* SeparatingAxisTest.c in Sources */,
+				08FE540215F431FE009A3127 /* Stack.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08FE53C515F43142009A3127 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08FE541315F43221009A3127 /* GrahamScanComparatorTests.m in Sources */,
+				08FE541415F43221009A3127 /* GrahamScanGoTests.m in Sources */,
+				08FE541515F43221009A3127 /* GrahamScanTests.m in Sources */,
+				08FE541615F43221009A3127 /* PolygonProjectionTests.m in Sources */,
+				08FE541815F43221009A3127 /* SeparatingAxisTestTests.m in Sources */,
+				08FE541915F43221009A3127 /* StackTests.m in Sources */,
+				08FE541A15F43221009A3127 /* VectorAssert.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		08028DF715C1C55E002DC0B4 /* PBXTargetDependency */ = {
+		08FE53CF15F43142009A3127 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 08028DDF15C1C55E002DC0B4 /* SeparatingAxisTest */;
-			targetProxy = 08028DF615C1C55E002DC0B4 /* PBXContainerItemProxy */;
-		};
-		08D36A7B15E9995700027AD6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 08028DDF15C1C55E002DC0B4 /* SeparatingAxisTest */;
-			targetProxy = 08D36A7A15E9995700027AD6 /* PBXContainerItemProxy */;
+			target = 08FE53BC15F43142009A3127 /* iOSGeometryTools */;
+			targetProxy = 08FE53CE15F43142009A3127 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		08028DFC15C1C55E002DC0B4 /* InfoPlist.strings */ = {
+		08FE53D415F43142009A3127 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				08028DFD15C1C55E002DC0B4 /* en */,
+				08FE53D515F43142009A3127 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1772,70 +1763,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		08028E0515C1C55E002DC0B4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEPLOYMENT_LOCATION = YES;
-				DSTROOT = /tmp/SeparatingAxisTest.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SeparatingAxisTest/SeparatingAxisTest-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = NO;
-			};
-			name = Debug;
-		};
-		08028E0615C1C55E002DC0B4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEPLOYMENT_LOCATION = YES;
-				DSTROOT = /tmp/SeparatingAxisTest.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SeparatingAxisTest/SeparatingAxisTest-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = NO;
-			};
-			name = Release;
-		};
-		08028E0815C1C55E002DC0B4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SeparatingAxisTest/SeparatingAxisTest-Prefix.pch";
-				INFOPLIST_FILE = "SeparatingAxisTestTests/SeparatingAxisTestTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		08028E0915C1C55E002DC0B4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SeparatingAxisTest/SeparatingAxisTest-Prefix.pch";
-				INFOPLIST_FILE = "SeparatingAxisTestTests/SeparatingAxisTestTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -1968,6 +1895,60 @@
 			};
 			name = Release;
 		};
+		08FE53DB15F43142009A3127 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/iOSGeometryTools.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSGeometryTools/iOSGeometryTools-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		08FE53DC15F43142009A3127 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/iOSGeometryTools.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSGeometryTools/iOSGeometryTools-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		08FE53DE15F43142009A3127 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSGeometryTools/iOSGeometryTools-Prefix.pch";
+				INFOPLIST_FILE = "iOSGeometryToolsTests/iOSGeometryToolsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		08FE53DF15F43142009A3127 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSGeometryTools/iOSGeometryTools-Prefix.pch";
+				INFOPLIST_FILE = "iOSGeometryToolsTests/iOSGeometryToolsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1976,24 +1957,6 @@
 			buildConfigurations = (
 				08028E0215C1C55E002DC0B4 /* Debug */,
 				08028E0315C1C55E002DC0B4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		08028E0415C1C55E002DC0B4 /* Build configuration list for PBXNativeTarget "SeparatingAxisTest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				08028E0515C1C55E002DC0B4 /* Debug */,
-				08028E0615C1C55E002DC0B4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		08028E0715C1C55E002DC0B4 /* Build configuration list for PBXNativeTarget "SeparatingAxisTestTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				08028E0815C1C55E002DC0B4 /* Debug */,
-				08028E0915C1C55E002DC0B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2024,6 +1987,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		08FE53DA15F43142009A3127 /* Build configuration list for PBXNativeTarget "iOSGeometryTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08FE53DB15F43142009A3127 /* Debug */,
+				08FE53DC15F43142009A3127 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		08FE53DD15F43142009A3127 /* Build configuration list for PBXNativeTarget "iOSGeometryToolsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08FE53DE15F43142009A3127 /* Debug */,
+				08FE53DF15F43142009A3127 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
