@@ -58,7 +58,7 @@ bool gs_are_points_colinear(CGPoint basis, CGPoint a, CGPoint b) {
     CGPoint minToB = cgp_subtract(b, basis);
     cgp_normalize(&minToB);
     
-    CGPoint unitX = cgp_from(1, 0);
+    CGPoint unitX = cgp(1, 0);
     
     float dotXWithA = cgp_dot(unitX, minToA);
     float dotXWithB = cgp_dot(unitX, minToB);
@@ -104,7 +104,7 @@ bool gs_validate(CGPolygon poly) {
         CGPoint minToB = cgp_subtract(b, min);
         cgp_normalize(&minToB);
         
-        CGPoint unitX = cgp_from(1, 0);
+        CGPoint unitX = cgp(1, 0);
         
         float dotXWithA = cgp_dot(unitX, minToA);
         float dotXWithB = cgp_dot(unitX, minToB);

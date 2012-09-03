@@ -17,10 +17,10 @@
 @implementation GrahamScanComparatorTests
 
 -(void) testSortingVectorsWithFanciness {
-    CGPoint vector = cgp_from(0, 0);
+    CGPoint vector = cgp(0, 0);
     
     CGPoint vectors[] = {
-        cgp_from(1, 1), cgp_from(-1, 1), cgp_from(0, 1)
+        cgp(1, 1), cgp(-1, 1), cgp(0, 1)
     };
     qsort_r(vectors, 3, sizeof(CGPoint), &vector, graham_comparator);
     
@@ -29,48 +29,48 @@
 }
 
 -(void) testEquals {
-    CGPoint min = cgp_from(0, 0);
-    CGPoint a = cgp_from(1, 1);
-    CGPoint b = cgp_from(1, 1);
+    CGPoint min = cgp(0, 0);
+    CGPoint a = cgp(1, 1);
+    CGPoint b = cgp(1, 1);
     STAssertEquals(0, graham_comparator(&min, &a, &b), @"");
 }
 
 -(void) testColinearLessThan {
     {
-        CGPoint min = cgp_from(0, 0);
-        CGPoint a = cgp_from(1, 1);
-        CGPoint b = cgp_from(2, 2);
+        CGPoint min = cgp(0, 0);
+        CGPoint a = cgp(1, 1);
+        CGPoint b = cgp(2, 2);
         STAssertEquals(graham_comparator(&min, &a, &b), -1, @"");
     }
 
     {
-        CGPoint min = cgp_from(0, 0);
-        CGPoint a = cgp_from(1, 1);
-        CGPoint b = cgp_from(3, 3);
+        CGPoint min = cgp(0, 0);
+        CGPoint a = cgp(1, 1);
+        CGPoint b = cgp(3, 3);
         STAssertEquals(graham_comparator(&min, &a, &b), -1, @"");
     }
     
     {
-        CGPoint min = cgp_from(0, 0);
-        CGPoint a = cgp_from(3, 3);
-        CGPoint b = cgp_from(1, 1);
+        CGPoint min = cgp(0, 0);
+        CGPoint a = cgp(3, 3);
+        CGPoint b = cgp(1, 1);
         STAssertEquals(graham_comparator(&min, &a, &b), 1, @"");
     }
     
 }
 
 -(void) testColinearGreaterThan {
-    CGPoint min = cgp_from(0, 0);
-    CGPoint a = cgp_from(2, 2);
-    CGPoint b = cgp_from(1, 1);
+    CGPoint min = cgp(0, 0);
+    CGPoint a = cgp(2, 2);
+    CGPoint b = cgp(1, 1);
     STAssertEquals(1, graham_comparator(&min, &a, &b), @"");
 }
     
 -(void) testSquare {
-    CGPoint vector = cgp_from(0, 0);
+    CGPoint vector = cgp(0, 0);
     
     CGPoint vectors[] = {
-        cgp_from(0, 2), cgp_from(2, 2), cgp_from(0, 0), cgp_from(2, 0)
+        cgp(0, 2), cgp(2, 2), cgp(0, 0), cgp(2, 0)
     };
     qsort_r(vectors, 4, sizeof(CGPoint), &vector, graham_comparator);
     
@@ -81,10 +81,10 @@
 }
 
 -(void) testColinearsAreNearestFirst {
-    CGPoint vector = cgp_from(0, 0);
+    CGPoint vector = cgp(0, 0);
     
     CGPoint vectors[] = {
-        cgp_from(0, 1), cgp_from(0, 2), cgp_from(2, 2), cgp_from(0, 0), cgp_from(1, 1), cgp_from(2, 0)
+        cgp(0, 1), cgp(0, 2), cgp(2, 2), cgp(0, 0), cgp(1, 1), cgp(2, 0)
     };
     qsort_r(vectors, 6, sizeof(CGPoint), &vector, graham_comparator);
     
@@ -97,17 +97,17 @@
 }
 
 -(void) testColinearSortingAndFiltering {
-    CGPoint vector = cgp_from(0, 0);
+    CGPoint vector = cgp(0, 0);
     
     CGPoint vectors[] = {
-        cgp_from(0, 0),
-        cgp_from(3, 0),
-        cgp_from(1, 1),
-        cgp_from(2, 2),
-        cgp_from(3, 3), 
-        cgp_from(0, 3), 
-        cgp_from(-1, 2),
-        cgp_from(-1, 1)
+        cgp(0, 0),
+        cgp(3, 0),
+        cgp(1, 1),
+        cgp(2, 2),
+        cgp(3, 3), 
+        cgp(0, 3), 
+        cgp(-1, 2),
+        cgp(-1, 1)
     };
     qsort_r(vectors, 8, sizeof(CGPoint), &vector, graham_comparator);
     
@@ -133,14 +133,14 @@
 }
 
 -(void) testColinearFilteringSimple {
-    CGPoint vector = cgp_from(0, 0);
+    CGPoint vector = cgp(0, 0);
     
     CGPoint vectors[] = {
-        cgp_from(0, 0),
-        cgp_from(2, 0),
-        cgp_from(1, 1),
-        cgp_from(2, 2),
-        cgp_from(0, 2)
+        cgp(0, 0),
+        cgp(2, 0),
+        cgp(1, 1),
+        cgp(2, 2),
+        cgp(0, 2)
     };
     qsort_r(vectors, 5, sizeof(CGPoint), &vector, graham_comparator);
     CGPolygon poly = { vectors, 5 };

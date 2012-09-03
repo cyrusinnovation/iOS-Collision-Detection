@@ -18,9 +18,9 @@
 
 -(void) testCreatingAndAddingStuffToAStack {
     Stack stack = new_stack(10);
-    s_push(&stack, cgp_from(0, 0));
+    s_push(&stack, cgp(0, 0));
     STAssertEquals(stack.count, 1, @"");
-    s_push(&stack, cgp_from(37, 14));
+    s_push(&stack, cgp(37, 14));
     STAssertEquals(stack.count, 2, @"");
     
     CGPoint act = s_pop(&stack);

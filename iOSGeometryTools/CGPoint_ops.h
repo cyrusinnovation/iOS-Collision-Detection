@@ -7,7 +7,14 @@
 
 #include <CoreGraphics/CoreGraphics.h>
 
-CGPoint cgp_from(float x, float y);
+#ifndef CGPOINT_OPS_H
+#define CGPOINT_OPS_H
+
+static inline CGPoint cgp(float x, float y)
+{
+    CGPoint p; p.x = x; p.y = y; return p;
+}
+
 CGPoint cgp_copy(CGPoint b);
 CGPoint cgp_subtract(CGPoint minuend, CGPoint subtrahend);
 CGPoint cgp_add(CGPoint one, CGPoint another);
@@ -20,3 +27,5 @@ float cgp_length(CGPoint v);
 void cgp_normalize(CGPoint *v);
 void cgp_scale(CGPoint *v, float scale);
 void cgp_flop(CGPoint *v);
+
+#endif

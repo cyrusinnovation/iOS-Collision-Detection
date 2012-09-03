@@ -9,13 +9,13 @@
 
 #include "math.h"
 
-// TODO
-CGPoint cgp_from(float x, float y) {
-    return CGPointMake(x, y); 
-}
+//inline CGPoint cgp(float x, float y)
+//{
+//    CGPoint p; p.x = x; p.y = y; return p;
+//}
 
 CGPoint cgp_copy(CGPoint b) {
-    return cgp_from(b.x, b.y);
+    return cgp(b.x, b.y);
 }
 
 CGPoint cgp_subtract(CGPoint minuend, CGPoint subtrahend) {

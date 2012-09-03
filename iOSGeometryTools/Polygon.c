@@ -53,8 +53,8 @@ Range project_polygon(CGPolygon polygon, CGPoint vector) {
 }
 
 CGPolygon make_block(float x1, float y1, float x2, float y2) {
-    return polygon_from(4, cgp_from(x1, y1),
-                        cgp_from(x2, y1),
-                        cgp_from(x2, y2),
-                        cgp_from(x1, y2));
+    return polygon_from(4, cgp(x1, y1),
+                        cgp(x2, y1),
+                        cgp(x2, y2),
+                        cgp(x1, y2));
 }

@@ -68,9 +68,9 @@
 }
 
 -(void) testBoxOnSpike {
-    CGPolygon a = polygon_from(3, cgp_from(0, -1), 
-                                cgp_from(1, 2), 
-                                cgp_from(2, -1));
+    CGPolygon a = polygon_from(3, cgp(0, -1), 
+                                cgp(1, 2), 
+                                cgp(2, -1));
     CGPolygon b = make_block(0, 2, 2, 4);
     
     SATResult test = sat_test(a, b);

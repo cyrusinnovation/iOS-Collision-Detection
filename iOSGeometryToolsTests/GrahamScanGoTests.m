@@ -31,14 +31,14 @@
 
 -(void) testABoxByABox {
     CGPolygon block = polygon_from(8,
-                                   cgp_from(0, 0),       
-                                   cgp_from(1, 0),
-                                   cgp_from(1, 1),
-                                   cgp_from(0, 1),
-                                   cgp_from(1, 1),       
-                                   cgp_from(2, 1),
-                                   cgp_from(2, 2),
-                                   cgp_from(1, 2));
+                                   cgp(0, 0),       
+                                   cgp(1, 0),
+                                   cgp(1, 1),
+                                   cgp(0, 1),
+                                   cgp(1, 1),       
+                                   cgp(2, 1),
+                                   cgp(2, 2),
+                                   cgp(1, 2));
     
     block = gs_go(block);
     
@@ -54,14 +54,14 @@
 
 -(void) testABoxInABox {
     CGPolygon block = polygon_from(8,
-                                   cgp_from(0, 0),       
-                                   cgp_from(1, 0),
-                                   cgp_from(1, 1),
-                                   cgp_from(0, 1),
-                                   cgp_from(-1, -1),       
-                                   cgp_from(3, -1),
-                                   cgp_from(3, 3),
-                                   cgp_from(-1, 3));
+                                   cgp(0, 0),       
+                                   cgp(1, 0),
+                                   cgp(1, 1),
+                                   cgp(0, 1),
+                                   cgp(-1, -1),       
+                                   cgp(3, -1),
+                                   cgp(3, 3),
+                                   cgp(-1, 3));
     
     block = gs_go(block);
     

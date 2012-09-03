@@ -25,7 +25,7 @@ int graham_comparator(void *_min, void const *_a, void const *_b) {
     CGPoint minToA = cgp_subtract(*a, *min);
     CGPoint minToB = cgp_subtract(*b, *min);
     
-    CGPoint unitX = cgp_from(1, 0);
+    CGPoint unitX = cgp(1, 0);
     float dotUnitXWithA = cgp_dot(unitX, cgp_normal(minToA));
     float dotUnitXWithB = cgp_dot(unitX, cgp_normal(minToB));
     
