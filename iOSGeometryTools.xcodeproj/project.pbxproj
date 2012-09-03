@@ -1130,7 +1130,7 @@
 			children = (
 				08FE541F15F432C6009A3127 /* TestUtils */,
 				08FE542215F43314009A3127 /* GrahamScan */,
-				08FE542115F43303009A3127 /* SeparatingAxisTest */,
+				08FE542115F43303009A3127 /* iOSGeometryTools */,
 				08FE542015F432DF009A3127 /* Stack */,
 				08FE53D215F43142009A3127 /* Supporting Files */,
 			);
@@ -1209,7 +1209,7 @@
 			name = Stack;
 			sourceTree = "<group>";
 		};
-		08FE542115F43303009A3127 /* SeparatingAxisTest */ = {
+		08FE542115F43303009A3127 /* iOSGeometryTools */ = {
 			isa = PBXGroup;
 			children = (
 				08FE540A15F43221009A3127 /* PolygonProjectionTests.h */,
@@ -1217,7 +1217,7 @@
 				08FE540D15F43221009A3127 /* SeparatingAxisTestTests.h */,
 				08FE540E15F43221009A3127 /* SeparatingAxisTestTests.m */,
 			);
-			name = SeparatingAxisTest;
+			name = iOSGeometryTools;
 			sourceTree = "<group>";
 		};
 		08FE542215F43314009A3127 /* GrahamScan */ = {
