@@ -286,6 +286,7 @@
 		08FE53A815F3F4E5009A3127 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FE53A715F3F4E5009A3127 /* RootViewController.m */; };
 		08FE53AB15F3F4E5009A3127 /* SpinnerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FE53AA15F3F4E5009A3127 /* SpinnerLayer.m */; };
 		08FE53B015F3F4FB009A3127 /* libCocosLibs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 082668C815F3F31F00DFD0AB /* libCocosLibs.a */; };
+		08FE53B715F3FDE8009A3127 /* libSeparatingAxisTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE015C1C55E002DC0B4 /* libSeparatingAxisTest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -570,7 +571,7 @@
 		08D36A6E15E9991F00027AD6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		08D36A7015E9991F00027AD6 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		08D36A7115E9991F00027AD6 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		08D36A7315E9991F00027AD6 /* GrahamLayer.h */ = {isa = PBXFileReference; path = GrahamLayer.h; sourceTree = "<group>"; };
+		08D36A7315E9991F00027AD6 /* GrahamLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GrahamLayer.h; sourceTree = "<group>"; };
 		08D36A7415E9991F00027AD6 /* GrahamLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrahamLayer.m; sourceTree = "<group>"; };
 		08D36A7615E9991F00027AD6 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		08D36A7D15E9A46E00027AD6 /* SwingArm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwingArm.h; sourceTree = "<group>"; };
@@ -600,7 +601,7 @@
 		08FE53A415F3F4E5009A3127 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		08FE53A615F3F4E5009A3127 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		08FE53A715F3F4E5009A3127 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		08FE53A915F3F4E5009A3127 /* SpinnerLayer.h */ = {isa = PBXFileReference; path = SpinnerLayer.h; sourceTree = "<group>"; };
+		08FE53A915F3F4E5009A3127 /* SpinnerLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpinnerLayer.h; sourceTree = "<group>"; };
 		08FE53AA15F3F4E5009A3127 /* SpinnerLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpinnerLayer.m; sourceTree = "<group>"; };
 		08FE53AC15F3F4E5009A3127 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -654,6 +655,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08FE53B715F3FDE8009A3127 /* libSeparatingAxisTest.a in Frameworks */,
 				08FE53B015F3F4FB009A3127 /* libCocosLibs.a in Frameworks */,
 				08FE524915F3F4E2009A3127 /* QuartzCore.framework in Frameworks */,
 				08FE524A15F3F4E2009A3127 /* OpenGLES.framework in Frameworks */,
@@ -2021,6 +2023,7 @@
 				08FE53AF15F3F4E5009A3127 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

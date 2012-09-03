@@ -10,6 +10,15 @@
 
 @interface SpinnerLayer : CCLayer
 {
+    UITouch *touchOne;
+    UITouch *touchTwo;
+    
+    CGPoint oneLocation;
+    CGPoint twoLocation;
+    
+    CGPoint initialVector;
+    
+    float angle;
 }
 
 +(CCScene *) scene;

@@ -106,12 +106,6 @@ void drawShape(CGPoint *points, int count)
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];    
 }
 
--(void) applicationWillResignActive:(UIApplication *)application
-{
-    stack.count == 0;
-    [arms removeAllObjects];
-}
-
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
