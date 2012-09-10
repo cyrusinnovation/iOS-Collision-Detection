@@ -57,3 +57,4 @@ void graham_filter_colinears(CGPolygon *poly) {
     
     poly->count = filtered_count;
 }
+

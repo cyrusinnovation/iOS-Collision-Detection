@@ -49,15 +49,15 @@
 -(void) drawSwingArmFrom: (CGPoint) from to: (CGPoint) to
 {    
     glLineWidth(3);
-    glColor4ub(60, 60, 60, 0);
+    ccDrawColor4B(60, 60, 60, 0);
     ccDrawLine(from, to);
     
-    glPointSize(6);
-    glColor4ub(100, 100, 100, 0);
+    ccPointSize(6);
+    ccDrawColor4B(100, 100, 100, 0);
     ccDrawPoint(from);
 
-    glPointSize(4);
-    glColor4ub(255, 0, 255, 0);
+    ccPointSize(4);
+    ccDrawColor4B(255, 0, 255, 0);
     ccDrawPoint(to);
 }
 
@@ -91,7 +91,7 @@ void drawShape(CGPoint *points, int count)
         CGPolygon better_shape = gs_go(shape);
         
         glLineWidth(4);
-        glColor4ub(0, 0, 255, 0);
+        ccDrawColor4B(0, 0, 255, 0);
         drawShape(better_shape.points, better_shape.count);
         
         free_polygon(better_shape);
@@ -103,7 +103,7 @@ void drawShape(CGPoint *points, int count)
 }
 
 - (void)registerWithTouchDispatcher {
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];    
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];    
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
