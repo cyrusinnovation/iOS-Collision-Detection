@@ -20,9 +20,10 @@
 
 #define CCW_EPSILON 0.00001f;
 
-const float minimum_edge_length_squared = 0.00001f * 0.00001f;
-const float room_for_error = 0.000005f; // This is enough for the unit tests to pass
-const float cosine_of_half_minimum_angle = (0.965925826f - room_for_error); // cosine of 30deg = 12 sides polies
+static const float minimum_edge_length_squared = 0.00001f * 0.00001f;
+// This is enough for the unit tests to pass
+#define room_for_error 0.000005f
+static const float cosine_of_half_minimum_angle = (0.965925826f - room_for_error); // cosine of 30deg = 12 sides polies
 
 float CCW(CGPoint a, CGPoint b, CGPoint c) {
     return (b.x - a.x)*(c.y - b.y) - (b.y - a.y)*(c.x - b.x);

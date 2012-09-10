@@ -22,7 +22,7 @@
 {
 	CCScene *scene = [CCScene node];
 	GrahamLayer *layer = [GrahamLayer node];
-	[scene addChild: layer z:0 tag:@"graham"];
+	[scene addChild:layer z:0 tag:1];
 	return scene;
 }
 

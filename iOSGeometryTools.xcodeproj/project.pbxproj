@@ -212,6 +212,12 @@
 		08266A9015F3F39500DFD0AB /* CJSONSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 082669C415F3F39500DFD0AB /* CJSONSerializer.h */; };
 		08266A9115F3F39500DFD0AB /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 082669C515F3F39500DFD0AB /* CJSONSerializer.m */; };
 		08266A9215F3F39500DFD0AB /* JSONRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = 082669C615F3F39500DFD0AB /* JSONRepresentation.h */; };
+		0841D2A215FE4DCB001517DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3691915E9991D00027AD6 /* CoreGraphics.framework */; };
+		0841D2A415FE4DE2001517DD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3690D15E9991D00027AD6 /* QuartzCore.framework */; };
+		0841D2A515FE4DEC001517DD /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3690F15E9991D00027AD6 /* OpenGLES.framework */; };
+		08B5684115F43E7E00F9484D /* MultitouchRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 08B5683F15F43E7E00F9484D /* MultitouchRotation.h */; };
+		08B5684215F43E7E00F9484D /* MultitouchRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B5684015F43E7E00F9484D /* MultitouchRotation.m */; };
+		08B5684715F4401E00F9484D /* MultitouchRotationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B5684615F4401E00F9484D /* MultitouchRotationTests.m */; };
 		08D3690E15E9991D00027AD6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3690D15E9991D00027AD6 /* QuartzCore.framework */; };
 		08D3691015E9991D00027AD6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3690F15E9991D00027AD6 /* OpenGLES.framework */; };
 		08D3691215E9991D00027AD6 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3691115E9991D00027AD6 /* OpenAL.framework */; };
@@ -515,6 +521,10 @@
 		082669C415F3F39500DFD0AB /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		082669C515F3F39500DFD0AB /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		082669C615F3F39500DFD0AB /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		08B5683F15F43E7E00F9484D /* MultitouchRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultitouchRotation.h; sourceTree = "<group>"; };
+		08B5684015F43E7E00F9484D /* MultitouchRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultitouchRotation.m; sourceTree = "<group>"; };
+		08B5684515F4401E00F9484D /* MultitouchRotationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultitouchRotationTests.h; sourceTree = "<group>"; };
+		08B5684615F4401E00F9484D /* MultitouchRotationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultitouchRotationTests.m; sourceTree = "<group>"; };
 		08D3690B15E9991D00027AD6 /* GrahamCracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrahamCracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D3690D15E9991D00027AD6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		08D3690F15E9991D00027AD6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -606,6 +616,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0841D2A515FE4DEC001517DD /* OpenGLES.framework in Frameworks */,
+				0841D2A415FE4DE2001517DD /* QuartzCore.framework in Frameworks */,
+				0841D2A215FE4DCB001517DD /* CoreGraphics.framework in Frameworks */,
 				082668C915F3F31F00DFD0AB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1019,6 +1032,24 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		08B5683D15F43E5600F9484D /* Multitouch */ = {
+			isa = PBXGroup;
+			children = (
+				08B5683F15F43E7E00F9484D /* MultitouchRotation.h */,
+				08B5684015F43E7E00F9484D /* MultitouchRotation.m */,
+			);
+			name = Multitouch;
+			sourceTree = "<group>";
+		};
+		08B5684315F43FEE00F9484D /* Multitouch */ = {
+			isa = PBXGroup;
+			children = (
+				08B5684515F4401E00F9484D /* MultitouchRotationTests.h */,
+				08B5684615F4401E00F9484D /* MultitouchRotationTests.m */,
+			);
+			name = Multitouch;
+			sourceTree = "<group>";
+		};
 		08D3691B15E9991D00027AD6 /* GrahamCracker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1108,6 +1139,7 @@
 		08FE53BF15F43142009A3127 /* iOSGeometryTools */ = {
 			isa = PBXGroup;
 			children = (
+				08B5683D15F43E5600F9484D /* Multitouch */,
 				08FE541D15F43248009A3127 /* Geometry */,
 				08FE541B15F4322B009A3127 /* Stack */,
 				08FE541E15F43265009A3127 /* SeparatinAxisTest */,
@@ -1128,6 +1160,7 @@
 		08FE53D115F43142009A3127 /* iOSGeometryToolsTests */ = {
 			isa = PBXGroup;
 			children = (
+				08B5684315F43FEE00F9484D /* Multitouch */,
 				08FE541F15F432C6009A3127 /* TestUtils */,
 				08FE542215F43314009A3127 /* GrahamScan */,
 				08FE542115F43303009A3127 /* iOSGeometryTools */,
@@ -1366,6 +1399,7 @@
 				08FE53FE15F431FE009A3127 /* SATResult.h in Headers */,
 				08FE540115F431FE009A3127 /* SeparatingAxisTest.h in Headers */,
 				08FE540315F431FE009A3127 /* Stack.h in Headers */,
+				08B5684115F43E7E00F9484D /* MultitouchRotation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1685,6 +1719,7 @@
 				08FE53FD15F431FE009A3127 /* SATResult.c in Sources */,
 				08FE540015F431FE009A3127 /* SeparatingAxisTest.c in Sources */,
 				08FE540215F431FE009A3127 /* Stack.c in Sources */,
+				08B5684215F43E7E00F9484D /* MultitouchRotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1699,6 +1734,7 @@
 				08FE541815F43221009A3127 /* SeparatingAxisTestTests.m in Sources */,
 				08FE541915F43221009A3127 /* StackTests.m in Sources */,
 				08FE541A15F43221009A3127 /* VectorAssert.m in Sources */,
+				08B5684715F4401E00F9484D /* MultitouchRotationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1733,13 +1769,13 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1757,7 +1793,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_OPTIMIZATION_LEVEL = 1;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1772,9 +1809,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/CocosLibs.dst;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocosLibs/CocosLibs-Prefix.pch";
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1785,9 +1823,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/CocosLibs.dst;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocosLibs/CocosLibs-Prefix.pch";
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1813,7 +1852,7 @@
 					"COCOS2D_DEBUG=1",
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = GrahamCracker/Resources/Info.plist;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lz";
@@ -1832,11 +1871,12 @@
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GrahamCracker/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = GrahamCracker/Resources/Info.plist;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -1858,6 +1898,7 @@
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AppleSpinner/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1865,7 +1906,7 @@
 					"COCOS2D_DEBUG=1",
 				);
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = AppleSpinner/Resources/Info.plist;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1883,11 +1924,12 @@
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AppleSpinner/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = AppleSpinner/Resources/Info.plist;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-lz";
@@ -1901,9 +1943,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/iOSGeometryTools.dst;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSGeometryTools/iOSGeometryTools-Prefix.pch";
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1914,9 +1957,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/iOSGeometryTools.dst;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSGeometryTools/iOSGeometryTools-Prefix.pch";
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1930,9 +1974,10 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSGeometryTools/iOSGeometryTools-Prefix.pch";
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "iOSGeometryToolsTests/iOSGeometryToolsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
@@ -1946,9 +1991,10 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSGeometryTools/iOSGeometryTools-Prefix.pch";
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "iOSGeometryToolsTests/iOSGeometryToolsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
