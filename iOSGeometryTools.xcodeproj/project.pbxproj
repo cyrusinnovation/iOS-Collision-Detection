@@ -238,34 +238,6 @@
 		0846258B15FE6C4500844D0B /* libCocosLibs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08461CC515FE5DA500844D0B /* libCocosLibs.a */; };
 		0846258C15FE6C4500844D0B /* libkazmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0846252A15FE675100844D0B /* libkazmath.a */; };
 		0846259315FE7BAA00844D0B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846259215FE7BAA00844D0B /* AppDelegate.m */; };
-		0846259A15FE7E0600844D0B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3690D15E9991D00027AD6 /* QuartzCore.framework */; };
-		0846259B15FE7E0600844D0B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3690F15E9991D00027AD6 /* OpenGLES.framework */; };
-		0846259C15FE7E0600844D0B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3691115E9991D00027AD6 /* OpenAL.framework */; };
-		0846259D15FE7E0600844D0B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3691315E9991D00027AD6 /* AudioToolbox.framework */; };
-		0846259E15FE7E0600844D0B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3691515E9991D00027AD6 /* AVFoundation.framework */; };
-		0846259F15FE7E0600844D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DF315C1C55E002DC0B4 /* UIKit.framework */; };
-		084625A015FE7E0600844D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE315C1C55E002DC0B4 /* Foundation.framework */; };
-		084625A115FE7E0600844D0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D3691915E9991D00027AD6 /* CoreGraphics.framework */; };
-		084625A315FE7E0600844D0B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 084625A215FE7E0600844D0B /* GameKit.framework */; };
-		084625A715FE7E0600844D0B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 084625A615FE7E0600844D0B /* Default.png */; };
-		084625A915FE7E0600844D0B /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 084625A815FE7E0600844D0B /* Default-Landscape~ipad.png */; };
-		084625AB15FE7E0600844D0B /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 084625AA15FE7E0600844D0B /* fps_images.png */; };
-		084625AD15FE7E0600844D0B /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 084625AC15FE7E0600844D0B /* fps_images-hd.png */; };
-		084625AF15FE7E0600844D0B /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 084625AE15FE7E0600844D0B /* fps_images-ipadhd.png */; };
-		084625B115FE7E0600844D0B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 084625B015FE7E0600844D0B /* Icon-72.png */; };
-		084625B315FE7E0600844D0B /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 084625B215FE7E0600844D0B /* Icon-Small-50.png */; };
-		084625B515FE7E0600844D0B /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 084625B415FE7E0600844D0B /* Icon-Small.png */; };
-		084625B715FE7E0600844D0B /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 084625B615FE7E0600844D0B /* Icon-Small@2x.png */; };
-		084625B915FE7E0600844D0B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 084625B815FE7E0600844D0B /* Icon.png */; };
-		084625BB15FE7E0600844D0B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 084625BA15FE7E0600844D0B /* Icon@2x.png */; };
-		084625BE15FE7E0600844D0B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 084625BD15FE7E0600844D0B /* iTunesArtwork */; };
-		0846271B15FE7E0900844D0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846271A15FE7E0900844D0B /* main.m */; };
-		0846271E15FE7E0900844D0B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846271D15FE7E0900844D0B /* AppDelegate.m */; };
-		0846272815FE7E3D00844D0B /* libCocosLibs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08461CC515FE5DA500844D0B /* libCocosLibs.a */; };
-		0846272915FE7E3D00844D0B /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FE53BD15F43142009A3127 /* libiOSGeometryTools.a */; };
-		0846272A15FE7E3D00844D0B /* libkazmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0846252A15FE675100844D0B /* libkazmath.a */; };
-		0846272B15FE7EFF00844D0B /* GrahamLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D36A7415E9991F00027AD6 /* GrahamLayer.m */; };
-		0846272C15FE7F1600844D0B /* SwingArm.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D36A7E15E9A46E00027AD6 /* SwingArm.m */; };
 		0846273B15FE91F000844D0B /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0846272E15FE91F000844D0B /* Default-Landscape~ipad.png */; };
 		0846273C15FE91F000844D0B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0846272F15FE91F000844D0B /* Default.png */; };
 		0846273D15FE91F000844D0B /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0846273015FE91F000844D0B /* fps_images-hd.png */; };
@@ -594,25 +566,7 @@
 		0846256E15FE69B200844D0B /* vec4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vec4.c; sourceTree = "<group>"; };
 		0846259115FE7BAA00844D0B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0846259215FE7BAA00844D0B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0846259815FE7E0600844D0B /* GrahamCracker2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrahamCracker2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		084625A215FE7E0600844D0B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		084625A615FE7E0600844D0B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
-		084625A815FE7E0600844D0B /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Resources/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		084625AA15FE7E0600844D0B /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = Resources/fps_images.png; sourceTree = "<group>"; };
-		084625AC15FE7E0600844D0B /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-hd.png"; path = "Resources/fps_images-hd.png"; sourceTree = "<group>"; };
-		084625AE15FE7E0600844D0B /* fps_images-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-ipadhd.png"; path = "Resources/fps_images-ipadhd.png"; sourceTree = "<group>"; };
-		084625B015FE7E0600844D0B /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
-		084625B215FE7E0600844D0B /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
-		084625B415FE7E0600844D0B /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
-		084625B615FE7E0600844D0B /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
-		084625B815FE7E0600844D0B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
-		084625BA15FE7E0600844D0B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
-		084625BC15FE7E0600844D0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
-		084625BD15FE7E0600844D0B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
-		0846271915FE7E0900844D0B /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		0846271A15FE7E0900844D0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0846271C15FE7E0900844D0B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		0846271D15FE7E0900844D0B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0846272E15FE91F000844D0B /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		0846272F15FE91F000844D0B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0846273015FE91F000844D0B /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fps_images-hd.png"; sourceTree = "<group>"; };
@@ -718,25 +672,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0846259515FE7E0600844D0B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0846272815FE7E3D00844D0B /* libCocosLibs.a in Frameworks */,
-				0846272915FE7E3D00844D0B /* libiOSGeometryTools.a in Frameworks */,
-				0846272A15FE7E3D00844D0B /* libkazmath.a in Frameworks */,
-				0846259A15FE7E0600844D0B /* QuartzCore.framework in Frameworks */,
-				0846259B15FE7E0600844D0B /* OpenGLES.framework in Frameworks */,
-				0846259C15FE7E0600844D0B /* OpenAL.framework in Frameworks */,
-				0846259D15FE7E0600844D0B /* AudioToolbox.framework in Frameworks */,
-				0846259E15FE7E0600844D0B /* AVFoundation.framework in Frameworks */,
-				0846259F15FE7E0600844D0B /* UIKit.framework in Frameworks */,
-				084625A015FE7E0600844D0B /* Foundation.framework in Frameworks */,
-				084625A115FE7E0600844D0B /* CoreGraphics.framework in Frameworks */,
-				084625A315FE7E0600844D0B /* GameKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		08D3690815E9991D00027AD6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -801,7 +736,6 @@
 				08D3691B15E9991D00027AD6 /* GrahamCracker */,
 				08FE525115F3F4E3009A3127 /* AppleSpinner */,
 				08461CC715FE5DA500844D0B /* CocosLibs */,
-				084625A415FE7E0600844D0B /* GrahamCracker2 */,
 				08028DE215C1C55E002DC0B4 /* Frameworks */,
 				08028DE115C1C55E002DC0B4 /* Products */,
 			);
@@ -816,7 +750,6 @@
 				08FE53CA15F43142009A3127 /* iOSGeometryToolsTests.octest */,
 				08461CC515FE5DA500844D0B /* libCocosLibs.a */,
 				0846252A15FE675100844D0B /* libkazmath.a */,
-				0846259815FE7E0600844D0B /* GrahamCracker2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1168,46 +1101,6 @@
 				0846256415FE69B200844D0B /* matrix.c */,
 			);
 			path = GL;
-			sourceTree = "<group>";
-		};
-		084625A415FE7E0600844D0B /* GrahamCracker2 */ = {
-			isa = PBXGroup;
-			children = (
-				0846271C15FE7E0900844D0B /* AppDelegate.h */,
-				0846271D15FE7E0900844D0B /* AppDelegate.m */,
-				084625A515FE7E0600844D0B /* Resources */,
-				0846271815FE7E0900844D0B /* Supporting Files */,
-			);
-			path = GrahamCracker2;
-			sourceTree = "<group>";
-		};
-		084625A515FE7E0600844D0B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				084625A615FE7E0600844D0B /* Default.png */,
-				084625A815FE7E0600844D0B /* Default-Landscape~ipad.png */,
-				084625AA15FE7E0600844D0B /* fps_images.png */,
-				084625AC15FE7E0600844D0B /* fps_images-hd.png */,
-				084625AE15FE7E0600844D0B /* fps_images-ipadhd.png */,
-				084625B015FE7E0600844D0B /* Icon-72.png */,
-				084625B215FE7E0600844D0B /* Icon-Small-50.png */,
-				084625B415FE7E0600844D0B /* Icon-Small.png */,
-				084625B615FE7E0600844D0B /* Icon-Small@2x.png */,
-				084625B815FE7E0600844D0B /* Icon.png */,
-				084625BA15FE7E0600844D0B /* Icon@2x.png */,
-				084625BC15FE7E0600844D0B /* Info.plist */,
-				084625BD15FE7E0600844D0B /* iTunesArtwork */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		0846271815FE7E0900844D0B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0846271915FE7E0900844D0B /* Prefix.pch */,
-				0846271A15FE7E0900844D0B /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		0846272D15FE91F000844D0B /* Resources */ = {
@@ -1641,23 +1534,6 @@
 			productReference = 0846252A15FE675100844D0B /* libkazmath.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		0846259715FE7E0600844D0B /* GrahamCracker2 */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0846272515FE7E0900844D0B /* Build configuration list for PBXNativeTarget "GrahamCracker2" */;
-			buildPhases = (
-				0846259415FE7E0600844D0B /* Sources */,
-				0846259515FE7E0600844D0B /* Frameworks */,
-				0846259615FE7E0600844D0B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = GrahamCracker2;
-			productName = GrahamCracker2;
-			productReference = 0846259815FE7E0600844D0B /* GrahamCracker2.app */;
-			productType = "com.apple.product-type.application";
-		};
 		08D3690A15E9991D00027AD6 /* GrahamCracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08D36A7715E9991F00027AD6 /* Build configuration list for PBXNativeTarget "GrahamCracker" */;
@@ -1750,7 +1626,6 @@
 			projectRoot = "";
 			targets = (
 				08D3690A15E9991D00027AD6 /* GrahamCracker */,
-				0846259715FE7E0600844D0B /* GrahamCracker2 */,
 				08FE524615F3F4E2009A3127 /* AppleSpinner */,
 				08FE53BC15F43142009A3127 /* iOSGeometryTools */,
 				08FE53C915F43142009A3127 /* iOSGeometryToolsTests */,
@@ -1761,25 +1636,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0846259615FE7E0600844D0B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				084625A715FE7E0600844D0B /* Default.png in Resources */,
-				084625A915FE7E0600844D0B /* Default-Landscape~ipad.png in Resources */,
-				084625AB15FE7E0600844D0B /* fps_images.png in Resources */,
-				084625AD15FE7E0600844D0B /* fps_images-hd.png in Resources */,
-				084625AF15FE7E0600844D0B /* fps_images-ipadhd.png in Resources */,
-				084625B115FE7E0600844D0B /* Icon-72.png in Resources */,
-				084625B315FE7E0600844D0B /* Icon-Small-50.png in Resources */,
-				084625B515FE7E0600844D0B /* Icon-Small.png in Resources */,
-				084625B715FE7E0600844D0B /* Icon-Small@2x.png in Resources */,
-				084625B915FE7E0600844D0B /* Icon.png in Resources */,
-				084625BB15FE7E0600844D0B /* Icon@2x.png in Resources */,
-				084625BE15FE7E0600844D0B /* iTunesArtwork in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		08D3690915E9991D00027AD6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1953,17 +1809,6 @@
 				0846258715FE69B200844D0B /* vec2.c in Sources */,
 				0846258815FE69B200844D0B /* vec3.c in Sources */,
 				0846258915FE69B200844D0B /* vec4.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0846259415FE7E0600844D0B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0846272C15FE7F1600844D0B /* SwingArm.m in Sources */,
-				0846272B15FE7EFF00844D0B /* GrahamLayer.m in Sources */,
-				0846271B15FE7E0900844D0B /* main.m in Sources */,
-				0846271E15FE7E0900844D0B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2184,65 +2029,6 @@
 			};
 			name = Release;
 		};
-		0846272615FE7E0900844D0B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
-				);
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = GrahamCracker2/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					DEBUG,
-					"COCOS2D_DEBUG=1",
-				);
-				HEADER_SEARCH_PATHS = "\"CocosLibs/kazmath/include\"";
-				INFOPLIST_FILE = GrahamCracker2/Resources/Info.plist;
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-ObjC",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		0846272715FE7E0900844D0B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
-				);
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = GrahamCracker2/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					NDEBUG,
-					"NS_BLOCK_ASSERTIONS=1",
-				);
-				HEADER_SEARCH_PATHS = "\"CocosLibs/kazmath/include\"";
-				INFOPLIST_FILE = GrahamCracker2/Resources/Info.plist;
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-ObjC",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 		08D36A7815E9991F00027AD6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2446,14 +2232,6 @@
 			buildConfigurations = (
 				0846254815FE675200844D0B /* Debug */,
 				0846254915FE675200844D0B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		0846272515FE7E0900844D0B /* Build configuration list for PBXNativeTarget "GrahamCracker2" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0846272615FE7E0900844D0B /* Debug */,
-				0846272715FE7E0900844D0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
