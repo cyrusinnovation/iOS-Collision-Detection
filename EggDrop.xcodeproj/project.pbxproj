@@ -35,6 +35,9 @@
 		0846291C15FE9D7600844D0B /* libCocosLibs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0846291915FE9D7600844D0B /* libCocosLibs.a */; };
 		0846291D15FE9D7600844D0B /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0846291A15FE9D7600844D0B /* libiOSGeometryTools.a */; };
 		0846291E15FE9D7600844D0B /* libkazmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0846291B15FE9D7600844D0B /* libkazmath.a */; };
+		0846292915FE9FAD00844D0B /* Trampoline.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846292815FE9FAD00844D0B /* Trampoline.m */; };
+		0846292C15FEA32500844D0B /* Egg.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846292B15FEA32500844D0B /* Egg.m */; };
+		0846292F15FEA6CF00844D0B /* WorldConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846292E15FEA6CF00844D0B /* WorldConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,12 @@
 		0846291915FE9D7600844D0B /* libCocosLibs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCocosLibs.a; path = "../build/Release-iphoneos/libCocosLibs.a"; sourceTree = "<group>"; };
 		0846291A15FE9D7600844D0B /* libiOSGeometryTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiOSGeometryTools.a; path = "../build/Release-iphoneos/libiOSGeometryTools.a"; sourceTree = "<group>"; };
 		0846291B15FE9D7600844D0B /* libkazmath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkazmath.a; path = "../build/Release-iphoneos/libkazmath.a"; sourceTree = "<group>"; };
+		0846292715FE9FAD00844D0B /* Trampoline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trampoline.h; sourceTree = "<group>"; };
+		0846292815FE9FAD00844D0B /* Trampoline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trampoline.m; sourceTree = "<group>"; };
+		0846292A15FEA32500844D0B /* Egg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Egg.h; sourceTree = "<group>"; };
+		0846292B15FEA32500844D0B /* Egg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Egg.m; sourceTree = "<group>"; };
+		0846292D15FEA6CF00844D0B /* WorldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldConstants.h; sourceTree = "<group>"; };
+		0846292E15FEA6CF00844D0B /* WorldConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,12 +143,8 @@
 		0846276E15FE959F00844D0B /* EggDrop */ = {
 			isa = PBXGroup;
 			children = (
-				084628E615FE95A100844D0B /* AppDelegate.h */,
-				084628E715FE95A100844D0B /* AppDelegate.m */,
-				084628E915FE95A100844D0B /* BouncingEggLayer.h */,
-				084628EA15FE95A100844D0B /* BouncingEggLayer.m */,
-				084628EC15FE95A100844D0B /* IntroLayer.h */,
-				084628ED15FE95A100844D0B /* IntroLayer.m */,
+				0846292615FE9F8800844D0B /* Model */,
+				0846292515FE9F3E00844D0B /* App */,
 				0846276F15FE959F00844D0B /* Resources */,
 				084628E215FE95A100844D0B /* Supporting Files */,
 			);
@@ -183,6 +188,32 @@
 				0846291B15FE9D7600844D0B /* libkazmath.a */,
 			);
 			name = "Library References";
+			sourceTree = "<group>";
+		};
+		0846292515FE9F3E00844D0B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				084628E615FE95A100844D0B /* AppDelegate.h */,
+				084628E715FE95A100844D0B /* AppDelegate.m */,
+				084628E915FE95A100844D0B /* BouncingEggLayer.h */,
+				084628EA15FE95A100844D0B /* BouncingEggLayer.m */,
+				084628EC15FE95A100844D0B /* IntroLayer.h */,
+				084628ED15FE95A100844D0B /* IntroLayer.m */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		0846292615FE9F8800844D0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0846292715FE9FAD00844D0B /* Trampoline.h */,
+				0846292815FE9FAD00844D0B /* Trampoline.m */,
+				0846292A15FEA32500844D0B /* Egg.h */,
+				0846292B15FEA32500844D0B /* Egg.m */,
+				0846292D15FEA6CF00844D0B /* WorldConstants.h */,
+				0846292E15FEA6CF00844D0B /* WorldConstants.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +293,9 @@
 				084628E815FE95A100844D0B /* AppDelegate.m in Sources */,
 				084628EB15FE95A100844D0B /* BouncingEggLayer.m in Sources */,
 				084628EE15FE95A100844D0B /* IntroLayer.m in Sources */,
+				0846292915FE9FAD00844D0B /* Trampoline.m in Sources */,
+				0846292C15FEA32500844D0B /* Egg.m in Sources */,
+				0846292F15FEA6CF00844D0B /* WorldConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +320,7 @@
 				HEADER_SEARCH_PATHS = (
 					"\"CocosLibs/cocos2d\"",
 					"\"CocosLibs/kazmath/include\"",
+					"\"iOSGeometryTools\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				ONLY_ACTIVE_ARCH = YES;
@@ -311,6 +346,7 @@
 				HEADER_SEARCH_PATHS = (
 					"\"CocosLibs/cocos2d\"",
 					"\"CocosLibs/kazmath/include\"",
+					"\"iOSGeometryTools\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				ONLY_ACTIVE_ARCH = YES;

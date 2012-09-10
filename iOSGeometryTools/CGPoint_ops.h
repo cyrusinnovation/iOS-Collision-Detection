@@ -26,6 +26,7 @@ float cgp_length(CGPoint v);
 
 void cgp_normalize(CGPoint *v);
 void cgp_scale(CGPoint *v, float scale);
+CGPoint cgp_times(CGPoint v, float scale);
 void cgp_flop(CGPoint *v);
 
 #endif

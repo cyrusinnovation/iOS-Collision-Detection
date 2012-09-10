@@ -9,10 +9,15 @@
 
 #import <GameKit/GameKit.h>
 
+#import "Trampoline.h"
+#import "Egg.h"
+
 #import "cocos2d.h"
 
 @interface BouncingEggLayer : CCLayer
 {
+    Trampoline *trampoline;
+    Egg *egg;
 }
 
 +(CCScene *) scene;
