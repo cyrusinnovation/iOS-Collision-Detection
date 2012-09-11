@@ -10,20 +10,28 @@
 
 @implementation VectorAssert
 
-+(void) that: (CGPoint) p equals: (float) x and: (float) y test:(SenTestCase*) test file:(const char *) file line:(int) line {
-    NSString *errar = [NSString stringWithFormat: @"Expected [%f, %f], actual [%f, %f]", x, y, p.x, p.y];
+// This is kinda shitty.
++(void) that: (CGPoint) p equals: (float) x and: (float) y within: (float) tolerance test:(SenTestCase*) test file:(const char *) file line:(int) line {
+    NSMutableString *errar = [[NSMutableString alloc] init];
     
-    if (p.x == x && p.y == y)
-        return;
-    else {
-        // This is kinda shitty.
-        [test failWithException:[NSException 
-                                 failureInCondition: @"Point equality"
-                                 isTrue:true 
-                                 inFile:[NSString stringWithUTF8String:file] 
-                                 atLine:line 
-                                 withDescription:errar]];
+    if (fabs(p.x - x) > tolerance) {
+        [errar appendFormat:@"x was outside tolerance: %f is not within %f of %f", p.x, x, tolerance];
     }
+    
+    if (fabs(p.y - y) > tolerance) {
+        if (![errar isEqualToString:@""]) [errar appendString:@", "];
+        
+        [errar appendFormat:@"y was outside tolerance: %f is not within %f of %f", p.y, y, tolerance];
+    }
+    
+    if ([errar isEqualToString:@""]) return;
+    
+    [test failWithException:[NSException 
+                             failureInCondition: @"Point equality"
+                             isTrue:true 
+                             inFile:[NSString stringWithUTF8String:file] 
+                             atLine:line 
+                             withDescription:errar]];
 }
 
 @end

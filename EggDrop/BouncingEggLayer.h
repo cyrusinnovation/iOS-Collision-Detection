@@ -16,7 +16,7 @@
 
 @interface BouncingEggLayer : CCLayer
 {
-    Trampoline *trampoline;
+    NSMutableArray *trampolines;
     Egg *egg;
 }
 

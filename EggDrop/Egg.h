@@ -17,6 +17,7 @@
     float terminalVelocitySquared;
 }
 
+@property (readonly) CGPoint velocity;
 @property (readonly) float radius;
 @property (readonly) CGPoint location;
 
@@ -25,6 +26,9 @@
 -(void)update:(ccTime)dt; 
 
 -(void) bounce:(float) rate;
+-(CGPoint) slow:(CGPoint) factor;
+-(void) resetTo:(CGPoint) location;
 -(void) move:(CGPoint) delta;
+-(void) boost:(CGPoint) rate;
 
 @end

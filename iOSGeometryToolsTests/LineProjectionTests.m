@@ -8,6 +8,8 @@
 
 #import "LineProjectionTests.h"
 
+#import "VectorAssert.h"
+
 #include "CGPoint_ops.h"
 
 @implementation LineProjectionTests
@@ -43,6 +45,13 @@
     STAssertEquals( 0.75f, cgp_t(cgp(2, 3), cgp(6, 7), cgp(6, 5)), @"");
     STAssertEquals( 1.00f, cgp_t(cgp(2, 3), cgp(6, 7), cgp(7, 6)), @"");
     STAssertEquals( 1.25f, cgp_t(cgp(2, 3), cgp(6, 7), cgp(8, 7)), @"");
+}
+
+-(void) testProjectLineOnLine {
+    VectorAssertWithin(cgp_project(cgp(0, 10), cgp(2, 2)), 0, 2, 0.000001);
+    VectorAssertWithin(cgp_project(cgp(0, 1), cgp(2, 2)), 0, 2, 0.000001);
+    VectorAssertWithin(cgp_project(cgp(1, 1), cgp(2, 2)), 2, 2, 0.000001);
+    VectorAssertWithin(cgp_project(cgp(10, 10), cgp(0, 2)), 1, 1, 0.000001);
 }
 
 @end

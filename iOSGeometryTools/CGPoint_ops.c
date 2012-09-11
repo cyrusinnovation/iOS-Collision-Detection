@@ -75,3 +75,14 @@ float cgp_t(CGPoint start, CGPoint end, CGPoint point)
     float oneOverDotVectorVector = 1/cgp_dot(vector, vector);
     return cgp_dot(cgp_subtract(point, start), vector)*oneOverDotVectorVector;
 }
+
+CGPoint cgp_project(CGPoint b, CGPoint this) {
+    cgp_normalize(&b);
+    float dp = cgp_dot(b, this);
+    
+    CGPoint result;
+    result.x = dp * b.x;
+    result.y = dp * b.y;  
+    return result;
+}
+

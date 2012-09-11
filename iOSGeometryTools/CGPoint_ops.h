@@ -10,10 +10,7 @@
 #ifndef CGPOINT_OPS_H
 #define CGPOINT_OPS_H
 
-static inline CGPoint cgp(float x, float y)
-{
-    CGPoint p; p.x = x; p.y = y; return p;
-}
+#define cgp(x, y) ((CGPoint) { x, y })
 
 CGPoint cgp_copy(CGPoint b);
 CGPoint cgp_subtract(CGPoint minuend, CGPoint subtrahend);
@@ -30,5 +27,6 @@ CGPoint cgp_times(CGPoint v, float scale);
 void cgp_flop(CGPoint *v);
 
 float cgp_t(CGPoint start, CGPoint end, CGPoint point);
+CGPoint cgp_project(CGPoint b, CGPoint this);
 
 #endif

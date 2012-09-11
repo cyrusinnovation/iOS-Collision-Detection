@@ -14,6 +14,8 @@
     float maxDepth;
     
     CGPoint normal;
+    
+    CGPoint stored;
 }
 
 @property CGPoint left;
@@ -22,5 +24,7 @@
 -(id)initFrom:(CGPoint) left to:(CGPoint) right;
 
 -(void) handle:(Egg *) egg;
+
+-(void) reset;
 
 @end

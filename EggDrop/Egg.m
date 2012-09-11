@@ -28,6 +28,9 @@
     return self;
 }
 
+-(CGPoint)velocity {
+    return velocity;
+}
 
 -(void)update:(ccTime)dt {
     velocity = cgp_add(velocity, cgp_times([WorldConstants gravity], dt));
@@ -43,9 +46,25 @@
     velocity.y = -velocity.y * rate;
 }
 
+-(CGPoint) slow:(CGPoint) factor {
+    CGPoint old_vel = velocity;
+    velocity = cgp(velocity.x*(1 - factor.x), velocity.y*(1 - factor.y));
+    return cgp_subtract(old_vel, velocity);
+}
+
 -(void) move:(CGPoint) delta {
     location = cgp_add(location, delta);
 }
+
+-(void) resetTo:(CGPoint) _location {
+    location = _location;
+    velocity = cgp(0, 0);
+}
+
+-(void) boost:(CGPoint) rate {
+    velocity = cgp_add(velocity, rate);
+}
+
 
 
 @end

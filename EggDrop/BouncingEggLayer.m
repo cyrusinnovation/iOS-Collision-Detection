@@ -30,10 +30,15 @@
 -(id) init
 {
 	if( (self=[super init]) ) {
-        trampoline = [[Trampoline alloc] initFrom:cgp(60, 180) to:cgp(260, 180)];
+        trampolines = [[NSMutableArray alloc] init];
+        [trampolines addObject: [[Trampoline alloc] initFrom:cgp(200, 300) to:cgp(280, 340)] ];
+        [trampolines addObject: [[Trampoline alloc] initFrom:cgp(40, 220) to:cgp(120, 200)] ];
         egg = [[Egg alloc] initAt:160 and:400 withRadius:10];
+        [egg boost:cgp(2, 0)];
         
         [self scheduleUpdate];
+        
+        self.isTouchEnabled = YES; 
 	}
 	return self;
 }
@@ -41,8 +46,9 @@
 
 -(void)update:(ccTime)dt {
     [egg update:dt];
-    
-    [trampoline handle: egg];
+    for (Trampoline *trampoline in trampolines) {
+        [trampoline handle: egg];
+    }
 }
 
 void drawTrampoline(Trampoline *t) {
@@ -59,13 +65,35 @@ void drawEgg(Egg *e) {
 
 - (void) draw
 {
-    drawTrampoline(trampoline);
+    for (Trampoline *trampoline in trampolines) {
+        drawTrampoline(trampoline);
+    }
     drawEgg(egg);
+}
+
+
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+
+    [egg resetTo:location];
+    [egg boost:cgp(2, 0)];
+
+    for (Trampoline *trampoline in trampolines) {
+        [trampoline reset];
+    }
+    
+    return true;
 }
 
 - (void) dealloc
 {
 	[super dealloc];
 }
+
+- (void)registerWithTouchDispatcher {
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];    
+}
+
 
 @end
