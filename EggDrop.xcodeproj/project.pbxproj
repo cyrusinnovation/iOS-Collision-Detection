@@ -46,6 +46,8 @@
 		086E2E7F15FF31FD001E580A /* egg.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E7E15FF31FD001E580A /* egg.png */; };
 		086E2E8215FF3654001E580A /* knob-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E8015FF3654001E580A /* knob-hd.png */; };
 		086E2E8315FF3654001E580A /* knob.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E8115FF3654001E580A /* knob.png */; };
+		086E2E8615FF4352001E580A /* bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E8415FF4352001E580A /* bg-hd.png */; };
+		086E2E8715FF4352001E580A /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E8515FF4352001E580A /* bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +101,8 @@
 		086E2E7E15FF31FD001E580A /* egg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = egg.png; path = Resources/egg.png; sourceTree = "<group>"; };
 		086E2E8015FF3654001E580A /* knob-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "knob-hd.png"; path = "Resources/knob-hd.png"; sourceTree = "<group>"; };
 		086E2E8115FF3654001E580A /* knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = knob.png; path = Resources/knob.png; sourceTree = "<group>"; };
+		086E2E8415FF4352001E580A /* bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-hd.png"; path = "Resources/bg-hd.png"; sourceTree = "<group>"; };
+		086E2E8515FF4352001E580A /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = Resources/bg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,8 @@
 		0846276F15FE959F00844D0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				086E2E8415FF4352001E580A /* bg-hd.png */,
+				086E2E8515FF4352001E580A /* bg.png */,
 				086E2E8015FF3654001E580A /* knob-hd.png */,
 				086E2E8115FF3654001E580A /* knob.png */,
 				086E2E7E15FF31FD001E580A /* egg.png */,
@@ -313,6 +319,8 @@
 				086E2E7F15FF31FD001E580A /* egg.png in Resources */,
 				086E2E8215FF3654001E580A /* knob-hd.png in Resources */,
 				086E2E8315FF3654001E580A /* knob.png in Resources */,
+				086E2E8615FF4352001E580A /* bg-hd.png in Resources */,
+				086E2E8715FF4352001E580A /* bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

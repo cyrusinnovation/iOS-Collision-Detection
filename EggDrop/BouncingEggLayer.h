@@ -14,7 +14,7 @@
 
 #import "cocos2d.h"
 
-@interface BouncingEggLayer : CCLayerColor
+@interface BouncingEggLayer : CCLayer
 {
     NSMutableArray *trampolines;
     Egg *egg;

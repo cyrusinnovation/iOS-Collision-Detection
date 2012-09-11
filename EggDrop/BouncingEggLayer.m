@@ -37,7 +37,12 @@
 
 -(id) init
 {
-	if( (self=[super initWithColor:ccc4(255, 255, 255, 255)]) ) {
+	if (self=[super init]){
+		CGSize s = [[CCDirector sharedDirector] winSize];
+        CCSprite * bg = [CCSprite spriteWithFile:@"bg.png"];
+        [bg setPosition:ccp(s.width/2, s.height/2)];
+        [self addChild:bg z:0];
+        
         trampolines = [[NSMutableArray alloc] init];
         [self addTrampoline: [[Trampoline alloc] initFrom:cgp(200, 300) to:cgp(280, 340)] ];
         [self addTrampoline: [[Trampoline alloc] initFrom:cgp(40, 220) to:cgp(120, 200)] ];
