@@ -250,6 +250,7 @@
 		0846274415FE91F000844D0B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0846273715FE91F000844D0B /* Icon.png */; };
 		0846274515FE91F000844D0B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0846273815FE91F000844D0B /* Icon@2x.png */; };
 		0846274715FE91F000844D0B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 0846273A15FE91F000844D0B /* iTunesArtwork */; };
+		0846293215FECCB200844D0B /* LineProjectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846293115FECCB200844D0B /* LineProjectionTests.m */; };
 		08B5684115F43E7E00F9484D /* MultitouchRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 08B5683F15F43E7E00F9484D /* MultitouchRotation.h */; };
 		08B5684215F43E7E00F9484D /* MultitouchRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B5684015F43E7E00F9484D /* MultitouchRotation.m */; };
 		08B5684715F4401E00F9484D /* MultitouchRotationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B5684615F4401E00F9484D /* MultitouchRotationTests.m */; };
@@ -580,6 +581,8 @@
 		0846273815FE91F000844D0B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		0846273915FE91F000844D0B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0846273A15FE91F000844D0B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		0846293015FECCB200844D0B /* LineProjectionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineProjectionTests.h; sourceTree = "<group>"; };
+		0846293115FECCB200844D0B /* LineProjectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineProjectionTests.m; sourceTree = "<group>"; };
 		08B5683F15F43E7E00F9484D /* MultitouchRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultitouchRotation.h; sourceTree = "<group>"; };
 		08B5684015F43E7E00F9484D /* MultitouchRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultitouchRotation.m; sourceTree = "<group>"; };
 		08B5684515F4401E00F9484D /* MultitouchRotationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultitouchRotationTests.h; sourceTree = "<group>"; };
@@ -1320,6 +1323,8 @@
 				08FE540B15F43221009A3127 /* PolygonProjectionTests.m */,
 				08FE540D15F43221009A3127 /* SeparatingAxisTestTests.h */,
 				08FE540E15F43221009A3127 /* SeparatingAxisTestTests.m */,
+				0846293015FECCB200844D0B /* LineProjectionTests.h */,
+				0846293115FECCB200844D0B /* LineProjectionTests.m */,
 			);
 			name = iOSGeometryTools;
 			sourceTree = "<group>";
@@ -1862,6 +1867,7 @@
 				08FE541915F43221009A3127 /* StackTests.m in Sources */,
 				08FE541A15F43221009A3127 /* VectorAssert.m in Sources */,
 				08B5684715F4401E00F9484D /* MultitouchRotationTests.m in Sources */,
+				0846293215FECCB200844D0B /* LineProjectionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

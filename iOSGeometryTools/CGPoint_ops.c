@@ -68,3 +68,10 @@ void cgp_flop(CGPoint *v) {
     (*v).x = -(*v).y;
     (*v).y = x;
 }
+
+float cgp_t(CGPoint start, CGPoint end, CGPoint point)
+{
+    CGPoint vector = cgp_subtract(end, start);
+    float oneOverDotVectorVector = 1/cgp_dot(vector, vector);
+    return cgp_dot(cgp_subtract(point, start), vector)*oneOverDotVectorVector;
+}
