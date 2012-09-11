@@ -39,5 +39,13 @@
     location = cgp_add(location, velocity);
 }
 
+-(void) bounce:(float) rate {
+    velocity.y = -velocity.y * rate;
+}
+
+-(void) move:(CGPoint) delta {
+    location = cgp_add(location, delta);
+}
+
 
 @end

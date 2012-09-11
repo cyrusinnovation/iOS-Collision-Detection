@@ -41,6 +41,8 @@
 
 -(void)update:(ccTime)dt {
     [egg update:dt];
+    
+    [trampoline handle: egg];
 }
 
 void drawTrampoline(Trampoline *t) {

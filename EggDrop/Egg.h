@@ -24,4 +24,7 @@
 
 -(void)update:(ccTime)dt; 
 
+-(void) bounce:(float) rate;
+-(void) move:(CGPoint) delta;
+
 @end

@@ -8,13 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Egg.h"
+
 @interface Trampoline : NSObject {
     float maxDepth;
+    
+    CGPoint normal;
 }
 
 @property CGPoint left;
 @property CGPoint right;
 
 -(id)initFrom:(CGPoint) left to:(CGPoint) right;
+
+-(void) handle:(Egg *) egg;
 
 @end
