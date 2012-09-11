@@ -38,6 +38,14 @@
 		0846292915FE9FAD00844D0B /* Trampoline.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846292815FE9FAD00844D0B /* Trampoline.m */; };
 		0846292C15FEA32500844D0B /* Egg.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846292B15FEA32500844D0B /* Egg.m */; };
 		0846292F15FEA6CF00844D0B /* WorldConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846292E15FEA6CF00844D0B /* WorldConstants.m */; };
+		086E2E7215FF1A70001E580A /* rope.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E7115FF1A70001E580A /* rope.png */; };
+		086E2E7515FF234A001E580A /* rope-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E7415FF234A001E580A /* rope-hd.png */; };
+		086E2E7815FF2B0F001E580A /* TrampolineSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 086E2E7715FF2B0F001E580A /* TrampolineSprite.m */; };
+		086E2E7B15FF3030001E580A /* EggSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 086E2E7A15FF3030001E580A /* EggSprite.m */; };
+		086E2E7D15FF31F4001E580A /* egg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E7C15FF31F4001E580A /* egg-hd.png */; };
+		086E2E7F15FF31FD001E580A /* egg.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E7E15FF31FD001E580A /* egg.png */; };
+		086E2E8215FF3654001E580A /* knob-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E8015FF3654001E580A /* knob-hd.png */; };
+		086E2E8315FF3654001E580A /* knob.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E8115FF3654001E580A /* knob.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +89,16 @@
 		0846292B15FEA32500844D0B /* Egg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Egg.m; sourceTree = "<group>"; };
 		0846292D15FEA6CF00844D0B /* WorldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldConstants.h; sourceTree = "<group>"; };
 		0846292E15FEA6CF00844D0B /* WorldConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldConstants.m; sourceTree = "<group>"; };
+		086E2E7115FF1A70001E580A /* rope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rope.png; path = Resources/rope.png; sourceTree = "<group>"; };
+		086E2E7415FF234A001E580A /* rope-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rope-hd.png"; path = "Resources/rope-hd.png"; sourceTree = "<group>"; };
+		086E2E7615FF2B0F001E580A /* TrampolineSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSprite.h; sourceTree = "<group>"; };
+		086E2E7715FF2B0F001E580A /* TrampolineSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrampolineSprite.m; sourceTree = "<group>"; };
+		086E2E7915FF302F001E580A /* EggSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EggSprite.h; sourceTree = "<group>"; };
+		086E2E7A15FF3030001E580A /* EggSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EggSprite.m; sourceTree = "<group>"; };
+		086E2E7C15FF31F4001E580A /* egg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "egg-hd.png"; path = "Resources/egg-hd.png"; sourceTree = "<group>"; };
+		086E2E7E15FF31FD001E580A /* egg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = egg.png; path = Resources/egg.png; sourceTree = "<group>"; };
+		086E2E8015FF3654001E580A /* knob-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "knob-hd.png"; path = "Resources/knob-hd.png"; sourceTree = "<group>"; };
+		086E2E8115FF3654001E580A /* knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = knob.png; path = Resources/knob.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +172,12 @@
 		0846276F15FE959F00844D0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				086E2E8015FF3654001E580A /* knob-hd.png */,
+				086E2E8115FF3654001E580A /* knob.png */,
+				086E2E7E15FF31FD001E580A /* egg.png */,
+				086E2E7C15FF31F4001E580A /* egg-hd.png */,
+				086E2E7415FF234A001E580A /* rope-hd.png */,
+				086E2E7115FF1A70001E580A /* rope.png */,
 				0846277015FE959F00844D0B /* Default.png */,
 				0846277215FE959F00844D0B /* Default-Landscape~ipad.png */,
 				0846277415FE959F00844D0B /* fps_images.png */,
@@ -199,6 +223,10 @@
 				084628EA15FE95A100844D0B /* BouncingEggLayer.m */,
 				084628EC15FE95A100844D0B /* IntroLayer.h */,
 				084628ED15FE95A100844D0B /* IntroLayer.m */,
+				086E2E7615FF2B0F001E580A /* TrampolineSprite.h */,
+				086E2E7715FF2B0F001E580A /* TrampolineSprite.m */,
+				086E2E7915FF302F001E580A /* EggSprite.h */,
+				086E2E7A15FF3030001E580A /* EggSprite.m */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -279,6 +307,12 @@
 				0846278315FE959F00844D0B /* Icon.png in Resources */,
 				0846278515FE959F00844D0B /* Icon@2x.png in Resources */,
 				0846278815FE959F00844D0B /* iTunesArtwork in Resources */,
+				086E2E7215FF1A70001E580A /* rope.png in Resources */,
+				086E2E7515FF234A001E580A /* rope-hd.png in Resources */,
+				086E2E7D15FF31F4001E580A /* egg-hd.png in Resources */,
+				086E2E7F15FF31FD001E580A /* egg.png in Resources */,
+				086E2E8215FF3654001E580A /* knob-hd.png in Resources */,
+				086E2E8315FF3654001E580A /* knob.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +330,8 @@
 				0846292915FE9FAD00844D0B /* Trampoline.m in Sources */,
 				0846292C15FEA32500844D0B /* Egg.m in Sources */,
 				0846292F15FEA6CF00844D0B /* WorldConstants.m in Sources */,
+				086E2E7815FF2B0F001E580A /* TrampolineSprite.m in Sources */,
+				086E2E7B15FF3030001E580A /* EggSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

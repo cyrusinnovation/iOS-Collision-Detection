@@ -14,10 +14,12 @@
 
 #import "cocos2d.h"
 
-@interface BouncingEggLayer : CCLayer
+@interface BouncingEggLayer : CCLayerColor
 {
     NSMutableArray *trampolines;
     Egg *egg;
+    
+    CCSprite *tramp;
 }
 
 +(CCScene *) scene;

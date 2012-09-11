@@ -16,12 +16,18 @@
 @synthesize left;
 @synthesize right;
 
+@synthesize bend;
+@synthesize normal;
+
 -(id)initFrom:(CGPoint) _left to:(CGPoint) _right {
     if (self = [super init]) {
         maxDepth = 10;
         
         self.left = _left;
         self.right = _right;
+        
+        self.bend = cgp_add(left, right);
+        cgp_scale(&bend, 0.5f);
         
         normal = cgp_subtract(_right, _left);
         cgp_normalize(&normal);
@@ -30,6 +36,22 @@
         stored = cgp(0,0);
     }
     return self;
+}
+
+-(CGPoint) center {
+    CGPoint center = cgp_add(left, right);
+    cgp_scale(&center, 0.5f);
+    return center;
+}
+
+-(float) angle {
+    CGPoint blart = cgp_subtract(right, left);
+    cgp_normalize(&blart);
+    return 180 * acosf(cgp_dot(blart, cgp(0, 1))) / M_PI;
+}
+
+-(float) width {
+    return cgp_length(cgp_subtract(right, left));
 }
 
 float pointToLineDistance(CGPoint A, CGPoint B, CGPoint P)
@@ -46,33 +68,90 @@ float pointToLineDistance(CGPoint A, CGPoint B, CGPoint P)
 -(void) handle:(Egg *) egg {
     float t = cgp_t(self.left, self.right, egg.location);
     if (t < 0 || t > 1) {
+        // TODO dup
+        self.bend = cgp_add(left, right);
+        cgp_scale(&bend, 0.5f);
         return;
     }
     
-    float distance = [self eggPenetration:egg];
-    if (distance >= 0) return;
+    float penetrationDepth = [self eggPenetration:egg];
+    if (penetrationDepth >= 0) {
+        // TODO dup
+        self.bend = cgp_add(left, right);
+        cgp_scale(&bend, 0.5f);
+        return;
+    }
+    
+    float center_rate = -0.75;
+    float edge_rate = -1;
+    float range = center_rate - edge_rate;
+    float t_rate = center_rate - range*fabs(t*2 - 1);
+    
+    bend = normal;
+    cgp_scale(&bend, (egg.radius - penetrationDepth));
+    bend = cgp_subtract(egg.location, bend);        
     
     CGPoint projected_velocity = cgp_project(normal, egg.velocity);
     stored = cgp_add(stored, projected_velocity);
-    cgp_scale(&projected_velocity, -0.75);
+    cgp_scale(&projected_velocity, t_rate);
     [egg boost:projected_velocity];
     
     float brake_vel_sqr = cgp_length_squared(projected_velocity);
 
     if (brake_vel_sqr < 0.1) {
         CGPoint correction = normal;
-        cgp_scale(&correction, -distance);
+        cgp_scale(&correction, -1-penetrationDepth);
         [egg move: correction];
 
         CGPoint boost = stored;
-        cgp_scale(&boost, -0.5);
+        cgp_scale(&boost, -0.55);
         [egg boost: boost];
         stored = cgp(0, 0);
+    
+        // TODO dup
+        self.bend = cgp_add(left, right);
+        cgp_scale(&bend, 0.5f);
     }
 }
 
 -(void) reset {
     stored = cgp(0, 0);
+}
+
+
+
+-(CGPoint) left_center {
+    CGPoint center = cgp_add(left, bend);
+    cgp_scale(&center, 0.5f);
+    return center;
+}
+
+-(float) left_angle {
+    CGPoint blart = cgp_subtract(bend, left);
+    cgp_normalize(&blart);
+    return 180 * acosf(cgp_dot(blart, cgp(0, 1))) / M_PI;
+}
+
+-(float) left_width {
+    return cgp_length(cgp_subtract(bend, left));
+}
+
+
+
+-(CGPoint) right_center {
+    CGPoint center = cgp_add(bend, right);
+    cgp_scale(&center, 0.5f);
+    return center;
+}
+
+-(float) right_angle {
+    CGPoint blart = cgp_subtract(right, bend);
+    cgp_normalize(&blart);
+    return 180 * acosf(cgp_dot(blart, cgp(0, 1))) / M_PI;
+}
+
+-(float) right_width {
+    return cgp_length(cgp_subtract(right, bend));
 }
 
 @end
