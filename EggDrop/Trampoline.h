@@ -24,7 +24,7 @@
 
 -(id)initFrom:(CGPoint) left to:(CGPoint) right;
 
--(void) handle:(Egg *) egg;
+-(void) handle:(Egg *) egg for:(ccTime) dt;
 -(void) reset;
 
 -(void) setFrom:(CGPoint) from to:(CGPoint) to;

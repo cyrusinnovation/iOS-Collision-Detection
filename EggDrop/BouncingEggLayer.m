@@ -77,18 +77,15 @@
 -(void)update:(ccTime)dt {
     [egg update:dt];
     
-    for (Trampoline *trampoline in trampolines) {
-        [trampoline handle: egg];
-    }
-    
-    if (egg.location.y < -20) {
+    if (egg.location.y < -20 || 
+        egg.location.x < -20 ||
+        egg.location.x > 400) {
         [self reset:cgp(160, 500)];
     }
-    if (egg.location.x < -20) {
-        [self reset:cgp(160, 500)];
-    }
-    if (egg.location.x > 400) {
-        [self reset:cgp(160, 500)];
+    else {
+        for (Trampoline *trampoline in trampolines) {
+            [trampoline handle: egg for:dt];
+        }
     }
 }
 

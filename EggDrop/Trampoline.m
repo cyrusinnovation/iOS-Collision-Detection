@@ -74,23 +74,28 @@ float pointToLineDistance(CGPoint A, CGPoint B, CGPoint P)
     return pointToLineDistance(self.left, self.right, egg.location) - egg.radius;
 }
 
--(void) handle:(Egg *) egg {
+-(void) resetBend {
+    self.bend = cgp_add(left, right);
+    cgp_scale(&bend, 0.5f);
+}
+
+-(void) handle:(Egg *) egg for:(ccTime) dt {
     float t = cgp_t(self.left, self.right, egg.location);
     if (t < 0 || t > 1) {
-        // TODO dup
-        self.bend = cgp_add(left, right);
-        cgp_scale(&bend, 0.5f);
+        [self resetBend];
         return;
     }
-    
+
+    if (cgp_dot(cgp_normal(egg.velocity), normal) >= 0) {
+        return;
+    }
+
     float penetrationDepth = [self eggPenetration:egg];
     if (penetrationDepth >= 0) {
-        // TODO dup
-        self.bend = cgp_add(left, right);
-        cgp_scale(&bend, 0.5f);
+        [self resetBend];
         return;
     }
-    
+
     float center_rate = -0.75;
     float edge_rate = -1;
     float range = center_rate - edge_rate;
@@ -116,10 +121,8 @@ float pointToLineDistance(CGPoint A, CGPoint B, CGPoint P)
         cgp_scale(&boost, -0.55);
         [egg boost: boost];
         stored = cgp(0, 0);
-    
-        // TODO dup
-        self.bend = cgp_add(left, right);
-        cgp_scale(&bend, 0.5f);
+        
+        [self resetBend];
     }
 }
 
