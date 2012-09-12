@@ -10,12 +10,16 @@
 #import <GameKit/GameKit.h>
 
 #import "Trampoline.h"
+#import "TrampolineSprite.h"
 #import "Egg.h"
 
 #import "cocos2d.h"
 
 @interface BouncingEggLayer : CCLayer
 {
+    CGPoint newTrampolineAnchor;
+    Trampoline *newTrampoline;
+    TrampolineSprite *newTrampolineSprite;
     NSMutableArray *trampolines;
     Egg *egg;
     

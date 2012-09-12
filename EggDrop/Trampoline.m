@@ -19,23 +19,32 @@
 @synthesize bend;
 @synthesize normal;
 
--(id)initFrom:(CGPoint) _left to:(CGPoint) _right {
+-(id)initFrom:(CGPoint) from to:(CGPoint) to {
     if (self = [super init]) {
         maxDepth = 10;
         
-        self.left = _left;
-        self.right = _right;
-        
-        self.bend = cgp_add(left, right);
-        cgp_scale(&bend, 0.5f);
-        
-        normal = cgp_subtract(_right, _left);
-        cgp_normalize(&normal);
-        cgp_flop(&normal);
-        
-        stored = cgp(0,0);
+        [self setFrom: from to: to];
     }
     return self;
+}
+
+-(void) setFrom:(CGPoint) from to:(CGPoint) to {
+    if (from.x < to.x) {
+        self.left = from;
+        self.right = to;
+    } else {
+        self.left = to;
+        self.right = from;
+    }
+    
+    self.bend = cgp_add(left, right);
+    cgp_scale(&bend, 0.5f);
+    
+    normal = cgp_subtract(right, left);
+    cgp_normalize(&normal);
+    cgp_flop(&normal);
+    
+    stored = cgp(0,0);
 }
 
 -(CGPoint) center {

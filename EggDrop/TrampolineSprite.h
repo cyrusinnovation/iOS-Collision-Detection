@@ -16,9 +16,13 @@
     CCSprite *left;
     CCSprite *right;
     
+    CCSprite *leftKnob;
+    CCSprite *rightKnob;
+    
     CGPoint correction;
 }
 
 -(id) init:(Trampoline *)t;
+-(void) update:(ccTime) dt;
 
 @end

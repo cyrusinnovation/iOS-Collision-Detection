@@ -27,6 +27,10 @@
 -(void) handle:(Egg *) egg;
 -(void) reset;
 
+-(void) setFrom:(CGPoint) from to:(CGPoint) to;
+
+// TODO something needs to be able to take a trampoline and
+// return a set of polygons for drawing instead of this mess
 -(CGPoint) center;
 -(float) angle;
 -(float) width;

@@ -32,11 +32,11 @@
         [right setRotation:[t right_angle]];
         [self addChild:right];
         
-        CCSprite *leftKnob = [[CCSprite alloc] initWithFile:@"knob.png"];
+        leftKnob = [[CCSprite alloc] initWithFile:@"knob.png"];
         [leftKnob setPosition:cgp_add(correction, [t left])];
         [self addChild:leftKnob];
 
-        CCSprite *rightKnob = [[CCSprite alloc] initWithFile:@"knob.png"];
+        rightKnob = [[CCSprite alloc] initWithFile:@"knob.png"];
         [rightKnob setPosition:cgp_add(correction, [t right])];
         [self addChild:rightKnob];
         
@@ -53,6 +53,9 @@
     [right setTextureRect:CGRectMake(0, 0, 8, [trampoline right_width])];
     [right setPosition:cgp_add(correction, [trampoline right_center])];
     [right setRotation:[trampoline right_angle]];
+    
+    [leftKnob setPosition:cgp_add(correction, [trampoline left])];
+    [rightKnob setPosition:cgp_add(correction, [trampoline right])];
 }
 
 @end
