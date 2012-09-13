@@ -68,25 +68,24 @@
 }
 
 -(void) addClouds {
-    CGSize s = [[CCDirector sharedDirector] winSize];
-
     for (CCSprite *cloud in clouds) {
-        int y = arc4random() % (int)s.height;
-        [cloud setPosition:ccp(-80, y)];
         [self addChild:cloud z:0];
-
-        CCMoveBy *move = [CCMoveBy actionWithDuration: 5 position: ccp(s.width + 260, 0)];
-
-        CCCallFuncN *func = [CCCallFuncN actionWithTarget:self selector:@selector(resetCloud:)];
-    
-        [cloud runAction: [CCRepeatForever actionWithAction: [CCSequence actions: move, func, nil]]];
+        [self resetCloud:cloud];
     }    
 } 
 
 -(void) resetCloud:(CCSprite*) cloud {
     CGSize s = [[CCDirector sharedDirector] winSize];
     int y = arc4random() % (int)s.height;
-    [cloud setPosition:ccp(-80, y)];
+    float scale = (float)(arc4random() % 100) / 100.0 + 0.5;
+    cloud.scale = scale;
+
+    [cloud setPosition:ccp(-[cloud boundingBox].size.width, y)];
+
+    CCMoveBy *move = [CCMoveBy actionWithDuration: 40/scale position: ccp(s.width + [cloud boundingBox].size.width * 1.5, 0)];
+    CCCallFuncN *func = [CCCallFuncN actionWithTarget:self selector:@selector(resetCloud:)];
+
+    [cloud runAction: [CCSequence actions: move, func, nil]];
 }
 
  -(void) reset:(CGPoint) location {
