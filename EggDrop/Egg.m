@@ -22,7 +22,7 @@
         radius = _radius;
         location = cgp(_x, _y);
         
-        terminalVelocity = 10;
+        terminalVelocity = [WorldConstants terminalVelocity];
         terminalVelocitySquared = terminalVelocity*terminalVelocity;
     }
     return self;
@@ -33,13 +33,17 @@
 }
 
 -(void)update:(ccTime)dt {
-    velocity = cgp_add(velocity, cgp_times([WorldConstants gravity], dt));
+    CGPoint gravity = cgp_times([WorldConstants gravity], dt);
+    velocity = cgp_add(velocity, gravity);
+    
+
     if (cgp_length_squared(velocity) > terminalVelocitySquared) {
         cgp_normalize(&velocity);
         cgp_scale(&velocity, terminalVelocity);
     }
     
-    location = cgp_add(location, velocity);
+    CGPoint delta = cgp_times(velocity, dt);
+    location = cgp_add(location, delta);
 }
 
 -(void) bounce:(float) rate {
@@ -61,8 +65,8 @@
     velocity = cgp(0, 0);
 }
 
--(void) boost:(CGPoint) rate {
-    velocity = cgp_add(velocity, rate);
+-(void) boost:(CGPoint) rate during:(float) dt {
+    velocity = cgp_add(velocity, cgp_times(rate, dt)) ;
 }
 
 

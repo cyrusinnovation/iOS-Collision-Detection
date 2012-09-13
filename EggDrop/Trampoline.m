@@ -11,6 +11,8 @@
 #include "math.h"
 #include "CGPoint_ops.h"
 
+#import "WorldConstants.h"
+
 @implementation Trampoline
 
 @synthesize left;
@@ -22,6 +24,7 @@
 -(id)initFrom:(CGPoint) from to:(CGPoint) to {
     if (self = [super init]) {
         maxDepth = 10;
+        active = false;
         
         [self setFrom: from to: to];
     }
@@ -63,15 +66,25 @@
     return cgp_length(cgp_subtract(right, left));
 }
 
-float pointToLineDistance(CGPoint A, CGPoint B, CGPoint P)
+float pointToLineDistance(CGPoint a, CGPoint b, CGPoint c)
 {
-    double normalLength = hypotf(B.x - A.x, B.y - A.y);
-    return fabsf((P.x - A.x) * (B.y - A.y) - (P.y - A.y) * (B.x - A.x)) / normalLength;
+    double normalLength = hypotf(b.x - a.x, b.y - a.y);
+    // TODO OPT this looks like the cross product from below, 
+    // it looks like the negative and it's being abs'ed - so maybe ...
+    return fabsf((b.y - a.y)*(c.x - a.x) - (b.x - a.x)*(c.y - a.y)) / normalLength;
+}
+
+bool isAbove(CGPoint a,CGPoint b, CGPoint c){
+    return ((b.x - a.x)*(c.y - a.y) - (b.y - a.y)*(c.x - a.x)) > 0;
 }
 
 // TODO I think since we're computing cgp_t below we might be able to tighten up the math in here
--(float) eggPenetration: (Egg *) egg {
-    return pointToLineDistance(self.left, self.right, egg.location) - egg.radius;
+-(float) eggPenetration: (Egg *) _egg {
+    CGPoint egg_bottom = cgp_add(_egg.location, cgp_times(normal, -_egg.radius));
+    
+    float distance = pointToLineDistance(self.left, self.right, egg_bottom);
+    if (isAbove(left, right, egg_bottom)) return -distance;
+    return distance;
 }
 
 -(void) resetBend {
@@ -79,55 +92,88 @@ float pointToLineDistance(CGPoint A, CGPoint B, CGPoint P)
     cgp_scale(&bend, 0.5f);
 }
 
--(void) handle:(Egg *) egg for:(ccTime) dt {
-    float t = cgp_t(self.left, self.right, egg.location);
-    if (t < 0 || t > 1) {
-        [self resetBend];
-        return;
-    }
-
-    if (cgp_dot(cgp_normal(egg.velocity), normal) >= 0) {
-        return;
-    }
-
-    float penetrationDepth = [self eggPenetration:egg];
-    if (penetrationDepth >= 0) {
-        [self resetBend];
-        return;
-    }
-
-    float center_rate = -0.75;
-    float edge_rate = -1;
-    float range = center_rate - edge_rate;
-    float t_rate = center_rate - range*fabs(t*2 - 1);
-    
-    bend = normal;
-    cgp_scale(&bend, (egg.radius - penetrationDepth));
-    bend = cgp_subtract(egg.location, bend);        
-    
-    CGPoint projected_velocity = cgp_project(normal, egg.velocity);
-    stored = cgp_add(stored, projected_velocity);
-    cgp_scale(&projected_velocity, t_rate);
-    [egg boost:projected_velocity];
-    
-    float brake_vel_sqr = cgp_length_squared(projected_velocity);
-
-    if (brake_vel_sqr < 0.1) {
-        CGPoint correction = normal;
-        cgp_scale(&correction, -1-penetrationDepth);
-        [egg move: correction];
-
-        CGPoint boost = stored;
-        cgp_scale(&boost, -0.55);
-        [egg boost: boost];
-        stored = cgp(0, 0);
-        
-        [self resetBend];
-    }
+-(void) setBendFor:(Egg *) _egg {
+    bend = cgp_subtract(_egg.location, cgp_times(normal, _egg.radius));
 }
+
+float scale(float value, float center_rate, float edge_rate) {
+    float range = center_rate - edge_rate;
+    return center_rate - range*fabs(value*2 - 1);
+}
+
+float interpolate(float value, float zero, float one) {
+    return zero + (one-zero)*value;
+}
+
+float clamped_range(float x, float min, float max) {
+    if (x < min) {
+        return 0;
+    }
+    if (x > max) {
+        return 1;
+    }
+    if (min == max) {
+        return 1;
+    }
+    return (x - min)/(max - min);
+}
+
+-(void) handle:(Egg *) _egg over:(ccTime) dt {
+    if (egg && egg != _egg) return;
+    
+    float t = cgp_t(self.left, self.right, _egg.location);
+    if (t < 0 || t > 1) {
+        [self reset];
+        return;
+    }
+    
+    float penetrationDepth = [self eggPenetration:_egg];
+    float dot = cgp_dot(cgp_normal(egg.velocity), normal);
+    
+    if (!egg) {
+        if (dot >= 0) {
+            return;
+        }
+        if (penetrationDepth <= 0) {
+            return;
+        }
+        if (penetrationDepth > _egg.radius*2) {
+            return;
+        }
+        
+        egg = _egg;
+    }
+    
+    float toot = cgp_length(egg.velocity);
+    
+    if (dot >= 0) {
+        if (penetrationDepth < 0) {
+            [self reset];
+            return;
+        }
+        
+        toot *= -1;
+    }
+    
+    CGPoint boost = normal;
+
+    float max_depth_for_t = scale(t, 20, 0);
+    float constant_rate = clamped_range(penetrationDepth, 0, max_depth_for_t);
+    
+    float spring_constant = interpolate(constant_rate, toot, toot + [WorldConstants spring]);
+    cgp_scale(&boost, spring_constant);
+
+    [egg boost:boost during:dt];
+    
+    [self setBendFor:egg];
+}
+
+
 
 -(void) reset {
     stored = cgp(0, 0);
+    egg = NULL;
+    [self resetBend];
 }
 
 

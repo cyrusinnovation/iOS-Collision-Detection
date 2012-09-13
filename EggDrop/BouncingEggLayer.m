@@ -32,7 +32,7 @@
 
 -(void) addTrampoline:(Trampoline *) t {
     [trampolines addObject: t];
-    [self addChild:[[TrampolineSprite alloc] init:t]];
+    [self addChild:[[TrampolineSprite alloc] init:t] z:2 tag:2];
 }
 
 -(id) init
@@ -47,8 +47,9 @@
         
 //        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(200, 300) to:cgp(280, 340)] ];
 //        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(40, 220) to:cgp(120, 200)] ];
-//        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(210, 150) to:cgp(210, 250)] ];        
-//        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(40, 40) to:cgp(280, 40)] ];        
+//        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(210, 150) to:cgp(210, 250)] ];
+//        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(40, 40) to:cgp(280, 40)] ];
+        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(40, 150) to:cgp(280, 150)] ];
         
         egg = [[Egg alloc] initAt:160 and:400 withRadius:15];
 //        [egg boost:cgp(2, 0)];
@@ -84,7 +85,7 @@
     }
     else {
         for (Trampoline *trampoline in trampolines) {
-            [trampoline handle: egg for:dt];
+            [trampoline handle: egg over:dt];
         }
     }
 }

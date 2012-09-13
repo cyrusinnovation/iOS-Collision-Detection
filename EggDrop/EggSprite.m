@@ -21,7 +21,7 @@
 
 -(void) update:(ccTime) dt {
     [self setPosition:egg.location];
-    [self setRotation:self.rotation + 2*egg.velocity.x];
+    [self setRotation:self.rotation + 0.2*egg.velocity.x];
 }
 
 @end

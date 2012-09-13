@@ -29,6 +29,6 @@
 -(CGPoint) slow:(CGPoint) factor;
 -(void) resetTo:(CGPoint) location;
 -(void) move:(CGPoint) delta;
--(void) boost:(CGPoint) rate;
+-(void) boost:(CGPoint) rate during:(float) dt;
 
 @end
