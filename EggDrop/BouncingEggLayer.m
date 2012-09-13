@@ -68,22 +68,25 @@
 }
 
 -(void) addClouds {
+    CGSize s = [[CCDirector sharedDirector] winSize];
     for (CCSprite *cloud in clouds) {
         [self addChild:cloud z:0];
-        [self resetCloud:cloud];
+
+        int x = arc4random() % (int)s.width;
+        [self resetCloud:cloud data:x];
     }    
 } 
 
--(void) resetCloud:(CCSprite*) cloud {
+-(void) resetCloud:(CCSprite*) cloud data:(id) x{
     CGSize s = [[CCDirector sharedDirector] winSize];
     int y = arc4random() % (int)s.height;
     float scale = (float)(arc4random() % 100) / 100.0 + 0.5;
     cloud.scale = scale;
 
-    [cloud setPosition:ccp(-[cloud boundingBox].size.width, y)];
+    [cloud setPosition:ccp((int)x, y)];
 
     CCMoveBy *move = [CCMoveBy actionWithDuration: 40/scale position: ccp(s.width + [cloud boundingBox].size.width * 1.5, 0)];
-    CCCallFuncN *func = [CCCallFuncN actionWithTarget:self selector:@selector(resetCloud:)];
+    CCCallFuncND *func = [CCCallFuncND actionWithTarget:self selector:@selector(resetCloud:data:) data:(int)-[cloud boundingBox].size.width];
 
     [cloud runAction: [CCSequence actions: move, func, nil]];
 }
