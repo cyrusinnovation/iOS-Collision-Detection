@@ -48,6 +48,16 @@
 		086E2E8315FF3654001E580A /* knob.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E8115FF3654001E580A /* knob.png */; };
 		086E2E8615FF4352001E580A /* bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E8415FF4352001E580A /* bg-hd.png */; };
 		086E2E8715FF4352001E580A /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E8515FF4352001E580A /* bg.png */; };
+		6EB12E2416025B2F00DC6577 /* eggbackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2216025B2E00DC6577 /* eggbackground-hd.png */; };
+		6EB12E2516025B2F00DC6577 /* eggbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2316025B2E00DC6577 /* eggbackground.png */; };
+		6EB12E2816025BCB00DC6577 /* cloud1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2616025BCB00DC6577 /* cloud1-hd.png */; };
+		6EB12E2916025BCB00DC6577 /* cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2716025BCB00DC6577 /* cloud1.png */; };
+		6EB12E3016025CFE00DC6577 /* cloud2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2A16025CFE00DC6577 /* cloud2-hd.png */; };
+		6EB12E3116025CFE00DC6577 /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2B16025CFE00DC6577 /* cloud2.png */; };
+		6EB12E3216025CFE00DC6577 /* cloud3-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2C16025CFE00DC6577 /* cloud3-hd.png */; };
+		6EB12E3316025CFE00DC6577 /* cloud3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2D16025CFE00DC6577 /* cloud3.png */; };
+		6EB12E3416025CFE00DC6577 /* cloud4-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2E16025CFE00DC6577 /* cloud4-hd.png */; };
+		6EB12E3516025CFE00DC6577 /* cloud4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2F16025CFE00DC6577 /* cloud4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +113,20 @@
 		086E2E8115FF3654001E580A /* knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = knob.png; path = Resources/knob.png; sourceTree = "<group>"; };
 		086E2E8415FF4352001E580A /* bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-hd.png"; path = "Resources/bg-hd.png"; sourceTree = "<group>"; };
 		086E2E8515FF4352001E580A /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = Resources/bg.png; sourceTree = "<group>"; };
+		6EB12E1D1601372E00DC6577 /* Nest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Nest.h; sourceTree = "<group>"; };
+		6EB12E1E1601372E00DC6577 /* Nest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Nest.m; sourceTree = "<group>"; };
+		6EB12E2016013A6900DC6577 /* NestSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NestSprite.h; sourceTree = "<group>"; };
+		6EB12E2116013A6900DC6577 /* NestSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NestSprite.m; sourceTree = "<group>"; };
+		6EB12E2216025B2E00DC6577 /* eggbackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eggbackground-hd.png"; path = "Resources/eggbackground-hd.png"; sourceTree = "<group>"; };
+		6EB12E2316025B2E00DC6577 /* eggbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eggbackground.png; path = Resources/eggbackground.png; sourceTree = "<group>"; };
+		6EB12E2616025BCB00DC6577 /* cloud1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloud1-hd.png"; path = "Resources/cloud1-hd.png"; sourceTree = "<group>"; };
+		6EB12E2716025BCB00DC6577 /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud1.png; path = Resources/cloud1.png; sourceTree = "<group>"; };
+		6EB12E2A16025CFE00DC6577 /* cloud2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloud2-hd.png"; path = "Resources/cloud2-hd.png"; sourceTree = "<group>"; };
+		6EB12E2B16025CFE00DC6577 /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud2.png; path = Resources/cloud2.png; sourceTree = "<group>"; };
+		6EB12E2C16025CFE00DC6577 /* cloud3-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloud3-hd.png"; path = "Resources/cloud3-hd.png"; sourceTree = "<group>"; };
+		6EB12E2D16025CFE00DC6577 /* cloud3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud3.png; path = Resources/cloud3.png; sourceTree = "<group>"; };
+		6EB12E2E16025CFE00DC6577 /* cloud4-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloud4-hd.png"; path = "Resources/cloud4-hd.png"; sourceTree = "<group>"; };
+		6EB12E2F16025CFE00DC6577 /* cloud4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud4.png; path = Resources/cloud4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +200,16 @@
 		0846276F15FE959F00844D0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6EB12E2216025B2E00DC6577 /* eggbackground-hd.png */,
+				6EB12E2316025B2E00DC6577 /* eggbackground.png */,
+				6EB12E2616025BCB00DC6577 /* cloud1-hd.png */,
+				6EB12E2716025BCB00DC6577 /* cloud1.png */,
+				6EB12E2A16025CFE00DC6577 /* cloud2-hd.png */,
+				6EB12E2B16025CFE00DC6577 /* cloud2.png */,
+				6EB12E2C16025CFE00DC6577 /* cloud3-hd.png */,
+				6EB12E2D16025CFE00DC6577 /* cloud3.png */,
+				6EB12E2E16025CFE00DC6577 /* cloud4-hd.png */,
+				6EB12E2F16025CFE00DC6577 /* cloud4.png */,
 				086E2E8415FF4352001E580A /* bg-hd.png */,
 				086E2E8515FF4352001E580A /* bg.png */,
 				086E2E8015FF3654001E580A /* knob-hd.png */,
@@ -233,6 +267,8 @@
 				086E2E7715FF2B0F001E580A /* TrampolineSprite.m */,
 				086E2E7915FF302F001E580A /* EggSprite.h */,
 				086E2E7A15FF3030001E580A /* EggSprite.m */,
+				6EB12E2016013A6900DC6577 /* NestSprite.h */,
+				6EB12E2116013A6900DC6577 /* NestSprite.m */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -244,6 +280,8 @@
 				0846292815FE9FAD00844D0B /* Trampoline.m */,
 				0846292A15FEA32500844D0B /* Egg.h */,
 				0846292B15FEA32500844D0B /* Egg.m */,
+				6EB12E1D1601372E00DC6577 /* Nest.h */,
+				6EB12E1E1601372E00DC6577 /* Nest.m */,
 				0846292D15FEA6CF00844D0B /* WorldConstants.h */,
 				0846292E15FEA6CF00844D0B /* WorldConstants.m */,
 			);
@@ -321,6 +359,16 @@
 				086E2E8315FF3654001E580A /* knob.png in Resources */,
 				086E2E8615FF4352001E580A /* bg-hd.png in Resources */,
 				086E2E8715FF4352001E580A /* bg.png in Resources */,
+				6EB12E2416025B2F00DC6577 /* eggbackground-hd.png in Resources */,
+				6EB12E2516025B2F00DC6577 /* eggbackground.png in Resources */,
+				6EB12E2816025BCB00DC6577 /* cloud1-hd.png in Resources */,
+				6EB12E2916025BCB00DC6577 /* cloud1.png in Resources */,
+				6EB12E3016025CFE00DC6577 /* cloud2-hd.png in Resources */,
+				6EB12E3116025CFE00DC6577 /* cloud2.png in Resources */,
+				6EB12E3216025CFE00DC6577 /* cloud3-hd.png in Resources */,
+				6EB12E3316025CFE00DC6577 /* cloud3.png in Resources */,
+				6EB12E3416025CFE00DC6577 /* cloud4-hd.png in Resources */,
+				6EB12E3516025CFE00DC6577 /* cloud4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

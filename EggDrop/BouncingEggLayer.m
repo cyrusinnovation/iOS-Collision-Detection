@@ -18,6 +18,9 @@
 #import "TrampolineSprite.h"
 #import "EggSprite.h"
 
+#include <stdlib.h>
+
+
 #pragma mark - HelloWorldLayer
 
 @implementation BouncingEggLayer
@@ -38,39 +41,68 @@
 -(id) init
 {
 	if (self=[super init]){
-		CGSize s = [[CCDirector sharedDirector] winSize];
-        CCSprite * bg = [CCSprite spriteWithFile:@"bg.png"];
-        [bg setPosition:ccp(s.width/2, s.height/2)];
-        [self addChild:bg z:0];
+            CGSize s = [[CCDirector sharedDirector] winSize];
+            CCSprite * bg = [CCSprite spriteWithFile:@"eggbackground.png"];
+            [bg setPosition:ccp(s.width/2, s.height/2)];
+            [self addChild:bg z:0];
+
+            clouds = [[NSMutableArray alloc] init];
+            [self createCloudPool];
+            [self addClouds];
         
-        trampolines = [[NSMutableArray alloc] init];
+            trampolines = [[NSMutableArray alloc] init];
         
-//        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(200, 300) to:cgp(280, 340)] ];
-//        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(40, 220) to:cgp(120, 200)] ];
-//        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(210, 150) to:cgp(210, 250)] ];        
-//        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(40, 40) to:cgp(280, 40)] ];        
+            egg = [[Egg alloc] initAt:160 and:400 withRadius:15];
         
-        egg = [[Egg alloc] initAt:160 and:400 withRadius:15];
+ 
+
 //        [egg boost:cgp(2, 0)];
         
-        [self addChild:[[EggSprite alloc] init:egg]];
+            [self addChild:[[EggSprite alloc] init:egg]];
         
-        [self scheduleUpdate];
+            [self scheduleUpdate];
         
-        self.isTouchEnabled = YES; 
-        
-        
+            self.isTouchEnabled = YES; 
 	}
 	return self;
 }
 
--(void) reset:(CGPoint) location {
+-(void) addClouds {
+    CGSize s = [[CCDirector sharedDirector] winSize];
+
+    for (CCSprite *cloud in clouds) {
+        int y = arc4random() % (int)s.height;
+        [cloud setPosition:ccp(-80, y)];
+        [self addChild:cloud z:0];
+
+        CCMoveBy *move = [CCMoveBy actionWithDuration: 5 position: ccp(s.width + 260, 0)];
+
+        CCCallFuncN *func = [CCCallFuncN actionWithTarget:self selector:@selector(resetCloud:)];
+    
+        [cloud runAction: [CCRepeatForever actionWithAction: [CCSequence actions: move, func, nil]]];
+    }    
+} 
+
+-(void) resetCloud:(CCSprite*) cloud {
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    int y = arc4random() % (int)s.height;
+    [cloud setPosition:ccp(-80, y)];
+}
+
+ -(void) reset:(CGPoint) location {
     [egg resetTo:location];
 //    [egg boost:cgp(2, 0)];
     
     for (Trampoline *trampoline in trampolines) {
         [trampoline reset];
     }
+}
+
+-(void) createCloudPool {
+    [clouds addObject: [CCSprite spriteWithFile:@"cloud1.png"]];
+    [clouds addObject: [CCSprite spriteWithFile:@"cloud2.png"]];
+    [clouds addObject: [CCSprite spriteWithFile:@"cloud3.png"]];
+    [clouds addObject: [CCSprite spriteWithFile:@"cloud4.png"]];
 }
 
 
