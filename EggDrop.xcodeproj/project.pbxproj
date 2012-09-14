@@ -59,6 +59,8 @@
 		6EB12E3416025CFE00DC6577 /* cloud4-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2E16025CFE00DC6577 /* cloud4-hd.png */; };
 		6EB12E3516025CFE00DC6577 /* cloud4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2F16025CFE00DC6577 /* cloud4.png */; };
 		6EB12E3A16037D2800DC6577 /* Clouds.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB12E3916037D2800DC6577 /* Clouds.m */; };
+		6EB12E3C1603953200DC6577 /* eggbackground-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E3B1603953200DC6577 /* eggbackground-ipad.png */; };
+		6EB12E3E16039DA900DC6577 /* eggbackground-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E3D16039DA900DC6577 /* eggbackground-ipadhd.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +128,8 @@
 		6EB12E2F16025CFE00DC6577 /* cloud4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud4.png; path = Resources/cloud4.png; sourceTree = "<group>"; };
 		6EB12E3816037D2700DC6577 /* Clouds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clouds.h; sourceTree = "<group>"; };
 		6EB12E3916037D2800DC6577 /* Clouds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clouds.m; sourceTree = "<group>"; };
+		6EB12E3B1603953200DC6577 /* eggbackground-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eggbackground-ipad.png"; path = "Resources/eggbackground-ipad.png"; sourceTree = "<group>"; };
+		6EB12E3D16039DA900DC6577 /* eggbackground-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eggbackground-ipadhd.png"; path = "Resources/eggbackground-ipadhd.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,8 @@
 			children = (
 				6EB12E2216025B2E00DC6577 /* eggbackground-hd.png */,
 				6EB12E2316025B2E00DC6577 /* eggbackground.png */,
+				6EB12E3B1603953200DC6577 /* eggbackground-ipad.png */,
+				6EB12E3D16039DA900DC6577 /* eggbackground-ipadhd.png */,
 				6EB12E2616025BCB00DC6577 /* cloud1-hd.png */,
 				6EB12E2716025BCB00DC6577 /* cloud1.png */,
 				6EB12E2A16025CFE00DC6577 /* cloud2-hd.png */,
@@ -366,6 +372,8 @@
 				6EB12E3316025CFE00DC6577 /* cloud3.png in Resources */,
 				6EB12E3416025CFE00DC6577 /* cloud4-hd.png in Resources */,
 				6EB12E3516025CFE00DC6577 /* cloud4.png in Resources */,
+				6EB12E3C1603953200DC6577 /* eggbackground-ipad.png in Resources */,
+				6EB12E3E16039DA900DC6577 /* eggbackground-ipadhd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

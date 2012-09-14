@@ -46,7 +46,7 @@
         
         trampolines = [[NSMutableArray alloc] init];
         
-        egg = [[Egg alloc] initAt:160 and:400 withRadius:15];
+        egg = [[Egg alloc] initAt:s.width / 2 and:s.height withRadius:15];
         
         
         [self addChild:[[EggSprite alloc] init:egg]];
@@ -87,11 +87,12 @@
 
 -(void)update:(ccTime)dt {
     [egg update:dt];
+    CGSize s = [[CCDirector sharedDirector] winSize];
     
     if (egg.location.y < -20 || 
         egg.location.x < -20 ||
-        egg.location.x > 400) {
-        [self reset:cgp(160, 500)];
+        egg.location.x > s.width + 30) {
+        [self reset:cgp(s.width / 2, s.height + 100)];
     }
     else {
         for (Trampoline *trampoline in trampolines) {
