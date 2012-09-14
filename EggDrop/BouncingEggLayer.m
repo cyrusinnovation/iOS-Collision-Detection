@@ -18,6 +18,9 @@
 #import "TrampolineSprite.h"
 #import "EggSprite.h"
 
+#include <stdlib.h>
+
+
 #pragma mark - HelloWorldLayer
 
 @implementation BouncingEggLayer
@@ -30,30 +33,28 @@
 	return scene;
 }
 
--(void) addTrampoline:(Trampoline *) t {
-    [trampolines addObject: t];
-    [self addChild:[[TrampolineSprite alloc] init:t] z:2 tag:2];
-}
-
 -(id) init
 {
 	if (self=[super init]){
-		CGSize s = [[CCDirector sharedDirector] winSize];
-        CCSprite * bg = [CCSprite spriteWithFile:@"bg.png"];
+        CGSize s = [[CCDirector sharedDirector] winSize];
+        CCSprite * bg = [CCSprite spriteWithFile:@"eggbackground.png"];
         [bg setPosition:ccp(s.width/2, s.height/2)];
         [self addChild:bg z:0];
         
+        clouds = [[NSMutableArray alloc] init];
+        [self createCloudPool];
+        [self addClouds];
+        
         trampolines = [[NSMutableArray alloc] init];
-                
+        
         egg = [[Egg alloc] initAt:160 and:400 withRadius:15];
+        
         
         [self addChild:[[EggSprite alloc] init:egg]];
         
         [self scheduleUpdate];
         
         self.isTouchEnabled = YES; 
-        
-        
 	}
 	return self;
 }
@@ -66,6 +67,60 @@
     }
 }
 
+-(void) resetCloud:(CCSprite*) cloud {
+    float scale = (float)(arc4random() % 100) / 100.0 + 0.5;
+    cloud.scale = scale;
+    int x = ((int) -[cloud boundingBox].size.width);
+    
+    [self setCloud:cloud scale:scale at:x];
+}
+
+-(void) resetCloud:(CCSprite*) cloud at:(int) x {
+    float scale = (float)(arc4random() % 100) / 100.0 + 0.5;
+    cloud.scale = scale;
+    
+    [self setCloud:cloud scale:scale at:x];
+}
+
+-(void) setCloud:(CCSprite*) cloud scale:(float) scale at:(int) x {
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    int y = arc4random() % (int)s.height;    
+    [cloud setPosition:ccp(x, y)];
+    
+    CCMoveBy *move = [CCMoveTo actionWithDuration: 40/scale position: ccp(s.width + [cloud boundingBox].size.width/2, y)];
+    CCCallFuncN *func = [CCCallFuncN actionWithTarget:self selector:@selector(resetCloud:)];
+    [cloud runAction: [CCSequence actions: move, func, nil]];
+}
+
+-(void) resetStage {
+    [trampolines removeAllObjects];
+    
+    while (self.children.count > 2) {
+        [self removeChildByTag:2 cleanup:true];
+    }
+}
+
+-(void) createCloudPool {
+    [clouds addObject: [CCSprite spriteWithFile:@"cloud1.png"]];
+    [clouds addObject: [CCSprite spriteWithFile:@"cloud2.png"]];
+    [clouds addObject: [CCSprite spriteWithFile:@"cloud3.png"]];
+    [clouds addObject: [CCSprite spriteWithFile:@"cloud4.png"]];
+}
+
+-(void) addClouds {
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    for (CCSprite *cloud in clouds) {
+        [self addChild:cloud z:0];
+        
+        int x = arc4random() % (int)s.width;
+        [self resetCloud:cloud at:x];
+    }    
+}
+
+-(void) addTrampoline:(Trampoline *) t {
+    [trampolines addObject: t];
+    [self addChild:[[TrampolineSprite alloc] init:t] z:2];
+}
 
 -(void)update:(ccTime)dt {
     [egg update:dt];
@@ -82,47 +137,15 @@
     }
 }
 
-//#define DEBUG_DRAW
-
-#ifdef DEBUG_DRAW
-void drawTrampoline(Trampoline *t) {
-    glLineWidth(2);
-    ccDrawColor4B(0, 0, 255, 255);
-    ccDrawLine(t.left, t.bend);
-    ccDrawLine(t.bend, t.right);
-}
-
-void drawEgg(Egg *e) {
-    glLineWidth(2);
-    ccDrawColor4B(255, 0, 0, 255);
-    ccDrawCircle(e.location, e.radius-1, 360, 24, false);
-}
-
-- (void) draw
-{
-    [super draw];
-    
-    for (Trampoline *trampoline in trampolines) {
-        drawTrampoline(trampoline);
-    }
-    
-    if (newTrampoline) {
-        drawTrampoline(newTrampoline);
-    }
-    
-    drawEgg(egg);
-}
-#endif
-
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-
+    
     newTrampolineAnchor = cgp_subtract(location, cgp(10, 0));
     newTrampoline = [[Trampoline alloc] initFrom:newTrampolineAnchor to:location];
     newTrampolineSprite = [[TrampolineSprite alloc] init:newTrampoline];
-
-    [self addChild:newTrampolineSprite z:1 tag:2];
+    
+    [self addChild:newTrampolineSprite z:3];
     
     return true;
 }
@@ -132,14 +155,6 @@ void drawEgg(Egg *e) {
     
     [newTrampoline setFrom:newTrampolineAnchor to:location];
     [newTrampolineSprite update: 0];
-}
-
--(void) resetStage {
-    [trampolines removeAllObjects];
-    
-    while (self.children.count > 2) {
-        [self removeChildByTag:2 cleanup:true];
-    }
 }
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event

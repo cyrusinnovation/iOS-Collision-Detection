@@ -21,6 +21,7 @@
     Trampoline *newTrampoline;
     TrampolineSprite *newTrampolineSprite;
     NSMutableArray *trampolines;
+    NSMutableArray *clouds;
     Egg *egg;
     
     CCSprite *tramp;
