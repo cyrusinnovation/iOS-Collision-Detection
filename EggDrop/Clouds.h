@@ -12,6 +12,8 @@
 
 @interface Clouds : NSObject {
     NSMutableArray *cloudSprites;
+    CCSprite *currentCloud;
+    int startingX;
 }
 
 @property (strong, atomic) NSMutableArray* cloudSprites;

@@ -32,23 +32,21 @@
 -(void) addClouds {
     CGSize s = [[CCDirector sharedDirector] winSize];
     for (CCSprite *cloud in cloudSprites) {
-        int startingX = arc4random() % (int)s.width;
-        [self resetCloud:cloud data:(void *)startingX];
+        int x = arc4random() % (int)s.width;
+        [self resetCloud:cloud data:(void *)x];
     }    
 } 
 
--(void) resetCloud:(CCSprite*) cloud data:(void *) startingX{
+-(void) resetCloud:(CCSprite*) cloud data:(void *) x{
+    startingX = (int)x;
+    currentCloud = cloud;
     cloud.scale = [self randomCloudScale];
     [cloud setPosition:ccp((int)startingX, [self randomStartingY])];
 
-    float distanceToTravel = [self paddedScreenWidth:cloud] - (int)startingX;
-    float percentDifference = distanceToTravel / [self paddedScreenWidth:cloud];
-    float time = 40/cloud.scale * percentDifference;
+    CCMoveBy *move = [CCMoveBy actionWithDuration: [self timeToCrossScreen] position: ccp([self distanceToTravel], 0)];
+    CCCallFuncND *resetFunc = [CCCallFuncND actionWithTarget:self selector:@selector(resetCloud:data:) data:(void *)-[self cloudWidth]];
 
-    CCMoveBy *move = [CCMoveBy actionWithDuration: time position: ccp(distanceToTravel, 0)];
-    CCCallFuncND *func = [CCCallFuncND actionWithTarget:self selector:@selector(resetCloud:data:) data:(void *)(int)-[cloud boundingBox].size.width];
-
-    [cloud runAction: [CCSequence actions: move, func, nil]];
+    [cloud runAction: [CCSequence actions: move, resetFunc, nil]];
 }
 
 -(float) randomCloudScale {
@@ -60,9 +58,25 @@
     return arc4random() % (int)s.height;
 }
 
--(float) paddedScreenWidth: (CCSprite *) cloud {
+-(float) paddedScreenWidth {
     CGSize s = [[CCDirector sharedDirector] winSize];
-    return s.width + [cloud boundingBox].size.width * 1.5;
+    return s.width + [self cloudWidth] * 1.5;
+}
+
+-(float) distanceToTravel  {
+    return [self paddedScreenWidth] - startingX;
+}
+
+-(float) remainingDistancePercent {
+    return [self distanceToTravel] / [self paddedScreenWidth];
+}
+
+-(float) timeToCrossScreen {
+    return 40/currentCloud.scale * [self remainingDistancePercent];
+}
+
+-(int) cloudWidth {
+    return [currentCloud boundingBox].size.width;
 }
 
 @end
