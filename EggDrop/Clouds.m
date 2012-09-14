@@ -32,28 +32,37 @@
 -(void) addClouds {
     CGSize s = [[CCDirector sharedDirector] winSize];
     for (CCSprite *cloud in cloudSprites) {
-        int x = arc4random() % (int)s.width;
-        [self resetCloud:cloud data:(void *)x];
+        int startingX = arc4random() % (int)s.width;
+        [self resetCloud:cloud data:(void *)startingX];
     }    
 } 
 
 -(void) resetCloud:(CCSprite*) cloud data:(void *) startingX{
-    CGSize s = [[CCDirector sharedDirector] winSize];
-    int y = arc4random() % (int)s.height;
-    float scale = (float)(arc4random() % 100) / 100.0 + 0.5;
-    cloud.scale = scale;
+    cloud.scale = [self randomCloudScale];
+    [cloud setPosition:ccp((int)startingX, [self randomStartingY])];
 
-    [cloud setPosition:ccp((int)startingX, y)];
-
-    float distanceOfScreen = s.width + [cloud boundingBox].size.width * 1.5;
-    float distanceToTravel = distanceOfScreen - (int)startingX;
-    float percentDifference = distanceToTravel / distanceOfScreen;
-    float time = 40/scale * percentDifference;
+    float distanceToTravel = [self paddedScreenWidth:cloud] - (int)startingX;
+    float percentDifference = distanceToTravel / [self paddedScreenWidth:cloud];
+    float time = 40/cloud.scale * percentDifference;
 
     CCMoveBy *move = [CCMoveBy actionWithDuration: time position: ccp(distanceToTravel, 0)];
     CCCallFuncND *func = [CCCallFuncND actionWithTarget:self selector:@selector(resetCloud:data:) data:(void *)(int)-[cloud boundingBox].size.width];
 
     [cloud runAction: [CCSequence actions: move, func, nil]];
+}
+
+-(float) randomCloudScale {
+    return (float)(arc4random() % 100) / 100.0 + 0.5;
+}
+
+-(int) randomStartingY {
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    return arc4random() % (int)s.height;
+}
+
+-(float) paddedScreenWidth: (CCSprite *) cloud {
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    return s.width + [cloud boundingBox].size.width * 1.5;
 }
 
 @end
