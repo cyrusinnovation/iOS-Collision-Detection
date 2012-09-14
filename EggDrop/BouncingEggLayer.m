@@ -13,18 +13,17 @@
 #import "CGPoint_ops.h"
 
 // Needed to obtain the Navigation Controller
-#import "AppDelegate.h"
-
-#import "TrampolineSprite.h"
 #import "EggSprite.h"
 #import "NestSprite.h"
+#import "HUD.h"
 
-#include <stdlib.h>
 
 
 #pragma mark - HelloWorldLayer
 
-@implementation BouncingEggLayer
+@implementation BouncingEggLayer {
+    HUD *hud;
+}
 
 +(CCScene *) scene
 {
@@ -49,11 +48,17 @@
         
         egg = [[Egg alloc] initAt:s.width / 2 and:s.height withRadius:15];
         
+        
         [self addChild:[[EggSprite alloc] init:egg]];
 
         nest = [[Nest alloc] initAt: s.width / 4 and:60];
         [self addChild:[[NestSprite alloc] init:nest]];
         
+
+        score = [[Score alloc] init];
+        hud = [[HUD alloc] initWithScore:score];
+        [self addChild:hud];
+
         [self scheduleUpdate];
         
         self.isTouchEnabled = YES;
@@ -98,6 +103,7 @@
     if (egg.location.y < -20 || 
         egg.location.x < -20 ||
         egg.location.x > s.width + 30) {
+        [score adjustBy:1];
         [self reset:cgp(s.width / 2, s.height + 100)];
     }
     else {

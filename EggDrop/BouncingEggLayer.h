@@ -13,9 +13,12 @@
 #import "TrampolineSprite.h"
 #import "Egg.h"
 #import "Clouds.h"
+#import "Score.h"
 #import "Nest.h"
 
 #import "cocos2d.h"
+
+@class HUD;
 
 @interface BouncingEggLayer : CCLayer
 {
@@ -29,6 +32,8 @@
     Clouds *clouds;
 
     CCSprite *tramp;
+    
+    Score *score;
 }
 
 +(CCScene *) scene;
