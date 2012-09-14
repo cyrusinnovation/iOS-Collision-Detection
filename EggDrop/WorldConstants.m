@@ -11,15 +11,29 @@
 @implementation WorldConstants
 
 static CGPoint gravity;
+static float spring;
+static float terminalVelocity;
 
 +(void) initialize
 {
-    gravity = CGPointMake(0, -9.8);
+    gravity = CGPointMake(0, -800);
+    spring = 4000;
+    terminalVelocity = 600;
 }
 
 +(CGPoint) gravity
 {
     return gravity; 
+}
+
++(float) spring
+{
+    return spring; 
+}
+
++(float) terminalVelocity
+{
+    return terminalVelocity; 
 }
 
 @end

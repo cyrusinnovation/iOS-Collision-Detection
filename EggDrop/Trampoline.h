@@ -13,8 +13,11 @@
 @interface Trampoline : NSObject {
     float maxDepth;
     
+    Boolean active;
     
     CGPoint stored;
+    
+    Egg* egg;
 }
 
 @property CGPoint bend; // TODO should be private
@@ -24,7 +27,7 @@
 
 -(id)initFrom:(CGPoint) left to:(CGPoint) right;
 
--(void) handle:(Egg *) egg for:(ccTime) dt;
+-(void) handle:(Egg *) egg over:(ccTime) dt;
 -(void) reset;
 
 -(void) setFrom:(CGPoint) from to:(CGPoint) to;

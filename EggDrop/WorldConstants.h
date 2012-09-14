@@ -12,5 +12,7 @@
 }
 
 +(CGPoint) gravity;
++(float) spring;
++(float) terminalVelocity;
 
 @end
