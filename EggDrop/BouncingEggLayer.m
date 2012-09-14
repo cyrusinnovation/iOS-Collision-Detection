@@ -76,6 +76,9 @@
 }
 
 -(void) resetStage {
+    [[CCDirector sharedDirector] resume];
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    [egg resetTo:ccp(s.width / 2, s.height + 100)];
     [trampolines removeAllObjects];
     
     while ([self getChildByTag:2]) {
