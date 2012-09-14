@@ -58,6 +58,7 @@
 		6EB12E3316025CFE00DC6577 /* cloud3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2D16025CFE00DC6577 /* cloud3.png */; };
 		6EB12E3416025CFE00DC6577 /* cloud4-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2E16025CFE00DC6577 /* cloud4-hd.png */; };
 		6EB12E3516025CFE00DC6577 /* cloud4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2F16025CFE00DC6577 /* cloud4.png */; };
+		6EB12E3A16037D2800DC6577 /* Clouds.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB12E3916037D2800DC6577 /* Clouds.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,8 @@
 		6EB12E2D16025CFE00DC6577 /* cloud3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud3.png; path = Resources/cloud3.png; sourceTree = "<group>"; };
 		6EB12E2E16025CFE00DC6577 /* cloud4-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloud4-hd.png"; path = "Resources/cloud4-hd.png"; sourceTree = "<group>"; };
 		6EB12E2F16025CFE00DC6577 /* cloud4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud4.png; path = Resources/cloud4.png; sourceTree = "<group>"; };
+		6EB12E3816037D2700DC6577 /* Clouds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clouds.h; sourceTree = "<group>"; };
+		6EB12E3916037D2800DC6577 /* Clouds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clouds.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +260,8 @@
 				084628E715FE95A100844D0B /* AppDelegate.m */,
 				084628E915FE95A100844D0B /* BouncingEggLayer.h */,
 				084628EA15FE95A100844D0B /* BouncingEggLayer.m */,
+				6EB12E3816037D2700DC6577 /* Clouds.h */,
+				6EB12E3916037D2800DC6577 /* Clouds.m */,
 				084628EC15FE95A100844D0B /* IntroLayer.h */,
 				084628ED15FE95A100844D0B /* IntroLayer.m */,
 				086E2E7615FF2B0F001E580A /* TrampolineSprite.h */,
@@ -380,6 +385,7 @@
 				0846292F15FEA6CF00844D0B /* WorldConstants.m in Sources */,
 				086E2E7815FF2B0F001E580A /* TrampolineSprite.m in Sources */,
 				086E2E7B15FF3030001E580A /* EggSprite.m in Sources */,
+				6EB12E3A16037D2800DC6577 /* Clouds.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

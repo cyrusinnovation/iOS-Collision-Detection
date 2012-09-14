@@ -12,6 +12,7 @@
 #import "Trampoline.h"
 #import "TrampolineSprite.h"
 #import "Egg.h"
+#import "Clouds.h"
 
 #import "cocos2d.h"
 
@@ -21,9 +22,10 @@
     Trampoline *newTrampoline;
     TrampolineSprite *newTrampolineSprite;
     NSMutableArray *trampolines;
-    NSMutableArray *clouds;
     Egg *egg;
-    
+
+    Clouds *clouds;
+
     CCSprite *tramp;
 }
 

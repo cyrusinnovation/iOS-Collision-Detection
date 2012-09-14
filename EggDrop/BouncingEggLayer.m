@@ -1,5 +1,5 @@
 //
-//  HelloWorldLayer.m
+//  BouncingEggLayer.m
 //  EggDrop
 //
 //  Created by Najati Imam on 9/10/12.
@@ -46,10 +46,9 @@
             [bg setPosition:ccp(s.width/2, s.height/2)];
             [self addChild:bg z:0];
 
-            clouds = [[NSMutableArray alloc] init];
-            [self createCloudPool];
+            clouds = [[Clouds alloc] init];
             [self addClouds];
-        
+
             trampolines = [[NSMutableArray alloc] init];
         
             egg = [[Egg alloc] initAt:160 and:400 withRadius:15];
@@ -68,33 +67,11 @@
 }
 
 -(void) addClouds {
-    CGSize s = [[CCDirector sharedDirector] winSize];
-    for (CCSprite *cloud in clouds) {
+    for (CCSprite *cloud in [clouds cloudSprites]) {
         [self addChild:cloud z:0];
-
-        int x = arc4random() % (int)s.width;
-        [self resetCloud:cloud data:(void *)x];
     }    
 } 
 
--(void) resetCloud:(CCSprite*) cloud data:(void *) startingX{
-    CGSize s = [[CCDirector sharedDirector] winSize];
-    int y = arc4random() % (int)s.height;
-    float scale = (float)(arc4random() % 100) / 100.0 + 0.5;
-    cloud.scale = scale;
-
-    [cloud setPosition:ccp((int)startingX, y)];
-
-    float distanceOfScreen = s.width + [cloud boundingBox].size.width * 1.5;
-    float distanceToTravel = distanceOfScreen - (int)startingX;
-    float percentDifference = distanceToTravel / distanceOfScreen;
-    float time = 40/scale * percentDifference;
-
-    CCMoveBy *move = [CCMoveBy actionWithDuration: time position: ccp(distanceToTravel, 0)];
-    CCCallFuncND *func = [CCCallFuncND actionWithTarget:self selector:@selector(resetCloud:data:) data:(void *)(int)-[cloud boundingBox].size.width];
-
-    [cloud runAction: [CCSequence actions: move, func, nil]];
-}
 
  -(void) reset:(CGPoint) location {
     [egg resetTo:location];
@@ -104,14 +81,6 @@
         [trampoline reset];
     }
 }
-
--(void) createCloudPool {
-    [clouds addObject: [CCSprite spriteWithFile:@"cloud1.png"]];
-    [clouds addObject: [CCSprite spriteWithFile:@"cloud2.png"]];
-    [clouds addObject: [CCSprite spriteWithFile:@"cloud3.png"]];
-    [clouds addObject: [CCSprite spriteWithFile:@"cloud4.png"]];
-}
-
 
 -(void)update:(ccTime)dt {
     [egg update:dt];
