@@ -48,6 +48,10 @@
 		086E2E8315FF3654001E580A /* knob.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E8115FF3654001E580A /* knob.png */; };
 		086E2E8615FF4352001E580A /* bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E8415FF4352001E580A /* bg-hd.png */; };
 		086E2E8715FF4352001E580A /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 086E2E8515FF4352001E580A /* bg.png */; };
+		6E0B3B861603B65D00FBD2FD /* Nest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0B3B851603B65D00FBD2FD /* Nest.m */; };
+		6E0B3B8A1603B78600FBD2FD /* NestSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0B3B891603B78600FBD2FD /* NestSprite.m */; };
+		6E0B3B8D1603B9DD00FBD2FD /* nest-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E0B3B8B1603B9DD00FBD2FD /* nest-hd.png */; };
+		6E0B3B8E1603B9DD00FBD2FD /* nest.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E0B3B8C1603B9DD00FBD2FD /* nest.png */; };
 		6EB12E2416025B2F00DC6577 /* eggbackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2216025B2E00DC6577 /* eggbackground-hd.png */; };
 		6EB12E2516025B2F00DC6577 /* eggbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2316025B2E00DC6577 /* eggbackground.png */; };
 		6EB12E2816025BCB00DC6577 /* cloud1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2616025BCB00DC6577 /* cloud1-hd.png */; };
@@ -116,6 +120,12 @@
 		086E2E8115FF3654001E580A /* knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = knob.png; path = Resources/knob.png; sourceTree = "<group>"; };
 		086E2E8415FF4352001E580A /* bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-hd.png"; path = "Resources/bg-hd.png"; sourceTree = "<group>"; };
 		086E2E8515FF4352001E580A /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = Resources/bg.png; sourceTree = "<group>"; };
+		6E0B3B841603B65D00FBD2FD /* Nest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nest.h; sourceTree = "<group>"; };
+		6E0B3B851603B65D00FBD2FD /* Nest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Nest.m; sourceTree = "<group>"; };
+		6E0B3B881603B78600FBD2FD /* NestSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestSprite.h; sourceTree = "<group>"; };
+		6E0B3B891603B78600FBD2FD /* NestSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NestSprite.m; sourceTree = "<group>"; };
+		6E0B3B8B1603B9DD00FBD2FD /* nest-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nest-hd.png"; path = "Resources/nest-hd.png"; sourceTree = "<group>"; };
+		6E0B3B8C1603B9DD00FBD2FD /* nest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nest.png; path = Resources/nest.png; sourceTree = "<group>"; };
 		6EB12E2216025B2E00DC6577 /* eggbackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eggbackground-hd.png"; path = "Resources/eggbackground-hd.png"; sourceTree = "<group>"; };
 		6EB12E2316025B2E00DC6577 /* eggbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eggbackground.png; path = Resources/eggbackground.png; sourceTree = "<group>"; };
 		6EB12E2616025BCB00DC6577 /* cloud1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloud1-hd.png"; path = "Resources/cloud1-hd.png"; sourceTree = "<group>"; };
@@ -215,6 +225,8 @@
 				6EB12E2D16025CFE00DC6577 /* cloud3.png */,
 				6EB12E2E16025CFE00DC6577 /* cloud4-hd.png */,
 				6EB12E2F16025CFE00DC6577 /* cloud4.png */,
+				6E0B3B8B1603B9DD00FBD2FD /* nest-hd.png */,
+				6E0B3B8C1603B9DD00FBD2FD /* nest.png */,
 				086E2E8415FF4352001E580A /* bg-hd.png */,
 				086E2E8515FF4352001E580A /* bg.png */,
 				086E2E8015FF3654001E580A /* knob-hd.png */,
@@ -274,6 +286,8 @@
 				086E2E7715FF2B0F001E580A /* TrampolineSprite.m */,
 				086E2E7915FF302F001E580A /* EggSprite.h */,
 				086E2E7A15FF3030001E580A /* EggSprite.m */,
+				6E0B3B881603B78600FBD2FD /* NestSprite.h */,
+				6E0B3B891603B78600FBD2FD /* NestSprite.m */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -285,6 +299,8 @@
 				0846292815FE9FAD00844D0B /* Trampoline.m */,
 				0846292A15FEA32500844D0B /* Egg.h */,
 				0846292B15FEA32500844D0B /* Egg.m */,
+				6E0B3B841603B65D00FBD2FD /* Nest.h */,
+				6E0B3B851603B65D00FBD2FD /* Nest.m */,
 				0846292D15FEA6CF00844D0B /* WorldConstants.h */,
 				0846292E15FEA6CF00844D0B /* WorldConstants.m */,
 			);
@@ -374,6 +390,8 @@
 				6EB12E3516025CFE00DC6577 /* cloud4.png in Resources */,
 				6EB12E3C1603953200DC6577 /* eggbackground-ipad.png in Resources */,
 				6EB12E3E16039DA900DC6577 /* eggbackground-ipadhd.png in Resources */,
+				6E0B3B8D1603B9DD00FBD2FD /* nest-hd.png in Resources */,
+				6E0B3B8E1603B9DD00FBD2FD /* nest.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +412,8 @@
 				086E2E7815FF2B0F001E580A /* TrampolineSprite.m in Sources */,
 				086E2E7B15FF3030001E580A /* EggSprite.m in Sources */,
 				6EB12E3A16037D2800DC6577 /* Clouds.m in Sources */,
+				6E0B3B861603B65D00FBD2FD /* Nest.m in Sources */,
+				6E0B3B8A1603B78600FBD2FD /* NestSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

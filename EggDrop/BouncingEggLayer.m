@@ -17,6 +17,7 @@
 
 #import "TrampolineSprite.h"
 #import "EggSprite.h"
+#import "NestSprite.h"
 
 #include <stdlib.h>
 
@@ -48,8 +49,10 @@
         
         egg = [[Egg alloc] initAt:s.width / 2 and:s.height withRadius:15];
         
-        
         [self addChild:[[EggSprite alloc] init:egg]];
+
+        nest = [[Nest alloc] initAt: s.width / 4 and:60];
+        [self addChild:[[NestSprite alloc] init:nest]];
         
         [self scheduleUpdate];
         
@@ -98,6 +101,7 @@
         for (Trampoline *trampoline in trampolines) {
             [trampoline handle: egg over:dt];
         }
+        [nest handle: egg];
     }
 }
 

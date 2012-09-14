@@ -318,6 +318,8 @@
 		08FE541A15F43221009A3127 /* VectorAssert.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FE541215F43221009A3127 /* VectorAssert.m */; };
 		08FE542315F43487009A3127 /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FE53BD15F43142009A3127 /* libiOSGeometryTools.a */; };
 		08FE542415F4348C009A3127 /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FE53BD15F43142009A3127 /* libiOSGeometryTools.a */; };
+		6E0B3B911603C35000FBD2FD /* Geometry.c in Sources */ = {isa = PBXBuildFile; fileRef = 6E0B3B8F1603C35000FBD2FD /* Geometry.c */; };
+		6E0B3B921603C35000FBD2FD /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E0B3B901603C35000FBD2FD /* Geometry.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -656,6 +658,8 @@
 		08FE541015F43221009A3127 /* StackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = StackTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		08FE541115F43221009A3127 /* VectorAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VectorAssert.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		08FE541215F43221009A3127 /* VectorAssert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VectorAssert.m; sourceTree = "<group>"; };
+		6E0B3B8F1603C35000FBD2FD /* Geometry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Geometry.c; sourceTree = "<group>"; };
+		6E0B3B901603C35000FBD2FD /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1278,6 +1282,8 @@
 			children = (
 				08FE53E015F431FE009A3127 /* CGPoint_ops.c */,
 				08FE53E115F431FE009A3127 /* CGPoint_ops.h */,
+				6E0B3B8F1603C35000FBD2FD /* Geometry.c */,
+				6E0B3B901603C35000FBD2FD /* Geometry.h */,
 				08FE53E715F431FE009A3127 /* Polygon.c */,
 				08FE53E815F431FE009A3127 /* Polygon.h */,
 			);
@@ -1499,6 +1505,7 @@
 				08FE540115F431FE009A3127 /* SeparatingAxisTest.h in Headers */,
 				08FE540315F431FE009A3127 /* Stack.h in Headers */,
 				08B5684115F43E7E00F9484D /* MultitouchRotation.h in Headers */,
+				6E0B3B921603C35000FBD2FD /* Geometry.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1852,6 +1859,7 @@
 				08FE540015F431FE009A3127 /* SeparatingAxisTest.c in Sources */,
 				08FE540215F431FE009A3127 /* Stack.c in Sources */,
 				08B5684215F43E7E00F9484D /* MultitouchRotation.m in Sources */,
+				6E0B3B911603C35000FBD2FD /* Geometry.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
