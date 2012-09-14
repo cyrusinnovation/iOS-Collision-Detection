@@ -127,43 +127,45 @@ float clamped_range(float x, float min, float max) {
         return;
     }
     
-    float penetrationDepth = [self eggPenetration:_egg];
+    float penetration_depth = [self eggPenetration:_egg];
     float dot = cgp_dot(cgp_normal(egg.velocity), normal);
     
     if (!egg) {
         if (dot >= 0) {
             return;
         }
-        if (penetrationDepth <= 0) {
+        if (penetration_depth <= 0) {
             return;
         }
-        if (penetrationDepth > _egg.radius*2) {
+        if (penetration_depth > _egg.radius*2) {
             return;
         }
         
         egg = _egg;
     }
     
-    float toot = cgp_length(egg.velocity);
-    
     if (dot >= 0) {
-        if (penetrationDepth < 0) {
+        if (penetration_depth < 0) {
             [self reset];
             return;
         }
-        
-        toot *= -1;
     }
     
-    CGPoint boost = normal;
-
-    float max_depth_for_t = scale(t, 20, 0);
-    float constant_rate = clamped_range(penetrationDepth, 0, max_depth_for_t);
-    
-    float spring_constant = interpolate(constant_rate, toot, toot + [WorldConstants spring]);
-    cgp_scale(&boost, spring_constant);
-
-    [egg boost:boost during:dt];
+    float max_depth_for_t = scale(t, 30, 0);
+    if (penetration_depth >= max_depth_for_t) {
+        CGPoint egg_velocity = egg.velocity;
+        float egg_velocity_component = cgp_dot(normal, egg_velocity);
+        float gravity_component = cgp_dot(normal, [WorldConstants gravity]);
+        [egg boost:cgp_times(normal, -egg_velocity_component/dt) during:dt];
+        [egg boost:cgp_times(normal, -gravity_component) during:dt];
+        [egg move:cgp_times(normal, penetration_depth-(egg_velocity_component/gravity_component * max_depth_for_t))];
+        
+        float bounce = scale(t, 0.8, 0.4);
+        CGPoint boost = cgp_times(normal, -cgp_dot(normal, egg_velocity)/dt*bounce);
+        if (cgp_length_squared(boost) >= 1) {
+            [egg boost:boost during:dt];
+        }
+    }
     
     [self setBendFor:egg];
 }
@@ -175,8 +177,6 @@ float clamped_range(float x, float min, float max) {
     egg = NULL;
     [self resetBend];
 }
-
-
 
 -(CGPoint) left_center {
     CGPoint center = cgp_add(left, bend);

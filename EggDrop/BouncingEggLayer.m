@@ -44,15 +44,8 @@
         [self addChild:bg z:0];
         
         trampolines = [[NSMutableArray alloc] init];
-        
-//        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(200, 300) to:cgp(280, 340)] ];
-//        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(40, 220) to:cgp(120, 200)] ];
-//        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(210, 150) to:cgp(210, 250)] ];
-//        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(40, 40) to:cgp(280, 40)] ];
-        [self addTrampoline: [[Trampoline alloc] initFrom:cgp(40, 150) to:cgp(280, 150)] ];
-        
+                
         egg = [[Egg alloc] initAt:160 and:400 withRadius:15];
-//        [egg boost:cgp(2, 0)];
         
         [self addChild:[[EggSprite alloc] init:egg]];
         
@@ -66,8 +59,7 @@
 }
 
 -(void) reset:(CGPoint) location {
-    [egg resetTo:location];
-//    [egg boost:cgp(2, 0)];
+    [egg resetTo:location];;
     
     for (Trampoline *trampoline in trampolines) {
         [trampoline reset];
