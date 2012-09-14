@@ -60,7 +60,7 @@
 }
 
 -(void) reset:(CGPoint) location {
-    [egg resetTo:location];;
+    [egg resetTo:location];
     
     for (Trampoline *trampoline in trampolines) {
         [trampoline reset];
@@ -95,7 +95,7 @@
 -(void) resetStage {
     [trampolines removeAllObjects];
     
-    while (self.children.count > 2) {
+    while ([self getChildByTag:2]) {
         [self removeChildByTag:2 cleanup:true];
     }
 }
@@ -145,7 +145,7 @@
     newTrampoline = [[Trampoline alloc] initFrom:newTrampolineAnchor to:location];
     newTrampolineSprite = [[TrampolineSprite alloc] init:newTrampoline];
     
-    [self addChild:newTrampolineSprite z:3];
+    [self addChild:newTrampolineSprite z:3 tag:2];
     
     return true;
 }

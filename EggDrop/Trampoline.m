@@ -160,7 +160,7 @@ float clamped_range(float x, float min, float max) {
         [egg boost:cgp_times(normal, -gravity_component) during:dt];
         [egg move:cgp_times(normal, penetration_depth-(egg_velocity_component/gravity_component * max_depth_for_t))];
         
-        float bounce = scale(t, 0.8, 0.4);
+        float bounce = scale(t, 0.8, 0.5);
         CGPoint boost = cgp_times(normal, -cgp_dot(normal, egg_velocity)/dt*bounce);
         if (cgp_length_squared(boost) >= 1) {
             [egg boost:boost during:dt];
