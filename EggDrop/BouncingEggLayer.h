@@ -29,6 +29,8 @@
     Egg *egg;
     Nest *nest;
 
+    NSMutableArray *stars;
+
     Clouds *clouds;
 
     CCSprite *tramp;

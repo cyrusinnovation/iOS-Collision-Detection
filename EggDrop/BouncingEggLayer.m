@@ -16,7 +16,8 @@
 #import "EggSprite.h"
 #import "NestSprite.h"
 #import "HUD.h"
-
+#import "StarSprite.h"
+#import "Star.h"
 
 
 #pragma mark - HelloWorldLayer
@@ -45,7 +46,9 @@
         [self addClouds];
         
         trampolines = [[NSMutableArray alloc] init];
-        
+        stars = [[NSMutableArray alloc] init];
+        [self addStars];
+
         egg = [[Egg alloc] initAt:s.width / 2 and:s.height withRadius:15];
         
         
@@ -66,6 +69,26 @@
 	return self;
 }
 
+-(void) addStars {
+    for (StarSprite *starSprite in stars)
+        [self removeChild: starSprite cleanup:true];
+
+    [stars removeAllObjects];
+
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    Star *star = [[Star alloc] initAt: s.width * 0.25 and: s.height * 0.75];
+    [stars addObject:[[StarSprite alloc] init:star]];
+
+    star = [[Star alloc] initAt: s.width * 0.75 and: s.height * 0.5];
+    [stars addObject:[[StarSprite alloc] init:star]];
+
+    star = [[Star alloc] initAt: s.width * 0.35 and: s.height * 0.3];
+    [stars addObject:[[StarSprite alloc] init:star]];
+
+    for (StarSprite* star in stars)
+        [self addChild: star];
+}
+
 -(void) addClouds {
     for (CCSprite *cloud in [clouds cloudSprites]) {
         [self addChild:cloud z:0];
@@ -74,6 +97,7 @@
 
 -(void) reset:(CGPoint) location {
     [egg resetTo:location];
+    [self addStars];
     
     for (Trampoline *trampoline in trampolines) {
         [trampoline reset];
@@ -86,7 +110,8 @@
     [egg resetTo:ccp(s.width / 2, s.height + 100)];
     [trampolines removeAllObjects];
     [score reset];
-    
+    [self addStars];
+
     while ([self getChildByTag:2]) {
         [self removeChildByTag:2 cleanup:true];
     }
@@ -112,6 +137,10 @@
             [trampoline handle: egg over:dt];
         }
         [nest handle: egg];
+
+        for (StarSprite *starSprite in stars)
+            if ([[starSprite star] doesCollide:egg])
+                [self removeChild: starSprite cleanup:true];
     }
 }
 
