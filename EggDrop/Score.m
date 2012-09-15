@@ -22,6 +22,15 @@
 
 -(void) adjustBy:(NSInteger)d {
     value += d;
+    [self notifyObservers];
+}
+
+- (void)reset {
+    value = 0;
+    [self notifyObservers];
+}
+
+- (void)notifyObservers {
     for(id ob in observers) {
         [ob scoreChanged:value];
     }

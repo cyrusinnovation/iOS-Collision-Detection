@@ -20,4 +20,5 @@
 
 -(void) adjustBy:(NSInteger)d;
 
+- (void)reset;
 @end

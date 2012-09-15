@@ -85,6 +85,7 @@
     CGSize s = [[CCDirector sharedDirector] winSize];
     [egg resetTo:ccp(s.width / 2, s.height + 100)];
     [trampolines removeAllObjects];
+    [score reset];
     
     while ([self getChildByTag:2]) {
         [self removeChildByTag:2 cleanup:true];
