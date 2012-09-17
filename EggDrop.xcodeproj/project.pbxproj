@@ -53,6 +53,7 @@
 		3372494B1604A79500FBB490 /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = 3372494A1604A79500FBB490 /* Star.m */; };
 		3372494D1604B5EB00FBB490 /* star-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3372494C1604B5EB00FBB490 /* star-hd.png */; };
 		3372495C1607B6C500FBB490 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3372495B1607B6C500FBB490 /* GameOverLayer.m */; };
+		33EFA55B1607E1A50073B671 /* drop.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EFA55A1607E1A50073B671 /* drop.png */; };
 		603904376A8D90B850AE6083 /* nest.png in Resources */ = {isa = PBXBuildFile; fileRef = 60390CC67BABB2066AFAD14A /* nest.png */; };
 		603908505CD4CB6BF4208805 /* eggbackground-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 603901A47B51A015BC402BF1 /* eggbackground-ipadhd.png */; };
 		60390AB233DC3A05421AB95D /* eggbackground-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 603902A258762F0021C5645F /* eggbackground-ipad.png */; };
@@ -144,6 +145,7 @@
 		3372494C1604B5EB00FBB490 /* star-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-hd.png"; path = "Resources/star-hd.png"; sourceTree = "<group>"; };
 		3372495A1607B6C500FBB490 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
 		3372495B1607B6C500FBB490 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
+		33EFA55A1607E1A50073B671 /* drop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drop.png; path = Resources/drop.png; sourceTree = "<group>"; };
 		603901A47B51A015BC402BF1 /* eggbackground-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eggbackground-ipadhd.png"; path = "Resources/eggbackground-ipadhd.png"; sourceTree = "<group>"; };
 		603902A258762F0021C5645F /* eggbackground-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eggbackground-ipad.png"; path = "Resources/eggbackground-ipad.png"; sourceTree = "<group>"; };
 		60390CC67BABB2066AFAD14A /* nest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nest.png; path = Resources/nest.png; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				C13DA0E3F0FD1186181259EC /* drop-hd.png */,
+				33EFA55A1607E1A50073B671 /* drop.png */,
 				3372494C1604B5EB00FBB490 /* star-hd.png */,
 				337249441604A76400FBB490 /* star.png */,
 				6EB12E2216025B2E00DC6577 /* eggbackground-hd.png */,
@@ -471,6 +474,7 @@
 				337249451604A76400FBB490 /* star.png in Resources */,
 				3372494D1604B5EB00FBB490 /* star-hd.png in Resources */,
 				C13DA0F84C89138E8C48E748 /* drop-hd.png in Resources */,
+				33EFA55B1607E1A50073B671 /* drop.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
