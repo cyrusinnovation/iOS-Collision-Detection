@@ -20,6 +20,7 @@
 
 @implementation BouncingEggLayer {
 	HUD *hud;
+	CGPoint touch_offset;
 }
 
 + (CCScene *)scene {
@@ -33,6 +34,8 @@
 	if (self = [super init]) {
 		[self scheduleUpdate];
 		self.isTouchEnabled = YES;
+
+		touch_offset = cgp(0, 0);
 
 		trampolines = [[NSMutableArray alloc] init];
 
@@ -164,6 +167,8 @@ static ccTime frameTime = 0.01;
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+	location = cgp_add(location, touch_offset);
+
 	newTrampolineAnchor = location;
 	newTrampoline = [[Trampoline alloc] initFrom:newTrampolineAnchor to:newTrampolineAnchor];
 	newTrampolineSprite = [[TrampolineSprite alloc] init:newTrampoline];
@@ -175,6 +180,7 @@ static ccTime frameTime = 0.01;
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+	location = cgp_add(location, touch_offset);
 
 	[newTrampoline setFrom:newTrampolineAnchor to:location];
 	[newTrampolineSprite update:0];
@@ -182,6 +188,7 @@ static ccTime frameTime = 0.01;
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+	location = cgp_add(location, touch_offset);
 
 	if (location.x < 40 && location.y > 440) {
 		newTrampoline = NULL;
