@@ -111,22 +111,28 @@ typedef enum {
 - (void)enterGameStatePlacing {
 	gameState = gameStatePlacing;
 
-	CGSize s = [[CCDirector sharedDirector] winSize];
+	[self removeMenu];
 
+	CGSize s = [[CCDirector sharedDirector] winSize];
 	PlacingModeMenu *pmm = [[PlacingModeMenu alloc] init:self];
 	[pmm setPosition:cgp(s.width - 32, 32)];
 	[self addChild:pmm z:MENU_LAYER tag:MENU_LAYER_TAG];
 
+	[simulation redropEgg];
 	[simulation pause];
 }
 
 - (void)enterGameStateDropping {
 	gameState = gameStateDropping;
 
+	[self removeMenu];
+	[simulation unpause];
+}
+
+- (void)removeMenu {
 	while ([self getChildByTag:MENU_LAYER_TAG]) {
 		[self removeChildByTag:MENU_LAYER_TAG cleanup:true];
 	}
-	[simulation unpause];
 }
 
 - (void)enterGameStateVictoryMenu {
@@ -143,8 +149,7 @@ typedef enum {
 }
 
 - (void)tryAgain {
-	[simulation unpause];
-	[self removeChildByTag:MENU_LAYER_TAG cleanup:true];
+	[self enterGameStatePlacing];
 }
 
 
@@ -223,9 +228,6 @@ typedef enum {
 
 - (void)eggDied {
 	[score adjustBy:1];
-	[simulation redropEgg];
-	[simulation pause];
-
 	[self enterGameStatePlacing];
 }
 
