@@ -20,24 +20,21 @@
 
 @class HUD;
 
-@interface BouncingEggLayer : CCLayer
-{
-    CGPoint newTrampolineAnchor;
-    Trampoline *newTrampoline;
-    TrampolineSprite *newTrampolineSprite;
-    NSMutableArray *trampolines;
-    Egg *egg;
-    Nest *nest;
+@interface BouncingEggLayer : CCLayer {
+	CGPoint newTrampolineAnchor;
+	Trampoline *newTrampoline;
+	TrampolineSprite *newTrampolineSprite;
+	NSMutableArray *trampolines;
+	Egg *egg;
+	Nest *nest;
 
-    NSMutableArray *stars;
+	NSMutableArray *stars;
 
-    Clouds *clouds;
+	Clouds *clouds;
 
-    CCSprite *tramp;
-    
-    Score *score;
+	Score *score;
 }
 
-+(CCScene *) scene;
++ (CCScene *)scene;
 
 @end

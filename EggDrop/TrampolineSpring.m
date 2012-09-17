@@ -15,12 +15,13 @@
 	CGPoint left;
 	CGPoint right;
 	CGPoint normal;
+	CGPoint last_egg_location;
+	BOOL _alive;
 }
 
 @synthesize egg;
-@synthesize alive;
 
-- (id)initFrom:(CGPoint) _left to:(CGPoint) _right for:(Egg *)_egg {
+- (id)initFrom:(CGPoint)_left to:(CGPoint)_right for:(Egg *)_egg {
 	if (self = [super init]) {
 		left = _left;
 		right = _right;
@@ -37,6 +38,8 @@
 
 		gamma = 0.5 * sqrtf(4 * spring_constant - damping * damping);
 		assert(gamma != 0);
+
+		last_egg_location = cgp_add(egg.location, cgp(1, 1));
 	}
 	return self;
 }
@@ -54,21 +57,29 @@
 		return;
 	}
 
-	float penetration = [self eggPenetration:egg];
-	float t = cgp_t(left, right, egg.location);
-
-	if (penetration < 0 || t < 0 || t > 1) {
-		alive = false;
+	if (![self alive]) {
 		return;
 	}
 
 	CGPoint position = cgp_add(egg.location, cgp_times(normal, -(egg.radius)));
-	CGPoint anchor = cgp_add(left, cgp_times(cgp_subtract(right, left), t));
+	CGPoint anchor = cgp_add(left, cgp_times(cgp_subtract(right, left), cgp_t(left, right, egg.location)));
 	position = cgp_subtract(position, anchor);
 
 	CGPoint fake_spring_force = [self fake_spring:position dt:dt];
 
 	[egg applyForce:fake_spring_force];
+}
+
+- (BOOL)alive {
+	// TODO cgp_eq
+	if (egg.location.x != last_egg_location.x ||
+			egg.location.y != last_egg_location.y) {
+		last_egg_location = egg.location;
+		float penetration = [self eggPenetration:egg];
+		float t = cgp_t(left, right, egg.location);
+		_alive = !(penetration < 0 || t < 0 || t > 1);
+	}
+	return _alive;
 }
 
 - (CGPoint)fake_spring:(CGPoint)position dt:(ccTime)dt {

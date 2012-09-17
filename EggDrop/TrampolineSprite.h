@@ -18,8 +18,6 @@
     
     CCSprite *leftKnob;
     CCSprite *rightKnob;
-    
-    CGPoint correction;
 }
 
 -(id) init:(Trampoline *)t;

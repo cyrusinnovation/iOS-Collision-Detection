@@ -103,7 +103,7 @@
 	}
 	for (int i = springs.count - 1; i >= 0; i--) {
 		TrampolineSpring *spring = [springs objectAtIndex:i];
-		if (!spring.alive) {
+		if (![spring alive]) {
 			[springs removeObjectAtIndex:i];
 		}
 	}
@@ -111,7 +111,7 @@
 
 -(void) updateGeometry {
 	for (TrampolineSpring *spring in springs){
-		if (spring.alive) {
+		if ([spring alive]) {
 			bend = [spring bend];
 		}
 	}
