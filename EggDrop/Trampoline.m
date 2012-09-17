@@ -29,9 +29,6 @@
 		[self setFrom:from to:to];
 
 		springs = [[NSMutableArray alloc] init];
-
-        collisionsEnded_ = 0;
-        colliding_ = NO;
 	}
 	return self;
 }
@@ -50,11 +47,6 @@
 
 	stored = cgp(0, 0);
 }
-
-- (Boolean)isExhausted {
-    return collisionsEnded_ >= MAX_COLLISIONS;
-}
-
 
 - (CGPoint)center {
 	CGPoint center = cgp_add(left, right);
@@ -89,13 +81,8 @@
 
 	float distance = pointToLineDistance(self.left, self.right, egg.location);
 	if (distance > egg.radius) {
-        if(colliding_) {
-            colliding_ = NO;
-            collisionsEnded_ += 1;
-        }
 		return;
 	}
-    colliding_ = YES;
 
 	// TODO duped from TrampolineSprite
 	CGPoint normal = cgp_subtract(right, left);

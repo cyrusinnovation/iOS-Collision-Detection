@@ -19,10 +19,6 @@
     CGPoint stored;
 
     NSMutableArray *springs;
-
-    @private
-    NSInteger collisionsEnded_;
-    Boolean colliding_;
 }
 
 @property CGPoint bend; // TODO should be private
@@ -40,8 +36,6 @@
 -(void) reset;
 
 -(void) setFrom:(CGPoint) from to:(CGPoint) to;
-
--(Boolean) isExhausted;
 
 // TODO something needs to be able to take a trampoline and
 // return a set of polygons for drawing instead of this mess

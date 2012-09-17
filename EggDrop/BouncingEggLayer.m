@@ -136,16 +136,10 @@ static ccTime frameTime = 0.01;
 			[self reset:cgp(winSize.width / 2, winSize.height + 100)];
 		}
 		else {
-            NSMutableArray *exhaustedTrampolines = [[NSMutableArray alloc] init];
-            for (Trampoline *trampoline in trampolines) {
+			for (Trampoline *trampoline in trampolines) {
 				[trampoline consider:egg];
-                [trampoline update:dt];
-                if(trampoline.isExhausted)
-                    [exhaustedTrampolines addObject:trampoline];
+				[trampoline update:dt];
 			}
-            for (id exhaustedTrampoline in exhaustedTrampolines) {
-                [trampolines removeObjectIdenticalTo:exhaustedTrampoline];
-            }
 
 			[egg update:dt];
 
