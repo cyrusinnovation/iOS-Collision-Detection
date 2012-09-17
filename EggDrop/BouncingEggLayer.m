@@ -35,7 +35,6 @@
 		self.isTouchEnabled = YES;
 
 		trampolines = [[NSMutableArray alloc] init];
-		[self addTrampoline:[[Trampoline alloc] initFrom:cgp(40, 400) to:cgp(280, 400)]];
 
 		CGSize s = [[CCDirector sharedDirector] winSize];
 		CCSprite *bg = [CCSprite spriteWithFile:@"eggbackground.png"];
@@ -45,7 +44,6 @@
 		clouds = [[Clouds alloc] init];
 		[self addClouds];
 
-		trampolines = [[NSMutableArray alloc] init];
 		stars = [[NSMutableArray alloc] init];
 		[self addStars];
 
@@ -98,31 +96,6 @@
 	}
 }
 
-- (void)resetCloud:(CCSprite *)cloud {
-	float scale = (float) (arc4random() % 100) / 100.0 + 0.5;
-	cloud.scale = scale;
-	int x = ((int) -[cloud boundingBox].size.width);
-
-	[self setCloud:cloud scale:scale at:x];
-}
-
-- (void)resetCloud:(CCSprite *)cloud at:(int)x {
-	float scale = (float) (arc4random() % 100) / 100.0 + 0.5;
-	cloud.scale = scale;
-
-	[self setCloud:cloud scale:scale at:x];
-}
-
-- (void)setCloud:(CCSprite *)cloud scale:(float)scale at:(int)x {
-	CGSize s = [[CCDirector sharedDirector] winSize];
-	int y = arc4random() % (int) s.height;
-	[cloud setPosition:ccp(x, y)];
-
-	CCMoveBy *move = [CCMoveTo actionWithDuration:40 / scale position:ccp(s.width + [cloud boundingBox].size.width / 2, y)];
-	CCCallFuncN *func = [CCCallFuncN actionWithTarget:self selector:@selector(resetCloud:)];
-	[cloud runAction:[CCSequence actions:move, func, nil]];
-}
-
 - (void)resetStage {
 	[[CCDirector sharedDirector] resume];
 	CGSize s = [[CCDirector sharedDirector] winSize];
@@ -139,34 +112,54 @@
 
 - (void)addTrampoline:(Trampoline *)t {
 	[trampolines addObject:t];
-	[self addChild:[[TrampolineSprite alloc] init:t] z:2];
+	[self addChild:[[TrampolineSprite alloc] init:t] z:2 tag:2];
 }
 
+static ccTime buffer = 0;
+static ccTime frameTime = 0.01;
+
 - (void)update:(ccTime)dt {
-	if (dt <= 0) return;
+	buffer += dt;
+	dt = frameTime;
 
-	[egg update:dt];
+	while (buffer >= frameTime) {
+		buffer -= frameTime;
 
-	CGSize s = [[CCDirector sharedDirector] winSize];
-	if (egg.location.y < -20 ||
+		[egg resetForce];
+
+		if ([self isEggDead]) {
+			[score adjustBy:1];
+			CGSize winSize = [[CCDirector sharedDirector] winSize];
+			[self reset:cgp(winSize.width / 2, winSize.height + 100)];
+		}
+		else {
+			for (Trampoline *trampoline in trampolines) {
+				[trampoline consider:egg];
+			}
+
+			for (Trampoline *trampoline in trampolines) {
+				[trampoline update:dt];
+			}
+
+			[egg update:dt];
+
+			for (Trampoline *trampoline in trampolines) {
+				[trampoline updateGeometry];
+			}
+
+			[nest handle:egg];
+
+			for (StarSprite *starSprite in stars)
+				if ([[starSprite star] doesCollide:egg])
+					[self removeChild:starSprite cleanup:true];
+		}
+	}
+}
+
+- (BOOL)isEggDead {
+	return egg.location.y < -20 ||
 			egg.location.x < -20 ||
-			egg.location.x > s.width + 30) {
-		[score adjustBy:1];
-		[self reset:cgp(s.width / 2, s.height + 100)];
-	}
-	else {
-		for (Trampoline *trampoline in trampolines) {
-			[trampoline consider:egg];
-		}
-		for (Trampoline *trampoline in trampolines) {
-			[trampoline update:dt];
-		}
-		[nest handle:egg];
-
-		for (StarSprite *starSprite in stars)
-			if ([[starSprite star] doesCollide:egg])
-				[self removeChild:starSprite cleanup:true];
-	}
+			egg.location.x > ([[CCDirector sharedDirector] winSize]).width + 30;
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {

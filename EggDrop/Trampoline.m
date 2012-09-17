@@ -111,11 +111,17 @@
 		[spring update:dt];
 	}
 	for (int i = springs.count - 1; i >= 0; i--) {
-		TrampolineSpring *elem = [springs objectAtIndex:i];
-		if (!elem.alive) {
+		TrampolineSpring *spring = [springs objectAtIndex:i];
+		if (!spring.alive) {
 			[springs removeObjectAtIndex:i];
-		} else{
-			[self setBendFor:elem.egg];
+		}
+	}
+}
+
+-(void) updateGeometry {
+	for (TrampolineSpring *spring in springs){
+		if (spring.alive) {
+			[self setBendFor: spring.egg];
 		}
 	}
 }

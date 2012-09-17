@@ -12,61 +12,53 @@
 
 #import "WorldConstants.h"
 
-@implementation Egg
+@implementation Egg {
+	CGPoint force;
+}
 
 @synthesize radius;
 @synthesize location;
 
--(id) initAt:(float) _x and:(float) _y withRadius:(float) _radius {
-    if (self = [super init]) {
-        radius = _radius;
-        location = cgp(_x, _y);
-        
-        terminalVelocity = [WorldConstants terminalVelocity];
-        terminalVelocitySquared = terminalVelocity*terminalVelocity;
-    }
-    return self;
+- (id)initAt:(float)_x and:(float)_y withRadius:(float)_radius {
+	if (self = [super init]) {
+		radius = _radius;
+		location = cgp(_x, _y);
+
+		terminalVelocity = [WorldConstants terminalVelocity];
+		terminalVelocitySquared = terminalVelocity * terminalVelocity;
+	}
+	return self;
 }
 
--(CGPoint)velocity {
-    return velocity;
+- (CGPoint)velocity {
+	return velocity;
 }
 
--(void)update:(ccTime)dt {
-    CGPoint gravity = cgp_times([WorldConstants gravity], dt);
-    velocity = cgp_add(velocity, gravity);
+- (void)update:(ccTime)dt {
+	CGPoint totalForce = cgp_add([WorldConstants gravity], force);
+	CGPoint frame_velocity = cgp_times(totalForce, dt);
+	velocity = cgp_add(velocity, frame_velocity);
 
-     if (cgp_length_squared(velocity) > terminalVelocitySquared) {
-        cgp_normalize(&velocity);
-        cgp_scale(&velocity, terminalVelocity);
-    }
-    
-    CGPoint delta = cgp_times(velocity, dt);
-    location = cgp_add(location, delta);
+	if (cgp_length_squared(velocity) > terminalVelocitySquared) {
+		cgp_normalize(&velocity);
+		cgp_scale(&velocity, terminalVelocity);
+	}
+
+	CGPoint movement = cgp_times(velocity, dt);
+	location = cgp_add(location, movement);
 }
 
--(void) bounce:(float) rate {
-    velocity.y = -velocity.y * rate;
+- (void)resetTo:(CGPoint)_location {
+	location = _location;
+	velocity = cgp(0, 0);
 }
 
--(CGPoint) slow:(CGPoint) factor {
-    CGPoint old_vel = velocity;
-    velocity = cgp(velocity.x*(1 - factor.x), velocity.y*(1 - factor.y));
-    return cgp_subtract(old_vel, velocity);
+- (void) resetForce {
+	force = cgp(0, 0);
 }
 
--(void) move:(CGPoint) delta {
-    location = cgp_add(location, delta);
+- (void) applyForce:(CGPoint)f {
+	force = cgp_add(force, f);
 }
-
--(void) resetTo:(CGPoint) _location {
-    location = _location;
-    velocity = cgp(0, 0);
-}
-
--(void) boost:(CGPoint) rate during:(float) dt {
-    velocity = cgp_add(velocity, cgp_times(rate, dt)) ;
-}
-
 
 @end

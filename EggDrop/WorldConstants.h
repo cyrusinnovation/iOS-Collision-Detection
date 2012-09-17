@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WorldConstants : NSObject {
-}
+@interface WorldConstants : NSObject
 
 +(CGPoint) gravity;
-+(float) spring;
 +(float) terminalVelocity;
 
 @end

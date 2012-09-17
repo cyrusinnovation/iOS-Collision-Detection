@@ -31,6 +31,8 @@
 
 - (void)update:(ccTime)dt;
 
+- (void)updateGeometry;
+
 -(void) reset;
 
 -(void) setFrom:(CGPoint) from to:(CGPoint) to;
