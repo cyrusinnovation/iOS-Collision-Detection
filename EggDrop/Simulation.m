@@ -17,6 +17,7 @@
 	NSObject <SimulationObserver> *observer;
 
 	Level *level;
+	BOOL paused;
 }
 
 @synthesize observer;
@@ -25,6 +26,8 @@
 
 - (id)init:(Level *)_level {
 	if (self == [super init]) {
+		paused = NO;
+
 		level = _level;
 		egg = [[Egg alloc] initAt:level.initialEggLocation withRadius:15];;
 		nest = [[Nest alloc] initAt:level.nestLocation];
@@ -52,6 +55,9 @@
 }
 
 - (void)update:(ccTime)dt {
+	if (paused)
+		return;
+	
 	[egg resetForce];
 	[self collectForces];
 	[self runForces:dt];
@@ -132,6 +138,14 @@
 	[egg release];
 	[nest release];
 	[super dealloc];
+}
+
+- (void)pause {
+	paused = YES;
+}
+
+- (void)unpause {
+	paused = NO;
 }
 
 @end

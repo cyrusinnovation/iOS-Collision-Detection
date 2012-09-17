@@ -19,6 +19,7 @@
 #import "Simulation.h"
 #import "Level.h"
 #import "Levels.h"
+#import "GameOverLayer.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -26,6 +27,9 @@
 #define EGG_LAYER 3
 #define NEST_LAYER 3
 #define STAR_LAYER 4
+#define MENU_LAYER 100
+
+#define MENU_LAYER_TAG 100
 
 @implementation BouncingEggLayer {
 	Simulation *simulation;
@@ -99,6 +103,9 @@
 	if ([simulation isEggDead]) {
 		[score adjustBy:1];
 		[simulation redropEgg];
+		GameOverLayer *gl = [[GameOverLayer alloc] initWithBouncingEggLayer: self];
+		[self addChild: gl z:MENU_LAYER tag:MENU_LAYER_TAG];
+		[simulation pause];
 	} else {
 		[simulation update:dt];
 	}
@@ -175,6 +182,11 @@
 	while ([self getChildByTag:TRAMPOLINE_LAYER]) {
 		[self removeChildByTag:TRAMPOLINE_LAYER cleanup:true];
 	}
+}
+
+- (void)unpauseMenu {
+	[simulation unpause];
+	[self removeChildByTag: MENU_LAYER_TAG cleanup:true];
 }
 
 #pragma mark -

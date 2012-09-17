@@ -34,4 +34,6 @@
 
 - (BOOL)isEggDead;
 
+- (void)pause;
+- (void)unpause;
 @end

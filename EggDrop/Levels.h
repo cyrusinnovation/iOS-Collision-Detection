@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Level.h"
 
 @interface Levels : NSObject
 + (Level *)level1;
