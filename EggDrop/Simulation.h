@@ -18,7 +18,7 @@
 @property(nonatomic, retain) Egg *egg;
 
 
-- (id)initWithInitialEggLocation:(float)x and:(float)y;
+- (id)initWithInitialEggLocation:(CGPoint)location;
 
 - (Star *)addStarAt:(float)x and:(float)y;
 

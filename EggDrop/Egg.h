@@ -21,7 +21,7 @@
 @property(readonly) float radius;
 @property(readonly) CGPoint location;
 
-- (id)initAt:(float)x and:(float)y withRadius:(float)radius;
+- (id)initAt:(CGPoint) location withRadius:(float)radius;
 - (void)resetTo:(CGPoint)location;
 
 - (void)update:(ccTime)dt;

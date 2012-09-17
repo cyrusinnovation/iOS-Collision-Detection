@@ -17,18 +17,16 @@
 	Egg *egg;
 
 	NSMutableArray *trampolines;
-	float initial_x;
-	float initial_y;
+	CGPoint initial_egg_location;
 }
 
 @synthesize observer;
 @synthesize egg;
 
-- (id)initWithInitialEggLocation:(float)x and:(float)y {
+- (id)initWithInitialEggLocation:(CGPoint)location {
 	if (self == [super init]) {
-		initial_x = x;
-		initial_y = y;
-		egg = [[Egg alloc] initAt:initial_x and:initial_y withRadius:15];;
+		initial_egg_location = location;
+		egg = [[Egg alloc] initAt:initial_egg_location withRadius:15];;
 
 		stars = [[NSMutableArray alloc] init];
 		trampolines = [[NSMutableArray alloc] init];
@@ -101,7 +99,7 @@
 
 - (void)resetCurrentArrangement {
 	[self removeAllStars];
-	[self moveEggTo:ccp(initial_x, initial_y)];
+	[self moveEggTo:initial_egg_location];
 
 	for (Trampoline *trampoline in trampolines) {
 		[trampoline reset];
@@ -127,7 +125,7 @@
 }
 
 - (void)resetCurrentStage {
-	[self moveEggTo:ccp(initial_x, initial_y)];
+	[self moveEggTo:initial_egg_location];
 	[trampolines removeAllObjects];
 }
 @end

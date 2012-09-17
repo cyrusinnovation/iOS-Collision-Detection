@@ -19,10 +19,10 @@
 @synthesize radius;
 @synthesize location;
 
-- (id)initAt:(float)_x and:(float)_y withRadius:(float)_radius {
+- (id)initAt:(CGPoint) _location withRadius:(float)_radius {
 	if (self = [super init]) {
 		radius = _radius;
-		location = cgp(_x, _y);
+		location = _location;
 
 		terminalVelocity = [WorldConstants terminalVelocity];
 		terminalVelocitySquared = terminalVelocity * terminalVelocity;

@@ -46,7 +46,7 @@
 		[bg setPosition:ccp(s.width / 2, s.height / 2)];
 		[self addChild:bg z:0];
 
-		simulation = [[Simulation alloc] initWithInitialEggLocation:s.width / 2 and:s.height + 100];
+		simulation = [[Simulation alloc] initWithInitialEggLocation:cgp(s.width / 2, s.height + 100)];
 		simulation.observer = self;
 
 		[self addChild:[[EggSprite alloc] init:simulation.egg] z:EGG_LAYER tag:EGG_LAYER];
@@ -142,7 +142,7 @@ static ccTime frameTime = 0.01;
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	
+
 	if (location.x < 40 && location.y > 440) {
 		newTrampoline = NULL;
 		[self resetStage];
