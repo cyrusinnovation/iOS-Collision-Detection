@@ -112,7 +112,7 @@ typedef enum {
 
 	CGSize s = [[CCDirector sharedDirector] winSize];
 	PlacingModeMenu *pmm = [[PlacingModeMenu alloc] init:self];
-	[pmm setPosition:cgp(s.width - 32, 32)];
+	[pmm setPosition:cgp(s.width - 64, 32)];
 	[self addChild:pmm z:MENU_LAYER tag:MENU_LAYER];
 
 	[simulation redropEgg];
