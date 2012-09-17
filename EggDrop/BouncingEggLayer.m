@@ -18,6 +18,7 @@
 #import "StarSprite.h"
 #import "Simulation.h"
 #import "Level.h"
+#import "Levels.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -27,8 +28,12 @@
 #define STAR_LAYER 4
 
 @implementation BouncingEggLayer {
-	HUD *hud;
 	Simulation *simulation;
+
+	ccTime buffer;
+	ccTime frameTime;
+
+	HUD *hud;
 }
 
 + (CCScene *)scene {
@@ -43,50 +48,44 @@
 		[self scheduleUpdate];
 		self.isTouchEnabled = YES;
 
+		buffer = 0;
+		frameTime = 0.01;
+
 		CGSize s = [[CCDirector sharedDirector] winSize];
 		CCSprite *bg = [CCSprite spriteWithFile:@"eggbackground.png"];
 		[bg setPosition:ccp(s.width / 2, s.height / 2)];
 		[self addChild:bg z:0];
 
-		Level *level = [[Level alloc] init];
-		level.initialEggLocation = cgp(s.width / 2, s.height + 100);
-		level.nestLocation = cgp(s.width / 4, 60);
-		[level addStar:cgp(0.25, 0.75)];
-		[level addStar:cgp(0.75, 0.50)];
-		[level addStar:cgp(0.35, 0.30)];
+		Level *level = [Levels level1];
 
-		simulation = [[Simulation alloc] init:level];
-		simulation.observer = self;
-		[simulation startLevelOver];
-
-		[self addChild:[[EggSprite alloc] init:simulation.egg] z:EGG_LAYER tag:EGG_LAYER];
-		[self addChild:[[NestSprite alloc] init:simulation.nest] z:NEST_LAYER tag:NEST_LAYER];
-
-		clouds = [[Clouds alloc] init];
-		[self addClouds];
-
-		score = [[Score alloc] init];
-		hud = [[HUD alloc] initWithScore:score];
-		[self addChild:hud];
+		[self initSimulation:level];
+		[self initClouds];
+		[self initHud];
 	}
 	return self;
 }
 
-- (void)addClouds {
+- (void)initSimulation:(Level *)level {
+	simulation = [[Simulation alloc] init:level];
+	simulation.observer = self;
+	[simulation startLevelOver];
+
+	[self addChild:[[EggSprite alloc] init:simulation.egg] z:EGG_LAYER tag:EGG_LAYER];
+	[self addChild:[[NestSprite alloc] init:simulation.nest] z:NEST_LAYER tag:NEST_LAYER];
+}
+
+- (void)initClouds {
+	clouds = [[Clouds alloc] init];
 	for (CCSprite *cloud in [clouds cloudSprites]) {
 		[self addChild:cloud z:0];
 	}
 }
 
-- (void)resetStage {
-	[score reset];
-	[simulation startLevelOver];
-	[[CCDirector sharedDirector] resume];
+- (void)initHud {
+	score = [[Score alloc] init];
+	hud = [[HUD alloc] initWithScore:score];
+	[self addChild:hud];
 }
-
-// TODO move these to the class
-static ccTime buffer = 0;
-static ccTime frameTime = 0.01;
 
 - (void)update:(ccTime)dt {
 	buffer += dt;
@@ -104,6 +103,14 @@ static ccTime frameTime = 0.01;
 		[simulation update:dt];
 	}
 }
+
+- (void)resetStage {
+	[score reset];
+	[simulation startLevelOver];
+	[[CCDirector sharedDirector] resume];
+}
+
+#pragma mark Touch methods
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
@@ -139,6 +146,10 @@ static ccTime frameTime = 0.01;
 	newTrampoline = NULL;
 }
 
+- (void)registerWithTouchDispatcher {
+	[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
 #pragma mark SimulationObserver stuff
 
 - (void)newStar:(Star *)star {
@@ -170,10 +181,6 @@ static ccTime frameTime = 0.01;
 
 - (void)dealloc {
 	[super dealloc];
-}
-
-- (void)registerWithTouchDispatcher {
-	[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 }
 
 

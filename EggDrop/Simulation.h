@@ -24,15 +24,14 @@
 
 - (id)init:(Level *)_level;
 
+- (void)redropEgg;
+- (void)startLevelOver;
+
 - (Star *)addStar:(CGPoint)location;
+- (void)addTrampolineFrom:(CGPoint)start to:(CGPoint)end;
 
 - (void)update:(ccTime)dt;
 
 - (BOOL)isEggDead;
 
-- (void)redropEgg;
-
-- (void)startLevelOver;
-
-- (void)addTrampolineFrom:(CGPoint)start to:(CGPoint)end;
 @end

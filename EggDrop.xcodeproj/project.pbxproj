@@ -72,6 +72,7 @@
 		9647F2D8160393DA00D25C78 /* HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9647F2D7160393DA00D25C78 /* HUD.m */; };
 		9647F2DC1603943500D25C78 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 9647F2DB1603943500D25C78 /* Score.m */; };
 		C13DA425DA05DEA39155BE1C /* NullSimulationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3D3F7416B03D1672D63 /* NullSimulationObserver.m */; };
+		C13DA459BAF675380E8BE339 /* Levels.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD27761AC378762A6787 /* Levels.m */; };
 		C13DA5F6E6945B3EDF91943C /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA73BBF4B76AE61995BDD /* Simulation.m */; };
 		C13DA968D477A0AD5CCA61A4 /* TrampolineSpring.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */; };
 		C13DA9E2E5ED9C11CB3A53F7 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD4E968FB28ADCDFAFA5 /* Level.m */; };
@@ -162,6 +163,7 @@
 		9647F2D7160393DA00D25C78 /* HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUD.m; sourceTree = "<group>"; };
 		9647F2DA1603943500D25C78 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
 		9647F2DB1603943500D25C78 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
+		C13DA0FD64C8465A89959B10 /* Levels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Levels.h; sourceTree = "<group>"; };
 		C13DA1459664856C24809B56 /* TrampolineMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineMath.h; sourceTree = "<group>"; };
 		C13DA20F254A88C8BAB14BD2 /* TrampolineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSegment.h; sourceTree = "<group>"; };
 		C13DA23E65D825AF8A3EA56C /* TrampolineSpring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSpring.h; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		C13DA780C4D16321D58A2BFA /* Simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simulation.h; sourceTree = "<group>"; };
 		C13DA7D8126D1B3D50DBD071 /* NullSimulationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullSimulationObserver.h; sourceTree = "<group>"; };
 		C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TrampolineMath.c; sourceTree = "<group>"; };
+		C13DAD27761AC378762A6787 /* Levels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Levels.m; sourceTree = "<group>"; };
 		C13DAD4E968FB28ADCDFAFA5 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		C13DAE9F8F6AF386A4ED4611 /* TrampolineSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrampolineSegment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +240,8 @@
 		0846276E15FE959F00844D0B /* EggDrop */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA0FD64C8465A89959B10 /* Levels.h */,
+				C13DAD27761AC378762A6787 /* Levels.m */,
 				C13DA5CB4E16A3DA90B79EEB /* Level.h */,
 				C13DAD4E968FB28ADCDFAFA5 /* Level.m */,
 				C13DA27488390D4FFC98D5A5 /* SimulationObserver.h */,
@@ -484,6 +489,7 @@
 				C13DA5F6E6945B3EDF91943C /* Simulation.m in Sources */,
 				C13DA425DA05DEA39155BE1C /* NullSimulationObserver.m in Sources */,
 				C13DA9E2E5ED9C11CB3A53F7 /* Level.m in Sources */,
+				C13DA459BAF675380E8BE339 /* Levels.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

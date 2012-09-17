@@ -62,9 +62,10 @@
 	[nest handle:egg];
 }
 
-- (void)updateTrampolineGeometry {
+- (void)collectForces {
+// TODO eventually this should return force generators and the simulation should hold on to and run them
 	for (Trampoline *trampoline in trampolines) {
-		[trampoline updateGeometry];
+		[trampoline consider:egg];
 	}
 }
 
@@ -75,10 +76,9 @@
 	}
 }
 
-- (void)collectForces {
-// TODO eventually this should return force generators and the simulation should hold on to and run them
+- (void)updateTrampolineGeometry {
 	for (Trampoline *trampoline in trampolines) {
-		[trampoline consider:egg];
+		[trampoline updateGeometry];
 	}
 }
 
@@ -92,19 +92,12 @@
 	}
 }
 
-- (void)dealloc {
-	[observer release];
-	[egg release];
-	[nest release];
-	[super dealloc];
-}
-
-- (void) redropEgg {
+- (void)redropEgg {
 	[self resetStars];
 	[egg resetTo:level.initialEggLocation];
 }
 
-- (void) startLevelOver {
+- (void)startLevelOver {
 	[self removeAllTrampolines];
 	[self redropEgg];
 }
@@ -133,4 +126,12 @@
 			egg.location.x < -20 ||
 			egg.location.x > ([[CCDirector sharedDirector] winSize]).width + 30;
 }
+
+- (void)dealloc {
+	[observer release];
+	[egg release];
+	[nest release];
+	[super dealloc];
+}
+
 @end
