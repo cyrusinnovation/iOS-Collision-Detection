@@ -9,7 +9,8 @@
 #import "HUD.h"
 #import "CGPoint_ops.h"
 
-@implementation HUD 
+@implementation HUD
+static NSString* kScoreValueChanged = @"score value changed";
 
 -(id)initWithScore:(Score *)score {
     [self setVisible:YES];
@@ -20,12 +21,18 @@
     scoreLabel.position = cgp(30.0, 30.0);
     [self addChild:scoreLabel];
 
-    [score addObserver:self];
+    [score addObserver:self forKeyPath:@"value" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew
+               context:&kScoreValueChanged];
     return self;
 }
 
--(void) scoreChanged:(NSInteger)value {
-    [scoreLabel setString:[NSString stringWithFormat:@"%d", value]];
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (context == &kScoreValueChanged) {
+        NSNumber *value = [change valueForKey:NSKeyValueChangeNewKey];
+        [scoreLabel setString:[NSString stringWithFormat:@"%d", [value integerValue]]];
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 - (void)dealloc {

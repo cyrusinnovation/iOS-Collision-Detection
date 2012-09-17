@@ -159,7 +159,6 @@
 		9647F2D7160393DA00D25C78 /* HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUD.m; sourceTree = "<group>"; };
 		9647F2DA1603943500D25C78 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
 		9647F2DB1603943500D25C78 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
-		9647F2DD1603983C00D25C78 /* ScoreObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreObserver.h; sourceTree = "<group>"; };
 		C13DA1459664856C24809B56 /* TrampolineMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineMath.h; sourceTree = "<group>"; };
 		C13DA20F254A88C8BAB14BD2 /* TrampolineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSegment.h; sourceTree = "<group>"; };
 		C13DA23E65D825AF8A3EA56C /* TrampolineSpring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSpring.h; sourceTree = "<group>"; };
@@ -333,7 +332,6 @@
 				C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */,
 				C13DA23E65D825AF8A3EA56C /* TrampolineSpring.h */,
 				C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */,
-				9647F2DD1603983C00D25C78 /* ScoreObserver.h */,
 				0846292715FE9FAD00844D0B /* Trampoline.h */,
 				0846292815FE9FAD00844D0B /* Trampoline.m */,
 				0846292A15FEA32500844D0B /* Egg.h */,

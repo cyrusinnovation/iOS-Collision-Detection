@@ -7,16 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ScoreObserver.h"
 
 @interface Score : NSObject {
     NSInteger value;
-    NSMutableSet* observers;
 }
 
 @property(readonly) NSInteger value;
-
--(void) addObserver:(id<ScoreObserver>)observer;
 
 -(void) adjustBy:(NSInteger)d;
 

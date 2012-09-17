@@ -10,9 +10,8 @@
 #import "Score.h"
 #import "CCLabelTTF.h"
 #import "CCLayer.h"
-#import "ScoreObserver.h"
 
-@interface HUD : CCLayer <ScoreObserver> {
+@interface HUD : CCLayer {
     CCLabelTTF* scoreLabel;
 }
 
