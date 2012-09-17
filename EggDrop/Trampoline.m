@@ -110,6 +110,7 @@
 }
 
 -(void) updateGeometry {
+	[self resetBend];
 	for (TrampolineSpring *spring in springs){
 		if ([spring alive]) {
 			bend = [spring bend];
