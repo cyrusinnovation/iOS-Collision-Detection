@@ -26,7 +26,6 @@
 
 @implementation BouncingEggLayer {
 	HUD *hud;
-	CGPoint touch_offset;
 	Simulation *simulation;
 }
 
@@ -43,10 +42,9 @@
 		self.isTouchEnabled = YES;
 
 		CGSize s = [[CCDirector sharedDirector] winSize];
-
-		touch_offset = cgp(0, 0);
-
-		// TODO move egg inside of simulation
+		CCSprite *bg = [CCSprite spriteWithFile:@"eggbackground.png"];
+		[bg setPosition:ccp(s.width / 2, s.height / 2)];
+		[self addChild:bg z:0];
 
 		simulation = [[Simulation alloc] initWithInitialEggLocation:s.width / 2 and:s.height + 100];
 		simulation.observer = self;
@@ -55,9 +53,6 @@
 
 		[self startStageOver];
 
-		CCSprite *bg = [CCSprite spriteWithFile:@"eggbackground.png"];
-		[bg setPosition:ccp(s.width / 2, s.height / 2)];
-		[self addChild:bg z:0];
 
 		clouds = [[Clouds alloc] init];
 		[self addClouds];
@@ -128,7 +123,6 @@ static ccTime frameTime = 0.01;
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	location = cgp_add(location, touch_offset);
 
 	newTrampolineAnchor = location;
 	newTrampoline = [[Trampoline alloc] initFrom:newTrampolineAnchor to:newTrampolineAnchor];
@@ -141,7 +135,6 @@ static ccTime frameTime = 0.01;
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	location = cgp_add(location, touch_offset);
 
 	[newTrampoline setFrom:newTrampolineAnchor to:location];
 	[newTrampolineSprite update:0];
@@ -149,8 +142,7 @@ static ccTime frameTime = 0.01;
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	location = cgp_add(location, touch_offset);
-
+	
 	if (location.x < 40 && location.y > 440) {
 		newTrampoline = NULL;
 		[self resetStage];
