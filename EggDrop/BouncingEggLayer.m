@@ -104,8 +104,7 @@ static ccTime frameTime = 0.01;
 	if ([simulation isEggDead]) {
 		[score adjustBy:1];
 		[simulation redropEgg];
-		GameOverLayer *gl = [[GameOverLayer alloc] initWithBouncingEggLayer: self];
-		[self addChild: gl z:MENU_LAYER tag:MENU_LAYER_TAG];
+		[self createGameOverLayer];
 		[simulation pause];
 	} else {
 		[simulation update:dt];
@@ -171,6 +170,11 @@ static ccTime frameTime = 0.01;
 	while ([self getChildByTag:TRAMPOLINE_LAYER]) {
 		[self removeChildByTag:TRAMPOLINE_LAYER cleanup:true];
 	}
+}
+
+- (void)createGameOverLayer {
+	GameOverLayer *gl = [[GameOverLayer alloc] initWithBouncingEggLayer: self];
+	[self addChild: gl z:MENU_LAYER tag:MENU_LAYER_TAG];
 }
 
 - (void)unpauseMenu {
