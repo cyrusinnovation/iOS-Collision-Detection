@@ -39,6 +39,10 @@
 }
 
 - (void)update:(ccTime)dt {
+    if(trampoline.isExhausted) {
+        [self removeFromParentAndCleanup:YES];
+        return;
+    }
 	[left setTextureRect:CGRectMake(0, 0, 8, [trampoline left_length])];
 	[left setPosition:[trampoline left_center]];
 	[left setRotation:[trampoline left_angle]];
