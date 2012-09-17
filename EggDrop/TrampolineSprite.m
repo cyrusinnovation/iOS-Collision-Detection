@@ -39,11 +39,11 @@
 }
 
 - (void)update:(ccTime)dt {
-	[left setTextureRect:CGRectMake(0, 0, 8, [trampoline left_width])];
+	[left setTextureRect:CGRectMake(0, 0, 8, [trampoline left_length])];
 	[left setPosition:[trampoline left_center]];
 	[left setRotation:[trampoline left_angle]];
 
-	[right setTextureRect:CGRectMake(0, 0, 8, [trampoline right_width])];
+	[right setTextureRect:CGRectMake(0, 0, 8, [trampoline right_length])];
 	[right setPosition:[trampoline right_center]];
 	[right setRotation:[trampoline right_angle]];
 

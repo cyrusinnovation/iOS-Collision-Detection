@@ -8,12 +8,11 @@
 
 #import "Trampoline.h"
 
-#include "math.h"
 #include "CGPoint_ops.h"
 
-#import "WorldConstants.h"
 #import "TrampolineMath.h"
 #import "TrampolineSpring.h"
+#import "TrampolineSegment.h"
 
 @implementation Trampoline
 
@@ -124,36 +123,34 @@
 }
 
 - (CGPoint)left_center {
-	CGPoint center = cgp_add(left, bend);
-	cgp_scale(&center, 0.5f);
-	return center;
+	TrampolineSegment *segment = [[TrampolineSegment alloc] initFrom:left to:bend];
+	return [segment center];
 }
 
 - (float)left_angle {
-	CGPoint blart = cgp_subtract(bend, left);
-	cgp_normalize(&blart);
-	return 180 * acosf(cgp_dot(blart, cgp(0, 1))) / M_PI;
+	TrampolineSegment *segment = [[TrampolineSegment alloc] initFrom:left to:bend];
+	return [segment angle];
 }
 
-- (float)left_width {
-	return cgp_length(cgp_subtract(bend, left));
+- (float)left_length {
+	TrampolineSegment *segment = [[TrampolineSegment alloc] initFrom:left to:bend];
+	return [segment length];
 }
 
 
 - (CGPoint)right_center {
-	CGPoint center = cgp_add(bend, right);
-	cgp_scale(&center, 0.5f);
-	return center;
+	TrampolineSegment *segment = [[TrampolineSegment alloc] initFrom:bend to:right];
+	return [segment center];
 }
 
 - (float)right_angle {
-	CGPoint blart = cgp_subtract(right, bend);
-	cgp_normalize(&blart);
-	return 180 * acosf(cgp_dot(blart, cgp(0, 1))) / M_PI;
+	TrampolineSegment *segment = [[TrampolineSegment alloc] initFrom:bend to:right];
+	return [segment angle];
 }
 
-- (float)right_width {
-	return cgp_length(cgp_subtract(right, bend));
+- (float)right_length {
+	TrampolineSegment *segment = [[TrampolineSegment alloc] initFrom:bend to:right];
+	return [segment length];
 }
 
 @end

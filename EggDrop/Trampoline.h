@@ -44,10 +44,10 @@
 
 -(CGPoint) left_center;
 -(float) left_angle;
--(float) left_width;
+-(float)left_length;
 
 -(CGPoint) right_center;
 -(float) right_angle;
--(float) right_width;
+-(float)right_length;
 
 @end

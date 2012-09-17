@@ -72,7 +72,7 @@
 }
 
 -(float) timeToCrossScreen {
-    return 40/currentCloud.scale * [self remainingDistancePercent];
+    return 50/currentCloud.scale * [self remainingDistancePercent];
 }
 
 -(int) cloudWidth {
