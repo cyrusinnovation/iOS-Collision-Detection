@@ -18,7 +18,7 @@ static float terminalVelocity;
 {
     gravity = CGPointMake(0, -800);
     spring = 4000;
-    terminalVelocity = 600;
+    terminalVelocity = 400;
 }
 
 +(CGPoint) gravity

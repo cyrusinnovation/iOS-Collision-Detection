@@ -40,7 +40,7 @@
         [rightKnob setPosition:cgp_add(correction, [t right])];
         [self addChild:rightKnob];
         
-        [self scheduleUpdate];                
+        [self scheduleUpdate];
     }
     return self;
 }

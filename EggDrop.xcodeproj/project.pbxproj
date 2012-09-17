@@ -58,6 +58,8 @@
 		6EB12E3316025CFE00DC6577 /* cloud3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2D16025CFE00DC6577 /* cloud3.png */; };
 		6EB12E3416025CFE00DC6577 /* cloud4-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2E16025CFE00DC6577 /* cloud4-hd.png */; };
 		6EB12E3516025CFE00DC6577 /* cloud4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB12E2F16025CFE00DC6577 /* cloud4.png */; };
+		C13DA968D477A0AD5CCA61A4 /* TrampolineSpring.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */; };
+		C13DAE618FFFB507BC7D4B17 /* TrampolineMath.c in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +125,10 @@
 		6EB12E2D16025CFE00DC6577 /* cloud3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud3.png; path = Resources/cloud3.png; sourceTree = "<group>"; };
 		6EB12E2E16025CFE00DC6577 /* cloud4-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloud4-hd.png"; path = "Resources/cloud4-hd.png"; sourceTree = "<group>"; };
 		6EB12E2F16025CFE00DC6577 /* cloud4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud4.png; path = Resources/cloud4.png; sourceTree = "<group>"; };
+		C13DA1459664856C24809B56 /* TrampolineMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineMath.h; sourceTree = "<group>"; };
+		C13DA23E65D825AF8A3EA56C /* TrampolineSpring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSpring.h; sourceTree = "<group>"; };
+		C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrampolineSpring.m; sourceTree = "<group>"; };
+		C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TrampolineMath.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,8 @@
 		0846276E15FE959F00844D0B /* EggDrop */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA1459664856C24809B56 /* TrampolineMath.h */,
+				C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */,
 				0846292615FE9F8800844D0B /* Model */,
 				0846292515FE9F3E00844D0B /* App */,
 				0846276F15FE959F00844D0B /* Resources */,
@@ -270,6 +278,8 @@
 		0846292615FE9F8800844D0B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA23E65D825AF8A3EA56C /* TrampolineSpring.h */,
+				C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */,
 				0846292715FE9FAD00844D0B /* Trampoline.h */,
 				0846292815FE9FAD00844D0B /* Trampoline.m */,
 				0846292A15FEA32500844D0B /* Egg.h */,
@@ -380,6 +390,8 @@
 				0846292F15FEA6CF00844D0B /* WorldConstants.m in Sources */,
 				086E2E7815FF2B0F001E580A /* TrampolineSprite.m in Sources */,
 				086E2E7B15FF3030001E580A /* EggSprite.m in Sources */,
+				C13DAE618FFFB507BC7D4B17 /* TrampolineMath.c in Sources */,
+				C13DA968D477A0AD5CCA61A4 /* TrampolineSpring.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

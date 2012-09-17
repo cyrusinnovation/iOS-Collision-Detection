@@ -16,8 +16,8 @@
     Boolean active;
     
     CGPoint stored;
-    
-    Egg* egg;
+
+    NSMutableArray *springs;
 }
 
 @property CGPoint bend; // TODO should be private
@@ -27,7 +27,10 @@
 
 -(id)initFrom:(CGPoint) left to:(CGPoint) right;
 
--(void) handle:(Egg *) egg over:(ccTime) dt;
+-(void) consider:(Egg *) egg;
+
+- (void)update:(ccTime)dt;
+
 -(void) reset;
 
 -(void) setFrom:(CGPoint) from to:(CGPoint) to;
@@ -37,6 +40,9 @@
 -(CGPoint) center;
 -(float) angle;
 -(float) width;
+
+- (float)eggPenetration:(Egg *)_egg;
+
 
 -(CGPoint) left_center;
 -(float) left_angle;

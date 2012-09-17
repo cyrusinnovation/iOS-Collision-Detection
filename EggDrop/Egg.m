@@ -35,9 +35,8 @@
 -(void)update:(ccTime)dt {
     CGPoint gravity = cgp_times([WorldConstants gravity], dt);
     velocity = cgp_add(velocity, gravity);
-    
 
-    if (cgp_length_squared(velocity) > terminalVelocitySquared) {
+     if (cgp_length_squared(velocity) > terminalVelocitySquared) {
         cgp_normalize(&velocity);
         cgp_scale(&velocity, terminalVelocity);
     }
