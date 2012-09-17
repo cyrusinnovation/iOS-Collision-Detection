@@ -116,12 +116,7 @@
 	[egg resetTo:level.initialEggLocation];
 }
 
-- (void)startLevelOver {
-	[self removeAllTrampolines];
-	[self redropEgg];
-}
-
-- (void)removeAllTrampolines {
+- (void) resetTrampolines {
 	[trampolines removeAllObjects];
 	[observer trampolinesRemoved];
 }

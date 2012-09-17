@@ -25,7 +25,7 @@
 - (id)init:(Level *)_level;
 
 - (void)redropEgg;
-- (void)startLevelOver;
+- (void)resetTrampolines;
 
 - (Star *)addStar:(CGPoint)location;
 - (void)addTrampolineFrom:(CGPoint)start to:(CGPoint)end;

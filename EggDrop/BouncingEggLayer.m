@@ -29,8 +29,6 @@
 #define STAR_LAYER 4
 #define MENU_LAYER 100
 
-#define MENU_LAYER_TAG 100
-
 typedef enum {
 	gameStatePlacing,
 	gameStateDropping,
@@ -87,7 +85,6 @@ typedef enum {
 	simulation.observer = self;
 
 	[simulation pause];
-	[simulation startLevelOver];
 
 	[self addChild:[[EggSprite alloc] init:simulation.egg] z:EGG_LAYER tag:EGG_LAYER];
 	[self addChild:[[NestSprite alloc] init:simulation.nest] z:NEST_LAYER tag:NEST_LAYER];
@@ -116,7 +113,7 @@ typedef enum {
 	CGSize s = [[CCDirector sharedDirector] winSize];
 	PlacingModeMenu *pmm = [[PlacingModeMenu alloc] init:self];
 	[pmm setPosition:cgp(s.width - 32, 32)];
-	[self addChild:pmm z:MENU_LAYER tag:MENU_LAYER_TAG];
+	[self addChild:pmm z:MENU_LAYER tag:MENU_LAYER];
 
 	[simulation redropEgg];
 	[simulation pause];
@@ -130,8 +127,8 @@ typedef enum {
 }
 
 - (void)removeMenu {
-	while ([self getChildByTag:MENU_LAYER_TAG]) {
-		[self removeChildByTag:MENU_LAYER_TAG cleanup:true];
+	while ([self getChildByTag:MENU_LAYER]) {
+		[self removeChildByTag:MENU_LAYER cleanup:true];
 	}
 }
 
@@ -139,19 +136,17 @@ typedef enum {
 	gameState = gameStateVictoryMenu;
 
 	GameOverLayer *gl = [[GameOverLayer alloc] initWithBouncingEggLayer:self];
-	[self addChild:gl z:MENU_LAYER tag:MENU_LAYER_TAG];
+	[self addChild:gl z:MENU_LAYER tag:MENU_LAYER];
 }
 
-- (void)resetStage {
-	[score reset];
-	[simulation startLevelOver];
+- (void)resetTrampolines {
+	[simulation resetTrampolines];
 	[[CCDirector sharedDirector] resume];
 }
 
 - (void)tryAgain {
 	[self enterGameStatePlacing];
 }
-
 
 #pragma mark update
 
@@ -178,7 +173,7 @@ typedef enum {
 	newTrampoline = [[Trampoline alloc] initFrom:newTrampolineAnchor to:newTrampolineAnchor];
 	newTrampolineSprite = [[TrampolineSprite alloc] init:newTrampoline];
 
-	[self addChild:newTrampolineSprite z:2 tag:2];
+	[self addChild:newTrampolineSprite z:TRAMPOLINE_LAYER tag:TRAMPOLINE_LAYER];
 
 	return true;
 }
@@ -192,12 +187,6 @@ typedef enum {
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-
-	if (location.x < 40 && location.y > 440) {
-		newTrampoline = NULL;
-		[self resetStage];
-		return;
-	}
 
 	[simulation addTrampolineFrom:newTrampolineAnchor to:location];
 
