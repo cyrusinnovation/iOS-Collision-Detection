@@ -164,8 +164,8 @@ static ccTime frameTime = 0.01;
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	newTrampolineAnchor = cgp_subtract(location, cgp(0, 0));
-	newTrampoline = [[Trampoline alloc] initFrom:newTrampolineAnchor to:location];
+	newTrampolineAnchor = location;
+	newTrampoline = [[Trampoline alloc] initFrom:newTrampolineAnchor to:newTrampolineAnchor];
 	newTrampolineSprite = [[TrampolineSprite alloc] init:newTrampoline];
 
 	[self addChild:newTrampolineSprite z:2 tag:2];
