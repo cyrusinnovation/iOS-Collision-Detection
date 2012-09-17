@@ -21,6 +21,7 @@
 
 @property(nonatomic, retain) Egg *egg;
 @property(nonatomic, retain) Nest *nest;
+@property(nonatomic) BOOL paused;
 
 - (id)init:(Level *)_level;
 
@@ -35,4 +36,7 @@
 - (void)startLevelOver;
 
 - (void)addTrampolineFrom:(CGPoint)start to:(CGPoint)end;
+
+- (void)pause;
+- (void)unpause;
 @end

@@ -22,6 +22,7 @@
 @synthesize observer;
 @synthesize egg;
 @synthesize nest;
+@synthesize paused;
 
 - (id)init:(Level *)_level {
 	if (self == [super init]) {
@@ -52,6 +53,8 @@
 }
 
 - (void)update:(ccTime)dt {
+	if (self.paused)
+	    return;
 	[egg resetForce];
 	[self collectForces];
 	[self runForces:dt];
@@ -133,4 +136,13 @@
 			egg.location.x < -20 ||
 			egg.location.x > ([[CCDirector sharedDirector] winSize]).width + 30;
 }
+
+-(void)pause {
+    self.paused = YES;
+}
+
+-(void)unpause {
+    self.paused = NO;
+}
+
 @end
