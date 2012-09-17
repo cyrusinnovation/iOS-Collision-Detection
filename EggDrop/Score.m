@@ -8,43 +8,35 @@
 
 #import "Score.h"
 
+@interface Score()
+-(void) setValue:(NSInteger) newValue;
+@end
+
 @implementation Score
 
 -(NSInteger) value {
     return value;
 }
 
+- (void)setValue:(NSInteger)newValue {
+    value = newValue;
+}
+
 -(id) init {
-    observers = [[NSMutableSet alloc] initWithCapacity:4];
-    value = 0;
+    self.value = 0;
     return self;
 }
 
 -(void) adjustBy:(NSInteger)d {
-    value += d;
-    [self notifyObservers];
+    self.value = self.value + d;
 }
 
 - (void)reset {
-    value = 0;
-    [self notifyObservers];
-}
-
-- (void)notifyObservers {
-    for(id ob in observers) {
-        [ob scoreChanged:value];
-    }
-}
-
-- (void)addObserver:(id <ScoreObserver>)observer {
-    [observers addObject:observer];
-    [observer scoreChanged:value];
+    self.value = 0;
 }
 
 - (void)dealloc {
-    [observers release];
     [super dealloc];
 }
-
 
 @end
