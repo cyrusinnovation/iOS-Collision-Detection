@@ -116,6 +116,16 @@
 	[[CCDirector sharedDirector] resume];
 }
 
+- (void)createGameOverLayer {
+	GameOverLayer *gl = [[GameOverLayer alloc] initWithBouncingEggLayer: self];
+	[self addChild: gl z:MENU_LAYER tag:MENU_LAYER_TAG];
+}
+
+- (void)tryAgain {
+	[simulation unpause];
+	[self removeChildByTag: MENU_LAYER_TAG cleanup:true];
+}
+
 #pragma mark Touch methods
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -181,16 +191,6 @@
 	while ([self getChildByTag:TRAMPOLINE_LAYER]) {
 		[self removeChildByTag:TRAMPOLINE_LAYER cleanup:true];
 	}
-}
-
-- (void)createGameOverLayer {
-	GameOverLayer *gl = [[GameOverLayer alloc] initWithBouncingEggLayer: self];
-	[self addChild: gl z:MENU_LAYER tag:MENU_LAYER_TAG];
-}
-
-- (void)unpauseMenu {
-	[simulation unpause];
-	[self removeChildByTag: MENU_LAYER_TAG cleanup:true];
 }
 
 #pragma mark -
