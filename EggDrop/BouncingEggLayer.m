@@ -55,18 +55,21 @@
 		buffer = 0;
 		frameTime = 0.01;
 
-		CGSize s = [[CCDirector sharedDirector] winSize];
-		CCSprite *bg = [CCSprite spriteWithFile:@"eggbackground.png"];
-		[bg setPosition:ccp(s.width / 2, s.height / 2)];
-		[self addChild:bg z:0];
-
 		Level *level = [Levels level1];
 
+		[self initBackground];
 		[self initSimulation:level];
 		[self initClouds];
 		[self initHud];
 	}
 	return self;
+}
+
+- (void)initBackground {
+	CGSize s = [[CCDirector sharedDirector] winSize];
+	CCSprite *bg = [CCSprite spriteWithFile:@"eggbackground.png"];
+	[bg setPosition:ccp(s.width / 2, s.height / 2)];
+	[self addChild:bg z:0];
 }
 
 - (void)initSimulation:(Level *)level {
