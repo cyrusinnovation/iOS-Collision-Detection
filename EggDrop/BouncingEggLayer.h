@@ -12,8 +12,13 @@
 #import "Trampoline.h"
 #import "TrampolineSprite.h"
 #import "Egg.h"
+#import "Clouds.h"
+#import "Score.h"
+#import "Nest.h"
 
 #import "cocos2d.h"
+
+@class HUD;
 
 @interface BouncingEggLayer : CCLayer
 {
@@ -21,10 +26,16 @@
     Trampoline *newTrampoline;
     TrampolineSprite *newTrampolineSprite;
     NSMutableArray *trampolines;
-    NSMutableArray *clouds;
     Egg *egg;
-    
+    Nest *nest;
+
+    NSMutableArray *stars;
+
+    Clouds *clouds;
+
     CCSprite *tramp;
+    
+    Score *score;
 }
 
 +(CCScene *) scene;
