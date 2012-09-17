@@ -17,18 +17,17 @@
 #import "Nest.h"
 
 #import "cocos2d.h"
+#import "SimulationObserver.h"
 
 @class HUD;
 
-@interface BouncingEggLayer : CCLayer {
+@interface BouncingEggLayer : CCLayer <SimulationObserver> {
 	CGPoint newTrampolineAnchor;
 	Trampoline *newTrampoline;
 	TrampolineSprite *newTrampolineSprite;
 	NSMutableArray *trampolines;
 	Egg *egg;
 	Nest *nest;
-
-	NSMutableArray *stars;
 
 	Clouds *clouds;
 

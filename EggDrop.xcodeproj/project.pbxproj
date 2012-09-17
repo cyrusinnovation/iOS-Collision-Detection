@@ -71,6 +71,8 @@
 		6EB12E3A16037D2800DC6577 /* Clouds.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB12E3916037D2800DC6577 /* Clouds.m */; };
 		9647F2D8160393DA00D25C78 /* HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9647F2D7160393DA00D25C78 /* HUD.m */; };
 		9647F2DC1603943500D25C78 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 9647F2DB1603943500D25C78 /* Score.m */; };
+		C13DA425DA05DEA39155BE1C /* NullSimulationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3D3F7416B03D1672D63 /* NullSimulationObserver.m */; };
+		C13DA5F6E6945B3EDF91943C /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA73BBF4B76AE61995BDD /* Simulation.m */; };
 		C13DA968D477A0AD5CCA61A4 /* TrampolineSpring.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */; };
 		C13DAE618FFFB507BC7D4B17 /* TrampolineMath.c in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */; };
 		C13DAFE12100789176142B7D /* TrampolineSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE9F8F6AF386A4ED4611 /* TrampolineSegment.m */; };
@@ -163,7 +165,12 @@
 		C13DA1459664856C24809B56 /* TrampolineMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineMath.h; sourceTree = "<group>"; };
 		C13DA20F254A88C8BAB14BD2 /* TrampolineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSegment.h; sourceTree = "<group>"; };
 		C13DA23E65D825AF8A3EA56C /* TrampolineSpring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSpring.h; sourceTree = "<group>"; };
+		C13DA27488390D4FFC98D5A5 /* SimulationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationObserver.h; sourceTree = "<group>"; };
+		C13DA3D3F7416B03D1672D63 /* NullSimulationObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSimulationObserver.m; sourceTree = "<group>"; };
 		C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrampolineSpring.m; sourceTree = "<group>"; };
+		C13DA73BBF4B76AE61995BDD /* Simulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simulation.m; sourceTree = "<group>"; };
+		C13DA780C4D16321D58A2BFA /* Simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simulation.h; sourceTree = "<group>"; };
+		C13DA7D8126D1B3D50DBD071 /* NullSimulationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullSimulationObserver.h; sourceTree = "<group>"; };
 		C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TrampolineMath.c; sourceTree = "<group>"; };
 		C13DAE9F8F6AF386A4ED4611 /* TrampolineSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrampolineSegment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,6 +235,11 @@
 		0846276E15FE959F00844D0B /* EggDrop */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA27488390D4FFC98D5A5 /* SimulationObserver.h */,
+				C13DA7D8126D1B3D50DBD071 /* NullSimulationObserver.h */,
+				C13DA3D3F7416B03D1672D63 /* NullSimulationObserver.m */,
+				C13DA780C4D16321D58A2BFA /* Simulation.h */,
+				C13DA73BBF4B76AE61995BDD /* Simulation.m */,
 				C13DA20F254A88C8BAB14BD2 /* TrampolineSegment.h */,
 				C13DAE9F8F6AF386A4ED4611 /* TrampolineSegment.m */,
 				603901A47B51A015BC402BF1 /* eggbackground-ipadhd.png */,
@@ -466,6 +478,8 @@
 				337249481604A78A00FBB490 /* StarSprite.m in Sources */,
 				3372494B1604A79500FBB490 /* Star.m in Sources */,
 				C13DAFE12100789176142B7D /* TrampolineSegment.m in Sources */,
+				C13DA5F6E6945B3EDF91943C /* Simulation.m in Sources */,
+				C13DA425DA05DEA39155BE1C /* NullSimulationObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
