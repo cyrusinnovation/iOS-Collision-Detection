@@ -111,7 +111,6 @@
 	}
 }
 
-
 - (void)redropEgg {
 	[self resetStars];
 	[egg resetTo:level.initialEggLocation];
