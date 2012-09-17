@@ -74,6 +74,7 @@
 		9647F2D8160393DA00D25C78 /* HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9647F2D7160393DA00D25C78 /* HUD.m */; };
 		9647F2DC1603943500D25C78 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 9647F2DB1603943500D25C78 /* Score.m */; };
 		C13DA0F84C89138E8C48E748 /* drop-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA0E3F0FD1186181259EC /* drop-hd.png */; };
+		C13DA3B1E863E606838F9C93 /* reset-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA3EC7951EBFD40A1383B /* reset-hd.png */; };
 		C13DA425DA05DEA39155BE1C /* NullSimulationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3D3F7416B03D1672D63 /* NullSimulationObserver.m */; };
 		C13DA459BAF675380E8BE339 /* Levels.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD27761AC378762A6787 /* Levels.m */; };
 		C13DA5F6E6945B3EDF91943C /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA73BBF4B76AE61995BDD /* Simulation.m */; };
@@ -81,6 +82,7 @@
 		C13DA968D477A0AD5CCA61A4 /* TrampolineSpring.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */; };
 		C13DA9E2E5ED9C11CB3A53F7 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD4E968FB28ADCDFAFA5 /* Level.m */; };
 		C13DAE618FFFB507BC7D4B17 /* TrampolineMath.c in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */; };
+		C13DAF7A014BA89CDC31EB78 /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA1416586496AE1461410 /* reset.png */; };
 		C13DAFE12100789176142B7D /* TrampolineSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE9F8F6AF386A4ED4611 /* TrampolineSegment.m */; };
 /* End PBXBuildFile section */
 
@@ -172,11 +174,13 @@
 		9647F2DB1603943500D25C78 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
 		C13DA0E3F0FD1186181259EC /* drop-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "drop-hd.png"; path = "Resources/drop-hd.png"; sourceTree = "<group>"; };
 		C13DA0FD64C8465A89959B10 /* Levels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Levels.h; sourceTree = "<group>"; };
+		C13DA1416586496AE1461410 /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reset.png; path = Resources/reset.png; sourceTree = "<group>"; };
 		C13DA1459664856C24809B56 /* TrampolineMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineMath.h; sourceTree = "<group>"; };
 		C13DA20F254A88C8BAB14BD2 /* TrampolineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSegment.h; sourceTree = "<group>"; };
 		C13DA23E65D825AF8A3EA56C /* TrampolineSpring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSpring.h; sourceTree = "<group>"; };
 		C13DA27488390D4FFC98D5A5 /* SimulationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationObserver.h; sourceTree = "<group>"; };
 		C13DA3D3F7416B03D1672D63 /* NullSimulationObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSimulationObserver.m; sourceTree = "<group>"; };
+		C13DA3EC7951EBFD40A1383B /* reset-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reset-hd.png"; path = "Resources/reset-hd.png"; sourceTree = "<group>"; };
 		C13DA5CB4E16A3DA90B79EEB /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrampolineSpring.m; sourceTree = "<group>"; };
 		C13DA6BCEE01D726A4EC945B /* PlacingModeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacingModeMenu.m; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 		0846276F15FE959F00844D0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA1416586496AE1461410 /* reset.png */,
+				C13DA3EC7951EBFD40A1383B /* reset-hd.png */,
 				C13DA0E3F0FD1186181259EC /* drop-hd.png */,
 				33EFA55A1607E1A50073B671 /* drop.png */,
 				3372494C1604B5EB00FBB490 /* star-hd.png */,
@@ -475,6 +481,8 @@
 				3372494D1604B5EB00FBB490 /* star-hd.png in Resources */,
 				C13DA0F84C89138E8C48E748 /* drop-hd.png in Resources */,
 				33EFA55B1607E1A50073B671 /* drop.png in Resources */,
+				C13DA3B1E863E606838F9C93 /* reset-hd.png in Resources */,
+				C13DAF7A014BA89CDC31EB78 /* reset.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

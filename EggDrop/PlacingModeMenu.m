@@ -18,8 +18,8 @@
 			];
 	CCMenuItemFont *resetTrampolines =
 			[CCMenuItemSprite
-					itemWithNormalSprite:[CCSprite spriteWithFile:@"drop.png"]
-								selectedSprite:[CCSprite spriteWithFile:@"drop.png"]
+					itemWithNormalSprite:[CCSprite spriteWithFile:@"reset.png"]
+								selectedSprite:[CCSprite spriteWithFile:@"reset.png"]
 												target:bouncingEggLayer
 											selector:@selector(resetTrampolines)
 			];
