@@ -12,6 +12,7 @@
 
 @implementation NullSimulationObserver
 - (void)newTrampoline:(Trampoline *)trampoline { }
+- (void)trampolinesRemoved { }
 - (void)newStar:(Star *)star { }
 - (void)starCaught:(Star *)star { }
 @end

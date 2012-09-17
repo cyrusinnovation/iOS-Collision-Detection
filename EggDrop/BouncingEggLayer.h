@@ -25,7 +25,6 @@
 	CGPoint newTrampolineAnchor;
 	Trampoline *newTrampoline;
 	TrampolineSprite *newTrampolineSprite;
-	Nest *nest;
 
 	Clouds *clouds;
 

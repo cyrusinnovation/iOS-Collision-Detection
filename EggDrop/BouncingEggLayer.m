@@ -17,11 +17,13 @@
 #import "HUD.h"
 #import "StarSprite.h"
 #import "Simulation.h"
+#import "Level.h"
 
 #pragma mark - HelloWorldLayer
 
 #define TRAMPOLINE_LAYER 2
 #define EGG_LAYER 3
+#define NEST_LAYER 3
 #define STAR_LAYER 4
 
 @implementation BouncingEggLayer {
@@ -46,33 +48,28 @@
 		[bg setPosition:ccp(s.width / 2, s.height / 2)];
 		[self addChild:bg z:0];
 
-		simulation = [[Simulation alloc] initWithInitialEggLocation:cgp(s.width / 2, s.height + 100)];
+		Level *level = [[Level alloc] init];
+		level.initialEggLocation = cgp(s.width / 2, s.height + 100);
+		level.nestLocation = cgp(s.width / 4, 60);
+		[level addStar:cgp(0.25, 0.75)];
+		[level addStar:cgp(0.75, 0.50)];
+		[level addStar:cgp(0.35, 0.30)];
+
+		simulation = [[Simulation alloc] init:level];
 		simulation.observer = self;
+		[simulation startLevelOver];
 
 		[self addChild:[[EggSprite alloc] init:simulation.egg] z:EGG_LAYER tag:EGG_LAYER];
-
-		[self startStageOver];
-
+		[self addChild:[[NestSprite alloc] init:simulation.nest] z:NEST_LAYER tag:NEST_LAYER];
 
 		clouds = [[Clouds alloc] init];
 		[self addClouds];
 
-		nest = [[Nest alloc] initAt:s.width / 4 and:60];
-		[self addChild:[[NestSprite alloc] init:nest]];
-
 		score = [[Score alloc] init];
 		hud = [[HUD alloc] initWithScore:score];
 		[self addChild:hud];
-
 	}
 	return self;
-}
-
-- (void)startStageOver {
-	[simulation resetCurrentArrangement];
-	[simulation addStarAt:0.25 and:0.75];
-	[simulation addStarAt:0.75 and:0.50];
-	[simulation addStarAt:0.35 and:0.30];
 }
 
 - (void)addClouds {
@@ -82,21 +79,9 @@
 }
 
 - (void)resetStage {
-	// TODO eventually this should look like:
-	//  [simulation loadStage:stage]
-	//  or something and we probably shouldn't
-	//  pause the directory
-
-	[[CCDirector sharedDirector] resume];
-
-	[simulation resetCurrentStage];
-
 	[score reset];
-	[self startStageOver];
-
-	while ([self getChildByTag:2]) {
-		[self removeChildByTag:2 cleanup:true];
-	}
+	[simulation startLevelOver];
+	[[CCDirector sharedDirector] resume];
 }
 
 // TODO move these to the class
@@ -114,10 +99,9 @@ static ccTime frameTime = 0.01;
 - (void)updateInternal:(ccTime)dt {
 	if ([simulation isEggDead]) {
 		[score adjustBy:1];
-		[self startStageOver];
+		[simulation redropEgg];
 	} else {
 		[simulation update:dt];
-		[nest handle:simulation.egg];
 	}
 }
 
@@ -174,6 +158,12 @@ static ccTime frameTime = 0.01;
 
 - (void)newTrampoline:(Trampoline *)trampoline {
 	[self addChild:[[TrampolineSprite alloc] init:trampoline] z:TRAMPOLINE_LAYER tag:TRAMPOLINE_LAYER];
+}
+
+- (void)trampolinesRemoved {
+	while ([self getChildByTag:TRAMPOLINE_LAYER]) {
+		[self removeChildByTag:TRAMPOLINE_LAYER cleanup:true];
+	}
 }
 
 #pragma mark -

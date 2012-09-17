@@ -7,26 +7,27 @@
 #import "CCDirector.h"
 
 #import "Simulation.h"
-#import "SimulationObserver.h"
 #import "NullSimulationObserver.h"
 #import "Trampoline.h"
+#import "Level.h"
 
 @implementation Simulation {
 	NSMutableArray *stars;
-	NSObject <SimulationObserver> *observer;
-	Egg *egg;
-
 	NSMutableArray *trampolines;
-	CGPoint initial_egg_location;
+	NSObject <SimulationObserver> *observer;
+
+	Level *level;
 }
 
 @synthesize observer;
 @synthesize egg;
+@synthesize nest;
 
-- (id)initWithInitialEggLocation:(CGPoint)location {
+- (id)init:(Level *)_level {
 	if (self == [super init]) {
-		initial_egg_location = location;
-		egg = [[Egg alloc] initAt:initial_egg_location withRadius:15];;
+		level = _level;
+		egg = [[Egg alloc] initAt:level.initialEggLocation withRadius:15];;
+		nest = [[Nest alloc] initAt:level.nestLocation];
 
 		stars = [[NSMutableArray alloc] init];
 		trampolines = [[NSMutableArray alloc] init];
@@ -36,9 +37,9 @@
 	return self;
 }
 
-- (Star *)addStarAt:(float)x and:(float)y {
+- (Star *)addStar:(CGPoint)location {
 	CGSize s = [[CCDirector sharedDirector] winSize];
-	Star *star = [[Star alloc] initAt:s.width * x and:s.height * y];
+	Star *star = [[Star alloc] initAt:s.width * location.x and:s.height * location.y];
 	[stars addObject:star];
 	[observer newStar:star];
 	return star;
@@ -58,6 +59,7 @@
 	// TODO it feels weird for this to bed in here - this is more the sprite's responsibility
 	[self updateTrampolineGeometry];
 	[self checkForStarCollisions];
+	[nest handle:egg];
 }
 
 - (void)updateTrampolineGeometry {
@@ -86,7 +88,6 @@
 		if ([star doesCollide:egg]) {
 			[observer starCaught:star];
 			[stars removeObject:star];
-			// TODO ? [release star];
 		}
 	}
 }
@@ -94,38 +95,42 @@
 - (void)dealloc {
 	[observer release];
 	[egg release];
+	[nest release];
 	[super dealloc];
 }
 
-- (void)resetCurrentArrangement {
-	[self removeAllStars];
-	[self moveEggTo:initial_egg_location];
-
-	for (Trampoline *trampoline in trampolines) {
-		[trampoline reset];
-	}
+- (void) redropEgg {
+	[self resetStars];
+	[egg resetTo:level.initialEggLocation];
 }
 
-- (void)removeAllStars {
+- (void) startLevelOver {
+	[self removeAllTrampolines];
+	[self redropEgg];
+}
+
+- (void)removeAllTrampolines {
+	[trampolines removeAllObjects];
+	[observer trampolinesRemoved];
+}
+
+- (void)resetStars {
 	for (int i = stars.count - 1; i >= 0; i--) {
 		Star *star = [stars objectAtIndex:i];
 		[observer starCaught:star];
 		[stars removeObject:star];
 	}
-}
 
-- (void)moveEggTo:(CGPoint)location {
-	[egg resetTo:location];
+	for (NSValue *value in level.starLocations) {
+		CGPoint location;
+		[value getValue:&location];
+		[self addStar:location];
+	}
 }
 
 - (BOOL)isEggDead {
 	return egg.location.y < -20 ||
 			egg.location.x < -20 ||
 			egg.location.x > ([[CCDirector sharedDirector] winSize]).width + 30;
-}
-
-- (void)resetCurrentStage {
-	[self moveEggTo:initial_egg_location];
-	[trampolines removeAllObjects];
 }
 @end

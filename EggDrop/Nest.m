@@ -13,9 +13,9 @@
 @synthesize location;
 @synthesize radius;
 
--(id) initAt:(float) _x and:(float) _y {
+-(id) initAt:(CGPoint) _location {
     if (self = [super init]) {
-        location = ccp(_x, _y);
+        location = _location;
         radius = 15;
     }
     return self;

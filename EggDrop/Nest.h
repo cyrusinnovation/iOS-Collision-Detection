@@ -20,7 +20,7 @@
 @property CGPoint location;
 @property float radius;
 
--(id) initAt:(float) x and:(float) y;
+-(id) initAt:(CGPoint) location;
 -(void) handle:(Egg *)egg;
 
 @end

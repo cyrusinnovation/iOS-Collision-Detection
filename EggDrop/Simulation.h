@@ -8,29 +8,31 @@
 #import <Foundation/Foundation.h>
 
 #import "Egg.h"
+#import "Nest.h"
 #import "Star.h"
 
 #import "SimulationObserver.h"
 
+@class Level;
+
 @interface Simulation : NSObject
 
 @property(nonatomic, retain) NSObject <SimulationObserver> *observer;
+
 @property(nonatomic, retain) Egg *egg;
+@property(nonatomic, retain) Nest *nest;
 
+- (id)init:(Level *)_level;
 
-- (id)initWithInitialEggLocation:(CGPoint)location;
-
-- (Star *)addStarAt:(float)x and:(float)y;
+- (Star *)addStar:(CGPoint)location;
 
 - (void)update:(ccTime)dt;
 
-- (void)resetCurrentArrangement;
-
-- (void)moveEggTo:(CGPoint)point;
-
 - (BOOL)isEggDead;
 
-- (void)resetCurrentStage;
+- (void)redropEgg;
+
+- (void)startLevelOver;
 
 - (void)addTrampolineFrom:(CGPoint)start to:(CGPoint)end;
 @end
