@@ -21,7 +21,6 @@
 }
 
 @property CGPoint bend; // TODO should be private
-@property CGPoint normal; // TODO should be private
 @property CGPoint left;
 @property CGPoint right;
 
@@ -42,9 +41,6 @@
 -(CGPoint) center;
 -(float) angle;
 -(float) width;
-
-- (float)eggPenetration:(Egg *)_egg;
-
 
 -(CGPoint) left_center;
 -(float) left_angle;

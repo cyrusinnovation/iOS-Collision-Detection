@@ -21,7 +21,6 @@
 @synthesize right;
 
 @synthesize bend;
-@synthesize normal;
 
 - (id)initFrom:(CGPoint)from to:(CGPoint)to {
 	if (self = [super init]) {
@@ -47,10 +46,6 @@
 	self.bend = cgp_add(left, right);
 	cgp_scale(&bend, 0.5f);
 
-	normal = cgp_subtract(right, left);
-	cgp_normalize(&normal);
-	cgp_flop(&normal);
-
 	stored = cgp(0, 0);
 }
 
@@ -70,22 +65,9 @@
 	return cgp_length(cgp_subtract(right, left));
 }
 
-// TODO I think since we're computing cgp_t below we might be able to tighten up the math in here
-- (float)eggPenetration:(Egg *)_egg {
-	CGPoint egg_bottom = cgp_add(_egg.location, cgp_times(normal, -_egg.radius));
-
-	float distance = pointToLineDistance(self.left, self.right, egg_bottom);
-	if (isAbove(left, right, egg_bottom)) return -distance;
-	return distance;
-}
-
 - (void)resetBend {
 	self.bend = cgp_add(left, right);
 	cgp_scale(&bend, 0.5f);
-}
-
-- (void)setBendFor:(Egg *)_egg {
-	bend = cgp_subtract(_egg.location, cgp_times(normal, _egg.radius));
 }
 
 - (void)consider:(Egg *)egg {
@@ -103,7 +85,16 @@
 		return;
 	}
 
-	[springs addObject:[[TrampolineSpring alloc] initFor:self and:egg]];
+	// TODO duped from TrampolineSprite
+	CGPoint normal = cgp_subtract(right, left);
+	cgp_normalize(&normal);
+	cgp_flop(&normal);
+
+	if (cgp_dot(egg.velocity, normal) < 0) {
+		[springs addObject:[[TrampolineSpring alloc] initFrom:left to:right for:egg]];
+	} else {
+		[springs addObject:[[TrampolineSpring alloc] initFrom:right to:left for:egg]];
+	}
 }
 
 - (void)update:(ccTime)dt {
@@ -121,7 +112,7 @@
 -(void) updateGeometry {
 	for (TrampolineSpring *spring in springs){
 		if (spring.alive) {
-			[self setBendFor: spring.egg];
+			bend = [spring bend];
 		}
 	}
 }

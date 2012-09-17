@@ -7,10 +7,11 @@
 @interface TrampolineSpring : NSObject
 
 @property(nonatomic, retain) Egg *egg;
-@property(nonatomic, retain) Trampoline *trampoline;
 @property(nonatomic) bool alive;
 
-- (id)initFor:(Trampoline *)trampoline and:(Egg *)and;
+- (id)initFrom:(CGPoint)left to:(CGPoint)right for:(Egg *)_egg;
+
 - (void)update:(ccTime)dt;
 
+- (CGPoint)bend;
 @end

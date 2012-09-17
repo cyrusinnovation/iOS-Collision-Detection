@@ -2,27 +2,36 @@
 #import "Trampoline.h"
 
 #import "CGPoint_ops.h"
+#import "TrampolineMath.h"
 
 @implementation TrampolineSpring {
 	Egg *egg;
-	Trampoline *trampoline;
 
 	bool alive;
 	float spring_constant;
 	float damping;
 	float gamma;
+
+	CGPoint left;
+	CGPoint right;
+	CGPoint normal;
 }
 
-@synthesize trampoline;
 @synthesize egg;
 @synthesize alive;
 
-- (id)initFor:(Trampoline *)_trampoline and:(Egg *)_egg {
+- (id)initFrom:(CGPoint) _left to:(CGPoint) _right for:(Egg *)_egg {
 	if (self = [super init]) {
-		trampoline = _trampoline;
+		left = _left;
+		right = _right;
+
+		normal = cgp_subtract(right, left);
+		cgp_normalize(&normal);
+		cgp_flop(&normal);
+
 		egg = _egg;
 		alive = true;
-		
+
 		spring_constant = 10000;
 		damping = 2;
 
@@ -32,30 +41,34 @@
 	return self;
 }
 
+- (float)eggPenetration:(Egg *)_egg {
+	CGPoint egg_bottom = cgp_add(_egg.location, cgp_times(normal, -_egg.radius));
+
+	float distance = pointToLineDistance(left, right, egg_bottom);
+	if (isAbove(left, right, egg_bottom)) return -distance;
+	return distance;
+}
+
 - (void)update:(ccTime)dt {
 	if (!alive) {
 		return;
 	}
 
-	float penetration = [trampoline eggPenetration:egg];
-	float t = cgp_t(trampoline.left, trampoline.right, egg.location);
+	float penetration = [self eggPenetration:egg];
+	float t = cgp_t(left, right, egg.location);
 
 	if (penetration < 0 || t < 0 || t > 1) {
 		alive = false;
 		return;
 	}
 
-	CGPoint position = cgp_add(egg.location, cgp_times(trampoline.normal, -(egg.radius)));
-	CGPoint anchor = cgp_add(trampoline.left, cgp_times(cgp_subtract(trampoline.right, trampoline.left), t));
+	CGPoint position = cgp_add(egg.location, cgp_times(normal, -(egg.radius)));
+	CGPoint anchor = cgp_add(left, cgp_times(cgp_subtract(right, left), t));
 	position = cgp_subtract(position, anchor);
 
 	CGPoint fake_spring_force = [self fake_spring:position dt:dt];
-	CGPoint simple_spring_force = [self simpleSpringForce:penetration];
 
 	[egg applyForce:fake_spring_force];
-
-//	NSLog(@"fake spring %f %f", fake_spring_force.x, fake_spring_force.y);
-//	NSLog(@"simple spring %f %f", simple_spring_force.x, simple_spring_force.y);
 }
 
 - (CGPoint)fake_spring:(CGPoint)position dt:(ccTime)dt {
@@ -70,24 +83,24 @@
 	);
 	cgp_scale(&target, expf(-0.5 * dt * damping));
 
-	CGPoint accel = cgp_subtract(
+	CGPoint force = cgp_subtract(
 			cgp_times(cgp_subtract(target, position), (1 / dt * dt)),
 			cgp_times(egg.velocity, dt)
 	);
-	cgp_scale(&accel, 1000);
-	return accel;
-}
-
-- (CGPoint)simpleSpringForce:(float)penetration {
-	float force_magnitude = spring_constant * penetration;
-	CGPoint force = cgp_times(trampoline.normal, force_magnitude);
+	cgp_scale(&force, 1000); // I have no idea why I have to do this
 	return force;
 }
 
 - (void)dealloc {
-	[trampoline release];
 	[egg release];
 	[super dealloc];
 }
 
+- (CGPoint)bend {
+	if (alive) {
+		return cgp_subtract(egg.location, cgp_times(normal, egg.radius));
+	} else {
+		return cgp_times(cgp_add(left, right), 0.5);
+	}
+}
 @end
