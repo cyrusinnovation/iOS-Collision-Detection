@@ -10,8 +10,6 @@
 #import "SimulationObserver.h"
 #import "BouncingEggLayer.h"
 
-#import "CGPoint_ops.h"
-
 #import "EggSprite.h"
 #import "NestSprite.h"
 #import "HUD.h"
@@ -20,6 +18,8 @@
 #import "Level.h"
 #import "Levels.h"
 #import "GameOverLayer.h"
+#import "PlacingModeMenu.h"
+#import "CGPoint_ops.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -31,6 +31,12 @@
 
 #define MENU_LAYER_TAG 100
 
+typedef enum {
+	gameStatePlacing,
+	gameStateDropping,
+	gameStateVictoryMenu
+} GameState;
+
 @implementation BouncingEggLayer {
 	Simulation *simulation;
 
@@ -38,6 +44,8 @@
 	ccTime frameTime;
 
 	HUD *hud;
+
+	GameState gameState;
 }
 
 + (CCScene *)scene {
@@ -61,6 +69,8 @@
 		[self initSimulation:level];
 		[self initClouds];
 		[self initHud];
+
+		[self enterGameStatePlacing];
 	}
 	return self;
 }
@@ -75,6 +85,8 @@
 - (void)initSimulation:(Level *)level {
 	simulation = [[Simulation alloc] init:level];
 	simulation.observer = self;
+
+	[simulation pause];
 	[simulation startLevelOver];
 
 	[self addChild:[[EggSprite alloc] init:simulation.egg] z:EGG_LAYER tag:EGG_LAYER];
@@ -94,6 +106,50 @@
 	[self addChild:hud];
 }
 
+#pragma mark state transitions
+
+- (void)enterGameStatePlacing {
+	gameState = gameStatePlacing;
+
+	CGSize s = [[CCDirector sharedDirector] winSize];
+
+	PlacingModeMenu *pmm = [[PlacingModeMenu alloc] init:self];
+	[pmm setPosition:cgp(s.width - 32, 32)];
+	[self addChild:pmm z:MENU_LAYER tag:MENU_LAYER_TAG];
+
+	[simulation pause];
+}
+
+- (void)enterGameStateDropping {
+	gameState = gameStateDropping;
+
+	while ([self getChildByTag:MENU_LAYER_TAG]) {
+		[self removeChildByTag:MENU_LAYER_TAG cleanup:true];
+	}
+	[simulation unpause];
+}
+
+- (void)enterGameStateVictoryMenu {
+	gameState = gameStateVictoryMenu;
+
+	GameOverLayer *gl = [[GameOverLayer alloc] initWithBouncingEggLayer:self];
+	[self addChild:gl z:MENU_LAYER tag:MENU_LAYER_TAG];
+}
+
+- (void)resetStage {
+	[score reset];
+	[simulation startLevelOver];
+	[[CCDirector sharedDirector] resume];
+}
+
+- (void)tryAgain {
+	[simulation unpause];
+	[self removeChildByTag:MENU_LAYER_TAG cleanup:true];
+}
+
+
+#pragma mark update
+
 - (void)update:(ccTime)dt {
 	buffer += dt;
 	while (buffer >= frameTime) {
@@ -103,30 +159,9 @@
 }
 
 - (void)updateInternal:(ccTime)dt {
-	if ([simulation isEggDead]) {
-		[score adjustBy:1];
-		[simulation redropEgg];
-		[self createGameOverLayer];
-		[simulation pause];
-	} else {
+	if (gameState == gameStateDropping) {
 		[simulation update:dt];
 	}
-}
-
-- (void)resetStage {
-	[score reset];
-	[simulation startLevelOver];
-	[[CCDirector sharedDirector] resume];
-}
-
-- (void)createGameOverLayer {
-	GameOverLayer *gl = [[GameOverLayer alloc] initWithBouncingEggLayer: self];
-	[self addChild: gl z:MENU_LAYER tag:MENU_LAYER_TAG];
-}
-
-- (void)tryAgain {
-	[simulation unpause];
-	[self removeChildByTag: MENU_LAYER_TAG cleanup:true];
 }
 
 #pragma mark Touch methods
@@ -186,6 +221,19 @@
 	}
 }
 
+- (void)eggDied {
+	[score adjustBy:1];
+	[simulation redropEgg];
+	[simulation pause];
+
+	[self enterGameStatePlacing];
+}
+
+- (void)eggHitNest {
+	[self enterGameStateVictoryMenu];
+}
+
+
 - (void)newTrampoline:(Trampoline *)trampoline {
 	[self addChild:[[TrampolineSprite alloc] init:trampoline] z:TRAMPOLINE_LAYER tag:TRAMPOLINE_LAYER];
 }
@@ -201,6 +249,5 @@
 - (void)dealloc {
 	[super dealloc];
 }
-
 
 @end

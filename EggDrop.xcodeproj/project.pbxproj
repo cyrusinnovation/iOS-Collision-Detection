@@ -72,9 +72,11 @@
 		6EB12E3A16037D2800DC6577 /* Clouds.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB12E3916037D2800DC6577 /* Clouds.m */; };
 		9647F2D8160393DA00D25C78 /* HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9647F2D7160393DA00D25C78 /* HUD.m */; };
 		9647F2DC1603943500D25C78 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 9647F2DB1603943500D25C78 /* Score.m */; };
+		C13DA0F84C89138E8C48E748 /* drop-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA0E3F0FD1186181259EC /* drop-hd.png */; };
 		C13DA425DA05DEA39155BE1C /* NullSimulationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3D3F7416B03D1672D63 /* NullSimulationObserver.m */; };
 		C13DA459BAF675380E8BE339 /* Levels.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD27761AC378762A6787 /* Levels.m */; };
 		C13DA5F6E6945B3EDF91943C /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA73BBF4B76AE61995BDD /* Simulation.m */; };
+		C13DA625CE2F5670B3605EBB /* PlacingModeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA6BCEE01D726A4EC945B /* PlacingModeMenu.m */; };
 		C13DA968D477A0AD5CCA61A4 /* TrampolineSpring.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */; };
 		C13DA9E2E5ED9C11CB3A53F7 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD4E968FB28ADCDFAFA5 /* Level.m */; };
 		C13DAE618FFFB507BC7D4B17 /* TrampolineMath.c in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */; };
@@ -166,6 +168,7 @@
 		9647F2D7160393DA00D25C78 /* HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUD.m; sourceTree = "<group>"; };
 		9647F2DA1603943500D25C78 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
 		9647F2DB1603943500D25C78 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
+		C13DA0E3F0FD1186181259EC /* drop-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "drop-hd.png"; path = "Resources/drop-hd.png"; sourceTree = "<group>"; };
 		C13DA0FD64C8465A89959B10 /* Levels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Levels.h; sourceTree = "<group>"; };
 		C13DA1459664856C24809B56 /* TrampolineMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineMath.h; sourceTree = "<group>"; };
 		C13DA20F254A88C8BAB14BD2 /* TrampolineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSegment.h; sourceTree = "<group>"; };
@@ -174,7 +177,9 @@
 		C13DA3D3F7416B03D1672D63 /* NullSimulationObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSimulationObserver.m; sourceTree = "<group>"; };
 		C13DA5CB4E16A3DA90B79EEB /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrampolineSpring.m; sourceTree = "<group>"; };
+		C13DA6BCEE01D726A4EC945B /* PlacingModeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacingModeMenu.m; sourceTree = "<group>"; };
 		C13DA73BBF4B76AE61995BDD /* Simulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simulation.m; sourceTree = "<group>"; };
+		C13DA76FEF319A7278B5019A /* PlacingModeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacingModeMenu.h; sourceTree = "<group>"; };
 		C13DA780C4D16321D58A2BFA /* Simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simulation.h; sourceTree = "<group>"; };
 		C13DA7D8126D1B3D50DBD071 /* NullSimulationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullSimulationObserver.h; sourceTree = "<group>"; };
 		C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TrampolineMath.c; sourceTree = "<group>"; };
@@ -243,6 +248,8 @@
 		0846276E15FE959F00844D0B /* EggDrop */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA76FEF319A7278B5019A /* PlacingModeMenu.h */,
+				C13DA6BCEE01D726A4EC945B /* PlacingModeMenu.m */,
 				C13DA0FD64C8465A89959B10 /* Levels.h */,
 				C13DAD27761AC378762A6787 /* Levels.m */,
 				C13DA5CB4E16A3DA90B79EEB /* Level.h */,
@@ -269,6 +276,7 @@
 		0846276F15FE959F00844D0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA0E3F0FD1186181259EC /* drop-hd.png */,
 				3372494C1604B5EB00FBB490 /* star-hd.png */,
 				337249441604A76400FBB490 /* star.png */,
 				6EB12E2216025B2E00DC6577 /* eggbackground-hd.png */,
@@ -462,6 +470,7 @@
 				603908505CD4CB6BF4208805 /* eggbackground-ipadhd.png in Resources */,
 				337249451604A76400FBB490 /* star.png in Resources */,
 				3372494D1604B5EB00FBB490 /* star-hd.png in Resources */,
+				C13DA0F84C89138E8C48E748 /* drop-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +505,7 @@
 				C13DA9E2E5ED9C11CB3A53F7 /* Level.m in Sources */,
 				C13DA459BAF675380E8BE339 /* Levels.m in Sources */,
 				3372495C1607B6C500FBB490 /* GameOverLayer.m in Sources */,
+				C13DA625CE2F5670B3605EBB /* PlacingModeMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

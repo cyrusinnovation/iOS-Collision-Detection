@@ -21,9 +21,8 @@
     return self;
 }
 
--(void) handle:(Egg *)egg {
-    if (doCirclesCollide(location, radius, egg.location, egg.radius))
-        [[CCDirector sharedDirector] pause];
+-(bool) doesCollide:(Egg *)egg {
+   return doCirclesCollide(location, radius, egg.location, egg.radius);
 }
 
 @end

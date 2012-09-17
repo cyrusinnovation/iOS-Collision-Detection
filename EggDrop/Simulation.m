@@ -57,15 +57,21 @@
 - (void)update:(ccTime)dt {
 	if (paused)
 		return;
-	
+
 	[egg resetForce];
 	[self collectForces];
 	[self runForces:dt];
+
 	[egg update:dt];
 	// TODO it feels weird for this to bed in here - this is more the sprite's responsibility
 	[self updateTrampolineGeometry];
-	[self checkForStarCollisions];
-	[nest handle:egg];
+
+	if ([self isEggDead]) {
+		[observer eggDied];
+	} else {
+		[self checkForStarCollisions];
+		[self checkForNestCollisions];
+	}
 }
 
 - (void)collectForces {
@@ -97,6 +103,14 @@
 		}
 	}
 }
+
+- (void)checkForNestCollisions {
+	if ([nest doesCollide:egg]) {
+		[egg resetTo:egg.location];
+		[observer eggHitNest];
+	}
+}
+
 
 - (void)redropEgg {
 	[self resetStars];

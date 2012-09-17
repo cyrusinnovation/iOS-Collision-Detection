@@ -21,6 +21,6 @@
 @property float radius;
 
 -(id) initAt:(CGPoint) location;
--(void) handle:(Egg *)egg;
+- (bool)doesCollide:(Egg *)egg;
 
 @end
