@@ -25,8 +25,6 @@
 	CGPoint newTrampolineAnchor;
 	Trampoline *newTrampoline;
 	TrampolineSprite *newTrampolineSprite;
-	NSMutableArray *trampolines;
-	Egg *egg;
 	Nest *nest;
 
 	Clouds *clouds;

@@ -7,9 +7,11 @@
 
 #import "NullSimulationObserver.h"
 #import "Star.h"
+#import "Trampoline.h"
 
 
 @implementation NullSimulationObserver
+- (void)newTrampoline:(Trampoline *)trampoline { }
 - (void)newStar:(Star *)star { }
 - (void)starCaught:(Star *)star { }
 @end

@@ -9,19 +9,30 @@
 #import "Simulation.h"
 #import "SimulationObserver.h"
 #import "NullSimulationObserver.h"
+#import "Trampoline.h"
 
 @implementation Simulation {
 	NSMutableArray *stars;
 	NSObject <SimulationObserver> *observer;
 	Egg *egg;
+
+	NSMutableArray *trampolines;
+	float initial_x;
+	float initial_y;
 }
 
 @synthesize observer;
+@synthesize egg;
 
-- (id)initWith:(Egg *)_egg {
+- (id)initWithInitialEggLocation:(float)x and:(float)y {
 	if (self == [super init]) {
-		egg = _egg;
+		initial_x = x;
+		initial_y = y;
+		egg = [[Egg alloc] initAt:initial_x and:initial_y withRadius:15];;
+
 		stars = [[NSMutableArray alloc] init];
+		trampolines = [[NSMutableArray alloc] init];
+
 		observer = [[NullSimulationObserver alloc] init];
 	}
 	return self;
@@ -35,11 +46,43 @@
 	return star;
 }
 
-- (void)update:(ccTime)dt {
-	[self processStars];
+- (void)addTrampolineFrom:(CGPoint)start to:(CGPoint)end {
+	Trampoline *trampoline = [[Trampoline alloc] initFrom:start to:end];
+	[trampolines addObject:trampoline];
+	[observer newTrampoline:trampoline];
 }
 
-- (void)processStars {
+- (void)update:(ccTime)dt {
+	[egg resetForce];
+	[self collectForces];
+	[self runForces:dt];
+	[egg update:dt];
+	// TODO it feels weird for this to bed in here - this is more the sprite's responsibility
+	[self updateTrampolineGeometry];
+	[self checkForStarCollisions];
+}
+
+- (void)updateTrampolineGeometry {
+	for (Trampoline *trampoline in trampolines) {
+		[trampoline updateGeometry];
+	}
+}
+
+- (void)runForces:(ccTime)dt {
+// TODO eventually this should just be running force generators
+	for (Trampoline *trampoline in trampolines) {
+		[trampoline update:dt];
+	}
+}
+
+- (void)collectForces {
+// TODO eventually this should return force generators and the simulation should hold on to and run them
+	for (Trampoline *trampoline in trampolines) {
+		[trampoline consider:egg];
+	}
+}
+
+- (void)checkForStarCollisions {
 	for (int i = stars.count - 1; i >= 0; i--) {
 		Star *star = [stars objectAtIndex:i];
 		if ([star doesCollide:egg]) {
@@ -52,11 +95,17 @@
 
 - (void)dealloc {
 	[observer release];
+	[egg release];
 	[super dealloc];
 }
 
-- (void)reset {
+- (void)resetCurrentArrangement {
 	[self removeAllStars];
+	[self moveEggTo:ccp(initial_x, initial_y)];
+
+	for (Trampoline *trampoline in trampolines) {
+		[trampoline reset];
+	}
 }
 
 - (void)removeAllStars {
@@ -67,4 +116,18 @@
 	}
 }
 
+- (void)moveEggTo:(CGPoint)location {
+	[egg resetTo:location];
+}
+
+- (BOOL)isEggDead {
+	return egg.location.y < -20 ||
+			egg.location.x < -20 ||
+			egg.location.x > ([[CCDirector sharedDirector] winSize]).width + 30;
+}
+
+- (void)resetCurrentStage {
+	[self moveEggTo:ccp(initial_x, initial_y)];
+	[trampolines removeAllObjects];
+}
 @end

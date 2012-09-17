@@ -20,6 +20,8 @@
 
 #pragma mark - HelloWorldLayer
 
+#define TRAMPOLINE_LAYER 2
+#define EGG_LAYER 3
 #define STAR_LAYER 4
 
 @implementation BouncingEggLayer {
@@ -45,14 +47,13 @@
 		touch_offset = cgp(0, 0);
 
 		// TODO move egg inside of simulation
-		egg = [[Egg alloc] initAt:s.width / 2 and:s.height withRadius:15];
-		[self addChild:[[EggSprite alloc] init:egg] z:3];
 
-		simulation = [[Simulation alloc] initWith:egg];
+		simulation = [[Simulation alloc] initWithInitialEggLocation:s.width / 2 and:s.height + 100];
 		simulation.observer = self;
-		[self resetSimulation];
 
-		trampolines = [[NSMutableArray alloc] init];
+		[self addChild:[[EggSprite alloc] init:simulation.egg] z:EGG_LAYER tag:EGG_LAYER];
+
+		[self startStageOver];
 
 		CCSprite *bg = [CCSprite spriteWithFile:@"eggbackground.png"];
 		[bg setPosition:ccp(s.width / 2, s.height / 2)];
@@ -72,8 +73,8 @@
 	return self;
 }
 
-- (void)resetSimulation {
-	[simulation reset];
+- (void)startStageOver {
+	[simulation resetCurrentArrangement];
 	[simulation addStarAt:0.25 and:0.75];
 	[simulation addStarAt:0.75 and:0.50];
 	[simulation addStarAt:0.35 and:0.30];
@@ -85,15 +86,6 @@
 	}
 }
 
-- (void)reset:(CGPoint)location {
-	[egg resetTo:location];
-	[self resetSimulation];
-
-	for (Trampoline *trampoline in trampolines) {
-		[trampoline reset];
-	}
-}
-
 - (void)resetStage {
 	// TODO eventually this should look like:
 	//  [simulation loadStage:stage]
@@ -101,21 +93,15 @@
 	//  pause the directory
 
 	[[CCDirector sharedDirector] resume];
-	CGSize s = [[CCDirector sharedDirector] winSize];
-	[egg resetTo:ccp(s.width / 2, s.height + 100)];
-	[trampolines removeAllObjects];
+
+	[simulation resetCurrentStage];
 
 	[score reset];
-	[self resetSimulation];
+	[self startStageOver];
 
 	while ([self getChildByTag:2]) {
 		[self removeChildByTag:2 cleanup:true];
 	}
-}
-
-- (void)addTrampoline:(Trampoline *)t {
-	[trampolines addObject:t];
-	[self addChild:[[TrampolineSprite alloc] init:t] z:2 tag:2];
 }
 
 // TODO move these to the class
@@ -131,34 +117,13 @@ static ccTime frameTime = 0.01;
 }
 
 - (void)updateInternal:(ccTime)dt {
-	if ([self isEggDead]) {
+	if ([simulation isEggDead]) {
 		[score adjustBy:1];
-		CGSize winSize = [[CCDirector sharedDirector] winSize];
-		[self reset:cgp(winSize.width / 2, winSize.height + 100)];
+		[self startStageOver];
 	} else {
-		[egg resetForce];
-
-		for (Trampoline *trampoline in trampolines) {
-			[trampoline consider:egg];
-			[trampoline update:dt];
-		}
-
-		[egg update:dt];
-
-		for (Trampoline *trampoline in trampolines) {
-			[trampoline updateGeometry];
-		}
-
-		[nest handle:egg];
-
 		[simulation update:dt];
+		[nest handle:simulation.egg];
 	}
-}
-
-- (BOOL)isEggDead {
-	return egg.location.y < -20 ||
-			egg.location.x < -20 ||
-			egg.location.x > ([[CCDirector sharedDirector] winSize]).width + 30;
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -192,10 +157,9 @@ static ccTime frameTime = 0.01;
 		return;
 	}
 
-	[newTrampoline setFrom:newTrampolineAnchor to:location];
-	[newTrampolineSprite update:0];
+	[simulation addTrampolineFrom:newTrampolineAnchor to:location];
 
-	[trampolines addObject:newTrampoline];
+	[self removeChild:newTrampolineSprite cleanup:true];
 	newTrampoline = NULL;
 }
 
@@ -214,6 +178,10 @@ static ccTime frameTime = 0.01;
 			}
 		}
 	}
+}
+
+- (void)newTrampoline:(Trampoline *)trampoline {
+	[self addChild:[[TrampolineSprite alloc] init:trampoline] z:TRAMPOLINE_LAYER tag:TRAMPOLINE_LAYER];
 }
 
 #pragma mark -

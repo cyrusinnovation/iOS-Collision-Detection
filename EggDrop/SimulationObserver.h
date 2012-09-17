@@ -6,8 +6,11 @@
 
 
 @class Star;
+@class Trampoline;
 
 @protocol SimulationObserver <NSObject>
+
+-(void) newTrampoline:(Trampoline *) trampoline;
 
 -(void) newStar:(Star *) star;
 -(void) starCaught:(Star *) star;

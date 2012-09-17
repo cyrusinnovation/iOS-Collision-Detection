@@ -15,12 +15,22 @@
 @interface Simulation : NSObject
 
 @property(nonatomic, retain) NSObject <SimulationObserver> *observer;
+@property(nonatomic, retain) Egg *egg;
 
-- (id)initWith:(Egg *)_egg;
+
+- (id)initWithInitialEggLocation:(float)x and:(float)y;
 
 - (Star *)addStarAt:(float)x and:(float)y;
 
 - (void)update:(ccTime)dt;
 
-- (void)reset;
+- (void)resetCurrentArrangement;
+
+- (void)moveEggTo:(CGPoint)point;
+
+- (BOOL)isEggDead;
+
+- (void)resetCurrentStage;
+
+- (void)addTrampolineFrom:(CGPoint)start to:(CGPoint)end;
 @end
