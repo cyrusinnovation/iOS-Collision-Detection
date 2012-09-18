@@ -22,4 +22,6 @@
 
 - (void)eggHitNest;
 
+- (void)removeTrampoline:(Trampoline *)trampoline;
+
 @end

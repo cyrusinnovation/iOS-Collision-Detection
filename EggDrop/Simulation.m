@@ -160,4 +160,19 @@
 	paused = NO;
 }
 
+- (void)cuttingTrampolineAtPoint:(CGPoint) cutPoint {
+	Trampoline *cutTrampoline = nil;
+	for (Trampoline *trampoline in trampolines) {
+		if ([trampoline isPointOnTrampoline:cutPoint]) {
+			cutTrampoline = trampoline;
+			break;
+		}
+	}
+
+	if (cutTrampoline) {
+		[trampolines removeObject:cutTrampoline];
+		[observer removeTrampoline:cutTrampoline];
+	}
+}
+
 @end

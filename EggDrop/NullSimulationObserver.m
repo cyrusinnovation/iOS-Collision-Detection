@@ -16,4 +16,6 @@
 - (void)starCaught:(Star *)star { }
 - (void)eggDied { }
 - (void)eggHitNest { }
+- (void)removeTrampoline:(Trampoline *)trampoline { }
+
 @end

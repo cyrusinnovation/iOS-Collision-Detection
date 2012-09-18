@@ -22,5 +22,6 @@
 
 -(id) init:(Trampoline *)t;
 -(void) update:(ccTime) dt;
+-(Trampoline *) model;
 
 @end

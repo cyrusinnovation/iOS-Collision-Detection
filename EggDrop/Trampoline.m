@@ -159,4 +159,19 @@
 	springConstant = _springConstant;
 	damping = _damping;
 }
+
+-(BOOL) isPointOnTrampoline:(CGPoint) point {
+	return [self isPointOnLine:point];
+}
+
+-(BOOL) isPointOnLine:(CGPoint) point {
+	if (left.x - right.x == 0)
+		return point.y == left.x;
+
+	float slope = (left.y - right.y) / (left.x - right.x);
+	float yIntersect = (slope * -1) * left.x + left.y;
+	return (int)(slope * point.x + yIntersect) == (int)point.y;
+}
+
 @end
+

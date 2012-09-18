@@ -192,26 +192,42 @@ typedef enum {
 #pragma mark Touch methods
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+	if (gameState == gameStatePlacing) {
+		CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
 
-	newTrampolineAnchor = location;
-	newTrampoline = [[Trampoline alloc] initFrom:newTrampolineAnchor to:newTrampolineAnchor];
-	newTrampolineSprite = [[TrampolineSprite alloc] init:newTrampoline];
+		newTrampolineAnchor = location;
+		newTrampoline = [[Trampoline alloc] initFrom:newTrampolineAnchor to:newTrampolineAnchor];
+		newTrampolineSprite = [[TrampolineSprite alloc] init:newTrampoline];
 
-	[self addChild:newTrampolineSprite z:TRAMPOLINE_LAYER tag:TRAMPOLINE_LAYER];
+		[self addChild:newTrampolineSprite z:TRAMPOLINE_LAYER tag:TRAMPOLINE_LAYER];
+	}
 
 	return true;
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-
-	[newTrampoline setFrom:newTrampolineAnchor to:location];
-	[newTrampolineSprite update:0];
+	if (gameState == gameStateDropping) {
+		[simulation cuttingTrampolineAtPoint: location];
+	}
+	
+	if (gameState == gameStatePlacing) {
+		[newTrampoline setFrom:newTrampolineAnchor to:location];
+		[newTrampolineSprite update:0];
+	}
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+	if (gameState != gameStatePlacing)
+		return;
+
+	[simulation addTrampolineFrom:newTrampolineAnchor to:location];
+	if (location.x < 40 && location.y > 440) {
+		newTrampoline = NULL;
+		[self resetStage];
+		return;
+	}
 
 	[self removeChild:newTrampolineSprite cleanup:true];
 
@@ -260,6 +276,14 @@ typedef enum {
 - (void)trampolinesRemoved {
 	while ([self getChildByTag:TRAMPOLINE_LAYER]) {
 		[self removeChildByTag:TRAMPOLINE_LAYER cleanup:true];
+	}
+}
+
+- (void)removeTrampoline:(Trampoline *)trampoline {
+	for (CCNode *child in self.children) {
+		if ([child isKindOfClass:[TrampolineSprite class]] && [[(TrampolineSprite *)child model] left].x == [trampoline left].x) {
+			[self removeChild:child cleanup:true];
+		}
 	}
 }
 

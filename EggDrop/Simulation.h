@@ -38,4 +38,6 @@
 
 - (void)pause;
 - (void)unpause;
+
+-(void)cuttingTrampolineAtPoint:(CGPoint) cutPoint;
 @end

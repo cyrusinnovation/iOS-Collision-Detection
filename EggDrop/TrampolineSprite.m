@@ -49,4 +49,8 @@
 	[rightKnob setPosition:[trampoline right]];
 }
 
+-(Trampoline *) model {
+	return trampoline;
+}
+
 @end

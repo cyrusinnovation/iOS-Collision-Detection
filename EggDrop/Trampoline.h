@@ -32,6 +32,8 @@
 
 -(void) setFrom:(CGPoint) from to:(CGPoint) to;
 
+-(BOOL) isPointOnTrampoline:(CGPoint) point;
+
 // TODO something needs to be able to take a trampoline and
 // return a set of polygons for drawing instead of this mess
 -(CGPoint) center;
