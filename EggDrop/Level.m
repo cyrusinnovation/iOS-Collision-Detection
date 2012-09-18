@@ -15,6 +15,8 @@
 @synthesize initialEggLocation = _initialEggLocation;
 @synthesize nestLocation = _nestLocation;
 @synthesize starLocations;
+@synthesize wallLocations;
+
 
 - (id)init {
 	if (self = [super init]) {
@@ -29,7 +31,7 @@
 }
 
 - (void)addWall:(CGRect)rectangle {
-	[wallLocations addObject:[NSValue value:&rectangle withObjCType:@encode(CGPoint)]];
+	[wallLocations addObject:[NSValue value:&rectangle withObjCType:@encode(CGRect)]];
 }
 
 - (void)dealloc {

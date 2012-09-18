@@ -20,13 +20,16 @@
 #import "GameOverLayer.h"
 #import "PlacingModeMenu.h"
 #import "CGPoint_ops.h"
+#import "Wall.h"
+#import "WallSprite.h"
 
 #pragma mark - HelloWorldLayer
 
 #define TRAMPOLINE_LAYER 2
-#define EGG_LAYER 3
-#define NEST_LAYER 3
+#define WALL_LAYER 3
 #define STAR_LAYER 4
+#define NEST_LAYER 5
+#define EGG_LAYER 6
 #define MENU_LAYER 100
 
 typedef enum {
@@ -61,7 +64,7 @@ typedef enum {
 		buffer = 0;
 		frameTime = 0.01;
 
-		Level *level = [Levels level1];
+		Level *level = [Levels level2];
 
 		[self initBackground];
 		[self initSimulation:level];
@@ -84,6 +87,7 @@ typedef enum {
 	[self removeElements:EGG_LAYER];
 	[self removeElements:STAR_LAYER];
 	[self removeElements:TRAMPOLINE_LAYER];
+	[self removeElements:WALL_LAYER];
 
 	simulation = [[Simulation alloc] init:level];
 	simulation.observer = self;
@@ -92,6 +96,10 @@ typedef enum {
 
 	[self addChild:[[EggSprite alloc] init:simulation.egg] z:EGG_LAYER tag:EGG_LAYER];
 	[self addChild:[[NestSprite alloc] init:simulation.nest] z:NEST_LAYER tag:NEST_LAYER];
+
+	for (Wall *wall in simulation.walls) {
+		[self addChild:[[WallSprite alloc] init:wall] z:WALL_LAYER tag:WALL_LAYER];
+	}
 }
 
 - (void)removeElements:(int) layer {

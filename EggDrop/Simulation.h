@@ -21,6 +21,8 @@
 
 @property(nonatomic, retain) Egg *egg;
 @property(nonatomic, retain) Nest *nest;
+@property(nonatomic, retain) NSMutableArray *walls;
+
 
 - (id)init:(Level *)_level;
 

@@ -10,10 +10,12 @@
 #import "NullSimulationObserver.h"
 #import "Trampoline.h"
 #import "Level.h"
+#import "Wall.h"
 
 @implementation Simulation {
 	NSMutableArray *stars;
 	NSMutableArray *trampolines;
+	NSMutableArray *walls;
 	NSObject <SimulationObserver> *observer;
 
 	Level *level;
@@ -23,6 +25,8 @@
 @synthesize observer;
 @synthesize egg;
 @synthesize nest;
+@synthesize walls;
+
 
 - (id)init:(Level *)_level {
 	if (self == [super init]) {
@@ -31,6 +35,7 @@
 		level = _level;
 		egg = [[Egg alloc] initAt:level.initialEggLocation withRadius:15];;
 		nest = [[Nest alloc] initAt:level.nestLocation];
+		walls = [Wall wallsFrom:level.wallLocations];
 
 		stars = [[NSMutableArray alloc] init];
 		trampolines = [[NSMutableArray alloc] init];
@@ -145,6 +150,7 @@
 	[observer release];
 	[egg release];
 	[nest release];
+	[walls release];
 	[super dealloc];
 }
 

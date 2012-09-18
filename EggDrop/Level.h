@@ -13,6 +13,8 @@
 @property(nonatomic) CGPoint initialEggLocation;
 @property(nonatomic) CGPoint nestLocation;
 @property(nonatomic, retain) NSMutableArray *starLocations;
+@property(nonatomic, retain) NSMutableArray *wallLocations;
+
 
 - (void)addStar:(CGPoint)location;
 

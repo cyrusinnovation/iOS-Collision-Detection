@@ -33,7 +33,8 @@
 	[level addStar:cgp(0.75, 0.50)];
 	[level addStar:cgp(0.75, 0.75)];
 
-	[level addWall:CGRectMake(s.width / 2 - 10, s.height, 20, 200)];
+	[level addWall:CGRectMake(s.width / 2 - 10, s.height - 150, 80, 300)];
+//	[level addWall:CGRectMake(100, 100, 20, 200)];
 
 	return level;
 }
