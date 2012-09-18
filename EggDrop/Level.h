@@ -15,4 +15,6 @@
 @property(nonatomic, retain) NSMutableArray *starLocations;
 
 - (void)addStar:(CGPoint)location;
+
+- (void)addWall:(CGRect)rect;
 @end

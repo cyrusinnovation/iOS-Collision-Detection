@@ -81,6 +81,10 @@ typedef enum {
 }
 
 - (void)initSimulation:(Level *)level {
+	[self removeElements:EGG_LAYER];
+	[self removeElements:STAR_LAYER];
+	[self removeElements:TRAMPOLINE_LAYER];
+
 	simulation = [[Simulation alloc] init:level];
 	simulation.observer = self;
 
@@ -88,6 +92,12 @@ typedef enum {
 
 	[self addChild:[[EggSprite alloc] init:simulation.egg] z:EGG_LAYER tag:EGG_LAYER];
 	[self addChild:[[NestSprite alloc] init:simulation.nest] z:NEST_LAYER tag:NEST_LAYER];
+}
+
+- (void)removeElements:(int) layer {
+	while ([self getChildByTag:layer]) {
+		[self removeChildByTag:layer cleanup:true];
+	}
 }
 
 - (void)initClouds {
@@ -145,6 +155,12 @@ typedef enum {
 }
 
 - (void)tryAgain {
+	[self enterGameStatePlacing];
+}
+
+- (void)nextLevel {
+	Level *level = [Levels level2];
+	[self initSimulation:level];
 	[self enterGameStatePlacing];
 }
 

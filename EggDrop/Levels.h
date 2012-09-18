@@ -11,4 +11,5 @@
 
 @interface Levels : NSObject
 + (Level *)level1;
++ (Level *)level2;
 @end

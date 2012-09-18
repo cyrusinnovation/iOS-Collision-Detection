@@ -23,9 +23,10 @@
 - (id)initWithBouncingEggLayer: (CCLayer*) bouncingEggLayer {
 	if (self = [super initWithColor:ccc4(30, 30, 30, 180)]) {
 		self.isTouchEnabled = YES;
-		CCMenuItemFont *menuItem = [CCMenuItemFont itemWithString: @"Try Again" target:bouncingEggLayer selector:@selector(tryAgain)];
+		CCMenuItemFont *tryAgain = [CCMenuItemFont itemWithString: @"Try Again" target:bouncingEggLayer selector:@selector(tryAgain)];
+		CCMenuItemFont *nextLevel = [CCMenuItemFont itemWithString: @"Next Level" target:bouncingEggLayer selector:@selector(nextLevel)];
 
-		menu = [CCMenu menuWithItems: menuItem, nil];
+		menu = [CCMenu menuWithItems:tryAgain, nextLevel, nil];
 		[menu alignItemsVertically];
 		[self addChild: menu];
 	}
