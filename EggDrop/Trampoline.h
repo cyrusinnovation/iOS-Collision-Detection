@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 #import "Egg.h"
-#define MAX_COLLISIONS 3
 
 @interface Trampoline : NSObject {
     float maxDepth;
@@ -17,19 +16,15 @@
     Boolean active;
     
     CGPoint stored;
-
-    NSMutableArray *springs;
 }
 
 @property CGPoint bend; // TODO should be private
 @property CGPoint left;
 @property CGPoint right;
 
--(id)initFrom:(CGPoint) left to:(CGPoint) right;
+- (id)initFrom:(CGPoint)from to:(CGPoint)to;
 
--(void) consider:(Egg *) egg;
-
-- (void)update:(ccTime)dt;
+- (void)update:(ccTime)dt egg:(Egg *) egg;
 
 - (void)updateGeometry;
 
@@ -51,4 +46,5 @@
 -(float) right_angle;
 -(float)right_length;
 
+- (void)setSpringConstant:(float)i andDamping:(float)damping;
 @end

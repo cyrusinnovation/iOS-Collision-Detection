@@ -8,7 +8,7 @@
 
 @property(nonatomic, retain) Egg *egg;
 
-- (id)initFrom:(CGPoint)left to:(CGPoint)right for:(Egg *)_egg;
+- (id)initFrom:(CGPoint)left to:(CGPoint)right for:(Egg *)_egg springConstant:(float) _springConstant damping:(float)_damping;
 
 - (void)update:(ccTime)dt;
 

@@ -7,6 +7,7 @@
 //
 
 
+#import <CoreGraphics/CoreGraphics.h>
 #import "SimulationObserver.h"
 #import "BouncingEggLayer.h"
 
@@ -64,7 +65,7 @@ typedef enum {
 		buffer = 0;
 		frameTime = 0.01;
 
-		Level *level = [Levels level2];
+		Level *level = [Levels level1];
 
 		[self initBackground];
 		[self initSimulation:level];
@@ -212,9 +213,12 @@ typedef enum {
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
 
-	[simulation addTrampolineFrom:newTrampolineAnchor to:location];
-
 	[self removeChild:newTrampolineSprite cleanup:true];
+
+	if (location.x != newTrampolineAnchor.x || location.y != newTrampolineAnchor.y) {
+		[simulation addTrampolineFrom:newTrampolineAnchor to:location];
+	}
+
 	newTrampoline = NULL;
 }
 

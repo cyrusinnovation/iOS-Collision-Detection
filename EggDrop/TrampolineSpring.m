@@ -21,7 +21,7 @@
 
 @synthesize egg;
 
-- (id)initFrom:(CGPoint)_left to:(CGPoint)_right for:(Egg *)_egg {
+- (id)initFrom:(CGPoint)_left to:(CGPoint)_right for:(Egg *)_egg springConstant:(float) _springConstant damping:(float)_damping {
 	if (self = [super init]) {
 		left = _left;
 		right = _right;
@@ -33,8 +33,8 @@
 		egg = _egg;
 		alive = true;
 
-		spring_constant = 10000;
-		damping = 2;
+		spring_constant = _springConstant;
+		damping = _damping;
 
 		gamma = 0.5 * sqrtf(4 * spring_constant - damping * damping);
 		assert(gamma != 0);

@@ -11,6 +11,7 @@
 #import "Trampoline.h"
 #import "Level.h"
 #import "Wall.h"
+#import "TrampolineSpring.h"
 
 @implementation Simulation {
 	NSMutableArray *stars;
@@ -20,6 +21,7 @@
 
 	Level *level;
 	BOOL paused;
+	NSMutableArray *forces;
 }
 
 @synthesize observer;
@@ -31,6 +33,7 @@
 - (id)init:(Level *)_level {
 	if (self == [super init]) {
 		paused = NO;
+		forces = [[NSMutableArray alloc] init];
 
 		level = _level;
 		egg = [[Egg alloc] initAt:level.initialEggLocation withRadius:15];;
@@ -64,7 +67,6 @@
 		return;
 
 	[egg resetForce];
-	[self collectForces];
 	[self runForces:dt];
 
 	[egg update:dt];
@@ -79,17 +81,13 @@
 	}
 }
 
-- (void)collectForces {
-// TODO eventually this should return force generators and the simulation should hold on to and run them
-	for (Trampoline *trampoline in trampolines) {
-		[trampoline consider:egg];
-	}
-}
-
 - (void)runForces:(ccTime)dt {
-// TODO eventually this should just be running force generators
+	// TODO this being so tied to trampolines is going to bite us soon
 	for (Trampoline *trampoline in trampolines) {
-		[trampoline update:dt];
+		[trampoline update:dt egg:egg];
+	}
+	for (Wall *wall in walls) {
+		[wall update:dt egg:egg];
 	}
 }
 

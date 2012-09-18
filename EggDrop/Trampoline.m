@@ -14,7 +14,11 @@
 #import "TrampolineSpring.h"
 #import "TrampolineSegment.h"
 
-@implementation Trampoline
+@implementation Trampoline {
+	TrampolineSpring *spring;
+	float springConstant;
+	float damping;
+}
 
 @synthesize left;
 @synthesize right;
@@ -28,7 +32,9 @@
 
 		[self setFrom:from to:to];
 
-		springs = [[NSMutableArray alloc] init];
+		springConstant = 10000;
+		damping = 2;
+		spring = NULL;
 	}
 	return self;
 }
@@ -69,19 +75,29 @@
 	cgp_scale(&bend, 0.5f);
 }
 
-- (void)consider:(Egg *)egg {
-	for (TrampolineSpring *spring in springs) {
-		if (spring.egg == egg) return;
+- (void)update:(ccTime)dt egg:(Egg *)egg {
+	if (!spring) {
+		spring = [self getSpring:egg];
 	}
 
+	if (spring) {
+		if (![spring alive]) {
+			spring = NULL;
+		} else {
+			[spring update:dt];
+		}
+	}
+}
+
+- (TrampolineSpring *)getSpring:(Egg *)egg {
 	float t = cgp_t(self.left, self.right, egg.location);
 	if (t < 0 || t > 1) {
-		return;
+		return NULL;
 	}
 
 	float distance = pointToLineDistance(self.left, self.right, egg.location);
 	if (distance > egg.radius) {
-		return;
+		return NULL;
 	}
 
 	// TODO duped from TrampolineSprite
@@ -90,30 +106,16 @@
 	cgp_flop(&normal);
 
 	if (cgp_dot(egg.velocity, normal) < 0) {
-		[springs addObject:[[TrampolineSpring alloc] initFrom:left to:right for:egg]];
+		return [[TrampolineSpring alloc] initFrom:left to:right for:egg springConstant:springConstant damping:damping];
 	} else {
-		[springs addObject:[[TrampolineSpring alloc] initFrom:right to:left for:egg]];
+		return [[TrampolineSpring alloc] initFrom:right to:left for:egg springConstant:springConstant damping:damping];
 	}
 }
 
-- (void)update:(ccTime)dt {
-	for (TrampolineSpring *spring in springs) {
-		[spring update:dt];
-	}
-	for (int i = springs.count - 1; i >= 0; i--) {
-		TrampolineSpring *spring = [springs objectAtIndex:i];
-		if (![spring alive]) {
-			[springs removeObjectAtIndex:i];
-		}
-	}
-}
-
--(void) updateGeometry {
+- (void)updateGeometry {
 	[self resetBend];
-	for (TrampolineSpring *spring in springs){
-		if ([spring alive]) {
-			bend = [spring bend];
-		}
+	if ([spring alive]) {
+		bend = [spring bend];
 	}
 }
 
@@ -153,4 +155,8 @@
 	return [segment length];
 }
 
+- (void)setSpringConstant:(float)_springConstant andDamping:(float)_damping {
+	springConstant = _springConstant;
+	damping = _damping;
+}
 @end
