@@ -76,16 +76,19 @@
 		C13DA0F84C89138E8C48E748 /* drop-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA0E3F0FD1186181259EC /* drop-hd.png */; };
 		C13DA13941BA09AAC853F5AB /* WallSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA2D9A5C949A3F4443509 /* WallSprite.m */; };
 		C13DA21C50910CFA88ED3547 /* Fan.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3AE694CFD6BC18BBA38 /* Fan.m */; };
+		C13DA286DD253713C0897E58 /* GameStatePlacing.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA22E05E67B31DAB8302B /* GameStatePlacing.m */; };
 		C13DA3B1E863E606838F9C93 /* reset-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA3EC7951EBFD40A1383B /* reset-hd.png */; };
 		C13DA425DA05DEA39155BE1C /* NullSimulationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3D3F7416B03D1672D63 /* NullSimulationObserver.m */; };
 		C13DA459BAF675380E8BE339 /* Levels.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD27761AC378762A6787 /* Levels.m */; };
 		C13DA5F6E6945B3EDF91943C /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA73BBF4B76AE61995BDD /* Simulation.m */; };
 		C13DA625CE2F5670B3605EBB /* PlacingModeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA6BCEE01D726A4EC945B /* PlacingModeMenu.m */; };
 		C13DA666AF8A6B37FB16A748 /* wall.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA15E51D2355423BE7DA9 /* wall.png */; };
+		C13DA718288FBA97DF17CE12 /* GameStateDropping.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA57630398F569EEEDBB0 /* GameStateDropping.m */; };
 		C13DA968D477A0AD5CCA61A4 /* TrampolineSpring.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */; };
 		C13DA9917A6BDB607B3C804B /* Wall.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA32C53F2C292DB924632 /* Wall.m */; };
 		C13DA9CFFD68EFD575AA3899 /* FanView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA932E4504A18AB6B0499 /* FanView.m */; };
 		C13DA9E2E5ED9C11CB3A53F7 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD4E968FB28ADCDFAFA5 /* Level.m */; };
+		C13DAD7A44C9084528A32689 /* GameStateVictoryMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAAA64EB6E18509EA7E15 /* GameStateVictoryMenu.m */; };
 		C13DAE30FF61BA88C3FEBB54 /* wall-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAA14DD97A6199BAC2749 /* wall-hd.png */; };
 		C13DAE618FFFB507BC7D4B17 /* TrampolineMath.c in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */; };
 		C13DAF7A014BA89CDC31EB78 /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA1416586496AE1461410 /* reset.png */; };
@@ -185,6 +188,7 @@
 		C13DA15E51D2355423BE7DA9 /* wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wall.png; path = Resources/wall.png; sourceTree = "<group>"; };
 		C13DA197AC52AA79FB217694 /* FanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanView.h; sourceTree = "<group>"; };
 		C13DA20F254A88C8BAB14BD2 /* TrampolineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSegment.h; sourceTree = "<group>"; };
+		C13DA22E05E67B31DAB8302B /* GameStatePlacing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStatePlacing.m; sourceTree = "<group>"; };
 		C13DA23E65D825AF8A3EA56C /* TrampolineSpring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSpring.h; sourceTree = "<group>"; };
 		C13DA27488390D4FFC98D5A5 /* SimulationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationObserver.h; sourceTree = "<group>"; };
 		C13DA2D9A5C949A3F4443509 /* WallSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallSprite.m; sourceTree = "<group>"; };
@@ -193,21 +197,27 @@
 		C13DA3AE694CFD6BC18BBA38 /* Fan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fan.m; sourceTree = "<group>"; };
 		C13DA3D3F7416B03D1672D63 /* NullSimulationObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSimulationObserver.m; sourceTree = "<group>"; };
 		C13DA3EC7951EBFD40A1383B /* reset-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reset-hd.png"; path = "Resources/reset-hd.png"; sourceTree = "<group>"; };
+		C13DA57630398F569EEEDBB0 /* GameStateDropping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStateDropping.m; sourceTree = "<group>"; };
 		C13DA5CB4E16A3DA90B79EEB /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		C13DA60F74B632A60C05B306 /* GameStateVictoryMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStateVictoryMenu.h; sourceTree = "<group>"; };
 		C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrampolineSpring.m; sourceTree = "<group>"; };
 		C13DA6BCEE01D726A4EC945B /* PlacingModeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacingModeMenu.m; sourceTree = "<group>"; };
+		C13DA71CEBF8C05499B1AD6D /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		C13DA73BBF4B76AE61995BDD /* Simulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simulation.m; sourceTree = "<group>"; };
 		C13DA76FEF319A7278B5019A /* PlacingModeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacingModeMenu.h; sourceTree = "<group>"; };
 		C13DA780C4D16321D58A2BFA /* Simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simulation.h; sourceTree = "<group>"; };
 		C13DA7D8126D1B3D50DBD071 /* NullSimulationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullSimulationObserver.h; sourceTree = "<group>"; };
+		C13DA821EEE1DDD9B52D65C9 /* GameStateDropping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStateDropping.h; sourceTree = "<group>"; };
 		C13DA89A46CE6389A6C3988F /* Wall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
 		C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TrampolineMath.c; sourceTree = "<group>"; };
 		C13DA932E4504A18AB6B0499 /* FanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanView.m; sourceTree = "<group>"; };
 		C13DAA14DD97A6199BAC2749 /* wall-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wall-hd.png"; path = "Resources/wall-hd.png"; sourceTree = "<group>"; };
+		C13DAAA64EB6E18509EA7E15 /* GameStateVictoryMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStateVictoryMenu.m; sourceTree = "<group>"; };
 		C13DAD27761AC378762A6787 /* Levels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Levels.m; sourceTree = "<group>"; };
 		C13DAD4E968FB28ADCDFAFA5 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		C13DADBC353DD401ADE7138B /* WallSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallSprite.h; sourceTree = "<group>"; };
 		C13DAE9F8F6AF386A4ED4611 /* TrampolineSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrampolineSegment.m; sourceTree = "<group>"; };
+		C13DAFC753F8740678DAA0BC /* GameStatePlacing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatePlacing.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +284,7 @@
 				0846292515FE9F3E00844D0B /* App */,
 				0846276F15FE959F00844D0B /* Resources */,
 				084628E215FE95A100844D0B /* Supporting Files */,
+				C13DACFD6DBD56504A31643A /* GameStates */,
 			);
 			path = EggDrop;
 			sourceTree = "<group>";
@@ -418,6 +429,20 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		C13DACFD6DBD56504A31643A /* GameStates */ = {
+			isa = PBXGroup;
+			children = (
+				C13DAFC753F8740678DAA0BC /* GameStatePlacing.h */,
+				C13DA22E05E67B31DAB8302B /* GameStatePlacing.m */,
+				C13DA60F74B632A60C05B306 /* GameStateVictoryMenu.h */,
+				C13DAAA64EB6E18509EA7E15 /* GameStateVictoryMenu.m */,
+				C13DA821EEE1DDD9B52D65C9 /* GameStateDropping.h */,
+				C13DA57630398F569EEEDBB0 /* GameStateDropping.m */,
+				C13DA71CEBF8C05499B1AD6D /* GameState.h */,
+			);
+			path = GameStates;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -550,6 +575,9 @@
 				C13DA13941BA09AAC853F5AB /* WallSprite.m in Sources */,
 				C13DA9CFFD68EFD575AA3899 /* FanView.m in Sources */,
 				C13DA21C50910CFA88ED3547 /* Fan.m in Sources */,
+				C13DA718288FBA97DF17CE12 /* GameStateDropping.m in Sources */,
+				C13DAD7A44C9084528A32689 /* GameStateVictoryMenu.m in Sources */,
+				C13DA286DD253713C0897E58 /* GameStatePlacing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

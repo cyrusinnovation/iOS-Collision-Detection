@@ -7,7 +7,6 @@
 //
 
 
-#import <CoreGraphics/CoreGraphics.h>
 #import "SimulationObserver.h"
 #import "BouncingEggLayer.h"
 
@@ -20,12 +19,13 @@
 #import "Levels.h"
 #import "GameOverLayer.h"
 #import "PlacingModeMenu.h"
-#import "CGPoint_ops.h"
 #import "Wall.h"
 #import "WallSprite.h"
-#import "Polygon.h"
-#import "Fan.h"
 #import "FanView.h"
+#import "GameState.h"
+#import "GameStatePlacing.h"
+#import "GameStateDropping.h"
+#import "GameStateVictoryMenu.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -36,12 +36,6 @@
 #define EGG_LAYER 6
 #define MENU_LAYER 100
 
-typedef enum {
-	gameStatePlacing,
-	gameStateDropping,
-	gameStateVictoryMenu
-} GameState;
-
 @implementation BouncingEggLayer {
 	Simulation *simulation;
 
@@ -50,7 +44,11 @@ typedef enum {
 
 	HUD *hud;
 
-	GameState gameState;
+	NSObject<GameState> *gameState;
+
+	GameStatePlacing *gameStatePlacing;
+	GameStateDropping *gameStateDropping;
+	GameStateVictoryMenu *gameStateVictoryMenu;
 }
 
 + (CCScene *)scene {
@@ -67,7 +65,11 @@ typedef enum {
 
 		buffer = 0;
 		frameTime = 0.01;
-		
+
+		gameStatePlacing = [[GameStatePlacing alloc] init];
+		gameStateDropping = [[GameStateDropping alloc] init];
+		gameStateVictoryMenu = [[GameStateVictoryMenu alloc] init];
+
 		Level *level = [Levels level1];
 
 		[self initBackground];
