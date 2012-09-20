@@ -23,6 +23,9 @@
 #import "CGPoint_ops.h"
 #import "Wall.h"
 #import "WallSprite.h"
+#import "Polygon.h"
+#import "Fan.h"
+#import "FanView.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -64,7 +67,7 @@ typedef enum {
 
 		buffer = 0;
 		frameTime = 0.01;
-
+		
 		Level *level = [Levels level1];
 
 		[self initBackground];
@@ -93,6 +96,9 @@ typedef enum {
 	simulation = [[Simulation alloc] init:level];
 	simulation.observer = self;
 
+	CGPolygon fan = polygon_from(4, cgp(300, 150), cgp(250, 200), cgp(200, 150), cgp(250, 100));
+	[simulation addFan:[[Fan alloc] init:fan]];
+
 	[simulation pause];
 
 	[self addChild:[[EggSprite alloc] init:simulation.egg] z:EGG_LAYER tag:EGG_LAYER];
@@ -100,6 +106,10 @@ typedef enum {
 
 	for (Wall *wall in simulation.walls) {
 		[self addChild:[[WallSprite alloc] init:wall] z:WALL_LAYER tag:WALL_LAYER];
+	}
+	for (Fan *fan in simulation.fans) {
+		FanView *fanView = [[FanView alloc] init:fan];
+		[self addChild:fanView z:TRAMPOLINE_LAYER tag:TRAMPOLINE_LAYER];
 	}
 }
 

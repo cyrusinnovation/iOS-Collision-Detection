@@ -11,12 +11,12 @@
 #import "Trampoline.h"
 #import "Level.h"
 #import "Wall.h"
-#import "TrampolineSpring.h"
 
 @implementation Simulation {
 	NSMutableArray *stars;
 	NSMutableArray *trampolines;
 	NSMutableArray *walls;
+	NSMutableArray *fans;
 	NSObject <SimulationObserver> *observer;
 
 	Level *level;
@@ -28,6 +28,7 @@
 @synthesize egg;
 @synthesize nest;
 @synthesize walls;
+@synthesize fans;
 
 
 - (id)init:(Level *)_level {
@@ -39,6 +40,7 @@
 		egg = [[Egg alloc] initAt:level.initialEggLocation withRadius:15];;
 		nest = [[Nest alloc] initAt:level.nestLocation];
 		walls = [Wall wallsFrom:level.wallLocations];
+		fans = [[NSMutableArray alloc] init];
 
 		stars = [[NSMutableArray alloc] init];
 		trampolines = [[NSMutableArray alloc] init];
@@ -60,6 +62,10 @@
 	Trampoline *trampoline = [[Trampoline alloc] initFrom:start to:end];
 	[trampolines addObject:trampoline];
 	[observer newTrampoline:trampoline];
+}
+
+- (void)addFan:(Fan *) fan {
+	[fans addObject:fan];
 }
 
 - (void)update:(ccTime)dt {
@@ -149,6 +155,7 @@
 	[egg release];
 	[nest release];
 	[walls release];
+	[fans release];
 	[super dealloc];
 }
 
@@ -159,5 +166,4 @@
 - (void)unpause {
 	paused = NO;
 }
-
 @end

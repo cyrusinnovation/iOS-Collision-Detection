@@ -75,6 +75,7 @@
 		9647F2DC1603943500D25C78 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 9647F2DB1603943500D25C78 /* Score.m */; };
 		C13DA0F84C89138E8C48E748 /* drop-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA0E3F0FD1186181259EC /* drop-hd.png */; };
 		C13DA13941BA09AAC853F5AB /* WallSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA2D9A5C949A3F4443509 /* WallSprite.m */; };
+		C13DA21C50910CFA88ED3547 /* Fan.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3AE694CFD6BC18BBA38 /* Fan.m */; };
 		C13DA3B1E863E606838F9C93 /* reset-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA3EC7951EBFD40A1383B /* reset-hd.png */; };
 		C13DA425DA05DEA39155BE1C /* NullSimulationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3D3F7416B03D1672D63 /* NullSimulationObserver.m */; };
 		C13DA459BAF675380E8BE339 /* Levels.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD27761AC378762A6787 /* Levels.m */; };
@@ -83,6 +84,7 @@
 		C13DA666AF8A6B37FB16A748 /* wall.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA15E51D2355423BE7DA9 /* wall.png */; };
 		C13DA968D477A0AD5CCA61A4 /* TrampolineSpring.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA657B6AF295E79EA0F48 /* TrampolineSpring.m */; };
 		C13DA9917A6BDB607B3C804B /* Wall.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA32C53F2C292DB924632 /* Wall.m */; };
+		C13DA9CFFD68EFD575AA3899 /* FanView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA932E4504A18AB6B0499 /* FanView.m */; };
 		C13DA9E2E5ED9C11CB3A53F7 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD4E968FB28ADCDFAFA5 /* Level.m */; };
 		C13DAE30FF61BA88C3FEBB54 /* wall-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAA14DD97A6199BAC2749 /* wall-hd.png */; };
 		C13DAE618FFFB507BC7D4B17 /* TrampolineMath.c in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */; };
@@ -181,11 +183,14 @@
 		C13DA1416586496AE1461410 /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reset.png; path = Resources/reset.png; sourceTree = "<group>"; };
 		C13DA1459664856C24809B56 /* TrampolineMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineMath.h; sourceTree = "<group>"; };
 		C13DA15E51D2355423BE7DA9 /* wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wall.png; path = Resources/wall.png; sourceTree = "<group>"; };
+		C13DA197AC52AA79FB217694 /* FanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanView.h; sourceTree = "<group>"; };
 		C13DA20F254A88C8BAB14BD2 /* TrampolineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSegment.h; sourceTree = "<group>"; };
 		C13DA23E65D825AF8A3EA56C /* TrampolineSpring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrampolineSpring.h; sourceTree = "<group>"; };
 		C13DA27488390D4FFC98D5A5 /* SimulationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationObserver.h; sourceTree = "<group>"; };
 		C13DA2D9A5C949A3F4443509 /* WallSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallSprite.m; sourceTree = "<group>"; };
 		C13DA32C53F2C292DB924632 /* Wall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wall.m; sourceTree = "<group>"; };
+		C13DA3811DA7AFDAFE29F428 /* Fan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fan.h; sourceTree = "<group>"; };
+		C13DA3AE694CFD6BC18BBA38 /* Fan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fan.m; sourceTree = "<group>"; };
 		C13DA3D3F7416B03D1672D63 /* NullSimulationObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSimulationObserver.m; sourceTree = "<group>"; };
 		C13DA3EC7951EBFD40A1383B /* reset-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reset-hd.png"; path = "Resources/reset-hd.png"; sourceTree = "<group>"; };
 		C13DA5CB4E16A3DA90B79EEB /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
@@ -197,6 +202,7 @@
 		C13DA7D8126D1B3D50DBD071 /* NullSimulationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullSimulationObserver.h; sourceTree = "<group>"; };
 		C13DA89A46CE6389A6C3988F /* Wall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
 		C13DA8F94E5B3E887D15F825 /* TrampolineMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TrampolineMath.c; sourceTree = "<group>"; };
+		C13DA932E4504A18AB6B0499 /* FanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanView.m; sourceTree = "<group>"; };
 		C13DAA14DD97A6199BAC2749 /* wall-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wall-hd.png"; path = "Resources/wall-hd.png"; sourceTree = "<group>"; };
 		C13DAD27761AC378762A6787 /* Levels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Levels.m; sourceTree = "<group>"; };
 		C13DAD4E968FB28ADCDFAFA5 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
@@ -344,6 +350,8 @@
 		0846292515FE9F3E00844D0B /* App */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA197AC52AA79FB217694 /* FanView.h */,
+				C13DA932E4504A18AB6B0499 /* FanView.m */,
 				C13DAE9F8F6AF386A4ED4611 /* TrampolineSegment.m */,
 				C13DA20F254A88C8BAB14BD2 /* TrampolineSegment.h */,
 				C13DA27488390D4FFC98D5A5 /* SimulationObserver.h */,
@@ -380,6 +388,8 @@
 		0846292615FE9F8800844D0B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA3811DA7AFDAFE29F428 /* Fan.h */,
+				C13DA3AE694CFD6BC18BBA38 /* Fan.m */,
 				C13DA32C53F2C292DB924632 /* Wall.m */,
 				C13DA89A46CE6389A6C3988F /* Wall.h */,
 				C13DA73BBF4B76AE61995BDD /* Simulation.m */,
@@ -538,6 +548,8 @@
 				C13DA625CE2F5670B3605EBB /* PlacingModeMenu.m in Sources */,
 				C13DA9917A6BDB607B3C804B /* Wall.m in Sources */,
 				C13DA13941BA09AAC853F5AB /* WallSprite.m in Sources */,
+				C13DA9CFFD68EFD575AA3899 /* FanView.m in Sources */,
+				C13DA21C50910CFA88ED3547 /* Fan.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

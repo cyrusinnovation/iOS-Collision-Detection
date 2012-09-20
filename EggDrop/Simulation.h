@@ -12,6 +12,8 @@
 #import "Star.h"
 
 #import "SimulationObserver.h"
+#import "Polygon.h"
+#import "Fan.h"
 
 @class Level;
 
@@ -22,7 +24,7 @@
 @property(nonatomic, retain) Egg *egg;
 @property(nonatomic, retain) Nest *nest;
 @property(nonatomic, retain) NSMutableArray *walls;
-
+@property(nonatomic, retain) id fans;
 
 - (id)init:(Level *)_level;
 
@@ -31,6 +33,7 @@
 
 - (Star *)addStar:(CGPoint)location;
 - (void)addTrampolineFrom:(CGPoint)start to:(CGPoint)end;
+- (void)addFan:(Fan *)polygon;
 
 - (void)update:(ccTime)dt;
 
@@ -38,4 +41,5 @@
 
 - (void)pause;
 - (void)unpause;
+
 @end
