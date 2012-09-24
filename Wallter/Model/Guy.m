@@ -37,7 +37,7 @@
 }
 
 - (CGPolygon)polygon {
-	return make_block(location.x, location.y, location.x + size.y, location.y + size.y);
+	return make_block(location.x, location.y, location.x + size.x, location.y + size.y);
 }
 
 - (void)update:(ccTime)dt {

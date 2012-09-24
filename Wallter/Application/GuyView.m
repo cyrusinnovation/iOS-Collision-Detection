@@ -24,7 +24,7 @@
 	[super draw];
 
 	CGPolygon localWall = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
-	CGPoint delta = cgp(-guy.location.x + 50, 30);
+	CGPoint delta = cgp(-guy.location.x + 50, 20);
 	transform_polygon(guy.polygon, delta, localWall);
 
 	ccDrawSolidPoly(localWall.points, localWall.count, color);

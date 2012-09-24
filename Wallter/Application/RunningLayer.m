@@ -44,9 +44,7 @@
 		frameTime = 0.01;
 
 		stage = [[Stage alloc] init];
-		[stage addWall:make_block(0, 0, 1000, 50)];
-		[stage addWall:make_block(1200, 0, 2200, 50)];
-//		[stage addWall:make_block(400, 50, 450, 200)];
+		[stage addWall:make_block(0, -50, 1000, 50)];
 
 		guy = [[Guy alloc] initIn:stage at:cgp(30, 50)];
 
@@ -72,6 +70,8 @@
 	if (guy.location.y < -100) {
 		[guy resetTo:cgp(30, 50)];
 	}
+
+	[stage generateAround:guy.location];
 }
 
 - (void)dealloc {
@@ -89,10 +89,6 @@
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-}
-
-- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
 	CGPoint touchEnd = location;
 	CGPoint swipe = cgp_subtract(touchEnd, touchStart);
 
@@ -102,6 +98,10 @@
 	if (length > 6 && up > 1) {
 		[guy jump];
 	}
+}
+
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
 }
 
 - (void)registerWithTouchDispatcher {

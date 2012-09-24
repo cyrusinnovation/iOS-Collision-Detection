@@ -11,4 +11,6 @@
 @property(nonatomic, retain) NSMutableArray *walls;
 
 - (void)addWall:(CGPolygon)polygon;
+
+- (void)generateAround:(CGPoint)point;
 @end
