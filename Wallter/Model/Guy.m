@@ -11,6 +11,7 @@
 	CGPoint velocity;
 	float jumpVelocity;
 	bool inTheAir;
+	int runningSpeed;
 }
 
 @synthesize location;
@@ -22,7 +23,8 @@
 		location = at;
 		size = cgp(20, 30);
 
-		velocity = cgp(500, 0);
+		runningSpeed = 500;
+		velocity = cgp(runningSpeed, 0);
 
 		jumpVelocity = 700;
 
@@ -33,7 +35,7 @@
 
 -(void) resetTo:(CGPoint) _location {
 	location = _location;
-	velocity = cgp(500, 0);
+	velocity = cgp(runningSpeed, 0);
 }
 
 - (CGPolygon)polygon {
@@ -71,6 +73,14 @@
 
 	inTheAir = true;
 	velocity = cgp_add(velocity, cgp(0, jumpVelocity));
+}
+
+- (void)jumpLeft {
+	velocity = cgp(-runningSpeed, jumpVelocity);
+}
+
+- (void)jumpRight {
+	velocity = cgp(runningSpeed, jumpVelocity);
 }
 
 @end

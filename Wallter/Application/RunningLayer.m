@@ -95,8 +95,14 @@
 	float length = cgp_length(swipe);
 	float up = swipe.y / swipe.x;
 
-	if (length > 6 && up > 1) {
-		[guy jump];
+	if (length > 6) {
+		if (up > 1) {
+			[guy jump];
+		} else if (swipe.x < 0) {
+			[guy jumpLeft];
+		} else if (swipe.x > 0) {
+			[guy jumpRight];
+		}
 	}
 }
 

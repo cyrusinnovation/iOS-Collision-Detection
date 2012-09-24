@@ -20,4 +20,7 @@
 
 - (void)resetTo:(CGPoint)_location;
 
+- (void)jumpLeft;
+
+- (void)jumpRight;
 @end
