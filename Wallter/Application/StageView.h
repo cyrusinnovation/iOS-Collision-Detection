@@ -4,7 +4,8 @@
 
 #import "CCNode.h"
 #import "Stage.h"
+#import "Guy.h"
 
 @interface StageView : CCNode
-- (id)init:(Stage *)stage;
+- (id)init:(Stage *)_stage following:(Guy *)_guy;
 @end

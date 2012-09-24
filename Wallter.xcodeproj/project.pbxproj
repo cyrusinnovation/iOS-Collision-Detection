@@ -152,26 +152,10 @@
 		082498051610A34E0041907E /* Wallter */ = {
 			isa = PBXGroup;
 			children = (
-				C13DA74ECD4552676249D903 /* WorldConstants.m */,
-				C13DAF3CF5E884D4B2147FDA /* WorldConstants.h */,
-				C13DA73281B6CEE82FE1BC7C /* Simulation.h */,
-				C13DADF252B545D0A0B803D0 /* Simulation.m */,
-				C13DA6ADE58116D4A5A14BBE /* GuyView.h */,
-				C13DA8B72436BB9AC747616E /* GuyView.m */,
-				C13DAD1503891DAAB4661AFA /* Guy.h */,
-				C13DABCD158D631E2C4F22FF /* Guy.m */,
-				C13DACC274D872245BD2809B /* StageView.h */,
-				C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */,
-				C13DAE3028B60AF56506B2AE /* Stage.h */,
-				C13DA3BBAF9CD850916C625F /* Stage.m */,
-				0824997D1610A3500041907E /* AppDelegate.h */,
-				0824997E1610A3500041907E /* AppDelegate.m */,
-				082499801610A3500041907E /* RunningLayer.h */,
-				082499811610A3500041907E /* RunningLayer.m */,
-				082499831610A3500041907E /* IntroLayer.h */,
-				082499841610A3500041907E /* IntroLayer.m */,
 				082498061610A34E0041907E /* Resources */,
 				082499791610A3500041907E /* Supporting Files */,
+				C13DA4225D06259CD520F93D /* Model */,
+				C13DA5F954BB97C7D3ED0CEE /* Application */,
 			);
 			path = Wallter;
 			sourceTree = "<group>";
@@ -213,6 +197,38 @@
 				0824998D1610A3720041907E /* libkazmath.a */,
 			);
 			name = "Library References";
+			sourceTree = "<group>";
+		};
+		C13DA4225D06259CD520F93D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C13DAF3CF5E884D4B2147FDA /* WorldConstants.h */,
+				C13DA74ECD4552676249D903 /* WorldConstants.m */,
+				C13DA3BBAF9CD850916C625F /* Stage.m */,
+				C13DAE3028B60AF56506B2AE /* Stage.h */,
+				C13DADF252B545D0A0B803D0 /* Simulation.m */,
+				C13DA73281B6CEE82FE1BC7C /* Simulation.h */,
+				C13DAD1503891DAAB4661AFA /* Guy.h */,
+				C13DABCD158D631E2C4F22FF /* Guy.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C13DA5F954BB97C7D3ED0CEE /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */,
+				C13DACC274D872245BD2809B /* StageView.h */,
+				082499811610A3500041907E /* RunningLayer.m */,
+				082499801610A3500041907E /* RunningLayer.h */,
+				082499841610A3500041907E /* IntroLayer.m */,
+				082499831610A3500041907E /* IntroLayer.h */,
+				C13DA8B72436BB9AC747616E /* GuyView.m */,
+				C13DA6ADE58116D4A5A14BBE /* GuyView.h */,
+				0824997E1610A3500041907E /* AppDelegate.m */,
+				0824997D1610A3500041907E /* AppDelegate.h */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -15,8 +15,8 @@ static float terminalVelocity;
 
 +(void) initialize
 {
-    gravity = CGPointMake(0, -600);
-    terminalVelocity = 400;
+    gravity = CGPointMake(0, -3000);
+    terminalVelocity = 600;
 }
 
 +(CGPoint) gravity

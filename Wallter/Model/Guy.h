@@ -13,4 +13,9 @@
 - (void)update:(ccTime)dt;
 
 - (void)correct:(CGPoint)delta;
+
+- (void)jump;
+
+- (void)resetTo:(CGPoint)_location;
+
 @end

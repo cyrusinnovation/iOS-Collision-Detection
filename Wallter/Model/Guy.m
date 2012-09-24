@@ -9,6 +9,7 @@
 	CGPoint location;
 	CGPoint size;
 	CGPoint velocity;
+	float jumpVelocity;
 }
 
 @synthesize location;
@@ -17,11 +18,18 @@
 	if (self = [super init]) {
 		stage = _stage;
 		location = at;
-		size = cgp(10, 10);
+		size = cgp(20, 30);
 
-		velocity = cgp(300, 0);
+		velocity = cgp(500, 0);
+
+		jumpVelocity = 700;
 	}
 	return self;
+}
+
+-(void) resetTo:(CGPoint) _location {
+	location = _location;
+	velocity = cgp(500, 0);
 }
 
 - (CGPolygon)polygon {
@@ -46,6 +54,10 @@
 	location = cgp_add(location, delta);
 	CGPoint killer = cgp_project(delta, velocity);
 	velocity = cgp_subtract(velocity, killer);
+}
+
+- (void)jump {
+	velocity = cgp_add(velocity, cgp(0, jumpVelocity));
 }
 
 @end
