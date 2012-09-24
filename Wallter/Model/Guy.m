@@ -10,9 +10,11 @@
 	CGPoint size;
 	CGPoint velocity;
 	float jumpVelocity;
+	bool inTheAir;
 }
 
 @synthesize location;
+@synthesize velocity;
 
 - (id)initIn:(Stage *)_stage at:(CGPoint)at {
 	if (self = [super init]) {
@@ -23,6 +25,8 @@
 		velocity = cgp(500, 0);
 
 		jumpVelocity = 700;
+
+		inTheAir = false;
 	}
 	return self;
 }
@@ -48,15 +52,24 @@
 
 	CGPoint movement = cgp_times(velocity, dt);
 	location = cgp_add(location, movement);
+
+	inTheAir = true;
 }
 
 - (void)correct:(CGPoint)delta {
 	location = cgp_add(location, delta);
 	CGPoint killer = cgp_project(delta, velocity);
 	velocity = cgp_subtract(velocity, killer);
+
+	if (inTheAir && delta.y > 0 && velocity.y == 0) {
+		inTheAir = false;
+	}
 }
 
 - (void)jump {
+	if (inTheAir) return;
+
+	inTheAir = true;
 	velocity = cgp_add(velocity, cgp(0, jumpVelocity));
 }
 
