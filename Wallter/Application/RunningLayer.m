@@ -68,6 +68,10 @@
 
 - (void)updateInternal:(ccTime)dt {
 	[simulation update:dt];
+
+	if (guy.location.y < -100) {
+		[guy resetTo:cgp(30, 50)];
+	}
 }
 
 - (void)dealloc {
@@ -93,12 +97,10 @@
 	CGPoint swipe = cgp_subtract(touchEnd, touchStart);
 
 	float length = cgp_length(swipe);
-	float up = swipe.y/swipe.x;
+	float up = swipe.y / swipe.x;
 
-	if (length > 10 && up > 1) {
+	if (length > 6 && up > 1) {
 		[guy jump];
-	} else{
-		[guy resetTo:cgp(30, 50)];
 	}
 }
 
