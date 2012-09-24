@@ -9,10 +9,12 @@
 
 #import "cocos2d.h"
 
-@interface RunningLayer : CCLayer
-{
-}
+@class Stage;
 
-+(CCScene *) scene;
+@interface RunningLayer : CCLayerColor
+
+@property(nonatomic, retain) Stage *stage;
+
++ (CCScene *)scene;
 
 @end

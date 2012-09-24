@@ -8,10 +8,9 @@
 
 #import "cocos2d.h"
 
-@interface IntroLayer : CCLayer
-{
+@interface IntroLayer : CCLayer {
 }
 
-+(CCScene *) scene;
++ (CCScene *)scene;
 
 @end

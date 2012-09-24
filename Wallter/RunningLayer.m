@@ -8,27 +8,42 @@
 
 #import "RunningLayer.h"
 
-#import "AppDelegate.h"
+#import "Polygon.h"
+#import "Stage.h"
+#import "StageView.h"
+#import "Guy.h"
+#import "GuyView.h"
 
-@implementation RunningLayer
+@implementation RunningLayer {
+	Stage *stage;
+	Guy *guy;
+}
 
-+(CCScene *) scene
-{
+@synthesize stage;
+
++ (CCScene *)scene {
 	CCScene *scene = [CCScene node];
 	RunningLayer *layer = [RunningLayer node];
-	[scene addChild: layer];
+	[scene addChild:layer];
 	return scene;
 }
 
--(id) init
-{
-	if( (self=[super init]) ) {
+- (id)init {
+	CGSize s = [[CCDirector sharedDirector] winSize];
+	if ((self = [super initWithColor:(ccColor4B) {194, 233, 249, 255} width:s.height height:s.width])) {
+		stage = [[Stage alloc] init];
+		[stage addWall:make_block(0, 0, 1000, 50)];
+
+		guy = [[Guy alloc] initIn:stage at:cgp(10, 50)];
+
+		[self addChild:[[StageView alloc] init:stage]];
+		[self addChild:[[GuyView alloc] init:guy]];
 	}
 	return self;
 }
 
-- (void) dealloc
-{
+- (void)dealloc {
+	[stage release];
 	[super dealloc];
 }
 
