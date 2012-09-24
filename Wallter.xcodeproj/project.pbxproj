@@ -36,6 +36,8 @@
 		0824998F1610A3720041907E /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998C1610A3720041907E /* libiOSGeometryTools.a */; };
 		082499901610A3720041907E /* libkazmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998D1610A3720041907E /* libkazmath.a */; };
 		C13DA1CDA463874E50BF6557 /* StageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */; };
+		C13DA3223DE6BE67FFC5F6D4 /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DADF252B545D0A0B803D0 /* Simulation.m */; };
+		C13DA573FD6A3D7B2355F72A /* WorldConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA74ECD4552676249D903 /* WorldConstants.m */; };
 		C13DA76E377213D13357DA55 /* Guy.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABCD158D631E2C4F22FF /* Guy.m */; };
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
 		C13DAC44522C8AAB53FC3944 /* GuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8B72436BB9AC747616E /* GuyView.m */; };
@@ -79,11 +81,15 @@
 		C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageView.m; sourceTree = "<group>"; };
 		C13DA3BBAF9CD850916C625F /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stage.m; sourceTree = "<group>"; };
 		C13DA6ADE58116D4A5A14BBE /* GuyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuyView.h; sourceTree = "<group>"; };
+		C13DA73281B6CEE82FE1BC7C /* Simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simulation.h; sourceTree = "<group>"; };
+		C13DA74ECD4552676249D903 /* WorldConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldConstants.m; sourceTree = "<group>"; };
 		C13DA8B72436BB9AC747616E /* GuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuyView.m; sourceTree = "<group>"; };
 		C13DABCD158D631E2C4F22FF /* Guy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Guy.m; sourceTree = "<group>"; };
 		C13DACC274D872245BD2809B /* StageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageView.h; sourceTree = "<group>"; };
 		C13DAD1503891DAAB4661AFA /* Guy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guy.h; sourceTree = "<group>"; };
+		C13DADF252B545D0A0B803D0 /* Simulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simulation.m; sourceTree = "<group>"; };
 		C13DAE3028B60AF56506B2AE /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stage.h; sourceTree = "<group>"; };
+		C13DAF3CF5E884D4B2147FDA /* WorldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +152,10 @@
 		082498051610A34E0041907E /* Wallter */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA74ECD4552676249D903 /* WorldConstants.m */,
+				C13DAF3CF5E884D4B2147FDA /* WorldConstants.h */,
+				C13DA73281B6CEE82FE1BC7C /* Simulation.h */,
+				C13DADF252B545D0A0B803D0 /* Simulation.m */,
 				C13DA6ADE58116D4A5A14BBE /* GuyView.h */,
 				C13DA8B72436BB9AC747616E /* GuyView.m */,
 				C13DAD1503891DAAB4661AFA /* Guy.h */,
@@ -286,6 +296,8 @@
 				C13DA1CDA463874E50BF6557 /* StageView.m in Sources */,
 				C13DA76E377213D13357DA55 /* Guy.m in Sources */,
 				C13DAC44522C8AAB53FC3944 /* GuyView.m in Sources */,
+				C13DA3223DE6BE67FFC5F6D4 /* Simulation.m in Sources */,
+				C13DA573FD6A3D7B2355F72A /* WorldConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
