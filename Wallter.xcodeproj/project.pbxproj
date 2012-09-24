@@ -30,7 +30,7 @@
 		0824981F1610A34E0041907E /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 0824981E1610A34E0041907E /* iTunesArtwork */; };
 		0824997C1610A3500041907E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0824997B1610A3500041907E /* main.m */; };
 		0824997F1610A3500041907E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0824997E1610A3500041907E /* AppDelegate.m */; };
-		082499821610A3500041907E /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 082499811610A3500041907E /* HelloWorldLayer.m */; };
+		082499821610A3500041907E /* RunningLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 082499811610A3500041907E /* RunningLayer.m */; };
 		082499851610A3500041907E /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 082499841610A3500041907E /* IntroLayer.m */; };
 		0824998E1610A3720041907E /* libCocosLibs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998B1610A3720041907E /* libCocosLibs.a */; };
 		0824998F1610A3720041907E /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998C1610A3720041907E /* libiOSGeometryTools.a */; };
@@ -65,8 +65,8 @@
 		0824997B1610A3500041907E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0824997D1610A3500041907E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0824997E1610A3500041907E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		082499801610A3500041907E /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		082499811610A3500041907E /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		082499801610A3500041907E /* RunningLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunningLayer.h; sourceTree = "<group>"; };
+		082499811610A3500041907E /* RunningLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunningLayer.m; sourceTree = "<group>"; };
 		082499831610A3500041907E /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		082499841610A3500041907E /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		0824998B1610A3720041907E /* libCocosLibs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCocosLibs.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libCocosLibs.a"; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 			children = (
 				0824997D1610A3500041907E /* AppDelegate.h */,
 				0824997E1610A3500041907E /* AppDelegate.m */,
-				082499801610A3500041907E /* HelloWorldLayer.h */,
-				082499811610A3500041907E /* HelloWorldLayer.m */,
+				082499801610A3500041907E /* RunningLayer.h */,
+				082499811610A3500041907E /* RunningLayer.m */,
 				082499831610A3500041907E /* IntroLayer.h */,
 				082499841610A3500041907E /* IntroLayer.m */,
 				082498061610A34E0041907E /* Resources */,
@@ -260,7 +260,7 @@
 			files = (
 				0824997C1610A3500041907E /* main.m in Sources */,
 				0824997F1610A3500041907E /* AppDelegate.m in Sources */,
-				082499821610A3500041907E /* HelloWorldLayer.m in Sources */,
+				082499821610A3500041907E /* RunningLayer.m in Sources */,
 				082499851610A3500041907E /* IntroLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

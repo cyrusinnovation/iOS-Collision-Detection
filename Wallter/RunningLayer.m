@@ -1,5 +1,4 @@
 //
-//  HelloWorldLayer.m
 //  Wallter
 //
 //  Created by Najati Imam on 9/24/12.
@@ -7,18 +6,16 @@
 //
 
 
-#import "HelloWorldLayer.h"
+#import "RunningLayer.h"
 
 #import "AppDelegate.h"
 
-#pragma mark - HelloWorldLayer
-
-@implementation HelloWorldLayer
+@implementation RunningLayer
 
 +(CCScene *) scene
 {
 	CCScene *scene = [CCScene node];
-	HelloWorldLayer *layer = [HelloWorldLayer node];
+	RunningLayer *layer = [RunningLayer node];
 	[scene addChild: layer];
 	return scene;
 }
