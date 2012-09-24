@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		082497F41610A34D0041907E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082497F31610A34D0041907E /* QuartzCore.framework */; };
+		082497F61610A34D0041907E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082497F51610A34D0041907E /* OpenGLES.framework */; };
+		082497F81610A34D0041907E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082497F71610A34D0041907E /* OpenAL.framework */; };
+		082497FA1610A34D0041907E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082497F91610A34D0041907E /* AudioToolbox.framework */; };
+		082497FC1610A34E0041907E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082497FB1610A34D0041907E /* AVFoundation.framework */; };
+		082497FE1610A34E0041907E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082497FD1610A34E0041907E /* UIKit.framework */; };
+		082498001610A34E0041907E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082497FF1610A34E0041907E /* Foundation.framework */; };
+		082498021610A34E0041907E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082498011610A34E0041907E /* CoreGraphics.framework */; };
+		082498041610A34E0041907E /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082498031610A34E0041907E /* GameKit.framework */; };
+		082498081610A34E0041907E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 082498071610A34E0041907E /* Default.png */; };
+		0824980A1610A34E0041907E /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 082498091610A34E0041907E /* Default-Landscape~ipad.png */; };
+		0824980C1610A34E0041907E /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 0824980B1610A34E0041907E /* fps_images.png */; };
+		0824980E1610A34E0041907E /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0824980D1610A34E0041907E /* fps_images-hd.png */; };
+		082498101610A34E0041907E /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0824980F1610A34E0041907E /* fps_images-ipadhd.png */; };
+		082498121610A34E0041907E /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 082498111610A34E0041907E /* Icon-72.png */; };
+		082498141610A34E0041907E /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 082498131610A34E0041907E /* Icon-Small-50.png */; };
+		082498161610A34E0041907E /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 082498151610A34E0041907E /* Icon-Small.png */; };
+		082498181610A34E0041907E /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 082498171610A34E0041907E /* Icon-Small@2x.png */; };
+		0824981A1610A34E0041907E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 082498191610A34E0041907E /* Icon.png */; };
+		0824981C1610A34E0041907E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0824981B1610A34E0041907E /* Icon@2x.png */; };
+		0824981F1610A34E0041907E /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 0824981E1610A34E0041907E /* iTunesArtwork */; };
+		0824997C1610A3500041907E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0824997B1610A3500041907E /* main.m */; };
+		0824997F1610A3500041907E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0824997E1610A3500041907E /* AppDelegate.m */; };
+		082499821610A3500041907E /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 082499811610A3500041907E /* HelloWorldLayer.m */; };
+		082499851610A3500041907E /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 082499841610A3500041907E /* IntroLayer.m */; };
+		0824998E1610A3720041907E /* libCocosLibs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998B1610A3720041907E /* libCocosLibs.a */; };
+		0824998F1610A3720041907E /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998C1610A3720041907E /* libiOSGeometryTools.a */; };
+		082499901610A3720041907E /* libkazmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998D1610A3720041907E /* libkazmath.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		082497EF1610A34D0041907E /* Wallter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		082497F31610A34D0041907E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		082497F51610A34D0041907E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		082497F71610A34D0041907E /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		082497F91610A34D0041907E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		082497FB1610A34D0041907E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		082497FD1610A34E0041907E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		082497FF1610A34E0041907E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		082498011610A34E0041907E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		082498031610A34E0041907E /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		082498071610A34E0041907E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
+		082498091610A34E0041907E /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Resources/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		0824980B1610A34E0041907E /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = Resources/fps_images.png; sourceTree = "<group>"; };
+		0824980D1610A34E0041907E /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-hd.png"; path = "Resources/fps_images-hd.png"; sourceTree = "<group>"; };
+		0824980F1610A34E0041907E /* fps_images-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-ipadhd.png"; path = "Resources/fps_images-ipadhd.png"; sourceTree = "<group>"; };
+		082498111610A34E0041907E /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
+		082498131610A34E0041907E /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
+		082498151610A34E0041907E /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
+		082498171610A34E0041907E /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
+		082498191610A34E0041907E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
+		0824981B1610A34E0041907E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
+		0824981D1610A34E0041907E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
+		0824981E1610A34E0041907E /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
+		0824997A1610A3500041907E /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		0824997B1610A3500041907E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0824997D1610A3500041907E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0824997E1610A3500041907E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		082499801610A3500041907E /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
+		082499811610A3500041907E /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		082499831610A3500041907E /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
+		082499841610A3500041907E /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		0824998B1610A3720041907E /* libCocosLibs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCocosLibs.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libCocosLibs.a"; sourceTree = "<group>"; };
+		0824998C1610A3720041907E /* libiOSGeometryTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiOSGeometryTools.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libiOSGeometryTools.a"; sourceTree = "<group>"; };
+		0824998D1610A3720041907E /* libkazmath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkazmath.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libkazmath.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		082497EC1610A34D0041907E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0824998E1610A3720041907E /* libCocosLibs.a in Frameworks */,
+				0824998F1610A3720041907E /* libiOSGeometryTools.a in Frameworks */,
+				082499901610A3720041907E /* libkazmath.a in Frameworks */,
+				082497F41610A34D0041907E /* QuartzCore.framework in Frameworks */,
+				082497F61610A34D0041907E /* OpenGLES.framework in Frameworks */,
+				082497F81610A34D0041907E /* OpenAL.framework in Frameworks */,
+				082497FA1610A34D0041907E /* AudioToolbox.framework in Frameworks */,
+				082497FC1610A34E0041907E /* AVFoundation.framework in Frameworks */,
+				082497FE1610A34E0041907E /* UIKit.framework in Frameworks */,
+				082498001610A34E0041907E /* Foundation.framework in Frameworks */,
+				082498021610A34E0041907E /* CoreGraphics.framework in Frameworks */,
+				082498041610A34E0041907E /* GameKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		082497E41610A34D0041907E = {
+			isa = PBXGroup;
+			children = (
+				082499911610A3810041907E /* Library References */,
+				082498051610A34E0041907E /* Wallter */,
+				082497F21610A34D0041907E /* Frameworks */,
+				082497F01610A34D0041907E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		082497F01610A34D0041907E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				082497EF1610A34D0041907E /* Wallter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		082497F21610A34D0041907E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				082497F31610A34D0041907E /* QuartzCore.framework */,
+				082497F51610A34D0041907E /* OpenGLES.framework */,
+				082497F71610A34D0041907E /* OpenAL.framework */,
+				082497F91610A34D0041907E /* AudioToolbox.framework */,
+				082497FB1610A34D0041907E /* AVFoundation.framework */,
+				082497FD1610A34E0041907E /* UIKit.framework */,
+				082497FF1610A34E0041907E /* Foundation.framework */,
+				082498011610A34E0041907E /* CoreGraphics.framework */,
+				082498031610A34E0041907E /* GameKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		082498051610A34E0041907E /* Wallter */ = {
+			isa = PBXGroup;
+			children = (
+				0824997D1610A3500041907E /* AppDelegate.h */,
+				0824997E1610A3500041907E /* AppDelegate.m */,
+				082499801610A3500041907E /* HelloWorldLayer.h */,
+				082499811610A3500041907E /* HelloWorldLayer.m */,
+				082499831610A3500041907E /* IntroLayer.h */,
+				082499841610A3500041907E /* IntroLayer.m */,
+				082498061610A34E0041907E /* Resources */,
+				082499791610A3500041907E /* Supporting Files */,
+			);
+			path = Wallter;
+			sourceTree = "<group>";
+		};
+		082498061610A34E0041907E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				082498071610A34E0041907E /* Default.png */,
+				082498091610A34E0041907E /* Default-Landscape~ipad.png */,
+				0824980B1610A34E0041907E /* fps_images.png */,
+				0824980D1610A34E0041907E /* fps_images-hd.png */,
+				0824980F1610A34E0041907E /* fps_images-ipadhd.png */,
+				082498111610A34E0041907E /* Icon-72.png */,
+				082498131610A34E0041907E /* Icon-Small-50.png */,
+				082498151610A34E0041907E /* Icon-Small.png */,
+				082498171610A34E0041907E /* Icon-Small@2x.png */,
+				082498191610A34E0041907E /* Icon.png */,
+				0824981B1610A34E0041907E /* Icon@2x.png */,
+				0824981D1610A34E0041907E /* Info.plist */,
+				0824981E1610A34E0041907E /* iTunesArtwork */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		082499791610A3500041907E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0824997A1610A3500041907E /* Prefix.pch */,
+				0824997B1610A3500041907E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		082499911610A3810041907E /* Library References */ = {
+			isa = PBXGroup;
+			children = (
+				0824998B1610A3720041907E /* libCocosLibs.a */,
+				0824998C1610A3720041907E /* libiOSGeometryTools.a */,
+				0824998D1610A3720041907E /* libkazmath.a */,
+			);
+			name = "Library References";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		082497EE1610A34D0041907E /* Wallter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 082499881610A3500041907E /* Build configuration list for PBXNativeTarget "Wallter" */;
+			buildPhases = (
+				082497EB1610A34D0041907E /* Sources */,
+				082497EC1610A34D0041907E /* Frameworks */,
+				082497ED1610A34D0041907E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wallter;
+			productName = Wallter;
+			productReference = 082497EF1610A34D0041907E /* Wallter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		082497E61610A34D0041907E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Cyrus Innovation";
+			};
+			buildConfigurationList = 082497E91610A34D0041907E /* Build configuration list for PBXProject "Wallter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 082497E41610A34D0041907E;
+			productRefGroup = 082497F01610A34D0041907E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				082497EE1610A34D0041907E /* Wallter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		082497ED1610A34D0041907E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				082498081610A34E0041907E /* Default.png in Resources */,
+				0824980A1610A34E0041907E /* Default-Landscape~ipad.png in Resources */,
+				0824980C1610A34E0041907E /* fps_images.png in Resources */,
+				0824980E1610A34E0041907E /* fps_images-hd.png in Resources */,
+				082498101610A34E0041907E /* fps_images-ipadhd.png in Resources */,
+				082498121610A34E0041907E /* Icon-72.png in Resources */,
+				082498141610A34E0041907E /* Icon-Small-50.png in Resources */,
+				082498161610A34E0041907E /* Icon-Small.png in Resources */,
+				082498181610A34E0041907E /* Icon-Small@2x.png in Resources */,
+				0824981A1610A34E0041907E /* Icon.png in Resources */,
+				0824981C1610A34E0041907E /* Icon@2x.png in Resources */,
+				0824981F1610A34E0041907E /* iTunesArtwork in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		082497EB1610A34D0041907E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0824997C1610A3500041907E /* main.m in Sources */,
+				0824997F1610A3500041907E /* AppDelegate.m in Sources */,
+				082499821610A3500041907E /* HelloWorldLayer.m in Sources */,
+				082499851610A3500041907E /* IntroLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		082499861610A3500041907E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					"COCOS2D_DEBUG=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"CocosLibs/cocos2d\"",
+					"\"CocosLibs/kazmath/include\"",
+					"\"iOSGeometryTools\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		082499871610A3500041907E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					"NS_BLOCK_ASSERTIONS=1",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"CocosLibs/cocos2d\"",
+					"\"CocosLibs/kazmath/include\"",
+					"\"iOSGeometryTools\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		082499891610A3500041907E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wallter/Prefix.pch;
+				INFOPLIST_FILE = Wallter/Resources/Info.plist;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0824998A1610A3500041907E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wallter/Prefix.pch;
+				INFOPLIST_FILE = Wallter/Resources/Info.plist;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		082497E91610A34D0041907E /* Build configuration list for PBXProject "Wallter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				082499861610A3500041907E /* Debug */,
+				082499871610A3500041907E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		082499881610A3500041907E /* Build configuration list for PBXNativeTarget "Wallter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				082499891610A3500041907E /* Debug */,
+				0824998A1610A3500041907E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 082497E61610A34D0041907E /* Project object */;
+}

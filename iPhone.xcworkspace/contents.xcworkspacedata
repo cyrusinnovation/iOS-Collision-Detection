@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:iOSGeometryTools.xcodeproj">
+      location = "group:Wallter.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:EggDrop.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:iOSGeometryTools.xcodeproj">
    </FileRef>
 </Workspace>
