@@ -141,13 +141,10 @@
 
 	float length = cgp_length(swipe);
 	if (length <= 20) {
-		NSLog(@"attack attack");
 		MeleeAttack *attack = [[MeleeAttack alloc] init:guy];
 		[simulation addAttack:attack];
 		MeleeAttackView *view = [[MeleeAttackView alloc] init:attack];
 		[self addChild:view];
-	} else {
-		NSLog(@"length %f", length);
 	}
 }
 

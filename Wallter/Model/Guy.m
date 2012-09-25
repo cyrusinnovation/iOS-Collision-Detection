@@ -67,12 +67,14 @@ typedef enum {
 	onAWall = false;
 }
 
+int tick = 0;
 - (void)correct:(CGPoint)delta {
 	location = cgp_add(location, delta);
 
 	CGPoint killer = cgp_project(delta, velocity);
 	// only kill y velocity, let it keep moving along x
 	// TODO this math needs to be a lot better, e.g. this doesn't handle hitting ceilings
+	// TODO also, Wallter can't walk up a slope and jump or slide down slopes at all
 	killer = cgp_project(cgp(0, -1000), killer);
 	velocity = cgp_subtract(velocity, killer);
 

@@ -52,13 +52,17 @@
 		float jump_distance = [self nextJumpDistance];
 		float platformLength = [self nextPlatformLength];
 
-		int height = 50 + rand() % 3 * 30;
-		float x2 = right_edge + jump_distance + platformLength;
-		[self addWall:make_block(right_edge + jump_distance, -50, x2, height)];
-		
+		float height = 50 + rand() % 3 * 30;
+		float x1 = right_edge + jump_distance;
+		float x2 = x1 + platformLength;
+		[self addWall:make_block(x1, -50, x2, height)];
+
 		if (rand() % 10 < 5) {
 			[self addWall:make_block(x2 + 30, -50, x2 + 30 + [self nextPlatformLength], height + 200)];
 			[self addWall:make_block(x2 - 100, height + 100, x2 - 80, height + 300)];
+//	Add the occasional slope.
+//		} else if (rand() % 10 < 5) {
+//		[self addWall:polygon_from(3, cgp(x1, height), cgp(x2, height), cgp((x2 + x1)/2, height + 40))];
 		}
 	}
 
@@ -75,6 +79,7 @@
 		}
 		if (remove) {
 			[walls removeObjectAtIndex:0];
+			free_polygon(wall);
 		}
 
 		previousWallCount = [walls count];
