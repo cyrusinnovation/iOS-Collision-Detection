@@ -56,8 +56,8 @@
 		float x2 = right_edge + jump_distance + platformLength;
 		[self addWall:make_block(right_edge + jump_distance, -50, x2, height)];
 		
-		if (rand() % 10 < 7) {
-			[self addWall:make_block(x2, -50, x2 + [self nextPlatformLength], height + 200)];
+		if (rand() % 10 < 5) {
+			[self addWall:make_block(x2 + 30, -50, x2 + 30 + [self nextPlatformLength], height + 200)];
 			[self addWall:make_block(x2 - 100, height + 100, x2 - 80, height + 300)];
 		}
 	}
