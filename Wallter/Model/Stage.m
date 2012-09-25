@@ -58,10 +58,28 @@
 		float x2 = right_edge + jump_distance + platformLength;
 		[self addWall:make_block(right_edge + jump_distance, -50, x2, height)];
 		
-		if (rand() % 10 < 2) {
+		if (rand() % 10 < 7) {
 			[self addWall:make_block(x2, -50, x2 + [self nextPlatformLength], height + 200)];
 			[self addWall:make_block(x2 - 100, height + 100, x2 - 80, height + 300)];
 		}
+	}
+
+	int previousWallCount = [walls count] - 1;
+	while ([walls count] > previousWallCount) {
+		CGPolygon wall;
+		NSValue *wallObject = [walls objectAtIndex:0];
+		[wallObject getValue:&wall];
+		bool remove = true;
+		for (int i = 0; i < wall.count; i++) {
+			if (wall.points[i].x > (point.x - 2000)) {
+				remove = false;
+			}
+		}
+		if (remove) {
+			[walls removeObjectAtIndex:0];
+		}
+
+		previousWallCount = [walls count];
 	}
 }
 

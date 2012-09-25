@@ -4,6 +4,11 @@
 
 #import "Guy.h"
 
+typedef enum {
+	stateRunningLeft,
+	stateRunningRight
+} GuyState;
+
 @implementation Guy {
 	Stage *stage;
 	CGPoint location;
@@ -11,11 +16,12 @@
 	CGPoint velocity;
 	float jumpVelocity;
 	bool inTheAir;
+	bool onAWall;
 	int runningSpeed;
+	GuyState state;
 }
 
 @synthesize location;
-@synthesize velocity;
 
 - (id)initIn:(Stage *)_stage at:(CGPoint)at {
 	if (self = [super init]) {
@@ -29,6 +35,9 @@
 		jumpVelocity = 700;
 
 		inTheAir = false;
+		onAWall = false;
+		
+		state = stateRunningRight;
 	}
 	return self;
 }
@@ -43,44 +52,60 @@
 }
 
 - (void)update:(ccTime)dt {
-	CGPoint totalForce = [WorldConstants gravity];
-	CGPoint frame_velocity = cgp_times(totalForce, dt);
+	CGPoint frame_velocity = cgp_times([WorldConstants gravity], dt);
 	velocity = cgp_add(velocity, frame_velocity);
-
-//	if (cgp_length_squared(velocity) > terminalVelocitySquared) {
-//		cgp_normalize(&velocity);
-//		cgp_scale(&velocity, terminalVelocity);
-//	}
 
 	CGPoint movement = cgp_times(velocity, dt);
 	location = cgp_add(location, movement);
 
 	inTheAir = true;
+	onAWall = false;
 }
 
 - (void)correct:(CGPoint)delta {
 	location = cgp_add(location, delta);
+
 	CGPoint killer = cgp_project(delta, velocity);
+	// only kill y velocity, let it keep moving along x
+	// TODO this math needs to be a lot better, e.g. this doesn't handle hitting ceilings
+	killer = cgp_project(cgp(0, -1000), killer);
 	velocity = cgp_subtract(velocity, killer);
 
 	if (inTheAir && delta.y > 0 && velocity.y == 0) {
 		inTheAir = false;
 	}
+
+	if (delta.x != 0) {
+		NSLog(@"wall");
+		onAWall = true;
+	}
 }
 
-- (void)jump {
-	if (inTheAir) return;
-
-	inTheAir = true;
-	velocity = cgp_add(velocity, cgp(0, jumpVelocity));
-}
+//- (void)jump {
+//	if (inTheAir) return;
+//
+//	inTheAir = true;
+//	velocity = cgp_add(velocity, cgp(0, jumpVelocity));
+//}
 
 - (void)jumpLeft {
-	velocity = cgp(-runningSpeed, jumpVelocity);
+	bool jumpFromGround = !inTheAir && !onAWall && state == stateRunningLeft;
+	bool jumpFromAWall = inTheAir && onAWall && state == stateRunningRight;
+
+	if (jumpFromGround || jumpFromAWall) {
+		velocity = cgp(-runningSpeed, jumpVelocity);
+		state = stateRunningLeft;
+	}
 }
 
 - (void)jumpRight {
-	velocity = cgp(runningSpeed, jumpVelocity);
+	bool jumpFromGround = !inTheAir && !onAWall && state == stateRunningRight;
+	bool jumpFromAWall = inTheAir && onAWall && state == stateRunningLeft;
+
+	if (jumpFromGround || jumpFromAWall) {
+		velocity = cgp(runningSpeed, jumpVelocity);
+		state = stateRunningRight;
+	}
 }
 
 @end

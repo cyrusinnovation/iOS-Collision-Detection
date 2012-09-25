@@ -8,15 +8,12 @@
 
 @interface Guy : NSObject
 @property(nonatomic) CGPoint location;
-@property(nonatomic) CGPoint velocity;
 
 - (id)initIn:(Stage *)stage at:(CGPoint)at;
 - (CGPolygon)polygon;
 - (void)update:(ccTime)dt;
 
 - (void)correct:(CGPoint)delta;
-
-- (void)jump;
 
 - (void)resetTo:(CGPoint)_location;
 

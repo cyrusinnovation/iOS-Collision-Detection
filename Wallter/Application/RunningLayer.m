@@ -6,6 +6,7 @@
 //
 
 
+#import <CoreGraphics/CoreGraphics.h>
 #import "RunningLayer.h"
 
 #import "Polygon.h"
@@ -23,6 +24,8 @@
 	ccTime buffer;
 	ccTime frameTime;
 	CGPoint touchStart;
+	CGPoint guyLoc;
+	ccTime stuckTime;
 }
 
 @synthesize stage;
@@ -43,17 +46,24 @@
 		buffer = 0;
 		frameTime = 0.01;
 
-		stage = [[Stage alloc] init];
-		[stage addWall:make_block(0, -50, 1000, 50)];
-
-		guy = [[Guy alloc] initIn:stage at:cgp(30, 50)];
-
-		simulation = [[Simulation alloc] initFor:guy in:stage];
-
-		[self addChild:[[StageView alloc] init:stage following:guy]];
-		[self addChild:[[GuyView alloc] init:guy]];
+		[self initStage];
 	}
 	return self;
+}
+
+- (void)initStage {
+	[self removeAllChildrenWithCleanup:true];
+
+	stage = [[Stage alloc] init];
+	[stage addWall:make_block(0, -50, 1000, 50)];
+
+	guy = [[Guy alloc] initIn:stage at:cgp(30, 50)];
+	guyLoc = cgp(FLT_MIN, FLT_MIN);
+
+	simulation = [[Simulation alloc] initFor:guy in:stage];
+
+	[self addChild:[[StageView alloc] init:stage following:guy]];
+	[self addChild:[[GuyView alloc] init:guy]];
 }
 
 - (void)update:(ccTime)dt {
@@ -68,10 +78,27 @@
 	[simulation update:dt];
 
 	if (guy.location.y < -100) {
+		[self initStage];
 		[guy resetTo:cgp(30, 50)];
 	}
 
 	[stage generateAround:guy.location];
+
+	[self isGuyStuck:dt];
+}
+
+- (void)isGuyStuck:(ccTime)d {
+	if (guy.location.x == guyLoc.x && guy.location.y == guyLoc.y) {
+		stuckTime += d;
+		if (stuckTime > 1) {
+			stuckTime = 0;
+			[self initStage];
+			[guy resetTo:cgp(30, 50)];
+			guyLoc = cgp(FLT_MIN, FLT_MIN);
+		}
+	} else {
+		guyLoc = guy.location;
+	}
 }
 
 - (void)dealloc {
@@ -93,21 +120,20 @@
 	CGPoint swipe = cgp_subtract(touchEnd, touchStart);
 
 	float length = cgp_length(swipe);
-	float up = swipe.y / swipe.x;
 
 	if (length > 6) {
-		if (up > 1) {
-			[guy jump];
-		} else if (swipe.x < 0) {
-			[guy jumpLeft];
-		} else if (swipe.x > 0) {
-			[guy jumpRight];
+		if (swipe.y > 3) {
+			if (swipe.x < 0) {
+				[guy jumpLeft];
+			} else if (swipe.x > 0) {
+				[guy jumpRight];
+			}
 		}
 	}
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+//	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
 }
 
 - (void)registerWithTouchDispatcher {

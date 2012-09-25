@@ -24,7 +24,12 @@
 	[super draw];
 
 	CGPolygon localWall = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
-	CGPoint delta = cgp(-guy.location.x + 50, 20);
+	float y = 20;
+	int margin = 200;
+	if (guy.location.y > margin) {
+		y = - guy.location.y + margin + 20;
+	}
+	CGPoint delta = cgp(-guy.location.x + 50, y);
 
 	for (NSValue *wallObject in stage.walls) {
 		CGPolygon wall;
