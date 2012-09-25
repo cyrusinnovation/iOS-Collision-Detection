@@ -10,6 +10,10 @@
 
 @interface BadGuy : NSObject
 @property(nonatomic, readonly) CGPolygon polygon;
+@property(nonatomic, readonly) bool dead;
+
 
 - (id)init:(CGPoint)point;
+
+- (void)kill;
 @end

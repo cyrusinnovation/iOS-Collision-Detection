@@ -12,15 +12,22 @@
 
 @implementation BadGuy {
 	CGPolygon polygon;
+	bool dead;
 }
 
 @synthesize polygon;
+@synthesize dead;
 
 - (id)init:(CGPoint)point {
 	if (self = [super init]) {
 		polygon = make_block(point.x, point.y, point.x + 20, point.y + 30);
+		dead = false;
 	}
 	return self;
+}
+
+- (void)kill {
+	dead = true;
 }
 
 @end

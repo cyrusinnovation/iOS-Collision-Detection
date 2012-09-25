@@ -5,6 +5,7 @@
 #import "Simulation.h"
 #import "SeparatingAxisTest.h"
 #import "MeleeAttack.h"
+#import "SATResult.h"
 
 @implementation Simulation {
 	Guy *guy;
@@ -28,8 +29,25 @@
 
 - (void)update:(ccTime)dt {
 	[guy update:dt];
-	for (MeleeAttack *attack in attacks) {
+	for (int j = attacks.count - 1; j >= 0; j--) {
+		MeleeAttack *attack = [attacks objectAtIndex:j];
+
 		[attack update:dt];
+
+		if (attack.isDead) {
+			[attacks removeObjectAtIndex:j];
+		} else {
+			for (int i = badguys.count -1; i >= 0; i--) {
+				BadGuy *badGuy = [badguys objectAtIndex:i];
+				SATResult result = sat_test(badGuy.polygon, attack.polygon);
+				if (result.penetrating) {
+					[badGuy kill];
+				}
+				if (badGuy.dead) {
+					[badguys removeObjectAtIndex:i];
+				}
+			}
+		}
 	}
 	for (NSValue *wallObject in stage.walls) {
 		CGPolygon wall;

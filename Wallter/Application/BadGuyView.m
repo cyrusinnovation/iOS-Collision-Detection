@@ -16,11 +16,19 @@
 
 - (id)init:(BadGuy *)_badguy around:(Guy *) _guy {
 	if (self = [super init]) {
+		[self scheduleUpdate];
+
 		badguy = _badguy;
 		guy = _guy;
 		color = (ccColor4F) {0.8, 0.2, 0.8, 1.0};
 	}
 	return self;
+}
+
+-(void)update:(ccTime) dt {
+	if (badguy.dead) {
+		[self removeFromParentAndCleanup:true];
+	}
 }
 
 - (void)draw {
