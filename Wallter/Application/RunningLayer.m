@@ -6,6 +6,7 @@
 //
 
 
+#import <CoreGraphics/CoreGraphics.h>
 #import "RunningLayer.h"
 
 #import "Stage.h"
@@ -31,6 +32,9 @@
 	bool touching;
 	float touchTime;
 	bool attackFromTouch;
+	CCLabelTTF *scoreLabel;
+
+	float score;
 }
 
 @synthesize stage;
@@ -44,7 +48,7 @@
 
 - (id)init {
 	CGSize s = [[CCDirector sharedDirector] winSize];
-	if ((self = [super initWithColor:(ccColor4B) {194, 233, 249, 255} width:s.height height:s.width])) {
+	if ((self = [super initWithColor:(ccColor4B) {194, 233, 249, 255} width:s.width height:s.height])) {
 		[self scheduleUpdate];
 		self.isTouchEnabled = YES;
 
@@ -67,15 +71,25 @@
 
 	guy = [[Guy alloc] initIn:stage at:cgp(30, 50)];
 	guyLoc = cgp(FLT_MIN, FLT_MIN);
+	stuckTime = 0;
 
 	simulation = [[Simulation alloc] initFor:guy in:stage];
 
 	[self addChild:[[StageView alloc] init:stage following:guy]];
 	[self addChild:[[GuyView alloc] init:guy]];
+
+	score = 0;
+
+	scoreLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Marker Felt" fontSize:32.0f];
+	scoreLabel.color = ccc3(108, 54, 54);
+	CGSize s = [[CCDirector sharedDirector] winSize];
+	NSLog(@"winsize %f %f", s.width, s.height);
+	scoreLabel.position = cgp(s.width / 2, s.height - 30);
+	[self addChild:scoreLabel z:100];
 }
 
 - (void)update:(ccTime)dt {
-	buffer += dt*1;
+	buffer += dt * 1;
 	while (buffer >= frameTime) {
 		buffer -= frameTime;
 		[self updateInternal:frameTime];
@@ -85,12 +99,15 @@
 - (void)updateInternal:(ccTime)dt {
 	[simulation update:dt];
 
+	score += cgp_length(cgp_subtract(guy.location, guyLoc));
+	// TODO OPT don't update the score string every frame
+	[scoreLabel setString:[NSString stringWithFormat:@"%d", (int) score/20*10]];
+
 	if (guy.location.y < -100 || guy.dead) {
 		[self initStage];
-		[guy resetTo:cgp(30, 50)];
 	} else {
 		[stage generateAround:guy.location listener:self];
-		[self isGuyStuck:dt];
+		[self checkForStuckedness:dt];
 	}
 
 	if (touching) {
@@ -133,15 +150,11 @@
 	[self addChild:[[BadGuyView alloc] init:badGuy around:guy]];
 }
 
-
-- (void)isGuyStuck:(ccTime)d {
+- (void)checkForStuckedness:(ccTime)d {
 	if (guy.location.x == guyLoc.x && guy.location.y == guyLoc.y) {
 		stuckTime += d;
 		if (stuckTime > 1) {
-			stuckTime = 0;
 			[self initStage];
-			[guy resetTo:cgp(30, 50)];
-			guyLoc = cgp(FLT_MIN, FLT_MIN);
 		}
 	} else {
 		guyLoc = guy.location;

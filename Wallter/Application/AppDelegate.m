@@ -17,25 +17,31 @@
 @synthesize window = window_, navController = navController_, director = director_;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
 
 	// Create an CCGLView with a RGB565 color buffer, and a depth buffer of 0-bits
 	CCGLView *glView = [CCGLView viewWithFrame:[window_ bounds]
-																 pixelFormat:kEAGLColorFormatRGB565  //kEAGLColorFormatRGBA8
-																 depthFormat:0  //GL_DEPTH_COMPONENT24_OES
-													preserveBackbuffer:NO sharegroup:nil multiSampling:NO numberOfSamples:0];
+																 pixelFormat:kEAGLColorFormatRGB565	//kEAGLColorFormatRGBA8
+																 depthFormat:0	//GL_DEPTH_COMPONENT24_OES
+													preserveBackbuffer:NO
+																	sharegroup:nil
+															 multiSampling:NO
+														 numberOfSamples:0];
 
-	director_ = (CCDirectorIOS *) [CCDirector sharedDirector];
+	// Enable multitouch
+	[glView setMultipleTouchEnabled:YES];
+
+	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
 
 	director_.wantsFullScreenLayout = YES;
 
 	// Display FSP and SPF
-//	[director_ setDisplayStats:YES];
+#ifdef RELEASE_DEBUG
+	[director_ setDisplayStats:YES];
+#endif
 
 	// set FPS at 60
-	[director_ setAnimationInterval:1.0 / 60];
+	[director_ setAnimationInterval:1.0/60];
 
 	// attach the openglView to the director
 	[director_ setView:glView];
@@ -45,10 +51,10 @@
 
 	// 2D projection
 	[director_ setProjection:kCCDirectorProjection2D];
-//	[director setProjection:kCCDirectorProjection3D];
+	//	[director setProjection:kCCDirectorProjection3D];
 
 	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
-	if (![director_ enableRetinaDisplay:YES])
+	if( ! [director_ enableRetinaDisplay:YES] )
 	CCLOG(@"Retina Display Not supported");
 
 	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
@@ -61,25 +67,18 @@
 	// On iPad     : "-ipad", "-hd"
 	// On iPhone HD: "-hd"
 	CCFileUtils *sharedFileUtils = [CCFileUtils sharedFileUtils];
-	[sharedFileUtils setEnableFallbackSuffixes:NO];        // Default: NO. No fallback suffixes are going to be used
-	[sharedFileUtils setiPhoneRetinaDisplaySuffix:@"-hd"];    // Default on iPhone RetinaDisplay is "-hd"
-	[sharedFileUtils setiPadSuffix:@"-ipad"];          // Default on iPad is "ipad"
-	[sharedFileUtils setiPadRetinaDisplaySuffix:@"-ipadhd"];  // Default on iPad RetinaDisplay is "-ipadhd"
+	[sharedFileUtils setEnableFallbackSuffixes:NO];				// Default: NO. No fallback suffixes are going to be used
+	[sharedFileUtils setiPhoneRetinaDisplaySuffix:@"-hd"];		// Default on iPhone RetinaDisplay is "-hd"
+	[sharedFileUtils setiPadSuffix:@"-ipad"];					// Default on iPad is "ipad"
+	[sharedFileUtils setiPadRetinaDisplaySuffix:@"-ipadhd"];	// Default on iPad RetinaDisplay is "-ipadhd"
 
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
-	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-	[director_ pushScene:[RunningLayer scene]];
+	[director_ pushScene:[IntroLayer scene]];
 
-
-	// Create a Navigation Controller with the Director
-	navController_ = [[UINavigationController alloc] initWithRootViewController:director_];
-	navController_.navigationBarHidden = YES;
-
-	// set the Navigation Controller as the root view controller
-//	[window_ addSubview:navController_.view];	// Generates flicker.
-	[window_ setRootViewController:navController_];
+	// Adding the gl view to the window will call startAnimation on the director (so this goes AFTER you have a scene set on the director)
+	[window_ setRootViewController:director_];
 
 	// make main window visible
 	[window_ makeKeyAndVisible];
@@ -91,7 +90,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
-
 
 // getting a call, pause the game
 - (void)applicationWillResignActive:(UIApplication *)application {
