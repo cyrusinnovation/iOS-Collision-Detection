@@ -39,12 +39,14 @@
 		C13DA1EA0E51AE06DBC61B12 /* BadGuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */; };
 		C13DA3223DE6BE67FFC5F6D4 /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DADF252B545D0A0B803D0 /* Simulation.m */; };
 		C13DA3DE8588B7C7C96C5DBB /* MeleeAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */; };
+		C13DA4AFFC86A6D20F1A98EA /* instructions~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */; };
 		C13DA511333E2B8D9BB738F0 /* BadGuy.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA9C6C1BA867C67CBD1F2 /* BadGuy.m */; };
 		C13DA573FD6A3D7B2355F72A /* WorldConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA74ECD4552676249D903 /* WorldConstants.m */; };
 		C13DA76E377213D13357DA55 /* Guy.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABCD158D631E2C4F22FF /* Guy.m */; };
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
 		C13DAC4007F78F104693B1DC /* MeleeAttackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */; };
 		C13DAC44522C8AAB53FC3944 /* GuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8B72436BB9AC747616E /* GuyView.m */; };
+		C13DAFF30CB6EC1EA407F94C /* instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA21E3C760AFE9D6B2438 /* instructions.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,7 @@
 		0824998C1610A3720041907E /* libiOSGeometryTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiOSGeometryTools.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libiOSGeometryTools.a"; sourceTree = "<group>"; };
 		0824998D1610A3720041907E /* libkazmath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkazmath.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libkazmath.a"; sourceTree = "<group>"; };
 		C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageView.m; sourceTree = "<group>"; };
+		C13DA21E3C760AFE9D6B2438 /* instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions.png; path = Resources/instructions.png; sourceTree = "<group>"; };
 		C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttack.m; sourceTree = "<group>"; };
 		C13DA3BBAF9CD850916C625F /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stage.m; sourceTree = "<group>"; };
 		C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttackView.m; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		C13DAD86D609664E02DC4B14 /* BadGuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuy.h; sourceTree = "<group>"; };
 		C13DADF252B545D0A0B803D0 /* Simulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simulation.m; sourceTree = "<group>"; };
 		C13DAE3028B60AF56506B2AE /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stage.h; sourceTree = "<group>"; };
+		C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions~ipad.png"; path = "Resources/instructions~ipad.png"; sourceTree = "<group>"; };
 		C13DAF3CF5E884D4B2147FDA /* WorldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldConstants.h; sourceTree = "<group>"; };
 		C13DAF552C3FBFBB53AA95C3 /* MeleeAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeAttack.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +180,8 @@
 		082498061610A34E0041907E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */,
+				C13DA21E3C760AFE9D6B2438 /* instructions.png */,
 				082498071610A34E0041907E /* Default.png */,
 				082498091610A34E0041907E /* Default-Landscape~ipad.png */,
 				0824980B1610A34E0041907E /* fps_images.png */,
@@ -316,6 +322,8 @@
 				0824981A1610A34E0041907E /* Icon.png in Resources */,
 				0824981C1610A34E0041907E /* Icon@2x.png in Resources */,
 				0824981F1610A34E0041907E /* iTunesArtwork in Resources */,
+				C13DAFF30CB6EC1EA407F94C /* instructions.png in Resources */,
+				C13DA4AFFC86A6D20F1A98EA /* instructions~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
