@@ -3,15 +3,14 @@
 //
 
 #import "Simulation.h"
-#import "ccTypes.h"
 #import "SeparatingAxisTest.h"
-#import "SATResult.h"
 #import "MeleeAttack.h"
 
 @implementation Simulation {
 	Guy *guy;
 	Stage *stage;
 	NSMutableArray *attacks;
+	NSMutableArray *badguys;
 }
 
 @synthesize guy;
@@ -22,7 +21,8 @@
 		guy = _guy;
 		stage = _stage;
 		attacks = [[NSMutableArray alloc] init];
-	} 
+		badguys = [[NSMutableArray alloc] init];
+	}
 	return self;
 }
 
@@ -48,7 +48,10 @@
 }
 
 - (void)addAttack:(MeleeAttack *)_attack {
- [attacks addObject:_attack];
+	[attacks addObject:_attack];
 }
 
+- (void)addBadGuy:(BadGuy *)bg {
+	[badguys addObject:bg];
+}
 @end

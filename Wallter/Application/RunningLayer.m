@@ -6,17 +6,15 @@
 //
 
 
-#import <CoreGraphics/CoreGraphics.h>
 #import "RunningLayer.h"
 
-#import "Polygon.h"
 #import "Stage.h"
 #import "StageView.h"
-#import "Guy.h"
 #import "GuyView.h"
 #import "Simulation.h"
 #import "MeleeAttack.h"
 #import "MeleeAttackView.h"
+#import "BadGuyView.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -84,10 +82,24 @@
 		[guy resetTo:cgp(30, 50)];
 	}
 
-	[stage generateAround:guy.location];
+	[stage generateAround:guy.location listener:self];
 
 	[self isGuyStuck:dt];
 }
+
+- (void)addedPlatform:(CGPolygon)platform {
+	float x = (platform.points[0].x + platform.points[1].x) / 2;
+	float y = platform.points[3].y;
+
+	[self addBadguy:cgp(x, y)];
+}
+
+- (void)addBadguy:(CGPoint)location {
+	BadGuy* badGuy = [[BadGuy alloc] init:location];
+	[simulation addBadGuy:badGuy];
+	[self addChild:[[BadGuyView alloc] init:badGuy around:guy]];
+}
+
 
 - (void)isGuyStuck:(ccTime)d {
 	if (guy.location.x == guyLoc.x && guy.location.y == guyLoc.y) {

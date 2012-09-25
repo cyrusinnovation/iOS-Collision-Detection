@@ -8,13 +8,17 @@
 #import <GameKit/GameKit.h>
 
 #import "cocos2d.h"
+#import "Polygon.h"
+#import "Stage.h"
+#import "NewPlatformListener.h"
 
-@class Stage;
-
-@interface RunningLayer : CCLayerColor
+@interface RunningLayer : CCLayerColor<NewPlatformListener>
 
 @property(nonatomic, retain) Stage *stage;
 
 + (CCScene *)scene;
+
+- (void)addedPlatform:(CGPolygon)platform;
+
 
 @end

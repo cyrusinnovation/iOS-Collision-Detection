@@ -6,11 +6,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Polygon.h"
+#import "NewPlatformListener.h"
 
 @interface Stage : NSObject
 @property(nonatomic, retain) NSMutableArray *walls;
 
 - (void)addWall:(CGPolygon)polygon;
 
-- (void)generateAround:(CGPoint)point;
+- (void)generateAround:(CGPoint)point listener:(NSObject<NewPlatformListener> *)listener;
+
 @end

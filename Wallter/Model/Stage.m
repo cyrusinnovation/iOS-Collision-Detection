@@ -3,7 +3,6 @@
 //
 
 #import "Stage.h"
-#import "Polygon.h"
 
 @implementation Stage {
 	NSMutableArray *walls;
@@ -46,7 +45,7 @@
 	[super dealloc];
 }
 
-- (void)generateAround:(CGPoint)point {
+- (void)generateAround:(CGPoint)point listener:(NSObject<NewPlatformListener> *)listener {
 	point = cgp_add(point, cgp(max_jump_distance + max_platform_length, 0));
 	if (point.x > right_edge) {
 		float jump_distance = [self nextJumpDistance];
@@ -55,10 +54,16 @@
 		float height = 50 + rand() % 3 * 30;
 		float x1 = right_edge + jump_distance;
 		float x2 = x1 + platformLength;
-		[self addWall:make_block(x1, -50, x2, height)];
+		{
+			CGPolygon next_platform = make_block(x1, -50, x2, height);
+			[listener addedPlatform:next_platform];
+			[self addWall:next_platform];
+		}
 
 		if (rand() % 10 < 5) {
-			[self addWall:make_block(x2 + 30, -50, x2 + 30 + [self nextPlatformLength], height + 200)];
+			CGPolygon next_platform = make_block(x2 + 30, -50, x2 + 30 + [self nextPlatformLength], height + 200);
+			[listener addedPlatform:next_platform];
+			[self addWall:next_platform];
 			[self addWall:make_block(x2 - 100, height + 100, x2 - 80, height + 300)];
 //	Add the occasional slope.
 //		} else if (rand() % 10 < 5) {
