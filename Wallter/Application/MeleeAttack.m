@@ -27,7 +27,7 @@
 }
 
 - (CGPolygon)polygon {
-	int attack_width = 50;
+	int attack_width = 70;
 	if (guy.runningRight) {
 		CGPolygon guyPoly = guy.polygon;
 		polygon.points[0] = guyPoly.points[1];

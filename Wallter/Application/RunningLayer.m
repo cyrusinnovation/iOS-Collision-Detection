@@ -23,9 +23,14 @@
 
 	ccTime buffer;
 	ccTime frameTime;
-	CGPoint touchStart;
 	CGPoint guyLoc;
 	ccTime stuckTime;
+
+	CGPoint touchStart;
+	CGPoint touchMove;
+	bool touching;
+	float touchTime;
+	bool attackFromTouch;
 }
 
 @synthesize stage;
@@ -47,6 +52,9 @@
 		frameTime = 0.01;
 
 		[self initStage];
+
+		touching = false;
+		touchTime = -1;
 	}
 	return self;
 }
@@ -67,7 +75,7 @@
 }
 
 - (void)update:(ccTime)dt {
-	buffer += dt;
+	buffer += dt*1;
 	while (buffer >= frameTime) {
 		buffer -= frameTime;
 		[self updateInternal:frameTime];
@@ -83,6 +91,24 @@
 	} else {
 		[stage generateAround:guy.location listener:self];
 		[self isGuyStuck:dt];
+	}
+
+	if (touching) {
+		touchTime += dt;
+
+		if (!attackFromTouch && touchTime > frameTime * 3) {
+
+			CGPoint swipe = cgp_subtract(touchMove, touchStart);
+			float length = cgp_length(swipe);
+			if (length < 10) {
+				MeleeAttack *attack = [[MeleeAttack alloc] init:guy];
+				[simulation addAttack:attack];
+				MeleeAttackView *view = [[MeleeAttackView alloc] init:attack];
+				[self addChild:view];
+
+				attackFromTouch = true;
+			}
+		}
 	}
 }
 
@@ -131,14 +157,15 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	touchStart = location;
+	touchMove = touchStart = location;
+	touching = true;
 	return true;
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	CGPoint touchEnd = location;
-	CGPoint swipe = cgp_subtract(touchEnd, touchStart);
+	touchMove = location;
+	CGPoint swipe = cgp_subtract(touchMove, touchStart);
 
 	float length = cgp_length(swipe);
 
@@ -154,17 +181,23 @@
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	CGPoint touchEnd = location;
-	CGPoint swipe = cgp_subtract(touchEnd, touchStart);
+	if (!attackFromTouch) {
+		CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+		CGPoint touchEnd = location;
+		CGPoint swipe = cgp_subtract(touchEnd, touchStart);
 
-	float length = cgp_length(swipe);
-	if (length <= 20) {
-		MeleeAttack *attack = [[MeleeAttack alloc] init:guy];
-		[simulation addAttack:attack];
-		MeleeAttackView *view = [[MeleeAttackView alloc] init:attack];
-		[self addChild:view];
+		float length = cgp_length(swipe);
+		if (length <= 20) {
+			MeleeAttack *attack = [[MeleeAttack alloc] init:guy];
+			[simulation addAttack:attack];
+			MeleeAttackView *view = [[MeleeAttackView alloc] init:attack];
+			[self addChild:view];
+		}
 	}
+
+	touching = false;
+	touchTime = 0;
+	attackFromTouch = false;
 }
 
 - (void)registerWithTouchDispatcher {
