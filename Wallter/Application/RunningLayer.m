@@ -15,6 +15,8 @@
 #import "Guy.h"
 #import "GuyView.h"
 #import "Simulation.h"
+#import "MeleeAttack.h"
+#import "MeleeAttackView.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -121,7 +123,7 @@
 
 	float length = cgp_length(swipe);
 
-	if (length > 6) {
+	if (length > 20) {
 		if (swipe.y > 3) {
 			if (swipe.x < 0) {
 				[guy jumpLeft];
@@ -133,7 +135,20 @@
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-//	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+	CGPoint touchEnd = location;
+	CGPoint swipe = cgp_subtract(touchEnd, touchStart);
+
+	float length = cgp_length(swipe);
+	if (length <= 20) {
+		NSLog(@"attack attack");
+		MeleeAttack *attack = [[MeleeAttack alloc] init:guy];
+		[simulation addAttack:attack];
+		MeleeAttackView *view = [[MeleeAttackView alloc] init:attack];
+		[self addChild:view];
+	} else {
+		NSLog(@"length %f", length);
+	}
 }
 
 - (void)registerWithTouchDispatcher {

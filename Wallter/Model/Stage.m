@@ -52,8 +52,6 @@
 		float jump_distance = [self nextJumpDistance];
 		float platformLength = [self nextPlatformLength];
 
-		NSLog(@"next jump distance: %f next platform length: %f", jump_distance, platformLength);
-
 		int height = 50 + rand() % 3 * 30;
 		float x2 = right_edge + jump_distance + platformLength;
 		[self addWall:make_block(right_edge + jump_distance, -50, x2, height)];

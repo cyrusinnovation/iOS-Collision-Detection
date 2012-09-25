@@ -9,6 +9,8 @@
 @interface Guy : NSObject
 @property(nonatomic) CGPoint location;
 
+@property(nonatomic,readonly) BOOL runningRight;
+
 - (id)initIn:(Stage *)stage at:(CGPoint)at;
 - (CGPolygon)polygon;
 - (void)update:(ccTime)dt;

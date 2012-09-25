@@ -23,6 +23,10 @@ typedef enum {
 
 @synthesize location;
 
+- (BOOL)runningRight {
+	return state == stateRunningRight;
+}
+
 - (id)initIn:(Stage *)_stage at:(CGPoint)at {
 	if (self = [super init]) {
 		stage = _stage;
@@ -48,6 +52,7 @@ typedef enum {
 }
 
 - (CGPolygon)polygon {
+	// TODO hahah huge memory leak
 	return make_block(location.x, location.y, location.x + size.x, location.y + size.y);
 }
 
@@ -76,7 +81,6 @@ typedef enum {
 	}
 
 	if (delta.x != 0) {
-		NSLog(@"wall");
 		onAWall = true;
 	}
 }

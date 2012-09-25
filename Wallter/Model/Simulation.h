@@ -5,6 +5,8 @@
 #import "Guy.h"
 #import "Stage.h"
 
+@class MeleeAttack;
+
 @interface Simulation : NSObject
 
 @property(nonatomic, retain) Guy *guy;
@@ -13,4 +15,5 @@
 
 - (void)update:(ccTime)dt;
 
+- (void)addAttack:(MeleeAttack *)_attack;
 @end

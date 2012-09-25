@@ -6,11 +6,12 @@
 #import "ccTypes.h"
 #import "SeparatingAxisTest.h"
 #import "SATResult.h"
+#import "MeleeAttack.h"
 
 @implementation Simulation {
-
 	Guy *guy;
 	Stage *stage;
+	NSMutableArray *attacks;
 }
 
 @synthesize guy;
@@ -20,12 +21,16 @@
 	if (self = [super init]) {
 		guy = _guy;
 		stage = _stage;
+		attacks = [[NSMutableArray alloc] init];
 	} 
 	return self;
 }
 
 - (void)update:(ccTime)dt {
 	[guy update:dt];
+	for (MeleeAttack *attack in attacks) {
+		[attack update:dt];
+	}
 	for (NSValue *wallObject in stage.walls) {
 		CGPolygon wall;
 		[wallObject getValue:&wall];
@@ -40,6 +45,10 @@
 	[guy release];
 	[stage release];
 	[super dealloc];
+}
+
+- (void)addAttack:(MeleeAttack *)_attack {
+ [attacks addObject:_attack];
 }
 
 @end
