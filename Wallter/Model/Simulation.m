@@ -49,6 +49,14 @@
 			}
 		}
 	}
+
+	for (BadGuy *badGuy in badguys) {
+		SATResult result = sat_test(badGuy.polygon, guy.polygon);
+		if (result.penetrating) {
+			[guy kill];
+		}
+	}
+
 	for (NSValue *wallObject in stage.walls) {
 		CGPolygon wall;
 		[wallObject getValue:&wall];

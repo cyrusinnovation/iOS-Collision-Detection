@@ -10,6 +10,8 @@
 @property(nonatomic) CGPoint location;
 
 @property(nonatomic,readonly) BOOL runningRight;
+@property(nonatomic, readonly) bool dead;
+
 
 - (id)initIn:(Stage *)stage at:(CGPoint)at;
 - (CGPolygon)polygon;
@@ -22,4 +24,6 @@
 - (void)jumpLeft;
 
 - (void)jumpRight;
+
+- (void)kill;
 @end

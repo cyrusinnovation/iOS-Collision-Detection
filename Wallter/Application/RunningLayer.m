@@ -77,14 +77,13 @@
 - (void)updateInternal:(ccTime)dt {
 	[simulation update:dt];
 
-	if (guy.location.y < -100) {
+	if (guy.location.y < -100 || guy.dead) {
 		[self initStage];
 		[guy resetTo:cgp(30, 50)];
+	} else {
+		[stage generateAround:guy.location listener:self];
+		[self isGuyStuck:dt];
 	}
-
-	[stage generateAround:guy.location listener:self];
-
-	[self isGuyStuck:dt];
 }
 
 - (void)addedPlatform:(CGPolygon)platform {

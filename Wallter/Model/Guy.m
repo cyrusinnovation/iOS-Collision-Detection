@@ -19,9 +19,12 @@ typedef enum {
 	bool onAWall;
 	int runningSpeed;
 	GuyState state;
+	bool dead;
 }
 
 @synthesize location;
+@synthesize dead;
+
 
 - (BOOL)runningRight {
 	return state == stateRunningRight;
@@ -40,13 +43,15 @@ typedef enum {
 
 		inTheAir = false;
 		onAWall = false;
-		
+
 		state = stateRunningRight;
+
+		dead = false;
 	}
 	return self;
 }
 
--(void) resetTo:(CGPoint) _location {
+- (void)resetTo:(CGPoint)_location {
 	location = _location;
 	velocity = cgp(runningSpeed, 0);
 }
@@ -68,6 +73,7 @@ typedef enum {
 }
 
 int tick = 0;
+
 - (void)correct:(CGPoint)delta {
 	location = cgp_add(location, delta);
 
@@ -112,6 +118,10 @@ int tick = 0;
 		velocity = cgp(runningSpeed, jumpVelocity);
 		state = stateRunningRight;
 	}
+}
+
+- (void)kill {
+	dead = true;
 }
 
 @end
