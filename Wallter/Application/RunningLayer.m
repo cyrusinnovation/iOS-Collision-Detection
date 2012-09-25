@@ -87,14 +87,22 @@
 }
 
 - (void)addedPlatform:(CGPolygon)platform {
+	int numberOfBaddies = rand() % 4;
+	if (numberOfBaddies == 0) return;
+
 	float x = (platform.points[0].x + platform.points[1].x) / 2;
 	float y = platform.points[3].y;
 
-	[self addBadguy:cgp(x, y)];
+	if (numberOfBaddies < 3) {
+		[self addBadguy:cgp(x, y)];
+	} else {
+		[self addBadguy:cgp(x - 80, y)];
+		[self addBadguy:cgp(x + 80, y)];
+	}
 }
 
 - (void)addBadguy:(CGPoint)location {
-	BadGuy* badGuy = [[BadGuy alloc] init:location];
+	BadGuy *badGuy = [[BadGuy alloc] init:location];
 	[simulation addBadGuy:badGuy];
 	[self addChild:[[BadGuyView alloc] init:badGuy around:guy]];
 }
