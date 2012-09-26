@@ -8,15 +8,15 @@
 @implementation StageView {
 	ccColor4F color;
 	Stage *stage;
-	Guy *guy;
+	DrawOffset *offset;
 
 	CGPolygon drawPoly;
 }
 
-- (id)init:(Stage *)_stage following:(Guy *) _guy {
+- (id)init:(Stage *)_stage following:(DrawOffset *) _offset {
 	if (self = [super init]) {
 		stage = _stage;
-		guy = _guy;
+		offset = _offset;
 		color = (ccColor4F) {0.8588, 0.4588, 0.1882, 1.0};
 
 		drawPoly = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
@@ -27,7 +27,7 @@
 - (void)draw {
 	[super draw];
 
-	CGPoint delta = [self getOffset];
+	CGPoint delta = [offset getOffset];
 
 	for (NSValue *wallObject in stage.walls) {
 		CGPolygon wall;
@@ -43,16 +43,6 @@
 - (void)dealloc {
 	free_polygon(drawPoly);
 	[super dealloc];
-}
-
-- (CGPoint)getOffset {
-	float y = 20;
-	int margin = 200;
-	if (guy.location.y > margin) {
-		y = - guy.location.y + margin + 20;
-	}
-	CGPoint delta = cgp(-guy.location.x + 50, y);
-	return delta;
 }
 
 @end

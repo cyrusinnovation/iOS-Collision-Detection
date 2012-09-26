@@ -11,16 +11,17 @@
 @implementation BadGuyView {
 	BadGuy *badguy;
 	ccColor4F color;
-	Guy *guy;
+
+	DrawOffset *offset;
 	CGPolygon drawPoly;
 }
 
-- (id)init:(BadGuy *)_badguy around:(Guy *) _guy {
+- (id)init:(BadGuy *)_badguy withOffset:(DrawOffset *) _offset {
 	if (self = [super init]) {
 		[self scheduleUpdate];
 
 		badguy = _badguy;
-		guy = _guy;
+		offset = _offset;
 		color = (ccColor4F) {0.8, 0.2, 0.8, 1.0};
 
 		drawPoly = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
@@ -37,7 +38,7 @@
 - (void)draw {
 	[super draw];
 
-	CGPoint delta = [self getOffset];
+	CGPoint delta = [offset getOffset];
 	transform_polygon(badguy.polygon, delta, drawPoly);
 
 	ccDrawSolidPoly(drawPoly.points, drawPoly.count, color);
@@ -47,16 +48,6 @@
 	[badguy release];
 	free_polygon(drawPoly);
 	[super dealloc];
-}
-
-- (CGPoint)getOffset {
-	float y = 20;
-	int margin = 200;
-	if (guy.location.y > margin) {
-		y = - guy.location.y + margin + 20;
-	}
-	CGPoint delta = cgp(-guy.location.x + 50, y);
-	return delta;
 }
 
 @end

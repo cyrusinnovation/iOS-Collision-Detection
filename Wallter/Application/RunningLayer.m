@@ -16,6 +16,7 @@
 #import "MeleeAttack.h"
 #import "MeleeAttackView.h"
 #import "BadGuyView.h"
+#import "DrawOffset.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -35,6 +36,8 @@
 	CCLabelTTF *scoreLabel;
 
 	float score;
+
+	DrawOffset *offset;
 }
 
 @synthesize stage;
@@ -70,12 +73,13 @@
 	[stage addWall:make_block(0, -50, 1000, 50)];
 
 	guy = [[Guy alloc] initIn:stage at:cgp(30, 50)];
+	offset = [[DrawOffset alloc] init:guy];
 	guyLoc = cgp(FLT_MIN, FLT_MIN);
 	stuckTime = 0;
 
 	simulation = [[Simulation alloc] initFor:guy in:stage];
 
-	[self addChild:[[StageView alloc] init:stage following:guy]];
+	[self addChild:[[StageView alloc] init:stage following:offset]];
 	[self addChild:[[GuyView alloc] init:guy]];
 
 	score = 0;
@@ -147,7 +151,7 @@
 - (void)addBadguy:(CGPoint)location {
 	BadGuy *badGuy = [[BadGuy alloc] init:location];
 	[simulation addBadGuy:badGuy];
-	[self addChild:[[BadGuyView alloc] init:badGuy around:guy]];
+	[self addChild:[[BadGuyView alloc] init:badGuy withOffset:offset]];
 }
 
 - (void)checkForStuckedness:(ccTime)d {
