@@ -9,7 +9,7 @@
 	Guy *guy;
 	ccColor4F color;
 
-	CGPolygon localWall;
+	CGPolygon drawPoly;
 }
 
 @synthesize guy;
@@ -19,7 +19,7 @@
 		guy = _guy;
 		color = (ccColor4F) {0.2456, 0.4588, 0.1882, 1.0};
 
-		localWall = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
+		drawPoly = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
 	}
 	return self;
 }
@@ -28,13 +28,14 @@
 	[super draw];
 
 	CGPoint delta = [self getOffset];
-	transform_polygon(guy.polygon, delta, localWall);
+	transform_polygon(guy.polygon, delta, drawPoly);
 
-	ccDrawSolidPoly(localWall.points, localWall.count, color);
+	ccDrawSolidPoly(drawPoly.points, drawPoly.count, color);
 }
 
 - (void)dealloc {
 	[guy release];
+	free_polygon(drawPoly);
 	[super dealloc];
 }
 

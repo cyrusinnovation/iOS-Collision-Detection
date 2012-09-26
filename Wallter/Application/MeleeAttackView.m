@@ -13,7 +13,7 @@ ccColor4F color;
 	MeleeAttack *attack;
 	Guy *guy;
 
-	CGPolygon localPoly;
+	CGPolygon drawPoly;
 }
 
 - (id)init:(MeleeAttack *)_attack {
@@ -23,8 +23,8 @@ ccColor4F color;
 		[self scheduleUpdate];
 
 		color = (ccColor4F) {1.0, 1.0, 1.0, 1.0};
-		
-		localPoly = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
+
+		drawPoly = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
 	}
 	return self;
 }
@@ -37,9 +37,15 @@ ccColor4F color;
 
 -(void) draw {
 	CGPoint delta = [self getOffset];
-	transform_polygon(attack.polygon, delta, localPoly);
+	transform_polygon(attack.polygon, delta, drawPoly);
 
-	ccDrawSolidPoly(localPoly.points, localPoly.count, color);
+	ccDrawSolidPoly(drawPoly.points, drawPoly.count, color);
+}
+
+- (void)dealloc {
+	[attack release];
+	free_polygon(drawPoly);
+	[super dealloc];
 }
 
 - (CGPoint)getOffset {

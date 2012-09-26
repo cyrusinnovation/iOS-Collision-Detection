@@ -12,7 +12,7 @@
 	BadGuy *badguy;
 	ccColor4F color;
 	Guy *guy;
-	CGPolygon localWall;
+	CGPolygon drawPoly;
 }
 
 - (id)init:(BadGuy *)_badguy around:(Guy *) _guy {
@@ -23,7 +23,7 @@
 		guy = _guy;
 		color = (ccColor4F) {0.8, 0.2, 0.8, 1.0};
 
-		localWall = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
+		drawPoly = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
 	}
 	return self;
 }
@@ -38,13 +38,14 @@
 	[super draw];
 
 	CGPoint delta = [self getOffset];
-	transform_polygon(badguy.polygon, delta, localWall);
+	transform_polygon(badguy.polygon, delta, drawPoly);
 
-	ccDrawSolidPoly(localWall.points, localWall.count, color);
+	ccDrawSolidPoly(drawPoly.points, drawPoly.count, color);
 }
 
 - (void)dealloc {
 	[badguy release];
+	free_polygon(drawPoly);
 	[super dealloc];
 }
 

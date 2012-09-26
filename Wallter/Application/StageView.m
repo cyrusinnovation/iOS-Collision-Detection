@@ -10,7 +10,7 @@
 	Stage *stage;
 	Guy *guy;
 
-	CGPolygon localWall;
+	CGPolygon drawPoly;
 }
 
 - (id)init:(Stage *)_stage following:(Guy *) _guy {
@@ -19,7 +19,7 @@
 		guy = _guy;
 		color = (ccColor4F) {0.8588, 0.4588, 0.1882, 1.0};
 
-		localWall = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
+		drawPoly = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
 	}
 	return self;
 }
@@ -33,11 +33,16 @@
 		CGPolygon wall;
 		[wallObject getValue:&wall];
 
-		transform_polygon(wall, delta, localWall);
-		ccDrawSolidPoly(localWall.points, localWall.count, color);
+		transform_polygon(wall, delta, drawPoly);
+		ccDrawSolidPoly(drawPoly.points, drawPoly.count, color);
 	}
 
-	free_polygon(localWall);
+	free_polygon(drawPoly);
+}
+
+- (void)dealloc {
+	free_polygon(drawPoly);
+	[super dealloc];
 }
 
 - (CGPoint)getOffset {
