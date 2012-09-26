@@ -61,14 +61,24 @@
 		}
 
 		if (rand() % 10 < 5) {
-			CGPolygon next_platform = make_block(x2 + 30, -50, x2 + 30 + [self nextPlatformLength], height + 200);
-			[listener addedPlatform:next_platform];
-			[self addWall:next_platform];
+			float tall_building_near_edge = x2 + 30;
+			float tall_building_far_edge = tall_building_near_edge + [self nextPlatformLength];
+			CGPolygon tall_building = make_block(tall_building_near_edge, -50, tall_building_far_edge, height + 200);
+			[listener addedPlatform:tall_building];
+			[self addWall:tall_building];
+			
+			// fire escape
 			[self addWall:make_block(x2 - 100, height + 100, x2 - 80, height + 300)];
+
+			float short_building_near_edge = tall_building_far_edge + 30;
+			CGPolygon short_building = make_block(short_building_near_edge, -50, short_building_near_edge + [self nextPlatformLength], height);
+			[listener addedPlatform:short_building];
+			[self addWall:short_building];
+		}
 //	Add the occasional slope.
 //		} else if (rand() % 10 < 5) {
 //		[self addWall:polygon_from(3, cgp(x1, height), cgp(x2, height), cgp((x2 + x1)/2, height + 40))];
-		}
+//		}
 	}
 
 	int previousWallCount = [walls count] - 1;
