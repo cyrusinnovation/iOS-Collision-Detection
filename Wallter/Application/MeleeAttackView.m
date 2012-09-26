@@ -11,14 +11,20 @@ ccColor4F color;
 
 @implementation MeleeAttackView {
 	MeleeAttack *attack;
+	Guy *guy;
+
+	CGPolygon localPoly;
 }
 
 - (id)init:(MeleeAttack *)_attack {
 	if (self = [super init]) {
 		attack = _attack;
+		guy = attack.guy;
 		[self scheduleUpdate];
 
 		color = (ccColor4F) {1.0, 1.0, 1.0, 1.0};
+		
+		localPoly = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
 	}
 	return self;
 }
@@ -30,16 +36,20 @@ ccColor4F color;
 }
 
 -(void) draw {
-	CGPolygon localPoly = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
-	float y = 20;
-	int margin = 200;
-	if (attack.guy.location.y > margin) {
-		y = - attack.guy.location.y + margin + 20;
-	}
-	CGPoint delta = cgp(-attack.guy.location.x + 50, y);
+	CGPoint delta = [self getOffset];
 	transform_polygon(attack.polygon, delta, localPoly);
 
 	ccDrawSolidPoly(localPoly.points, localPoly.count, color);
+}
+
+- (CGPoint)getOffset {
+	float y = 20;
+	int margin = 200;
+	if (guy.location.y > margin) {
+		y = - guy.location.y + margin + 20;
+	}
+	CGPoint delta = cgp(-guy.location.x + 50, y);
+	return delta;
 }
 
 @end

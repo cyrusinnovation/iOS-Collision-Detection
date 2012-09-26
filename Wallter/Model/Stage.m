@@ -74,6 +74,21 @@
 			CGPolygon short_building = make_block(short_building_near_edge, -50, short_building_near_edge + [self nextPlatformLength], height);
 			[listener addedPlatform:short_building];
 			[self addWall:short_building];
+		} else if (rand() % 10 < 5) {
+			float building_height = 500;
+			float tall_building_near_edge = x2 + 30;
+			float tall_building_far_edge = tall_building_near_edge + [self nextPlatformLength];
+			CGPolygon tall_building = make_block(tall_building_near_edge, -50, tall_building_far_edge, height + building_height);
+			[listener addedPlatform:tall_building];
+			[self addWall:tall_building];
+
+			// fire escape
+			int gap = 100;
+			[self addWall:make_block(x2 - 100, height + gap, x2 - 80, height - gap + building_height)];
+
+			CGPolygon above_building = make_block(x2 - 100 - [self nextPlatformLength], height - gap + building_height - 100, x2 - 100, height - gap + building_height);
+			[listener addedPlatform:above_building];
+			[self addWall:above_building];
 		}
 //	Add the occasional slope.
 //		} else if (rand() % 10 < 5) {
