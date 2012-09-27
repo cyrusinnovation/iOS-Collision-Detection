@@ -24,15 +24,19 @@
 	Platform *last_platform;
 	GenerateDirection generate_direction;
 	NSObject <NewPlatformListener> *listener;
+	int base_height;
 }
 
 @synthesize walls;
 @synthesize listener;
+@synthesize base_height;
+
 
 - (id)init {
 	if (self = [super init]) {
 		walls = [[NSMutableArray alloc] init];
 		right_edge = 0;
+		base_height = 0;
 
 		min_platform_length = 400;
 		max_platform_length = 700;
@@ -50,7 +54,7 @@
 - (void)prime {
 	[walls removeAllObjects];
 
-	last_platform = [Platform from:make_block(-200, -300, 1000, 50)];
+	last_platform = [Platform from:make_block(-200, -300, 1000, base_height)];
 	[self addPlatform:last_platform];
 	[self generateNextLevel];
 }
@@ -104,12 +108,12 @@
 	float jump_distance = [self nextJumpDistance];
 	float platformLength = [self nextPlatformLength];
 
-	float height = last_platform.top + [self nextPlatformHeight];
+	float height = base_height + [self nextPlatformHeight];
 
 	float x1 = right_edge + jump_distance;
 	float x2 = x1 + platformLength;
 
-	Platform *platform = [Platform from:make_block(x1, -50, x2, height)];
+	Platform *platform = [Platform from:make_block(x1, base_height-100, x2, height)];
 	[listener addedPlatform:platform];
 	[self addPlatform:platform];
 }
