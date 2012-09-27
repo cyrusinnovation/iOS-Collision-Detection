@@ -111,7 +111,7 @@
 	if (guy.location.y < -100 || guy.dead) {
 		[self initStage];
 	} else {
-		[stage generateAround:guy.location listener:self];
+		[stage generateAround:guy listener:self];
 		[self checkForStuckedness:dt];
 	}
 

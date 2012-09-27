@@ -3,6 +3,7 @@
 //
 
 #import "Stage.h"
+#import "Guy.h"
 
 @implementation Stage {
 	NSMutableArray *walls;
@@ -45,9 +46,11 @@
 	[super dealloc];
 }
 
-- (void)generateAround:(CGPoint)point listener:(NSObject<NewPlatformListener> *)listener {
-	point = cgp_add(point, cgp(max_jump_distance + max_platform_length, 0));
-	if (point.x > right_edge) {
+- (void)generateAround:(Guy *)guy listener:(NSObject<NewPlatformListener> *)listener {
+	CGPoint location = guy.location;
+
+	location = cgp_add(location, cgp(max_jump_distance + max_platform_length, 0));
+	if (location.x > right_edge) {
 		float jump_distance = [self nextJumpDistance];
 		float platformLength = [self nextPlatformLength];
 
@@ -90,10 +93,6 @@
 			[listener addedPlatform:above_building];
 			[self addWall:above_building];
 		}
-//	Add the occasional slope.
-//		} else if (rand() % 10 < 5) {
-//		[self addWall:polygon_from(3, cgp(x1, height), cgp(x2, height), cgp((x2 + x1)/2, height + 40))];
-//		}
 	}
 
 	int previousWallCount = [walls count] - 1;
@@ -103,7 +102,7 @@
 		[wallObject getValue:&wall];
 		bool remove = true;
 		for (int i = 0; i < wall.count; i++) {
-			if (wall.points[i].x > (point.x - 2000)) {
+			if (wall.points[i].x > (location.x - 2000)) {
 				remove = false;
 			}
 		}

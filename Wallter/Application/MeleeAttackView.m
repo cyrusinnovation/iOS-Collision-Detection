@@ -4,6 +4,7 @@
 
 #import "MeleeAttackView.h"
 #import "Guy.h"
+#import "CCDrawingPrimitives.h"
 
 ccColor4F color;
 
@@ -39,7 +40,6 @@ ccColor4F color;
 -(void) draw {
 	CGPoint delta = [offset getOffset];
 	transform_polygon(attack.polygon, delta, drawPoly);
-
 	ccDrawSolidPoly(drawPoly.points, drawPoly.count, color);
 }
 
