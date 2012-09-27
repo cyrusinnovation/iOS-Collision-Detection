@@ -70,7 +70,6 @@
 	[self removeAllChildrenWithCleanup:true];
 
 	stage = [[Stage alloc] init];
-	[stage addWall:make_block(-200, -300, 1000, 50)];
 
 	guy = [[Guy alloc] initIn:stage at:cgp(30, 50)];
 	offset = [[DrawOffset alloc] init:guy];

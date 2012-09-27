@@ -6,6 +6,7 @@
 #import "SeparatingAxisTest.h"
 #import "MeleeAttack.h"
 #import "SATResult.h"
+#import "Platform.h"
 
 @implementation Simulation {
 	Guy *guy;
@@ -57,10 +58,8 @@
 		}
 	}
 
-	for (NSValue *wallObject in stage.walls) {
-		CGPolygon wall;
-		[wallObject getValue:&wall];
-		SATResult result = sat_test(guy.polygon, wall);
+	for (Platform *wall in stage.walls) {
+		SATResult result = sat_test(guy.polygon, wall.polygon);
 		if (result.penetrating) {
 			[guy correct:result.penetration];
 		}

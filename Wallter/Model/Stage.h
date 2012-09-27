@@ -9,9 +9,10 @@
 #import "NewPlatformListener.h"
 
 @class Guy;
+@class Platform;
 
 @interface Stage : NSObject
 @property(nonatomic, retain) NSMutableArray *walls;
-- (void)addWall:(CGPolygon)polygon;
+- (void)addPlatform:(Platform *)polygon;
 - (void)generateAround:(Guy *)guy listener:(NSObject<NewPlatformListener> *)listener;
 @end

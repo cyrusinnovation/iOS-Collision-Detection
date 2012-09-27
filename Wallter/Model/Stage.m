@@ -4,6 +4,7 @@
 
 #import "Stage.h"
 #import "Guy.h"
+#import "Platform.h"
 
 @implementation Stage {
 	NSMutableArray *walls;
@@ -27,17 +28,17 @@
 
 		min_jump_distance = 100;
 		max_jump_distance = 160;
+
+		[self addPlatform:[Platform from:make_block(-200, -300, 1000, 50)]];
 	}
 	return self;
 }
 
-- (void)addWall:(CGPolygon)polygon {
-	[walls addObject:[NSValue value:&polygon withObjCType:@encode(CGPolygon)]];
+- (void)addPlatform:(Platform *)wall {
+	[walls addObject:wall];
 
-	for (int i = 0; i < polygon.count; i++) {
-		if (polygon.points[i].x > right_edge) {
-			right_edge = polygon.points[i].x;
-		}
+	if (wall.right > right_edge) {
+		right_edge = wall.right;
 	}
 }
 
@@ -46,7 +47,7 @@
 	[super dealloc];
 }
 
-- (void)generateAround:(Guy *)guy listener:(NSObject<NewPlatformListener> *)listener {
+- (void)generateAround:(Guy *)guy listener:(NSObject <NewPlatformListener> *)listener {
 	CGPoint location = guy.location;
 
 	location = cgp_add(location, cgp(max_jump_distance + max_platform_length, 0));
@@ -60,7 +61,7 @@
 		{
 			CGPolygon next_platform = make_block(x1, -50, x2, height);
 			[listener addedPlatform:next_platform];
-			[self addWall:next_platform];
+			[self addPlatform:[Platform from:next_platform]];
 		}
 
 		if (rand() % 10 < 5) {
@@ -68,50 +69,48 @@
 			float tall_building_far_edge = tall_building_near_edge + [self nextPlatformLength];
 			CGPolygon tall_building = make_block(tall_building_near_edge, -50, tall_building_far_edge, height + 200);
 			[listener addedPlatform:tall_building];
-			[self addWall:tall_building];
-			
+			[self addPlatform:[Platform from:tall_building]];
+
 			// fire escape
-			[self addWall:make_block(x2 - 100, height + 100, x2 - 80, height + 300)];
+			[self addPlatform:[Platform from:make_block(x2 - 100, height + 100, x2 - 80, height + 300)]];
 
 			float short_building_near_edge = tall_building_far_edge + 30;
 			CGPolygon short_building = make_block(short_building_near_edge, -50, short_building_near_edge + [self nextPlatformLength], height);
 			[listener addedPlatform:short_building];
-			[self addWall:short_building];
+			[self addPlatform:[Platform from:short_building]];
 		} else if (rand() % 10 < 5) {
 			float building_height = 500;
 			float tall_building_near_edge = x2 + 30;
 			float tall_building_far_edge = tall_building_near_edge + [self nextPlatformLength];
 			CGPolygon tall_building = make_block(tall_building_near_edge, -50, tall_building_far_edge, height + building_height);
 			[listener addedPlatform:tall_building];
-			[self addWall:tall_building];
+			[self addPlatform:[Platform from:tall_building]];
 
 			// fire escape
 			int gap = 100;
-			[self addWall:make_block(x2 - 100, height + gap, x2 - 80, height - gap + building_height)];
+			[self addPlatform:[Platform from:make_block(x2 - 100, height + gap, x2 - 80, height - gap + building_height)]];
 
 			CGPolygon above_building = make_block(x2 - 100 - [self nextPlatformLength], height - gap + building_height - 100, x2 - 100, height - gap + building_height);
 			[listener addedPlatform:above_building];
-			[self addWall:above_building];
+			[self addPlatform:[Platform from:above_building]];
 		}
 	}
 
-	int previousWallCount = [walls count] - 1;
-	while ([walls count] > previousWallCount) {
-		CGPolygon wall;
-		NSValue *wallObject = [walls objectAtIndex:0];
-		[wallObject getValue:&wall];
+	int previousPlatformCount = [walls count] - 1;
+	while ([walls count] > previousPlatformCount) {
+		Platform *wall = [walls objectAtIndex:0];
 		bool remove = true;
-		for (int i = 0; i < wall.count; i++) {
-			if (wall.points[i].x > (location.x - 2000)) {
+		for (int i = 0; i < wall.polygon.count; i++) {
+			if (wall.polygon.points[i].x > (location.x - 2000)) {
 				remove = false;
 			}
 		}
 		if (remove) {
 			[walls removeObjectAtIndex:0];
-			free_polygon(wall);
+			[wall release];
 		}
 
-		previousWallCount = [walls count];
+		previousPlatformCount = [walls count];
 	}
 }
 

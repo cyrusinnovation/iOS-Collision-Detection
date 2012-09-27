@@ -4,6 +4,7 @@
 
 #import "StageView.h"
 #import "CCDrawingPrimitives.h"
+#import "Platform.h"
 
 @implementation StageView {
 	ccColor4F color;
@@ -29,11 +30,8 @@
 
 	CGPoint delta = [offset getOffset];
 
-	for (NSValue *wallObject in stage.walls) {
-		CGPolygon wall;
-		[wallObject getValue:&wall];
-
-		transform_polygon(wall, delta, drawPoly);
+	for (Platform *wall in stage.walls) {
+		transform_polygon(wall.polygon, delta, drawPoly);
 		ccDrawSolidPoly(drawPoly.points, drawPoly.count, color);
 	}
 
