@@ -13,16 +13,19 @@
 	CGPolygon polygon;
 	float right;
 	float left;
-	float middle;
+	float center;
 	float top;
+	float bottom;
 }
 
 @synthesize polygon;
 
 @synthesize right;
 @synthesize left;
-@synthesize middle;
+@synthesize center;
 @synthesize top;
+@synthesize bottom;
+
 
 + (Platform *)from:(CGPolygon)polygon {
 	return [[Platform alloc] init:polygon];
@@ -35,6 +38,8 @@
 		right = FLT_MIN;
 		left = FLT_MAX;
 		top = FLT_MIN;
+		bottom = FLT_MAX;
+
 		for (int i = 0; i < polygon.count; i++) {
 			CGPoint point = polygon.points[i];
 			if (point.x < left) {
@@ -43,12 +48,16 @@
 			if (point.x > right) {
 				right = point.x;
 			}
+			
 			if (point.y > top) {
 				top = point.y;
 			}
+			if (point.y < bottom) {
+				bottom = point.y;
+			}
 		}
 
-		middle = (left + right)/2;
+		center = (left + right)/2;
 	}
 	return self;
 }

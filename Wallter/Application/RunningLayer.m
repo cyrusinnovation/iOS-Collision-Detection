@@ -142,7 +142,7 @@
 	int numberOfBaddies = rand() % 4;
 	if (numberOfBaddies == 0) return;
 
-	float x = platform.middle;
+	float x = platform.center;
 	float y = platform.top;
 
 	if (numberOfBaddies < 3) {

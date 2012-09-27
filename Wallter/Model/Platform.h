@@ -14,8 +14,10 @@
 
 @property(nonatomic, readonly) float right;
 @property(nonatomic, readonly) float left;
-@property(nonatomic, readonly) float middle;
+@property(nonatomic, readonly) float center;
 @property(nonatomic, readonly) float top;
+@property(nonatomic, readonly) float bottom;
+
 
 - (id)init:(CGPolygon) poly;
 + (Platform *)from:(CGPolygon)polygon;

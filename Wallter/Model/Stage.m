@@ -61,6 +61,8 @@
 	if (wall.right > right_edge) {
 		right_edge = wall.right;
 	}
+
+	last_platform = wall;
 }
 
 - (void)dealloc {
@@ -72,18 +74,44 @@
 	int platformCount = rand()%10;
 
 	for (int i = 0; i < platformCount; i++) {
-		float jump_distance = [self nextJumpDistance];
-		float platformLength = [self nextPlatformLength];
-
-		float height = last_platform.top + [self nextPlatformHeight];
-
-		float x1 = right_edge + jump_distance;
-		float x2 = x1 + platformLength;
-
-		Platform *platform = [Platform from:make_block(x1, -50, x2, height)];
-		[listener addedPlatform:platform];
-		[self addPlatform:platform];
+		if (rand() % 10 < 8) {
+			[self addAPlatform];
+		} else{
+			[self addAWallJump];
+		}
 	}
+}
+
+- (void)addAWallJump {
+	Platform *jumpPlatform = last_platform;
+	
+	float tall_building_near_edge = last_platform.right + 30;
+	float tall_building_far_edge = tall_building_near_edge + [self nextPlatformLength];
+	Platform *tall_building = [Platform from:make_block(tall_building_near_edge, last_platform.bottom, tall_building_far_edge, last_platform.top + 200)];
+	[listener addedPlatform:tall_building];
+	[self addPlatform:tall_building];
+
+	// fire escape
+	[self addPlatform:[Platform from:make_block(last_platform.left - 100, jumpPlatform.top + 100, last_platform.left - 80, jumpPlatform.top + 300)]];
+
+	float short_building_near_edge = tall_building.right + 30;
+	Platform *short_building = [Platform from:make_block(short_building_near_edge, jumpPlatform.bottom, short_building_near_edge + [self nextPlatformLength], jumpPlatform.top)];
+	[listener addedPlatform:short_building];
+	[self addPlatform:short_building];
+}
+
+- (void)addAPlatform {
+	float jump_distance = [self nextJumpDistance];
+	float platformLength = [self nextPlatformLength];
+
+	float height = last_platform.top + [self nextPlatformHeight];
+
+	float x1 = right_edge + jump_distance;
+	float x2 = x1 + platformLength;
+
+	Platform *platform = [Platform from:make_block(x1, -50, x2, height)];
+	[listener addedPlatform:platform];
+	[self addPlatform:platform];
 }
 
 - (void)generateAround:(Guy *)guy  {
@@ -92,19 +120,6 @@
 //	location = cgp_add(location, cgp(max_jump_distance + max_platform_length, 0));
 //	if (location.x > right_edge) {
 //		if (rand() % 10 < 5) {
-//			float tall_building_near_edge = x2 + 30;
-//			float tall_building_far_edge = tall_building_near_edge + [self nextPlatformLength];
-//			CGPolygon tall_building = make_block(tall_building_near_edge, -50, tall_building_far_edge, height + 200);
-//			[listener addedPlatform:tall_building];
-//			[self addPlatform:[Platform from:tall_building]];
-//
-//			// fire escape
-//			[self addPlatform:[Platform from:make_block(x2 - 100, height + 100, x2 - 80, height + 300)]];
-//
-//			float short_building_near_edge = tall_building_far_edge + 30;
-//			CGPolygon short_building = make_block(short_building_near_edge, -50, short_building_near_edge + [self nextPlatformLength], height);
-//			[listener addedPlatform:short_building];
-//			[self addPlatform:[Platform from:short_building]];
 //		} else if (rand() % 10 < 5) {
 //			float building_height = 500;
 //			float tall_building_near_edge = x2 + 30;
