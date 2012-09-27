@@ -14,10 +14,9 @@
 @interface Stage : NSObject
 @property(nonatomic, retain) NSMutableArray *walls;
 @property(nonatomic, retain) NSObject <NewPlatformListener> *listener;
-@property(nonatomic, readonly) int base_height;
+@property(nonatomic, readonly) float next_trigger_height;
 
-
-- (void)addPlatform:(Platform *)polygon;
+- (void)addPlatform:(Platform *)platform;
 - (void)generateAround:(Guy *)guy;
 
 - (void)prime;

@@ -34,8 +34,6 @@
 		transform_polygon(wall.polygon, delta, drawPoly);
 		ccDrawSolidPoly(drawPoly.points, drawPoly.count, color);
 	}
-
-	free_polygon(drawPoly);
 }
 
 - (void)dealloc {
