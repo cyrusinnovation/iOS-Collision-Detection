@@ -57,6 +57,7 @@
 	last_platform = [Platform from:make_block(-200, -300, 1000, base_height)];
 	[self addPlatform:last_platform];
 	[self generateNextLevel];
+	[self generateNextLevel];
 }
 
 - (void)addPlatform:(Platform *)wall {
@@ -88,36 +89,54 @@
 	[self goToTheNextLevel];
 }
 
-- (void)addAWallJump {
-	Platform *jumpPlatform = last_platform;
-
-	float tall_building_near_edge = last_platform.right + 30;
-	float tall_building_far_edge = tall_building_near_edge + [self nextPlatformLength];
-	Platform *tall_building = [Platform from:make_block(tall_building_near_edge, last_platform.bottom, tall_building_far_edge, last_platform.top + 200)];
-	[listener addedPlatform:tall_building];
-	[self addPlatform:tall_building];
-
-	// fire escape
-	[self addPlatform:[Platform from:make_block(tall_building.left - 100, jumpPlatform.top + 100, tall_building.left - 80, jumpPlatform.top + 300)]];
-
-	float short_building_near_edge = tall_building.right + 30;
-	Platform *short_building = [Platform from:make_block(short_building_near_edge, jumpPlatform.bottom, short_building_near_edge + [self nextPlatformLength], jumpPlatform.top)];
-	[listener addedPlatform:short_building];
-	[self addPlatform:short_building];
-}
-
 - (void)addAPlatform {
 	float jump_distance = [self nextJumpDistance];
 	float platformLength = [self nextPlatformLength];
 
 	float height = base_height + [self nextPlatformHeight];
 
-	float x1 = right_edge + jump_distance;
-	float x2 = x1 + platformLength;
+	float left = last_platform.right + jump_distance;
+	float right = left + platformLength;
+	if (generate_direction == Left) {
+		right = last_platform.left - jump_distance;
+		left = right - platformLength;
+	}
 
-	Platform *platform = [Platform from:make_block(x1, base_height - 100, x2, height)];
+	Platform *platform = [Platform from:make_block(left, base_height - 100, right, height)];
 	[listener addedPlatform:platform];
 	[self addPlatform:platform];
+}
+
+- (void)addAWallJump {
+	Platform *jumpPlatform = last_platform;
+
+	float tall_building_left_edge = last_platform.right + 30;
+	float tall_building_right_edge = tall_building_left_edge + [self nextPlatformLength];
+	if (generate_direction == Left) {
+		tall_building_right_edge = last_platform.left - 30;
+		tall_building_left_edge = tall_building_right_edge - [self nextPlatformLength];
+	}
+
+	Platform *tall_building = [Platform from:make_block(tall_building_left_edge, last_platform.bottom, tall_building_right_edge, last_platform.top + 200)];
+	[listener addedPlatform:tall_building];
+	[self addPlatform:tall_building];
+
+	// fire escape
+	if (generate_direction == Right) {
+		[self addPlatform:[Platform from:make_block(tall_building.left - 100, jumpPlatform.top + 100, tall_building.left - 80, jumpPlatform.top + 300)]];
+	} else {
+		[self addPlatform:[Platform from:make_block(tall_building.right + 80, jumpPlatform.top + 100, tall_building.right + 100, jumpPlatform.top + 300)]];
+	}
+
+	float short_building_left_edge = tall_building.right + 30;
+	float short_building_right_edge = short_building_left_edge + [self nextPlatformLength];
+	if (generate_direction == Left) {
+		short_building_right_edge = tall_building.left - 30;
+		short_building_left_edge = short_building_right_edge - [self nextPlatformLength];
+	}
+	Platform *short_building = [Platform from:make_block(short_building_left_edge, jumpPlatform.bottom, short_building_right_edge, jumpPlatform.top)];
+	[listener addedPlatform:short_building];
+	[self addPlatform:short_building];
 }
 
 - (void)goToTheNextLevel {
@@ -145,15 +164,6 @@
 }
 
 - (void)generateAround:(Guy *)guy {
-//	CGPoint location = guy.location;
-//
-//	location = cgp_add(location, cgp(max_jump_distance + max_platform_length, 0));
-//	if (location.x > right_edge) {
-//		if (rand() % 10 < 5) {
-//		} else if (rand() % 10 < 5) {
-//		}
-//	}
-//
 //	int previousPlatformCount = [walls count] - 1;
 //	while ([walls count] > previousPlatformCount) {
 //		Platform *wall = [walls objectAtIndex:0];
