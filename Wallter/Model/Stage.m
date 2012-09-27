@@ -26,7 +26,7 @@
 		max_platform_length = 700;
 
 		min_jump_distance = 100;
-		max_jump_distance = 170;
+		max_jump_distance = 160;
 	}
 	return self;
 }
@@ -54,7 +54,7 @@
 		float jump_distance = [self nextJumpDistance];
 		float platformLength = [self nextPlatformLength];
 
-		float height = 50 + rand() % 3 * 30;
+		float height = 50 + rand() % 3 * 25;
 		float x1 = right_edge + jump_distance;
 		float x2 = x1 + platformLength;
 		{

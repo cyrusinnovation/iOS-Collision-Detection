@@ -26,7 +26,7 @@
 
 	int x = 50;
 	if (!guy.runningRight) {
-		x = 430;
+		x = 410;
 	}
 
 	CGPoint target_delta = cgp(x, y);
