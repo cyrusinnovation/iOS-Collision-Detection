@@ -30,9 +30,8 @@ typedef enum {
 	return state == stateRunningRight;
 }
 
-- (id)initIn:(Stage *)_stage at:(CGPoint)at {
+- (id)initAt:(CGPoint)at {
 	if (self = [super init]) {
-		stage = _stage;
 		location = at;
 		size = cgp(20, 30);
 

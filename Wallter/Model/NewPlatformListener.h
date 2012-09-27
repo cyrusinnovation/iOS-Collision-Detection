@@ -5,10 +5,12 @@
 //
 
 
-#import <Foundation/Foundation.h>
+#import "Polygon.h"
+
+@class Platform;
 
 @protocol NewPlatformListener
 
--(void)addedPlatform:(CGPolygon) platform;
+-(void)addedPlatform:(Platform *) platform;
 
 @end

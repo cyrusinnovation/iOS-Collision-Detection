@@ -12,13 +12,14 @@
 #import "Stage.h"
 #import "NewPlatformListener.h"
 
-@interface RunningLayer : CCLayerColor<NewPlatformListener>
+@interface
+RunningLayer : CCLayerColor<NewPlatformListener>
 
 @property(nonatomic, retain) Stage *stage;
 
 + (CCScene *)scene;
 
-- (void)addedPlatform:(CGPolygon)platform;
+- (void)addedPlatform:(Platform *)platform;
 
 
 @end

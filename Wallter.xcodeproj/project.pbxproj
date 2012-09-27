@@ -42,6 +42,7 @@
 		C13DA3DE8588B7C7C96C5DBB /* MeleeAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */; };
 		C13DA4AFFC86A6D20F1A98EA /* instructions~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */; };
 		C13DA511333E2B8D9BB738F0 /* BadGuy.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA9C6C1BA867C67CBD1F2 /* BadGuy.m */; };
+		C13DA55BC2945B890248CD8B /* NullStageListener.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA72780F71E58C6DFC83A /* NullStageListener.m */; };
 		C13DA573FD6A3D7B2355F72A /* WorldConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA74ECD4552676249D903 /* WorldConstants.m */; };
 		C13DA76E377213D13357DA55 /* Guy.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABCD158D631E2C4F22FF /* Guy.m */; };
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
@@ -93,6 +94,7 @@
 		C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttackView.m; sourceTree = "<group>"; };
 		C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuyView.m; sourceTree = "<group>"; };
 		C13DA6ADE58116D4A5A14BBE /* GuyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuyView.h; sourceTree = "<group>"; };
+		C13DA72780F71E58C6DFC83A /* NullStageListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullStageListener.m; sourceTree = "<group>"; };
 		C13DA73281B6CEE82FE1BC7C /* Simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simulation.h; sourceTree = "<group>"; };
 		C13DA74ECD4552676249D903 /* WorldConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldConstants.m; sourceTree = "<group>"; };
 		C13DA8127DE99147554E59B3 /* DrawOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawOffset.h; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		C13DA9D03DAF3987369155F4 /* BadGuyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuyView.h; sourceTree = "<group>"; };
 		C13DAB30C5541131B661D9E6 /* NewPlatformListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlatformListener.h; sourceTree = "<group>"; };
 		C13DABCD158D631E2C4F22FF /* Guy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Guy.m; sourceTree = "<group>"; };
+		C13DACB6C4FE5DBBF77EDCAF /* NullStageListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullStageListener.h; sourceTree = "<group>"; };
 		C13DACC274D872245BD2809B /* StageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageView.h; sourceTree = "<group>"; };
 		C13DAD1503891DAAB4661AFA /* Guy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guy.h; sourceTree = "<group>"; };
 		C13DAD62E4709EA93612BC08 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 		C13DA4225D06259CD520F93D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C13DACB6C4FE5DBBF77EDCAF /* NullStageListener.h */,
+				C13DA72780F71E58C6DFC83A /* NullStageListener.m */,
 				C13DAD62E4709EA93612BC08 /* Platform.h */,
 				C13DAE56EF1C7A3A92071EC1 /* Platform.m */,
 				C13DAB30C5541131B661D9E6 /* NewPlatformListener.h */,
@@ -360,6 +365,7 @@
 				C13DA1EA0E51AE06DBC61B12 /* BadGuyView.m in Sources */,
 				C13DA049CCF00D8D33DB445C /* DrawOffset.m in Sources */,
 				C13DAD4F5D5236CC58258270 /* Platform.m in Sources */,
+				C13DA55BC2945B890248CD8B /* NullStageListener.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

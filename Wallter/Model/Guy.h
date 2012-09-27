@@ -12,8 +12,7 @@
 @property(nonatomic,readonly) BOOL runningRight;
 @property(nonatomic, readonly) bool dead;
 
-
-- (id)initIn:(Stage *)stage at:(CGPoint)at;
+- (id)initAt:(CGPoint)at;
 - (CGPolygon)polygon;
 - (void)update:(ccTime)dt;
 

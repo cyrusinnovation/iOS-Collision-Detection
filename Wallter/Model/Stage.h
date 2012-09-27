@@ -13,6 +13,10 @@
 
 @interface Stage : NSObject
 @property(nonatomic, retain) NSMutableArray *walls;
+@property(nonatomic, retain) NSObject <NewPlatformListener> *listener;
+
 - (void)addPlatform:(Platform *)polygon;
-- (void)generateAround:(Guy *)guy listener:(NSObject<NewPlatformListener> *)listener;
+- (void)generateAround:(Guy *)guy;
+
+- (void)prime;
 @end

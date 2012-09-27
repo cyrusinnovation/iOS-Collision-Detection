@@ -6,17 +6,15 @@
 //
 
 
-#import <CoreGraphics/CoreGraphics.h>
 #import "RunningLayer.h"
 
-#import "Stage.h"
 #import "StageView.h"
 #import "GuyView.h"
 #import "Simulation.h"
 #import "MeleeAttack.h"
 #import "MeleeAttackView.h"
 #import "BadGuyView.h"
-#import "DrawOffset.h"
+#import "Platform.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -69,20 +67,27 @@
 - (void)initStage {
 	[self removeAllChildrenWithCleanup:true];
 
-	stage = [[Stage alloc] init];
-
-	guy = [[Guy alloc] initIn:stage at:cgp(30, 50)];
-	offset = [[DrawOffset alloc] init:guy];
 	guyLoc = cgp(FLT_MIN, FLT_MIN);
 	stuckTime = 0;
+	score = 0;
+
+	guy = [[Guy alloc] initAt:cgp(30, 50)];
+	offset = [[DrawOffset alloc] init:guy];
+
+	stage = [[Stage alloc] init];
+	stage.listener = self;
 
 	simulation = [[Simulation alloc] initFor:guy in:stage];
+
+	[stage prime];
 
 	[self addChild:[[StageView alloc] init:stage following:offset]];
 	[self addChild:[[GuyView alloc] init:guy following:offset]];
 
-	score = 0;
+	[self setUpScoreLabel];
+}
 
+- (void)setUpScoreLabel {
 	scoreLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Marker Felt" fontSize:32.0f];
 	scoreLabel.color = ccc3(108, 54, 54);
 	CGSize s = [[CCDirector sharedDirector] winSize];
@@ -110,7 +115,7 @@
 	if (guy.location.y < -100 || guy.dead) {
 		[self initStage];
 	} else {
-		[stage generateAround:guy listener:self];
+		[stage generateAround:guy];
 		[self checkForStuckedness:dt];
 	}
 
@@ -133,12 +138,12 @@
 	}
 }
 
-- (void)addedPlatform:(CGPolygon)platform {
+- (void)addedPlatform:(Platform *)platform {
 	int numberOfBaddies = rand() % 4;
 	if (numberOfBaddies == 0) return;
 
-	float x = (platform.points[0].x + platform.points[1].x) / 2;
-	float y = platform.points[3].y;
+	float x = platform.middle;
+	float y = platform.top;
 
 	if (numberOfBaddies < 3) {
 		[self addBadguy:cgp(x, y)];
