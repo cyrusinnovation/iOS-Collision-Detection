@@ -80,7 +80,7 @@
 	simulation = [[Simulation alloc] initFor:guy in:stage];
 
 	[self addChild:[[StageView alloc] init:stage following:offset]];
-	[self addChild:[[GuyView alloc] init:guy]];
+	[self addChild:[[GuyView alloc] init:guy following:offset]];
 
 	score = 0;
 
@@ -102,6 +102,7 @@
 
 - (void)updateInternal:(ccTime)dt {
 	[simulation update:dt];
+	[offset update];
 
 	score += cgp_length(cgp_subtract(guy.location, guyLoc));
 	// TODO OPT don't update the score string every frame
@@ -124,7 +125,7 @@
 			if (length < 10) {
 				MeleeAttack *attack = [[MeleeAttack alloc] init:guy];
 				[simulation addAttack:attack];
-				MeleeAttackView *view = [[MeleeAttackView alloc] init:attack];
+				MeleeAttackView *view = [[MeleeAttackView alloc] init:attack following:offset];
 				[self addChild:view];
 
 				attackFromTouch = true;
@@ -207,7 +208,7 @@
 		if (length <= 20) {
 			MeleeAttack *attack = [[MeleeAttack alloc] init:guy];
 			[simulation addAttack:attack];
-			MeleeAttackView *view = [[MeleeAttackView alloc] init:attack];
+			MeleeAttackView *view = [[MeleeAttackView alloc] init:attack following:offset];
 			[self addChild:view];
 		}
 	}

@@ -10,13 +10,15 @@
 	ccColor4F color;
 
 	CGPolygon drawPoly;
+	DrawOffset *offset;
 }
 
 @synthesize guy;
 
-- (id)init:(Guy *)_guy {
+- (id)init:(Guy *)_guy following:(DrawOffset *) _offset {
 	if (self = [super init]) {
 		guy = _guy;
+		offset = _offset;
 		color = (ccColor4F) {0.2456, 0.4588, 0.1882, 1.0};
 
 		drawPoly = polygon_from(4, cgp(0, 0), cgp(0, 0), cgp(0, 0), cgp(0, 0));
@@ -27,7 +29,7 @@
 - (void)draw {
 	[super draw];
 
-	CGPoint delta = [self getOffset];
+	CGPoint delta = [offset getOffset];
 	transform_polygon(guy.polygon, delta, drawPoly);
 
 	ccDrawSolidPoly(drawPoly.points, drawPoly.count, color);
@@ -37,16 +39,6 @@
 	[guy release];
 	free_polygon(drawPoly);
 	[super dealloc];
-}
-
-- (CGPoint)getOffset {
-	float y = 20;
-	int margin = 200;
-	if (guy.location.y > margin) {
-		y = - guy.location.y + margin + 20;
-	}
-	CGPoint delta = cgp(-guy.location.x + 50, y);
-	return delta;
 }
 
 @end

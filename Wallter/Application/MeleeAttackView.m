@@ -3,8 +3,6 @@
 //
 
 #import "MeleeAttackView.h"
-#import "CCDrawingPrimitives.h"
-#import "Polygon.h"
 #import "Guy.h"
 
 ccColor4F color;
@@ -14,12 +12,15 @@ ccColor4F color;
 	Guy *guy;
 
 	CGPolygon drawPoly;
+	DrawOffset *offset;
 }
 
-- (id)init:(MeleeAttack *)_attack {
+- (id)init:(MeleeAttack *)_attack following:(DrawOffset *) _offset {
 	if (self = [super init]) {
 		attack = _attack;
 		guy = attack.guy;
+		offset = _offset;
+
 		[self scheduleUpdate];
 
 		color = (ccColor4F) {1.0, 1.0, 1.0, 1.0};
@@ -36,7 +37,7 @@ ccColor4F color;
 }
 
 -(void) draw {
-	CGPoint delta = [self getOffset];
+	CGPoint delta = [offset getOffset];
 	transform_polygon(attack.polygon, delta, drawPoly);
 
 	ccDrawSolidPoly(drawPoly.points, drawPoly.count, color);
@@ -46,16 +47,6 @@ ccColor4F color;
 	[attack release];
 	free_polygon(drawPoly);
 	[super dealloc];
-}
-
-- (CGPoint)getOffset {
-	float y = 20;
-	int margin = 200;
-	if (guy.location.y > margin) {
-		y = - guy.location.y + margin + 20;
-	}
-	CGPoint delta = cgp(-guy.location.x + 50, y);
-	return delta;
 }
 
 @end

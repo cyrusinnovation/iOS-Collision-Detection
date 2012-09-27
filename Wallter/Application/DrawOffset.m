@@ -9,25 +9,35 @@
 #import "CGPoint_ops.h"
 
 @implementation DrawOffset {
-
 	Guy *guy;
+	CGPoint delta;
 }
 
 - (id)init:(Guy *)_guy {
 	if (self = [super init]) {
 		guy = _guy;
+		delta = cgp(160, 240);
 	}
 	return self;
 }
 
-- (CGPoint)getOffset {
-	float y = 20;
-	int margin = 200;
-	if (guy.location.y > margin) {
-		y = - guy.location.y + margin + 20;
+-(void) update {
+	float y = 80;
+
+	int x = 50;
+	if (!guy.runningRight) {
+		x = 430;
 	}
-	CGPoint delta = cgp(-guy.location.x + 50, y);
-	return delta;
+
+	CGPoint target_delta = cgp(x, y);
+	CGPoint difference = cgp_subtract(target_delta, delta);
+	cgp_scale(&difference, 0.02);
+	delta = cgp_add(delta, difference);
+//	delta = target_delta;
+}
+
+- (CGPoint)getOffset {
+	return cgp_add(cgp(-guy.location.x, - guy.location.y), delta);
 }
 
 @end

@@ -11,5 +11,4 @@
 
 @interface BadGuyView : CCNode
 - (id)init:(BadGuy *)_badguy withOffset:(DrawOffset *)_guy;
-
 @end

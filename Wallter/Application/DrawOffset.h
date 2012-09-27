@@ -11,4 +11,7 @@
 @interface DrawOffset : NSObject
 - (CGPoint)getOffset;
 - (id)init:(Guy *)guy;
+
+- (void)update;
+
 @end
