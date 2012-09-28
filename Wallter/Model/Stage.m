@@ -25,8 +25,13 @@
 	NSObject <NewPlatformListener> *listener;
 
 	float next_trigger_height;
-	int height_between_levels;
-	int platform_depth;
+	float height_between_levels;
+	float platform_depth;
+	float fire_escape_clearance;
+	float tall_building_height;
+	float gap_before_tall_building;
+	float fire_escape_offset;
+	float fire_escape_width;
 }
 
 @synthesize walls;
@@ -47,6 +52,13 @@
 
 		generate_direction = Right;
 		platform_depth = 100;
+
+		gap_before_tall_building = 30;
+		fire_escape_clearance = 100;
+		tall_building_height = 200;
+
+		fire_escape_offset = 80;
+		fire_escape_width = 20;
 
 		listener = [NullStageListener instance];
 	}
@@ -100,12 +112,11 @@
 - (void)addAWallJump {
 	Platform *jumpPlatform = last_platform;
 
-	Platform *tall_building = [self makeNewPlatformAfter:jumpPlatform space_between:30 width:[self nextPlatformLength] top:jumpPlatform.top + 200 bottom:jumpPlatform.bottom];
-	[listener addedPlatform:tall_building];
+	Platform *tall_building = [self makeNewPlatformAfter:jumpPlatform space_between:gap_before_tall_building width:[self nextPlatformLength] top:jumpPlatform.top + tall_building_height bottom:jumpPlatform.bottom];
+	
+	[self makeFireEscapeNextTo:tall_building bottom:jumpPlatform.top + fire_escape_clearance top:jumpPlatform.top + fire_escape_clearance + tall_building_height];
 
-	[self makeFireEscapeNextTo:tall_building bottom:jumpPlatform.top + 100 top:jumpPlatform.top + 300];
-
-	[self makeNewPlatformAfter:tall_building space_between:30 width:[self nextPlatformLength] top:jumpPlatform.top bottom:jumpPlatform.bottom];
+	[self makeNewPlatformAfter:tall_building space_between:gap_before_tall_building width:[self nextPlatformLength] top:jumpPlatform.top bottom:jumpPlatform.bottom];
 }
 
 - (void)addJumpToNextLevel {
@@ -113,10 +124,9 @@
 	float next_level_top = next_level_bottom + platform_depth;
 
 	Platform *jumpPlatform = last_platform;
-	Platform *tall_building = [self makeNewPlatformAfter:jumpPlatform space_between:30 width:[self nextPlatformLength] top:next_level_bottom + 200 bottom:jumpPlatform.bottom];
-	[listener addedPlatform:tall_building];
-
-	Platform *fire_escape = [self makeFireEscapeNextTo:tall_building bottom:jumpPlatform.top + 100 top:next_level_top];
+	Platform *tall_building = [self makeNewPlatformAfter:jumpPlatform space_between:gap_before_tall_building width:[self nextPlatformLength] top:next_level_bottom + height_between_levels bottom:jumpPlatform.bottom];
+	
+	Platform *fire_escape = [self makeFireEscapeNextTo:tall_building bottom:jumpPlatform.top + fire_escape_clearance  top:next_level_top];
 
 	generate_direction = !generate_direction;
 	[self makeNewPlatformAfter:fire_escape space_between:0 width:[self nextPlatformLength] top:next_level_top bottom:next_level_bottom];
@@ -125,9 +135,9 @@
 - (Platform *)makeFireEscapeNextTo:(Platform *)platform bottom:(float)bottom top:(float)top {
 	Platform *fire_escape;
 	if (generate_direction == Right) {
-		fire_escape = [Platform from:make_block(platform.left - 100, bottom, platform.left - 80, top)];
+		fire_escape = [Platform from:make_block(platform.left - (fire_escape_offset + fire_escape_width), bottom, platform.left - fire_escape_offset, top)];
 	} else {
-		fire_escape = [Platform from:make_block(platform.right + 80, bottom, platform.right + 100, top)];
+		fire_escape = [Platform from:make_block(platform.right + fire_escape_offset, bottom, platform.right + (fire_escape_offset + fire_escape_width), top)];
 	}
 	[self addPlatform:fire_escape];
 	return fire_escape;
