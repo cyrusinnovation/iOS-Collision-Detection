@@ -168,6 +168,10 @@
 		[self generateNextLevel];
 		next_trigger_height += height_between_levels;
 		death_height += height_between_levels;
+
+		while (((Platform *) [walls objectAtIndex:0]).top < death_height) {
+			[walls removeObjectAtIndex:0];
+		}
 	}
 }
 
