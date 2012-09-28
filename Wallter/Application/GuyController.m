@@ -8,8 +8,6 @@
 #import "GuyController.h"
 #import "MeleeAttackView.h"
 #import "GuyControllerEndpoint.h"
-#import "Guy.h"
-
 
 @implementation GuyController {
 	NSObject <GuyControllerEndpoint> *endpoint;

@@ -31,7 +31,7 @@
 
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
 		background = [CCSprite spriteWithFile:@"instructions.png"];
-//		background.rotation = 90;
+		background.scale = 2; // TODO maybe only do this on retina display
 	} else {
 		background = [CCSprite spriteWithFile:@"instructions~ipad.png"];
 	}
@@ -44,4 +44,5 @@
 - (void)makeTransition:(ccTime)dt {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[RunningLayer scene] withColor:ccWHITE]];
 }
+
 @end
