@@ -105,9 +105,9 @@
 	[simulation update:dt];
 	[offset update];
 
-	score += cgp_length(cgp_subtract(guy.location, guyLoc));
+	score += fabs(guy.location.x - guyLoc.x) * 0.07;
 	// TODO OPT don't update the score string every frame
-	[scoreLabel setString:[NSString stringWithFormat:@"%d", (int) score/20*10]];
+	[scoreLabel setString:[NSString stringWithFormat:@"%d", (int) score]];
 
 	if (guy.location.y < stage.death_height || guy.dead) {
 		[self initStage];
@@ -189,11 +189,11 @@
 }
 
 - (void)jumpLeft{
-	[guy jumpLeft];
+	if ([guy jumpLeft] == wallJump) score += 57;
 }
 
 - (void)jumpRight {
-	[guy jumpRight];
+	if ([guy jumpRight] == wallJump) score += 57;
 }
 
 @end

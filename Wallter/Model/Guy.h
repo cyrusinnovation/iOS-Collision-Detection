@@ -6,6 +6,12 @@
 #import "ccTypes.h"
 #import "WorldConstants.h"
 
+typedef enum {
+	noJump,
+	groundJump,
+	wallJump
+} JumpType;
+
 @interface Guy : NSObject
 @property(nonatomic) CGPoint location;
 
@@ -23,9 +29,9 @@
 
 - (void)correct:(CGPoint)delta;
 
-- (void)jumpLeft;
+- (JumpType)jumpLeft;
 
-- (void)jumpRight;
+- (JumpType)jumpRight;
 
 - (void)kill;
 @end

@@ -109,23 +109,33 @@ typedef enum {
 	}
 }
 
-- (void)jumpLeft {
+- (JumpType)jumpLeft {
 	bool jumpFromGround = !inTheAir && !onAWall && state == stateRunningLeft;
 	bool jumpFromAWall = inTheAir && onAWall && state == stateRunningRight;
 
 	if (jumpFromGround || jumpFromAWall) {
 		velocity = cgp(-runningSpeed, jumpVelocity);
 		state = stateRunningLeft;
+
+		if (jumpFromGround) return groundJump;
+		else return wallJump;
+	} else {
+		return noJump;
 	}
 }
 
-- (void)jumpRight {
+- (JumpType)jumpRight {
 	bool jumpFromGround = !inTheAir && !onAWall && state == stateRunningRight;
 	bool jumpFromAWall = inTheAir && onAWall && state == stateRunningLeft;
 
 	if (jumpFromGround || jumpFromAWall) {
 		velocity = cgp(runningSpeed, jumpVelocity);
 		state = stateRunningRight;
+
+		if (jumpFromGround) return groundJump;
+		else return wallJump;
+	} else {
+		return noJump;
 	}
 }
 
