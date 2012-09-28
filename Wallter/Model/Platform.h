@@ -19,7 +19,7 @@
 @property(nonatomic, readonly) float center;
 @property(nonatomic, readonly) float top;
 @property(nonatomic, readonly) float bottom;
-
+@property(nonatomic, readonly) float width;
 
 - (id)init:(CGPolygon) poly;
 

@@ -20,7 +20,7 @@
 	Platform *last_platform;
 
 	float min_platform_length;
-	float max_platform_length;
+	float max_platform_width;
 
 	float min_jump_distance;
 	float max_jump_distance;
@@ -46,12 +46,12 @@
 		walls = [[NSMutableArray alloc] init];
 
 		min_platform_length = 400;
-		max_platform_length = 700;
+		max_platform_width = 700;
 
 		min_jump_distance = 100;
 		max_jump_distance = 160;
 
-		height_between_levels = 500;
+		height_between_levels = 550;
 
 		generate_direction = Right;
 		platform_depth = 100;
@@ -64,8 +64,8 @@
 		fire_escape_width = 20;
 
 		listener = [NullStageListener instance];
-		
-		death_height = -platform_depth;
+
+		death_height = -2*platform_depth;
 	}
 	return self;
 }
@@ -121,7 +121,7 @@
 
 	Platform *tall_building = [self makeNewPlatformAfter:jumpPlatform space_between:gap_before_tall_building width:[self nextPlatformLength] top:jumpPlatform.top + tall_building_height bottom:jumpPlatform.bottom];
 
-	[self makeFireEscapeNextTo:tall_building bottom:jumpPlatform.top + fire_escape_clearance top:jumpPlatform.top + fire_escape_clearance + tall_building_height];
+	[self makeFireEscapeNextTo:tall_building top:jumpPlatform.top + fire_escape_clearance + tall_building_height bottom:jumpPlatform.top + fire_escape_clearance];
 
 	[self makeNewPlatformAfter:tall_building space_between:gap_before_tall_building width:[self nextPlatformLength] top:jumpPlatform.top bottom:jumpPlatform.bottom];
 }
@@ -131,23 +131,16 @@
 	float next_level_top = next_level_bottom + platform_depth;
 
 	Platform *jumpPlatform = last_platform;
-	Platform *tall_building = [self makeNewPlatformAfter:jumpPlatform space_between:gap_before_tall_building width:[self nextPlatformLength] top:next_level_bottom + height_between_levels - platform_depth bottom:jumpPlatform.bottom];
+	Platform *tall_building = [self makeNewPlatformAfter:jumpPlatform space_between:gap_before_tall_building width:max_platform_width top:next_level_bottom + height_between_levels - platform_depth bottom:jumpPlatform.bottom];
 
-	Platform *fire_escape = [self makeFireEscapeNextTo:tall_building bottom:jumpPlatform.top + fire_escape_clearance top:next_level_top];
+	Platform *fire_escape = [self makeFireEscapeNextTo:tall_building top:next_level_top bottom:jumpPlatform.top + fire_escape_clearance];
 
 	generate_direction = !generate_direction;
 	[self makeNewPlatformAfter:fire_escape space_between:0 width:[self nextPlatformLength] top:next_level_top bottom:next_level_bottom];
 }
 
-- (Platform *)makeFireEscapeNextTo:(Platform *)platform bottom:(float)bottom top:(float)top {
-	Platform *fire_escape;
-	if (generate_direction == Right) {
-		fire_escape = [Platform from:make_block(platform.left - (fire_escape_offset + fire_escape_width), bottom, platform.left - fire_escape_offset, top)];
-	} else {
-		fire_escape = [Platform from:make_block(platform.right + fire_escape_offset, bottom, platform.right + (fire_escape_offset + fire_escape_width), top)];
-	}
-	[self addPlatform:fire_escape];
-	return fire_escape;
+- (Platform *)makeFireEscapeNextTo:(Platform *)platform top:(float)top bottom:(float)bottom {
+	return [self makeNewPlatformAfter:platform space_between:-(platform.width + fire_escape_width + fire_escape_offset) width:fire_escape_width top:top bottom:bottom];
 }
 
 - (Platform *)makeNewPlatformAfter:(Platform *)last space_between:(float)space_between width:(float)width top:(float)top bottom:(float)bottom {
@@ -180,7 +173,7 @@
 }
 
 - (float)nextPlatformLength {
-	return min_platform_length + (rand() % (int) (max_platform_length - min_platform_length));
+	return min_platform_length + (rand() % (int) (max_platform_width - min_platform_length));
 }
 
 - (int)nextPlatformHeight {

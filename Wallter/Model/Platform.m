@@ -15,6 +15,7 @@
 	float center;
 	float top;
 	float bottom;
+	float width;
 }
 
 @synthesize polygon;
@@ -24,6 +25,7 @@
 @synthesize center;
 @synthesize top;
 @synthesize bottom;
+@synthesize width;
 
 
 + (Platform *)from:(CGPolygon)polygon {
@@ -57,6 +59,8 @@
 		}
 
 		center = (left + right) / 2;
+		
+		width = right - left;
 	}
 	return self;
 }
