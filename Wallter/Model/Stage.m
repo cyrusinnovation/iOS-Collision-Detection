@@ -103,12 +103,7 @@
 	Platform *tall_building = [self makeNewPlatformAfter:jumpPlatform space_between:30 width:[self nextPlatformLength] top:jumpPlatform.top + 200 bottom:jumpPlatform.bottom];
 	[listener addedPlatform:tall_building];
 
-	// fire escape
-	if (generate_direction == Right) {
-		[self addPlatform:[Platform from:make_block(tall_building.left - 100, jumpPlatform.top + 100, tall_building.left - 80, jumpPlatform.top + 300)]];
-	} else {
-		[self addPlatform:[Platform from:make_block(tall_building.right + 80, jumpPlatform.top + 100, tall_building.right + 100, jumpPlatform.top + 300)]];
-	}
+	[self makeFireEscapeNextTo:tall_building bottom:jumpPlatform.top + 100 top:jumpPlatform.top + 300];
 
 	[self makeNewPlatformAfter:tall_building space_between:30 width:[self nextPlatformLength] top:jumpPlatform.top bottom:jumpPlatform.bottom];
 }
@@ -121,19 +116,22 @@
 	Platform *tall_building = [self makeNewPlatformAfter:jumpPlatform space_between:30 width:[self nextPlatformLength] top:next_level_bottom + 200 bottom:jumpPlatform.bottom];
 	[listener addedPlatform:tall_building];
 
-	// fire escape
-	Platform *fire_escape;
-	if (generate_direction == Right) {
-		fire_escape = [Platform from:make_block(tall_building.left - 100, jumpPlatform.top + 100, tall_building.left - 80, next_level_top)];
-	} else {
-		fire_escape = [Platform from:make_block(tall_building.right + 80, jumpPlatform.top + 100, tall_building.right + 100, next_level_top)];
-	}
-	[self addPlatform:fire_escape];
+	Platform *fire_escape = [self makeFireEscapeNextTo:tall_building bottom:jumpPlatform.top + 100 top:next_level_top];
 
 	generate_direction = !generate_direction;
 	[self makeNewPlatformAfter:fire_escape space_between:0 width:[self nextPlatformLength] top:next_level_top bottom:next_level_bottom];
 }
 
+- (Platform *)makeFireEscapeNextTo:(Platform *)platform bottom:(float)bottom top:(float)top {
+	Platform *fire_escape;
+	if (generate_direction == Right) {
+		fire_escape = [Platform from:make_block(platform.left - 100, bottom, platform.left - 80, top)];
+	} else {
+		fire_escape = [Platform from:make_block(platform.right + 80, bottom, platform.right + 100, top)];
+	}
+	[self addPlatform:fire_escape];
+	return fire_escape;
+}
 
 - (Platform *)makeNewPlatformAfter:(Platform *)last space_between:(float)space_between width:(float)width top:(float)top bottom:(float)bottom {
 	float left_edge = last.right + space_between;
