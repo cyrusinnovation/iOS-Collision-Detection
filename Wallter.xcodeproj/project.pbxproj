@@ -234,6 +234,8 @@
 		C13DA4225D06259CD520F93D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */,
+				C13DAF552C3FBFBB53AA95C3 /* MeleeAttack.h */,
 				C13DACB6C4FE5DBBF77EDCAF /* NullStageListener.h */,
 				C13DA72780F71E58C6DFC83A /* NullStageListener.m */,
 				C13DAD62E4709EA93612BC08 /* Platform.h */,
@@ -265,8 +267,6 @@
 				C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */,
 				C13DA8C2061E0F100D3949CB /* MeleeAttackView.h */,
 				C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */,
-				C13DAF552C3FBFBB53AA95C3 /* MeleeAttack.h */,
-				C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */,
 				C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */,
 				C13DACC274D872245BD2809B /* StageView.h */,
 				082499811610A3500041907E /* RunningLayer.m */,
