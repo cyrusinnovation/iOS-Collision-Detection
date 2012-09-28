@@ -182,6 +182,7 @@
 		082498051610A34E0041907E /* Wallter */ = {
 			isa = PBXGroup;
 			children = (
+				C13DAC8042F0F4DAA48895A7 /* GameplayScene */,
 				082498061610A34E0041907E /* Resources */,
 				082499791610A3500041907E /* Supporting Files */,
 				C13DA4225D06259CD520F93D /* Model */,
@@ -258,27 +259,34 @@
 		C13DA5F954BB97C7D3ED0CEE /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				C13DAE9172E26D1D4F57D550 /* GuyControllerEndpoint.h */,
-				C13DABBB5B6640C268C25E87 /* GuyController.h */,
-				C13DA26664A89D7FB2C9F547 /* GuyController.m */,
-				C13DA8127DE99147554E59B3 /* DrawOffset.h */,
-				C13DA8E5C9D2A3894034C780 /* DrawOffset.m */,
-				C13DA9D03DAF3987369155F4 /* BadGuyView.h */,
-				C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */,
-				C13DA8C2061E0F100D3949CB /* MeleeAttackView.h */,
-				C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */,
-				C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */,
-				C13DACC274D872245BD2809B /* StageView.h */,
-				082499811610A3500041907E /* RunningLayer.m */,
-				082499801610A3500041907E /* RunningLayer.h */,
 				082499841610A3500041907E /* IntroLayer.m */,
 				082499831610A3500041907E /* IntroLayer.h */,
-				C13DA8B72436BB9AC747616E /* GuyView.m */,
-				C13DA6ADE58116D4A5A14BBE /* GuyView.h */,
 				0824997E1610A3500041907E /* AppDelegate.m */,
 				0824997D1610A3500041907E /* AppDelegate.h */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		C13DAC8042F0F4DAA48895A7 /* GameplayScene */ = {
+			isa = PBXGroup;
+			children = (
+				C13DA9D03DAF3987369155F4 /* BadGuyView.h */,
+				C13DACC274D872245BD2809B /* StageView.h */,
+				C13DA26664A89D7FB2C9F547 /* GuyController.m */,
+				C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */,
+				082499801610A3500041907E /* RunningLayer.h */,
+				C13DA8B72436BB9AC747616E /* GuyView.m */,
+				C13DA6ADE58116D4A5A14BBE /* GuyView.h */,
+				C13DAE9172E26D1D4F57D550 /* GuyControllerEndpoint.h */,
+				C13DA8E5C9D2A3894034C780 /* DrawOffset.m */,
+				C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */,
+				082499811610A3500041907E /* RunningLayer.m */,
+				C13DABBB5B6640C268C25E87 /* GuyController.h */,
+				C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */,
+				C13DA8C2061E0F100D3949CB /* MeleeAttackView.h */,
+				C13DA8127DE99147554E59B3 /* DrawOffset.h */,
+			);
+			path = GameplayScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
