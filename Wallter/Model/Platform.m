@@ -76,4 +76,5 @@
 	SATResult result = sat_test(guy.polygon, polygon);
 	return result;
 }
+
 @end
