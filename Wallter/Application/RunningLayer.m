@@ -15,6 +15,7 @@
 #import "MeleeAttackView.h"
 #import "BadGuyView.h"
 #import "Platform.h"
+#import "GuyController.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -26,16 +27,13 @@
 	CGPoint guyLoc;
 	ccTime stuckTime;
 
-	CGPoint touchStart;
-	CGPoint touchMove;
-	bool touching;
-	float touchTime;
-	bool attackFromTouch;
 	CCLabelTTF *scoreLabel;
 
 	float score;
 
 	DrawOffset *offset;
+
+	GuyController *guyController;
 }
 
 @synthesize stage;
@@ -57,9 +55,6 @@
 		frameTime = 0.01;
 
 		[self initStage];
-
-		touching = false;
-		touchTime = -1;
 	}
 	return self;
 }
@@ -72,6 +67,8 @@
 	score = 0;
 
 	guy = [[Guy alloc] initAt:cgp(30, 50)];
+	guyController = [GuyController from:self attackDelay:frameTime * 3];
+
 	offset = [[DrawOffset alloc] init:guy];
 
 	stage = [[Stage alloc] init];
@@ -119,23 +116,7 @@
 		[self checkForStuckedness:dt];
 	}
 
-	if (touching) {
-		touchTime += dt;
-
-		if (!attackFromTouch && touchTime > frameTime * 3) {
-
-			CGPoint swipe = cgp_subtract(touchMove, touchStart);
-			float length = cgp_length(swipe);
-			if (length < 10) {
-				MeleeAttack *attack = [[MeleeAttack alloc] init:guy];
-				[simulation addAttack:attack];
-				MeleeAttackView *view = [[MeleeAttackView alloc] init:attack following:offset];
-				[self addChild:view];
-
-				attackFromTouch = true;
-			}
-		}
-	}
+	[guyController update:dt];
 }
 
 - (void)addedPlatform:(Platform *)platform {
@@ -157,6 +138,7 @@
 	BadGuy *badGuy = [[BadGuy alloc] init:location];
 	[simulation addBadGuy:badGuy];
 	[self addChild:[[BadGuyView alloc] init:badGuy withOffset:offset]];
+
 }
 
 - (void)checkForStuckedness:(ccTime)d {
@@ -179,51 +161,39 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	touchMove = touchStart = location;
-	touching = true;
+	[guyController touchStarted:location];
 	return true;
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	touchMove = location;
-	CGPoint swipe = cgp_subtract(touchMove, touchStart);
-
-	float length = cgp_length(swipe);
-
-	if (length > 20) {
-		if (swipe.y > 3) {
-			if (swipe.x < 0) {
-				[guy jumpLeft];
-			} else if (swipe.x > 0) {
-				[guy jumpRight];
-			}
-		}
-	}
+	[guyController touchMoved:location];
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-	if (!attackFromTouch) {
-		CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-		CGPoint touchEnd = location;
-		CGPoint swipe = cgp_subtract(touchEnd, touchStart);
-
-		float length = cgp_length(swipe);
-		if (length <= 20) {
-			MeleeAttack *attack = [[MeleeAttack alloc] init:guy];
-			[simulation addAttack:attack];
-			MeleeAttackView *view = [[MeleeAttackView alloc] init:attack following:offset];
-			[self addChild:view];
-		}
-	}
-
-	touching = false;
-	touchTime = 0;
-	attackFromTouch = false;
+	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+	[guyController touchEnded:location];
 }
 
 - (void)registerWithTouchDispatcher {
 	[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
+#pragma mark controller endpoints
+
+- (void)attack {
+	MeleeAttack *attack = [[MeleeAttack alloc] init:guy];
+	[simulation addAttack:attack];
+	MeleeAttackView *view = [[MeleeAttackView alloc] init:attack following:offset];
+	[self addChild:view];
+}
+
+- (void)jumpLeft{
+	[guy jumpLeft];
+}
+
+- (void)jumpRight {
+	[guy jumpRight];
 }
 
 @end

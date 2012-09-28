@@ -11,9 +11,10 @@
 #import "Polygon.h"
 #import "Stage.h"
 #import "NewPlatformListener.h"
+#import "GuyControllerEndpoint.h"
 
 @interface
-RunningLayer : CCLayerColor<NewPlatformListener>
+RunningLayer : CCLayerColor<NewPlatformListener, GuyControllerEndpoint>
 
 @property(nonatomic, retain) Stage *stage;
 
