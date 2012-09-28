@@ -8,8 +8,8 @@ typedef enum {
 	stateRunningLeft,
 	stateRunningRight
 } GuyState;
-@implementation Guy {
 
+@implementation Guy {
 	Stage *stage;
 	CGPoint location;
 	CGPoint size;
