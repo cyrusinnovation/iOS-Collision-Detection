@@ -14,6 +14,8 @@
 @interface Stage : NSObject
 @property(nonatomic, retain) NSMutableArray *walls;
 @property(nonatomic, retain) NSObject <NewPlatformListener> *listener;
+@property(nonatomic, readonly) float death_height;
+
 
 - (void)addPlatform:(Platform *)platform;
 - (void)generateAround:(Guy *)guy;

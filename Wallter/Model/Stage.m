@@ -33,10 +33,13 @@
 	float gap_before_tall_building;
 	float fire_escape_offset;
 	float fire_escape_width;
+	float death_height;
 }
 
 @synthesize walls;
 @synthesize listener;
+@synthesize death_height;
+
 
 - (id)init {
 	if (self = [super init]) {
@@ -61,6 +64,8 @@
 		fire_escape_width = 20;
 
 		listener = [NullStageListener instance];
+		
+		death_height = -platform_depth;
 	}
 	return self;
 }
@@ -162,6 +167,7 @@
 	if (guy.location.y > next_trigger_height) {
 		[self generateNextLevel];
 		next_trigger_height += height_between_levels;
+		death_height += height_between_levels;
 	}
 }
 

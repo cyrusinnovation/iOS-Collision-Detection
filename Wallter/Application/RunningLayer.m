@@ -109,7 +109,7 @@
 	// TODO OPT don't update the score string every frame
 	[scoreLabel setString:[NSString stringWithFormat:@"%d", (int) score/20*10]];
 
-	if (guy.location.y < -100 || guy.dead) {
+	if (guy.location.y < stage.death_height || guy.dead) {
 		[self initStage];
 	} else {
 		[stage generateAround:guy];
