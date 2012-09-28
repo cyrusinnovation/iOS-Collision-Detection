@@ -11,14 +11,17 @@
 
 @property(nonatomic,readonly) BOOL runningRight;
 @property(nonatomic, readonly) bool dead;
+@property(nonatomic, readonly) CGFloat bottom;
+@property(nonatomic, readonly) CGFloat top;
+@property(nonatomic, readonly) CGFloat left;
+@property(nonatomic, readonly) CGFloat right;
+
 
 - (id)initAt:(CGPoint)at;
 - (CGPolygon)polygon;
 - (void)update:(ccTime)dt;
 
 - (void)correct:(CGPoint)delta;
-
-- (void)resetTo:(CGPoint)_location;
 
 - (void)jumpLeft;
 

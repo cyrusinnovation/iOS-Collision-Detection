@@ -59,7 +59,7 @@
 	}
 
 	for (Platform *wall in stage.walls) {
-		SATResult result = sat_test(guy.polygon, wall.polygon);
+		SATResult result = [wall test:guy];
 		if (result.penetrating) {
 			[guy correct:result.penetration];
 		}

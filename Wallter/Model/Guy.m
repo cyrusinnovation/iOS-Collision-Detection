@@ -8,8 +8,8 @@ typedef enum {
 	stateRunningLeft,
 	stateRunningRight
 } GuyState;
-
 @implementation Guy {
+
 	Stage *stage;
 	CGPoint location;
 	CGPoint size;
@@ -20,10 +20,20 @@ typedef enum {
 	int runningSpeed;
 	GuyState state;
 	bool dead;
+	CGPolygon base_polygon;
+	CGPolygon local_polygon;
+	CGFloat bottom;
+	CGFloat top;
+	CGFloat left;
+	CGFloat right;
 }
 
 @synthesize location;
 @synthesize dead;
+@synthesize bottom;
+@synthesize top;
+@synthesize left;
+@synthesize right;
 
 
 - (BOOL)runningRight {
@@ -32,8 +42,12 @@ typedef enum {
 
 - (id)initAt:(CGPoint)at {
 	if (self = [super init]) {
-		location = at;
 		size = cgp(20, 30);
+
+		base_polygon = make_block(0, 0, size.x, size.y);
+		local_polygon = make_block(0, 0, 0, 0);
+
+		[self updateLocation:at];
 
 		runningSpeed = 500;
 		velocity = cgp(runningSpeed, 0);
@@ -50,14 +64,19 @@ typedef enum {
 	return self;
 }
 
-- (void)resetTo:(CGPoint)_location {
-	location = _location;
-	velocity = cgp(runningSpeed, 0);
+-(void) updateLocation:(CGPoint) newLocation {
+	location = newLocation;
+	CGPoint delta = location;
+	transform_polygon(base_polygon, delta, local_polygon);
+
+	bottom = newLocation.y;
+	top = newLocation.y + size.y;
+	left = newLocation.x;
+	right = newLocation.x + size.x;
 }
 
 - (CGPolygon)polygon {
-	// TODO hahah huge memory leak
-	return make_block(location.x, location.y, location.x + size.x, location.y + size.y);
+	return local_polygon;
 }
 
 - (void)update:(ccTime)dt {
@@ -65,16 +84,14 @@ typedef enum {
 	velocity = cgp_add(velocity, frame_velocity);
 
 	CGPoint movement = cgp_times(velocity, dt);
-	location = cgp_add(location, movement);
+	[self updateLocation: cgp_add(location, movement)];
 
 	inTheAir = true;
 	onAWall = false;
 }
 
-int tick = 0;
-
 - (void)correct:(CGPoint)delta {
-	location = cgp_add(location, delta);
+	[self updateLocation:cgp_add(location, delta)];
 
 	CGPoint killer = cgp_project(delta, velocity);
 	// only kill y velocity, let it keep moving along x
@@ -91,13 +108,6 @@ int tick = 0;
 		onAWall = true;
 	}
 }
-
-//- (void)jump {
-//	if (inTheAir) return;
-//
-//	inTheAir = true;
-//	velocity = cgp_add(velocity, cgp(0, jumpVelocity));
-//}
 
 - (void)jumpLeft {
 	bool jumpFromGround = !inTheAir && !onAWall && state == stateRunningLeft;

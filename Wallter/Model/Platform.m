@@ -5,9 +5,8 @@
 //
 
 
-#import <CoreGraphics/CoreGraphics.h>
 #import "Platform.h"
-#import "Polygon.h"
+#import "SeparatingAxisTest.h"
 
 @implementation Platform {
 	CGPolygon polygon;
@@ -31,7 +30,7 @@
 	return [[Platform alloc] init:polygon];
 }
 
-- (id)init:(CGPolygon) _polygon {
+- (id)init:(CGPolygon)_polygon {
 	if (self = [super init]) {
 		polygon = _polygon;
 
@@ -48,7 +47,7 @@
 			if (point.x > right) {
 				right = point.x;
 			}
-			
+
 			if (point.y > top) {
 				top = point.y;
 			}
@@ -57,14 +56,24 @@
 			}
 		}
 
-		center = (left + right)/2;
+		center = (left + right) / 2;
 	}
 	return self;
 }
 
--(void)dealloc {
+- (void)dealloc {
 	free_polygon(polygon);
 	[super dealloc];
 }
 
+- (SATResult)test:(Guy *)guy {
+	if (guy.bottom > top ||
+			guy.top < bottom ||
+			guy.right < left ||
+			guy.left > right) {
+		return (SATResult) {cgp(0, 0), false};
+	}
+	SATResult result = sat_test(guy.polygon, polygon);
+	return result;
+}
 @end

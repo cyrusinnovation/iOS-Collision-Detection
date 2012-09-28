@@ -33,7 +33,6 @@
 	CGPoint difference = cgp_subtract(target_delta, delta);
 	cgp_scale(&difference, 0.02);
 	delta = cgp_add(delta, difference);
-//	delta = target_delta;
 }
 
 - (CGPoint)getOffset {
