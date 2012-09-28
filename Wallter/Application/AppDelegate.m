@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "IntroLayer.h"
 #import "RunningLayer.h"
+#import "SettingsLayer.h"
 
 @implementation AppController
 

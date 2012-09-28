@@ -44,6 +44,7 @@
 		C13DA511333E2B8D9BB738F0 /* BadGuy.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA9C6C1BA867C67CBD1F2 /* BadGuy.m */; };
 		C13DA55BC2945B890248CD8B /* NullStageListener.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA72780F71E58C6DFC83A /* NullStageListener.m */; };
 		C13DA573FD6A3D7B2355F72A /* WorldConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA74ECD4552676249D903 /* WorldConstants.m */; };
+		C13DA5F6E12F6A03C63C56C9 /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAF462675923577E06076 /* SettingsLayer.m */; };
 		C13DA76E377213D13357DA55 /* Guy.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABCD158D631E2C4F22FF /* Guy.m */; };
 		C13DA85C20C041BB266FD926 /* GuyController.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA26664A89D7FB2C9F547 /* GuyController.m */; };
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
@@ -113,12 +114,14 @@
 		C13DAD1503891DAAB4661AFA /* Guy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guy.h; sourceTree = "<group>"; };
 		C13DAD62E4709EA93612BC08 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		C13DAD86D609664E02DC4B14 /* BadGuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuy.h; sourceTree = "<group>"; };
+		C13DAD9E4FA18A741102AE3E /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
 		C13DADF252B545D0A0B803D0 /* Simulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simulation.m; sourceTree = "<group>"; };
 		C13DAE3028B60AF56506B2AE /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stage.h; sourceTree = "<group>"; };
 		C13DAE56EF1C7A3A92071EC1 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
 		C13DAE9172E26D1D4F57D550 /* GuyControllerEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuyControllerEndpoint.h; sourceTree = "<group>"; };
 		C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions~ipad.png"; path = "Resources/instructions~ipad.png"; sourceTree = "<group>"; };
 		C13DAF3CF5E884D4B2147FDA /* WorldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldConstants.h; sourceTree = "<group>"; };
+		C13DAF462675923577E06076 /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
 		C13DAF552C3FBFBB53AA95C3 /* MeleeAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeAttack.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -259,6 +262,8 @@
 		C13DA5F954BB97C7D3ED0CEE /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				C13DAD9E4FA18A741102AE3E /* SettingsLayer.h */,
+				C13DAF462675923577E06076 /* SettingsLayer.m */,
 				082499841610A3500041907E /* IntroLayer.m */,
 				082499831610A3500041907E /* IntroLayer.h */,
 				0824997E1610A3500041907E /* AppDelegate.m */,
@@ -382,6 +387,7 @@
 				C13DAD4F5D5236CC58258270 /* Platform.m in Sources */,
 				C13DA55BC2945B890248CD8B /* NullStageListener.m in Sources */,
 				C13DA85C20C041BB266FD926 /* GuyController.m in Sources */,
+				C13DA5F6E12F6A03C63C56C9 /* SettingsLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
