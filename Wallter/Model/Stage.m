@@ -13,16 +13,17 @@
 #define Right false
 
 @implementation Stage {
+	GenerateDirection generate_direction;
+	NSObject <NewPlatformListener> *listener;
+
 	NSMutableArray *walls;
+	Platform *last_platform;
+
 	float min_platform_length;
 	float max_platform_length;
 
 	float min_jump_distance;
 	float max_jump_distance;
-
-	Platform *last_platform;
-	GenerateDirection generate_direction;
-	NSObject <NewPlatformListener> *listener;
 
 	float next_trigger_height;
 	float height_between_levels;
@@ -36,7 +37,6 @@
 
 @synthesize walls;
 @synthesize listener;
-@synthesize next_trigger_height;
 
 - (id)init {
 	if (self = [super init]) {
