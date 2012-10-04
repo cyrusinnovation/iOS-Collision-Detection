@@ -36,6 +36,7 @@
 		0824998F1610A3720041907E /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998C1610A3720041907E /* libiOSGeometryTools.a */; };
 		082499901610A3720041907E /* libkazmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998D1610A3720041907E /* libkazmath.a */; };
 		C13DA049CCF00D8D33DB445C /* DrawOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8E5C9D2A3894034C780 /* DrawOffset.m */; };
+		C13DA19617F7777FFF40B5F9 /* HighScoresLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */; };
 		C13DA1CDA463874E50BF6557 /* StageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */; };
 		C13DA1EA0E51AE06DBC61B12 /* BadGuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */; };
 		C13DA3223DE6BE67FFC5F6D4 /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DADF252B545D0A0B803D0 /* Simulation.m */; };
@@ -47,10 +48,14 @@
 		C13DA5F6E12F6A03C63C56C9 /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAF462675923577E06076 /* SettingsLayer.m */; };
 		C13DA76E377213D13357DA55 /* Guy.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABCD158D631E2C4F22FF /* Guy.m */; };
 		C13DA85C20C041BB266FD926 /* GuyController.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA26664A89D7FB2C9F547 /* GuyController.m */; };
+		C13DA9500816F608D0D5A22A /* font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = C13DAC4D144518306031944D /* font.fnt */; };
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
+		C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA039BC81030E82667ED9 /* HighScore.m */; };
+		C13DAB87958E81815103A421 /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA7DA065CD1CEC755DCBA /* font.png */; };
 		C13DAC4007F78F104693B1DC /* MeleeAttackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */; };
 		C13DAC44522C8AAB53FC3944 /* GuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8B72436BB9AC747616E /* GuyView.m */; };
 		C13DAD4F5D5236CC58258270 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE56EF1C7A3A92071EC1 /* Platform.m */; };
+		C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE0149979D7F1AD08FC0 /* HighScores.m */; };
 		C13DAFF30CB6EC1EA407F94C /* instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA21E3C760AFE9D6B2438 /* instructions.png */; };
 /* End PBXBuildFile section */
 
@@ -89,26 +94,33 @@
 		0824998B1610A3720041907E /* libCocosLibs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCocosLibs.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libCocosLibs.a"; sourceTree = "<group>"; };
 		0824998C1610A3720041907E /* libiOSGeometryTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiOSGeometryTools.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libiOSGeometryTools.a"; sourceTree = "<group>"; };
 		0824998D1610A3720041907E /* libkazmath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkazmath.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libkazmath.a"; sourceTree = "<group>"; };
+		C13DA039BC81030E82667ED9 /* HighScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScore.m; sourceTree = "<group>"; };
 		C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageView.m; sourceTree = "<group>"; };
 		C13DA21E3C760AFE9D6B2438 /* instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions.png; path = Resources/instructions.png; sourceTree = "<group>"; };
 		C13DA26664A89D7FB2C9F547 /* GuyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuyController.m; sourceTree = "<group>"; };
 		C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttack.m; sourceTree = "<group>"; };
+		C13DA3703765C3BFF39B04B8 /* HighScoresLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresLayer.h; sourceTree = "<group>"; };
 		C13DA3BBAF9CD850916C625F /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stage.m; sourceTree = "<group>"; };
+		C13DA3C4164ED47B8E11378F /* HighScores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScores.h; sourceTree = "<group>"; };
 		C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttackView.m; sourceTree = "<group>"; };
 		C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuyView.m; sourceTree = "<group>"; };
+		C13DA601C9BDD45869ECD67D /* HighScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScore.h; sourceTree = "<group>"; };
 		C13DA6ADE58116D4A5A14BBE /* GuyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuyView.h; sourceTree = "<group>"; };
 		C13DA72780F71E58C6DFC83A /* NullStageListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullStageListener.m; sourceTree = "<group>"; };
 		C13DA73281B6CEE82FE1BC7C /* Simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simulation.h; sourceTree = "<group>"; };
 		C13DA74ECD4552676249D903 /* WorldConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldConstants.m; sourceTree = "<group>"; };
+		C13DA7DA065CD1CEC755DCBA /* font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = font.png; path = Resources/font.png; sourceTree = "<group>"; };
 		C13DA8127DE99147554E59B3 /* DrawOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawOffset.h; sourceTree = "<group>"; };
 		C13DA8B72436BB9AC747616E /* GuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuyView.m; sourceTree = "<group>"; };
 		C13DA8C2061E0F100D3949CB /* MeleeAttackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeAttackView.h; sourceTree = "<group>"; };
+		C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresLayer.m; sourceTree = "<group>"; };
 		C13DA8E5C9D2A3894034C780 /* DrawOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawOffset.m; sourceTree = "<group>"; };
 		C13DA9C6C1BA867C67CBD1F2 /* BadGuy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuy.m; sourceTree = "<group>"; };
 		C13DA9D03DAF3987369155F4 /* BadGuyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuyView.h; sourceTree = "<group>"; };
 		C13DAB30C5541131B661D9E6 /* NewPlatformListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlatformListener.h; sourceTree = "<group>"; };
 		C13DABBB5B6640C268C25E87 /* GuyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuyController.h; sourceTree = "<group>"; };
 		C13DABCD158D631E2C4F22FF /* Guy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Guy.m; sourceTree = "<group>"; };
+		C13DAC4D144518306031944D /* font.fnt */ = {isa = PBXFileReference; lastKnownFileType = file.fnt; name = font.fnt; path = Resources/font.fnt; sourceTree = "<group>"; };
 		C13DACB6C4FE5DBBF77EDCAF /* NullStageListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullStageListener.h; sourceTree = "<group>"; };
 		C13DACC274D872245BD2809B /* StageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageView.h; sourceTree = "<group>"; };
 		C13DAD1503891DAAB4661AFA /* Guy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guy.h; sourceTree = "<group>"; };
@@ -116,6 +128,7 @@
 		C13DAD86D609664E02DC4B14 /* BadGuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuy.h; sourceTree = "<group>"; };
 		C13DAD9E4FA18A741102AE3E /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
 		C13DADF252B545D0A0B803D0 /* Simulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simulation.m; sourceTree = "<group>"; };
+		C13DAE0149979D7F1AD08FC0 /* HighScores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScores.m; sourceTree = "<group>"; };
 		C13DAE3028B60AF56506B2AE /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stage.h; sourceTree = "<group>"; };
 		C13DAE56EF1C7A3A92071EC1 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
 		C13DAE9172E26D1D4F57D550 /* GuyControllerEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuyControllerEndpoint.h; sourceTree = "<group>"; };
@@ -197,6 +210,8 @@
 		082498061610A34E0041907E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA7DA065CD1CEC755DCBA /* font.png */,
+				C13DAC4D144518306031944D /* font.fnt */,
 				C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */,
 				C13DA21E3C760AFE9D6B2438 /* instructions.png */,
 				082498071610A34E0041907E /* Default.png */,
@@ -262,6 +277,8 @@
 		C13DA5F954BB97C7D3ED0CEE /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */,
+				C13DA3703765C3BFF39B04B8 /* HighScoresLayer.h */,
 				C13DAD9E4FA18A741102AE3E /* SettingsLayer.h */,
 				C13DAF462675923577E06076 /* SettingsLayer.m */,
 				082499841610A3500041907E /* IntroLayer.m */,
@@ -275,6 +292,10 @@
 		C13DAC8042F0F4DAA48895A7 /* GameplayScene */ = {
 			isa = PBXGroup;
 			children = (
+				C13DA601C9BDD45869ECD67D /* HighScore.h */,
+				C13DA039BC81030E82667ED9 /* HighScore.m */,
+				C13DA3C4164ED47B8E11378F /* HighScores.h */,
+				C13DAE0149979D7F1AD08FC0 /* HighScores.m */,
 				C13DA9D03DAF3987369155F4 /* BadGuyView.h */,
 				C13DACC274D872245BD2809B /* StageView.h */,
 				C13DA26664A89D7FB2C9F547 /* GuyController.m */,
@@ -359,6 +380,8 @@
 				0824981F1610A34E0041907E /* iTunesArtwork in Resources */,
 				C13DAFF30CB6EC1EA407F94C /* instructions.png in Resources */,
 				C13DA4AFFC86A6D20F1A98EA /* instructions~ipad.png in Resources */,
+				C13DA9500816F608D0D5A22A /* font.fnt in Resources */,
+				C13DAB87958E81815103A421 /* font.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +411,9 @@
 				C13DA55BC2945B890248CD8B /* NullStageListener.m in Sources */,
 				C13DA85C20C041BB266FD926 /* GuyController.m in Sources */,
 				C13DA5F6E12F6A03C63C56C9 /* SettingsLayer.m in Sources */,
+				C13DA19617F7777FFF40B5F9 /* HighScoresLayer.m in Sources */,
+				C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */,
+				C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

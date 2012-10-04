@@ -16,6 +16,9 @@
 #import "BadGuyView.h"
 #import "Platform.h"
 #import "GuyController.h"
+#import "SettingsLayer.h"
+#import "HighScoresLayer.h"
+#import "HighScores.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -27,13 +30,14 @@
 	CGPoint guyLoc;
 	ccTime stuckTime;
 
-	CCLabelTTF *scoreLabel;
+	CCLabelBMFont *scoreLabel;
 
 	float score;
 
 	DrawOffset *offset;
 
 	GuyController *guyController;
+	BOOL transitioning;
 }
 
 @synthesize stage;
@@ -85,8 +89,7 @@
 }
 
 - (void)setUpScoreLabel {
-	scoreLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Marker Felt" fontSize:32.0f];
-	scoreLabel.color = ccc3(108, 54, 54);
+	scoreLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"font.fnt"];
 	CGSize s = [[CCDirector sharedDirector] winSize];
 	NSLog(@"winsize %f %f", s.width, s.height);
 	scoreLabel.position = cgp(s.width / 2, s.height - 30);
@@ -102,6 +105,8 @@
 }
 
 - (void)updateInternal:(ccTime)dt {
+	if (transitioning) return;
+
 	[simulation update:dt];
 	[offset update];
 
@@ -110,13 +115,25 @@
 	[scoreLabel setString:[NSString stringWithFormat:@"%d", (int) score]];
 
 	if (guy.location.y < stage.death_height || guy.dead) {
-		[self initStage];
+		[self transitionAfterPlayerDeath];
 	} else {
 		[stage generateAround:guy];
 		[self checkForStuckedness:dt];
 	}
 
 	[guyController update:dt];
+}
+
+- (void)transitionAfterPlayerDeath {
+	transitioning = true;
+	
+	CCScene *scene;
+	if ([HighScores isHighScore:score]) {
+		scene = [SettingsLayer scene:score];
+	} else {
+		scene = [HighScoresLayer scene];
+	}
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:scene withColor:ccBLACK]];
 }
 
 - (void)addedPlatform:(Platform *)platform {
@@ -138,7 +155,6 @@
 	BadGuy *badGuy = [[BadGuy alloc] init:location];
 	[simulation addBadGuy:badGuy];
 	[self addChild:[[BadGuyView alloc] init:badGuy withOffset:offset]];
-
 }
 
 - (void)checkForStuckedness:(ccTime)d {
@@ -188,7 +204,7 @@
 	[self addChild:view];
 }
 
-- (void)jumpLeft{
+- (void)jumpLeft {
 	if ([guy jumpLeft] == wallJump) score += 57;
 }
 
