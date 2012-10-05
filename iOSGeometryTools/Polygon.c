@@ -34,7 +34,7 @@ void free_polygon(CGPolygon p) {
 }
 
 Range project_polygon(CGPolygon polygon, CGPoint vector) {
-    float max = FLT_MIN;
+    float max = -FLT_MAX;
     float min = FLT_MAX;
     
     for (int i = 0; i < polygon.count; i++) {

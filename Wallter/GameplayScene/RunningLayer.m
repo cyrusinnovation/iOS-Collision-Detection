@@ -66,11 +66,11 @@
 - (void)initStage {
 	[self removeAllChildrenWithCleanup:true];
 
-	guyLoc = cgp(FLT_MIN, FLT_MIN);
+	guyLoc = cgp(30, 50);
 	stuckTime = 0;
 	score = 0;
 
-	guy = [[Guy alloc] initAt:cgp(30, 50)];
+	guy = [[Guy alloc] initAt:guyLoc];
 	guyController = [GuyController from:self attackDelay:frameTime * 3];
 
 	offset = [[DrawOffset alloc] init:guy];
@@ -91,7 +91,6 @@
 - (void)setUpScoreLabel {
 	scoreLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"font.fnt"];
 	CGSize s = [[CCDirector sharedDirector] winSize];
-	NSLog(@"winsize %f %f", s.width, s.height);
 	scoreLabel.position = cgp(s.width / 2, s.height - 30);
 	[self addChild:scoreLabel z:100];
 }

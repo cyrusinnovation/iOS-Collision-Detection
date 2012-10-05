@@ -36,9 +36,9 @@
 	if (self = [super init]) {
 		polygon = _polygon;
 
-		right = FLT_MIN;
+		right = -FLT_MAX;
 		left = FLT_MAX;
-		top = FLT_MIN;
+		top = -FLT_MAX;
 		bottom = FLT_MAX;
 
 		for (int i = 0; i < polygon.count; i++) {

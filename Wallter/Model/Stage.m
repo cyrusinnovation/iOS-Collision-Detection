@@ -140,13 +140,17 @@
 }
 
 - (Platform *)makeFireEscapeNextTo:(Platform *)platform top:(float)top bottom:(float)bottom {
-	return [self makeNewPlatformAfter:platform space_between:-(platform.width + fire_escape_width + fire_escape_offset) width:fire_escape_width top:top bottom:bottom];
+	float d = platform.width + fire_escape_width + fire_escape_offset;
+	return [self makeNewPlatformAfter:platform space_between:-d width:fire_escape_width top:top bottom:bottom];
 }
 
 - (Platform *)makeNewPlatformAfter:(Platform *)last space_between:(float)space_between width:(float)width top:(float)top bottom:(float)bottom {
-	float left_edge = last.right + space_between;
-	float right_edge = left_edge + width;
-	if (generate_direction == Left) {
+	float left_edge;
+	float right_edge;
+	if (generate_direction == Right) {
+		left_edge = last.right + space_between;
+		right_edge = left_edge + width;
+	} else {
 		right_edge = last.left - space_between;
 		left_edge = right_edge - width;
 	}
