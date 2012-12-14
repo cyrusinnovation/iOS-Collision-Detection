@@ -8,6 +8,7 @@
 #import "WalterObserver.h"
 
 @class CCSpriteBatchNode;
+@class CCAnimation;
 
 @interface WalterView : CCNode <WalterObserver>
 - (id)init:(Walter *)_guy camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode;

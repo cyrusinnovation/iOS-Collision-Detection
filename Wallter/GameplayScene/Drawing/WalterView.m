@@ -15,6 +15,10 @@
 	Camera *camera;
 	CCSprite *walterSprite;
 	CCSpriteBatchNode *batchNode;
+
+	CCAnimation *runningAnimation;
+	CCAnimation *jumpUpAnimation;
+	CCAnimation *jumpDownAnimation;
 }
 
 - (id)init:(Walter *)_guy camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode {
@@ -28,7 +32,9 @@
 	batchNode = _batchNode;
 	[batchNode addChild:walterSprite];
 
-	CCAnimation *runningAnimation = [CCAnimation animation];
+	float frameDelay = 0.1f;
+
+	runningAnimation = [[CCAnimation alloc] init];
 	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run1.png"]];
 	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run2.png"]];
 	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run3.png"]];
@@ -37,11 +43,26 @@
 	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run6.png"]];
 	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run7.png"]];
 	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run0.png"]];
-	[runningAnimation setDelayPerUnit:0.1f];
+	[runningAnimation setDelayPerUnit:frameDelay];
 	[runningAnimation setRestoreOriginalFrame:true];
 
-	id runningAnimationAction = [CCAnimate actionWithAnimation:runningAnimation];
-	[walterSprite runAction:[CCRepeatForever actionWithAction:runningAnimationAction]];
+	jumpUpAnimation = [[CCAnimation alloc] init];
+	[jumpUpAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump0.png"]];
+	[jumpUpAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump1.png"]];
+	[jumpUpAnimation setDelayPerUnit:0.1f];
+	[jumpUpAnimation setRestoreOriginalFrame:false];
+
+	jumpDownAnimation = [[CCAnimation alloc] init];
+	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump2.png"]];
+	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump3.png"]];
+	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump4.png"]];
+	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump5.png"]];
+	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump6.png"]];
+	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump7.png"]];
+	[jumpDownAnimation setDelayPerUnit:frameDelay];
+	[jumpDownAnimation setRestoreOriginalFrame:false];
+
+	[walterSprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:runningAnimation]]];
 
 	return self;
 }
@@ -66,9 +87,13 @@
 }
 
 - (void)wallJump {
+	[walterSprite stopAllActions];
+
+	[walterSprite runAction:[CCAnimate actionWithAnimation:jumpUpAnimation]];
 }
 
 - (void)groundJump {
+	[self wallJump];
 }
 
 - (void)dealloc {

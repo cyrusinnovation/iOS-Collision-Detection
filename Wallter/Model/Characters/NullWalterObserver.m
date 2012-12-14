@@ -8,7 +8,7 @@
 @implementation NullWalterObserver
 
 + (NSObject <WalterObserver> *)instance {
-	[[NullWalterObserver alloc] init];
+	return [[NullWalterObserver alloc] init];
 }
 
 - (void)runningLeft { }

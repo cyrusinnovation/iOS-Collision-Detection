@@ -25,7 +25,7 @@ typedef enum {
 @property(nonatomic, readonly) CGFloat right;
 @property(nonatomic, readonly) CGFloat width;
 
-@property(nonatomic) NSObject <WalterObserver> *walterObserver;
+@property(nonatomic, retain) NSObject <WalterObserver> *walterObserver;
 
 - (id)initAt:(CGPoint)at;
 - (CGPolygon)polygon;
