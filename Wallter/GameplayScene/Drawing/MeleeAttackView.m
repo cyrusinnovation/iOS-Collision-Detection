@@ -13,10 +13,10 @@ ccColor4F color;
 	Walter *guy;
 
 	CGPolygon drawPoly;
-	DrawOffset *offset;
+	Camera *offset;
 }
 
-- (id)init:(MeleeAttack *)_attack following:(DrawOffset *) _offset {
+- (id)init:(MeleeAttack *)_attack following:(Camera *) _offset {
 	if (self = [super init]) {
 		attack = _attack;
 		guy = attack.guy;

@@ -12,11 +12,11 @@
 	BadGuy *badguy;
 	ccColor4F color;
 
-	DrawOffset *offset;
+	Camera *offset;
 	CGPolygon drawPoly;
 }
 
-- (id)init:(BadGuy *)_badguy withOffset:(DrawOffset *) _offset {
+- (id)init:(BadGuy *)_badguy withOffset:(Camera *) _offset {
 	if (self = [super init]) {
 		[self scheduleUpdate];
 

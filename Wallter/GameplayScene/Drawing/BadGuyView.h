@@ -7,8 +7,8 @@
 
 #import "CCNode.h"
 #import "BadGuy.h"
-#import "DrawOffset.h"
+#import "Camera.h"
 
 @interface BadGuyView : CCNode
-- (id)init:(BadGuy *)_badguy withOffset:(DrawOffset *)_guy;
+- (id)init:(BadGuy *)_badguy withOffset:(Camera *)_guy;
 @end

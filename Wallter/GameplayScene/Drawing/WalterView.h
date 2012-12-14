@@ -4,9 +4,10 @@
 
 #import "CCNode.h"
 #import "Walter.h"
-#import "DrawOffset.h"
+#import "Camera.h"
+
+@class CCSpriteBatchNode;
 
 @interface WalterView : CCNode
-@property(nonatomic, retain) Walter *walter;
-- (id)init:(Walter *)_guy following:(DrawOffset *)_offset;
+- (id)init:(Walter *)_guy camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode;
 @end

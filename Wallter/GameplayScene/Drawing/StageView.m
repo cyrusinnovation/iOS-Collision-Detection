@@ -9,12 +9,12 @@
 @implementation StageView {
 	ccColor4F color;
 	Stage *stage;
-	DrawOffset *offset;
+	Camera *offset;
 
 	CGPolygon drawPoly;
 }
 
-- (id)init:(Stage *)_stage following:(DrawOffset *) _offset {
+- (id)init:(Stage *)_stage following:(Camera *) _offset {
 	if (self = [super init]) {
 		stage = _stage;
 		offset = _offset;

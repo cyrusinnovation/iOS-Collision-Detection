@@ -16,7 +16,7 @@
 
 #define RATE_OF_RETURN 0.02
 
-@interface DrawOffset : NSObject
+@interface Camera : NSObject
 - (CGPoint)getOffset;
 - (id)init:(Walter *)guy;
 

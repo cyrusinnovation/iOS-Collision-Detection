@@ -35,7 +35,8 @@
 		0824998E1610A3720041907E /* libCocosLibs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998B1610A3720041907E /* libCocosLibs.a */; };
 		0824998F1610A3720041907E /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998C1610A3720041907E /* libiOSGeometryTools.a */; };
 		082499901610A3720041907E /* libkazmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998D1610A3720041907E /* libkazmath.a */; };
-		C13DA049CCF00D8D33DB445C /* DrawOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8E5C9D2A3894034C780 /* DrawOffset.m */; };
+		C13DA049CCF00D8D33DB445C /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8E5C9D2A3894034C780 /* Camera.m */; };
+		C13DA12DB8502CFDDCF8E867 /* WalterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8D3B37A810875D6B3BA /* WalterView.m */; };
 		C13DA19617F7777FFF40B5F9 /* HighScoresLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */; };
 		C13DA1CDA463874E50BF6557 /* StageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */; };
 		C13DA1EA0E51AE06DBC61B12 /* BadGuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */; };
@@ -55,7 +56,7 @@
 		C13DAB87958E81815103A421 /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA7DA065CD1CEC755DCBA /* font.png */; };
 		C13DAB8AAB4D321759295FF2 /* frames.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAF1A9F03E0F1ED35B515 /* frames.png */; };
 		C13DAC4007F78F104693B1DC /* MeleeAttackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */; };
-		C13DAC44522C8AAB53FC3944 /* WalterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8B72436BB9AC747616E /* WalterView.m */; };
+		C13DAC44522C8AAB53FC3944 /* WalterPolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8B72436BB9AC747616E /* WalterPolygonView.m */; };
 		C13DAD4F5D5236CC58258270 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE56EF1C7A3A92071EC1 /* Platform.m */; };
 		C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE0149979D7F1AD08FC0 /* HighScores.m */; };
 		C13DAF21BB7647FD50F41515 /* frames.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13DA4DE18E7E6D4B788CD52 /* frames.plist */; };
@@ -107,18 +108,20 @@
 		C13DA3C4164ED47B8E11378F /* HighScores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScores.h; sourceTree = "<group>"; };
 		C13DA4DE18E7E6D4B788CD52 /* frames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = frames.plist; path = Resources/frames.plist; sourceTree = "<group>"; };
 		C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttackView.m; sourceTree = "<group>"; };
+		C13DA53EA54BC0E98062AC3D /* WalterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterView.h; sourceTree = "<group>"; };
 		C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuyView.m; sourceTree = "<group>"; };
 		C13DA601C9BDD45869ECD67D /* HighScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScore.h; sourceTree = "<group>"; };
-		C13DA6ADE58116D4A5A14BBE /* WalterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterView.h; sourceTree = "<group>"; };
+		C13DA6ADE58116D4A5A14BBE /* WalterPolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterPolygonView.h; sourceTree = "<group>"; };
 		C13DA72780F71E58C6DFC83A /* NullStageListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullStageListener.m; sourceTree = "<group>"; };
 		C13DA73281B6CEE82FE1BC7C /* Simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simulation.h; sourceTree = "<group>"; };
 		C13DA74ECD4552676249D903 /* WorldConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldConstants.m; sourceTree = "<group>"; };
 		C13DA7DA065CD1CEC755DCBA /* font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = font.png; path = Resources/font.png; sourceTree = "<group>"; };
-		C13DA8127DE99147554E59B3 /* DrawOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawOffset.h; sourceTree = "<group>"; };
-		C13DA8B72436BB9AC747616E /* WalterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterView.m; sourceTree = "<group>"; };
+		C13DA8127DE99147554E59B3 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		C13DA8B72436BB9AC747616E /* WalterPolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterPolygonView.m; sourceTree = "<group>"; };
 		C13DA8C2061E0F100D3949CB /* MeleeAttackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeAttackView.h; sourceTree = "<group>"; };
 		C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresLayer.m; sourceTree = "<group>"; };
-		C13DA8E5C9D2A3894034C780 /* DrawOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawOffset.m; sourceTree = "<group>"; };
+		C13DA8D3B37A810875D6B3BA /* WalterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterView.m; sourceTree = "<group>"; };
+		C13DA8E5C9D2A3894034C780 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
 		C13DA9C6C1BA867C67CBD1F2 /* BadGuy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuy.m; sourceTree = "<group>"; };
 		C13DA9D03DAF3987369155F4 /* BadGuyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuyView.h; sourceTree = "<group>"; };
 		C13DAB30C5541131B661D9E6 /* PlatformAddedObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformAddedObserver.h; sourceTree = "<group>"; };
@@ -349,14 +352,16 @@
 			children = (
 				C13DA9D03DAF3987369155F4 /* BadGuyView.h */,
 				C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */,
-				C13DA8127DE99147554E59B3 /* DrawOffset.h */,
-				C13DA8E5C9D2A3894034C780 /* DrawOffset.m */,
-				C13DA6ADE58116D4A5A14BBE /* WalterView.h */,
-				C13DA8B72436BB9AC747616E /* WalterView.m */,
+				C13DA8127DE99147554E59B3 /* Camera.h */,
+				C13DA8E5C9D2A3894034C780 /* Camera.m */,
+				C13DA6ADE58116D4A5A14BBE /* WalterPolygonView.h */,
+				C13DA8B72436BB9AC747616E /* WalterPolygonView.m */,
 				C13DA8C2061E0F100D3949CB /* MeleeAttackView.h */,
 				C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */,
 				C13DACC274D872245BD2809B /* StageView.h */,
 				C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */,
+				C13DA8D3B37A810875D6B3BA /* WalterView.m */,
+				C13DA53EA54BC0E98062AC3D /* WalterView.h */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
@@ -462,14 +467,14 @@
 				C13DA96AE463B2785D342A3B /* Stage.m in Sources */,
 				C13DA1CDA463874E50BF6557 /* StageView.m in Sources */,
 				C13DA76E377213D13357DA55 /* Walter.m in Sources */,
-				C13DAC44522C8AAB53FC3944 /* WalterView.m in Sources */,
+				C13DAC44522C8AAB53FC3944 /* WalterPolygonView.m in Sources */,
 				C13DA3223DE6BE67FFC5F6D4 /* Simulation.m in Sources */,
 				C13DA573FD6A3D7B2355F72A /* WorldConstants.m in Sources */,
 				C13DA3DE8588B7C7C96C5DBB /* MeleeAttack.m in Sources */,
 				C13DAC4007F78F104693B1DC /* MeleeAttackView.m in Sources */,
 				C13DA511333E2B8D9BB738F0 /* BadGuy.m in Sources */,
 				C13DA1EA0E51AE06DBC61B12 /* BadGuyView.m in Sources */,
-				C13DA049CCF00D8D33DB445C /* DrawOffset.m in Sources */,
+				C13DA049CCF00D8D33DB445C /* Camera.m in Sources */,
 				C13DAD4F5D5236CC58258270 /* Platform.m in Sources */,
 				C13DA55BC2945B890248CD8B /* NullStageListener.m in Sources */,
 				C13DA85C20C041BB266FD926 /* WalterController.m in Sources */,
@@ -478,6 +483,7 @@
 				C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */,
 				C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */,
 				C13DA2C91DE5A727FD28770F /* AddBadGuyToStageObserver.m in Sources */,
+				C13DA12DB8502CFDDCF8E867 /* WalterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

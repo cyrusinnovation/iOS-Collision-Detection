@@ -5,10 +5,10 @@
 //
 
 
-#import "DrawOffset.h"
+#import "Camera.h"
 #import "CGPoint_ops.h"
 
-@implementation DrawOffset {
+@implementation Camera {
 	Walter *guy;
 	CGPoint delta;
 }

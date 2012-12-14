@@ -4,9 +4,9 @@
 
 #import "MeleeAttack.h"
 #import "CCNode.h"
-#import "DrawOffset.h"
+#import "Camera.h"
 
 // TODO should be easily turned into a sprite
 @interface MeleeAttackView : CCNode
-- (id)init:(MeleeAttack *)_attack following:(DrawOffset *)_offset;
+- (id)init:(MeleeAttack *)_attack following:(Camera *)_offset;
 @end

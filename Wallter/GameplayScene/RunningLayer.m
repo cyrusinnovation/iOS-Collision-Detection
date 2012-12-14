@@ -9,7 +9,7 @@
 #import "RunningLayer.h"
 
 #import "StageView.h"
-#import "WalterView.h"
+#import "WalterPolygonView.h"
 #import "Simulation.h"
 #import "MeleeAttack.h"
 #import "MeleeAttackView.h"
@@ -19,6 +19,7 @@
 #import "HighScores.h"
 #import "AddBadGuyToStageObserver.h"
 #import "BadGuyView.h"
+#import "WalterView.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -34,10 +35,11 @@
 
 	float score;
 
-	DrawOffset *drawOffset;
+	Camera *drawOffset;
 
 	WalterController *walterController;
 	BOOL transitioning;
+	CCSpriteBatchNode *batchNode;
 }
 
 + (CCScene *)scene {
@@ -54,6 +56,10 @@
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
 
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"frames.plist"];
+	batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
+	[self addChild:batchNode];
+
 	buffer = 0;
 	frameTime = 0.01;
 	[self initStage];
@@ -68,7 +74,9 @@
 }
 
 - (void)initStage {
+	// TODO we probably shouldn't actually do this, maybe?
 	[self removeAllChildrenWithCleanup:true];
+	[self addChild:batchNode];
 
 	waltersLocation = cgp(30, 50);
 	timeAtCurrentPosition = 0;
@@ -77,7 +85,7 @@
 	walter = [[Walter alloc] initAt:waltersLocation];
 	walterController = [WalterController from:self attackDelay:frameTime * 3];
 
-	drawOffset = [[DrawOffset alloc] init:walter];
+	drawOffset = [[Camera alloc] init:walter];
 
 	stage = [[Stage alloc] init];
 
@@ -90,7 +98,8 @@
 	[stage prime];
 
 	[self addChild:[[StageView alloc] init:stage following:drawOffset]];
-	[self addChild:[[WalterView alloc] init:walter following:drawOffset]];
+//	[self addChild:[[WalterPolygonView alloc] init:walter following:drawOffset]];
+	[self addChild:[[WalterView alloc] init:walter camera:drawOffset batchNode:batchNode]];
 
 	[self setUpScoreLabel];
 }
