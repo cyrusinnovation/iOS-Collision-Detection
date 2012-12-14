@@ -7,9 +7,17 @@
 #import "NullWalterObserver.h"
 
 typedef enum {
-	stateRunningLeft,
-	stateRunningRight
-} GuyState;
+	walterIsRunningLeft,
+	walterIsRunningRight
+} WalterDirection;
+
+typedef enum {
+	walterIsRunning,
+	walterIsGroundJumping,
+	walterIsOnAWall,
+	walterIsWallJumping,
+	walterIsFalling,
+} WalterAction;
 
 @implementation Walter {
 	Stage *stage;
@@ -17,10 +25,11 @@ typedef enum {
 	CGPoint size;
 	CGPoint velocity;
 	float jumpVelocity;
-	bool inTheAir;
-	bool onAWall;
 	int runningSpeed;
-	GuyState state;
+
+	WalterDirection direction;
+	WalterAction action;
+
 	bool dead;
 	CGPolygon base_polygon;
 	CGPolygon local_polygon;
@@ -43,7 +52,7 @@ typedef enum {
 @synthesize walterObserver;
 
 - (BOOL)runningRight {
-	return state == stateRunningRight;
+	return direction == walterIsRunningRight;
 }
 
 - (id)initAt:(CGPoint)at {
@@ -65,10 +74,8 @@ typedef enum {
 
 	jumpVelocity = 700;
 
-	inTheAir = false;
-	onAWall = false;
-
-	state = stateRunningRight;
+	[self updateDirection:walterIsRunningRight];
+	[self updateAction:walterIsRunning];
 
 	dead = false;
 
@@ -96,9 +103,6 @@ typedef enum {
 
 	CGPoint movement = cgp_times(velocity, dt);
 	[self updateLocation:cgp_add(location, movement)];
-
-	inTheAir = true;
-	onAWall = false;
 }
 
 - (void)correct:(CGPoint)delta {
@@ -107,34 +111,34 @@ typedef enum {
 	CGPoint killer = cgp_project(delta, velocity);
 	// only kill y velocity, let it keep moving along x
 	// TODO this math needs to be a lot better, e.g. this doesn't handle hitting ceilings
-	// TODO also, Wallter can't walk up a slope and jump or slide down slopes at all
+	// TODO also, Walter can't walk up a slope and jump or slide down slopes at all
 	killer = cgp_project(cgp(0, -1000), killer);
 	velocity = cgp_subtract(velocity, killer);
 
-	if (inTheAir && delta.y > 0 && velocity.y == 0) {
-		inTheAir = false;
+	if ((action == walterIsGroundJumping || action == walterIsWallJumping) && delta.y > 0 && velocity.y == 0) {
+		[self updateAction:walterIsRunning];
 	}
 
 	if (delta.x != 0) {
-		onAWall = true;
+		[self updateAction:walterIsOnAWall];
 	}
 }
 
 - (JumpType)jumpLeft {
-	bool jumpFromGround = !inTheAir && !onAWall && state == stateRunningLeft;
-	bool jumpFromAWall = inTheAir && onAWall && state == stateRunningRight;
+	bool jumpFromGround = action == walterIsRunning && direction == walterIsRunningLeft;
+	bool jumpFromAWall = action == walterIsOnAWall && direction == walterIsRunningRight;
 
 	if (jumpFromGround || jumpFromAWall) {
 		velocity = cgp(-runningSpeed, jumpVelocity);
-		state = stateRunningLeft;
-		[walterObserver runningLeft];
+
+		[self updateDirection:walterIsRunningLeft];
 
 		if (jumpFromGround) {
-			[walterObserver groundJump];
+			[self updateAction:walterIsGroundJumping];
 			return groundJump;
 		}
 		else {
-			[walterObserver wallJump];
+			[self updateAction:walterIsWallJumping];
 			return wallJump;
 		}
 	} else {
@@ -142,21 +146,47 @@ typedef enum {
 	}
 }
 
+- (void)updateAction:(WalterAction)_action {
+	action = _action;
+
+	switch (action) {
+		case walterIsWallJumping:
+			[walterObserver wallJump];
+			break;
+		case walterIsGroundJumping:
+			[walterObserver groundJump];
+			break;
+	}
+}
+
+- (void)updateDirection:(WalterDirection)_direction {
+	direction = _direction;
+
+	switch (direction) {
+		case walterIsRunningLeft:
+			[walterObserver runningLeft];
+			break;
+		case walterIsRunningRight:
+			[walterObserver runningRight];
+			break;
+	}
+}
+
 - (JumpType)jumpRight {
-	bool jumpFromGround = !inTheAir && !onAWall && state == stateRunningRight;
-	bool jumpFromAWall = inTheAir && onAWall && state == stateRunningLeft;
+	bool jumpFromGround = action == walterIsRunning && direction == walterIsRunningRight;
+	bool jumpFromAWall = action == walterIsOnAWall && direction == walterIsRunningLeft;
 
 	if (jumpFromGround || jumpFromAWall) {
 		velocity = cgp(runningSpeed, jumpVelocity);
-		state = stateRunningRight;
-		[walterObserver runningRight];
+
+		[self updateDirection:walterIsRunningRight];
 
 		if (jumpFromGround) {
-			[walterObserver groundJump];
+			[self updateAction:walterIsGroundJumping];
 			return groundJump;
 		}
 		else {
-			[walterObserver wallJump];
+			[self updateAction:walterIsWallJumping];
 			return wallJump;
 		}
 	} else {
