@@ -2,6 +2,7 @@
 // Created by najati on 9/24/12.
 //
 
+#import <mm_malloc.h>
 #import "Walter.h"
 
 typedef enum {
@@ -34,6 +35,7 @@ typedef enum {
 @synthesize top;
 @synthesize left;
 @synthesize right;
+@synthesize width;
 
 
 - (BOOL)runningRight {
@@ -43,6 +45,7 @@ typedef enum {
 - (id)initAt:(CGPoint)at {
 	if (self = [super init]) {
 		size = cgp(20, 30);
+		width = size.x;
 
 		base_polygon = make_block(0, 0, size.x, size.y);
 		local_polygon = make_block(0, 0, 0, 0);

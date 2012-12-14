@@ -7,6 +7,6 @@
 #import "DrawOffset.h"
 
 @interface WalterView : CCNode
-@property(nonatomic, retain) Walter *guy;
+@property(nonatomic, retain) Walter *walter;
 - (id)init:(Walter *)_guy following:(DrawOffset *)_offset;
 @end

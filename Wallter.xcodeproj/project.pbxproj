@@ -53,10 +53,12 @@
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
 		C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA039BC81030E82667ED9 /* HighScore.m */; };
 		C13DAB87958E81815103A421 /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA7DA065CD1CEC755DCBA /* font.png */; };
+		C13DAB8AAB4D321759295FF2 /* frames.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAF1A9F03E0F1ED35B515 /* frames.png */; };
 		C13DAC4007F78F104693B1DC /* MeleeAttackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */; };
 		C13DAC44522C8AAB53FC3944 /* WalterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8B72436BB9AC747616E /* WalterView.m */; };
 		C13DAD4F5D5236CC58258270 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE56EF1C7A3A92071EC1 /* Platform.m */; };
 		C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE0149979D7F1AD08FC0 /* HighScores.m */; };
+		C13DAF21BB7647FD50F41515 /* frames.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13DA4DE18E7E6D4B788CD52 /* frames.plist */; };
 		C13DAFF30CB6EC1EA407F94C /* instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA21E3C760AFE9D6B2438 /* instructions.png */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +105,7 @@
 		C13DA3703765C3BFF39B04B8 /* HighScoresLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresLayer.h; sourceTree = "<group>"; };
 		C13DA3BBAF9CD850916C625F /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stage.m; sourceTree = "<group>"; };
 		C13DA3C4164ED47B8E11378F /* HighScores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScores.h; sourceTree = "<group>"; };
+		C13DA4DE18E7E6D4B788CD52 /* frames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = frames.plist; path = Resources/frames.plist; sourceTree = "<group>"; };
 		C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttackView.m; sourceTree = "<group>"; };
 		C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuyView.m; sourceTree = "<group>"; };
 		C13DA601C9BDD45869ECD67D /* HighScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScore.h; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 		C13DAE56EF1C7A3A92071EC1 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
 		C13DAE9172E26D1D4F57D550 /* GuyControllerEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuyControllerEndpoint.h; sourceTree = "<group>"; };
 		C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions~ipad.png"; path = "Resources/instructions~ipad.png"; sourceTree = "<group>"; };
+		C13DAF1A9F03E0F1ED35B515 /* frames.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frames.png; path = Resources/frames.png; sourceTree = "<group>"; };
 		C13DAF3CF5E884D4B2147FDA /* WorldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldConstants.h; sourceTree = "<group>"; };
 		C13DAF462675923577E06076 /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
 		C13DAF552C3FBFBB53AA95C3 /* MeleeAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeAttack.h; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 				0824981B1610A34E0041907E /* Icon@2x.png */,
 				0824981D1610A34E0041907E /* Info.plist */,
 				0824981E1610A34E0041907E /* iTunesArtwork */,
+				C13DA4DE18E7E6D4B788CD52 /* frames.plist */,
+				C13DAF1A9F03E0F1ED35B515 /* frames.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -437,6 +443,8 @@
 				C13DA4AFFC86A6D20F1A98EA /* instructions~ipad.png in Resources */,
 				C13DA9500816F608D0D5A22A /* font.fnt in Resources */,
 				C13DAB87958E81815103A421 /* font.png in Resources */,
+				C13DAF21BB7647FD50F41515 /* frames.plist in Resources */,
+				C13DAB8AAB4D321759295FF2 /* frames.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

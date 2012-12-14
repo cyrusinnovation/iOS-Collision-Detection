@@ -21,6 +21,7 @@ typedef enum {
 @property(nonatomic, readonly) CGFloat top;
 @property(nonatomic, readonly) CGFloat left;
 @property(nonatomic, readonly) CGFloat right;
+@property(nonatomic, readonly) CGFloat width;
 
 
 - (id)initAt:(CGPoint)at;
