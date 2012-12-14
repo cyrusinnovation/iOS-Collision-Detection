@@ -22,21 +22,26 @@
 }
 
 -(void) update {
-	float y = 80;
-
-	int x = 50;
-	if (!guy.runningRight) {
-		x = 410;
-	}
-
-	CGPoint target_delta = cgp(x, y);
-	CGPoint difference = cgp_subtract(target_delta, delta);
-	cgp_scale(&difference, 0.02);
+	CGPoint desiredCameraOffset = [self getDesiredCameraOffset];
+	CGPoint difference = cgp_subtract(desiredCameraOffset, delta);
+	cgp_scale(&difference, RATE_OF_RETURN);
 	delta = cgp_add(delta, difference);
 }
 
+- (CGPoint)getDesiredCameraOffset {
+	float y = Y_OFFSET;
+
+	int x = X_OFFSET_WHEN_RUNNING_RIGHT;
+	if (!guy.runningRight) {
+		x = X_OFFSET_WHEN_RUNNING_LEFT;
+	}
+
+	CGPoint target_delta = cgp(x, y);
+	return target_delta;
+}
+
 - (CGPoint)getOffset {
-	return cgp_add(cgp(-guy.location.x, - guy.location.y), delta);
+	return cgp_subtract(delta, guy.location);
 }
 
 @end

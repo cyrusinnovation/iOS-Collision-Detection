@@ -34,7 +34,7 @@
 
 	float score;
 
-	DrawOffset *offset;
+	DrawOffset *drawOffset;
 
 	WalterController *walterController;
 	BOOL transitioning;
@@ -79,7 +79,7 @@
 	walter = [[Walter alloc] initAt:waltersLocation];
 	walterController = [WalterController from:self attackDelay:frameTime * 3];
 
-	offset = [[DrawOffset alloc] init:walter];
+	drawOffset = [[DrawOffset alloc] init:walter];
 
 	stage = [[Stage alloc] init];
 	stage.listener = self;
@@ -88,8 +88,8 @@
 
 	[stage prime];
 
-	[self addChild:[[StageView alloc] init:stage following:offset]];
-	[self addChild:[[GuyView alloc] init:walter following:offset]];
+	[self addChild:[[StageView alloc] init:stage following:drawOffset]];
+	[self addChild:[[GuyView alloc] init:walter following:drawOffset]];
 
 	[self setUpScoreLabel];
 }
@@ -113,7 +113,7 @@
 	if (transitioning) return;
 
 	[simulation update:dt];
-	[offset update];
+	[drawOffset update];
 
 	score += fabs(walter.location.x - waltersLocation.x) * 0.07;
 	// TODO OPT don't update the score string every frame
@@ -159,7 +159,7 @@
 - (void)addBadguy:(CGPoint)location {
 	BadGuy *badGuy = [[BadGuy alloc] init:location];
 	[simulation addBadGuy:badGuy];
-	[self addChild:[[BadGuyView alloc] init:badGuy withOffset:offset]];
+	[self addChild:[[BadGuyView alloc] init:badGuy withOffset:drawOffset]];
 }
 
 - (void)checkForStuckedness:(ccTime)d {
@@ -205,7 +205,7 @@
 - (void)attack {
 	MeleeAttack *attack = [[MeleeAttack alloc] init:walter];
 	[simulation addAttack:attack];
-	MeleeAttackView *view = [[MeleeAttackView alloc] init:attack following:offset];
+	MeleeAttackView *view = [[MeleeAttackView alloc] init:attack following:drawOffset];
 	[self addChild:view];
 }
 
