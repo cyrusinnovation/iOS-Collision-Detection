@@ -9,11 +9,11 @@
 #import "CGPoint_ops.h"
 
 @implementation DrawOffset {
-	Guy *guy;
+	Walter *guy;
 	CGPoint delta;
 }
 
-- (id)init:(Guy *)_guy {
+- (id)init:(Walter *)_guy {
 	if (self = [super init]) {
 		guy = _guy;
 		delta = cgp(160, 240);

@@ -2,14 +2,14 @@
 // Created by najati on 9/24/12.
 //
 
-#import "Guy.h"
+#import "Walter.h"
 
 typedef enum {
 	stateRunningLeft,
 	stateRunningRight
 } GuyState;
 
-@implementation Guy {
+@implementation Walter {
 	Stage *stage;
 	CGPoint location;
 	CGPoint size;

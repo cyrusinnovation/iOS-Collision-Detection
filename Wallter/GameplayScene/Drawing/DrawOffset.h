@@ -6,11 +6,11 @@
 
 
 #import <Foundation/Foundation.h>
-#import "Guy.h"
+#import "Walter.h"
 
 @interface DrawOffset : NSObject
 - (CGPoint)getOffset;
-- (id)init:(Guy *)guy;
+- (id)init:(Walter *)guy;
 
 - (void)update;
 

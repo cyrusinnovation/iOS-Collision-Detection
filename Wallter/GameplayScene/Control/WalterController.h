@@ -7,16 +7,16 @@
 
 #import <Foundation/Foundation.h>
 
-@class Guy;
+@class Walter;
 @protocol GuyControllerEndpoint;
 
 
-@interface GuyController : NSObject
+@interface WalterController : NSObject
 - (void)touchEnded:(CGPoint)point;
 
 - (id)initFor:(NSObject <GuyControllerEndpoint> *)guy attackDelay:(float)delay;
 
-+ (GuyController *)from:(NSObject <GuyControllerEndpoint> *)guy attackDelay:(float)delay;
++ (WalterController *)from:(NSObject <GuyControllerEndpoint> *)guy attackDelay:(float)delay;
 
 - (void)update:(float)d;
 

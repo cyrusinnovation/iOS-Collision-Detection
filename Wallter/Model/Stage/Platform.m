@@ -70,7 +70,7 @@
 	[super dealloc];
 }
 
-- (SATResult)test:(Guy *)guy {
+- (SATResult)test:(Walter *)guy {
 	if (guy.bottom > top ||
 			guy.top < bottom ||
 			guy.right < left ||

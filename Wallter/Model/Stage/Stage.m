@@ -3,7 +3,7 @@
 //
 
 #import "Stage.h"
-#import "Guy.h"
+#import "Walter.h"
 #import "Platform.h"
 #import "NullStageListener.h"
 
@@ -160,7 +160,7 @@
 	return new_platform;
 }
 
-- (void)generateAround:(Guy *)guy {
+- (void)generateAround:(Walter *)guy {
 	if (guy.location.y > next_trigger_height) {
 		[self generateNextLevel];
 		next_trigger_height += height_between_levels;

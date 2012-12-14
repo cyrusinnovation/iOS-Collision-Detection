@@ -5,11 +5,11 @@
 //
 
 
-#import "GuyController.h"
+#import "WalterController.h"
 #import "MeleeAttackView.h"
 #import "GuyControllerEndpoint.h"
 
-@implementation GuyController {
+@implementation WalterController {
 	NSObject <GuyControllerEndpoint> *endpoint;
 
 	CGPoint touchStart;
@@ -20,8 +20,8 @@
 	float attack_delay;
 }
 
-+ (GuyController *)from:(NSObject <GuyControllerEndpoint> *)guy attackDelay:(float) delay {
-	return [[GuyController alloc] initFor:guy attackDelay:delay];
++ (WalterController *)from:(NSObject <GuyControllerEndpoint> *)guy attackDelay:(float) delay {
+	return [[WalterController alloc] initFor:guy attackDelay:delay];
 }
 
 - (id)initFor:(NSObject <GuyControllerEndpoint> *)guy attackDelay:(float)_attack_delay {

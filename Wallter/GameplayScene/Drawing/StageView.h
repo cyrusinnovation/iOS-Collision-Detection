@@ -4,7 +4,7 @@
 
 #import "CCNode.h"
 #import "Stage.h"
-#import "Guy.h"
+#import "Walter.h"
 #import "DrawOffset.h"
 
 @interface StageView : CCNode

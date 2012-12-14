@@ -15,20 +15,20 @@
 #import "MeleeAttackView.h"
 #import "BadGuyView.h"
 #import "Platform.h"
-#import "GuyController.h"
+#import "WalterController.h"
 #import "SettingsLayer.h"
 #import "HighScoresLayer.h"
 #import "HighScores.h"
 
 @implementation RunningLayer {
 	Stage *stage;
-	Guy *guy;
+	Walter *walter;
 	Simulation *simulation;
 
 	ccTime buffer;
 	ccTime frameTime;
-	CGPoint guyLoc;
-	ccTime stuckTime;
+	CGPoint waltersLocation;
+	ccTime timeAtCurrentPosition;
 
 	CCLabelBMFont *scoreLabel;
 
@@ -36,7 +36,7 @@
 
 	DrawOffset *offset;
 
-	GuyController *guyController;
+	WalterController *walterController;
 	BOOL transitioning;
 }
 
@@ -50,40 +50,46 @@
 }
 
 - (id)init {
-	CGSize s = [[CCDirector sharedDirector] winSize];
-	if ((self = [super initWithColor:(ccColor4B) {194, 233, 249, 255} width:s.width height:s.height])) {
-		[self scheduleUpdate];
-		self.isTouchEnabled = YES;
+	self = ([self initLayer]);
+	if (self == nil) return nil;
+	
+	[self scheduleUpdate];
+	self.isTouchEnabled = YES;
 
-		buffer = 0;
-		frameTime = 0.01;
+	buffer = 0;
+	frameTime = 0.01;
+	[self initStage];
 
-		[self initStage];
-	}
 	return self;
+}
+
+- (CCLayerColor *)initLayer {
+	CGSize s = [self currentWindowSize];
+	ccColor4B prettyBlue = (ccColor4B) {194, 233, 249, 255};
+	return [super initWithColor:prettyBlue width:s.width height:s.height];
 }
 
 - (void)initStage {
 	[self removeAllChildrenWithCleanup:true];
 
-	guyLoc = cgp(30, 50);
-	stuckTime = 0;
+	waltersLocation = cgp(30, 50);
+	timeAtCurrentPosition = 0;
 	score = 0;
 
-	guy = [[Guy alloc] initAt:guyLoc];
-	guyController = [GuyController from:self attackDelay:frameTime * 3];
+	walter = [[Walter alloc] initAt:waltersLocation];
+	walterController = [WalterController from:self attackDelay:frameTime * 3];
 
-	offset = [[DrawOffset alloc] init:guy];
+	offset = [[DrawOffset alloc] init:walter];
 
 	stage = [[Stage alloc] init];
 	stage.listener = self;
 
-	simulation = [[Simulation alloc] initFor:guy in:stage];
+	simulation = [[Simulation alloc] initFor:walter in:stage];
 
 	[stage prime];
 
 	[self addChild:[[StageView alloc] init:stage following:offset]];
-	[self addChild:[[GuyView alloc] init:guy following:offset]];
+	[self addChild:[[GuyView alloc] init:walter following:offset]];
 
 	[self setUpScoreLabel];
 }
@@ -109,23 +115,23 @@
 	[simulation update:dt];
 	[offset update];
 
-	score += fabs(guy.location.x - guyLoc.x) * 0.07;
+	score += fabs(walter.location.x - waltersLocation.x) * 0.07;
 	// TODO OPT don't update the score string every frame
 	[scoreLabel setString:[NSString stringWithFormat:@"%d", (int) score]];
 
-	if (guy.location.y < stage.death_height || guy.dead) {
+	if (walter.location.y < stage.death_height || walter.dead) {
 		[self transitionAfterPlayerDeath];
 	} else {
-		[stage generateAround:guy];
+		[stage generateAround:walter];
 		[self checkForStuckedness:dt];
 	}
 
-	[guyController update:dt];
+	[walterController update:dt];
 }
 
 - (void)transitionAfterPlayerDeath {
 	transitioning = true;
-	
+
 	CCScene *scene;
 	if ([HighScores isHighScore:score]) {
 		scene = [SettingsLayer scene:score];
@@ -157,13 +163,13 @@
 }
 
 - (void)checkForStuckedness:(ccTime)d {
-	if (guy.location.x == guyLoc.x && guy.location.y == guyLoc.y) {
-		stuckTime += d;
-		if (stuckTime > 1) {
+	if (walter.location.x == waltersLocation.x && walter.location.y == waltersLocation.y) {
+		timeAtCurrentPosition += d;
+		if (timeAtCurrentPosition > 1) {
 			[self initStage];
 		}
 	} else {
-		guyLoc = guy.location;
+		waltersLocation = walter.location;
 	}
 }
 
@@ -176,18 +182,18 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	[guyController touchStarted:location];
+	[walterController touchStarted:location];
 	return true;
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	[guyController touchMoved:location];
+	[walterController touchMoved:location];
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	[guyController touchEnded:location];
+	[walterController touchEnded:location];
 }
 
 - (void)registerWithTouchDispatcher {
@@ -197,18 +203,24 @@
 #pragma mark controller endpoints
 
 - (void)attack {
-	MeleeAttack *attack = [[MeleeAttack alloc] init:guy];
+	MeleeAttack *attack = [[MeleeAttack alloc] init:walter];
 	[simulation addAttack:attack];
 	MeleeAttackView *view = [[MeleeAttackView alloc] init:attack following:offset];
 	[self addChild:view];
 }
 
 - (void)jumpLeft {
-	if ([guy jumpLeft] == wallJump) score += 57;
+	if ([walter jumpLeft] == wallJump) score += 57;
 }
 
 - (void)jumpRight {
-	if ([guy jumpRight] == wallJump) score += 57;
+	if ([walter jumpRight] == wallJump) score += 57;
+}
+
+#pragma mark utils
+
+- (CGSize)currentWindowSize {
+	return [[CCDirector sharedDirector] winSize];
 }
 
 @end

@@ -3,10 +3,10 @@
 //
 
 #import "CCNode.h"
-#import "Guy.h"
+#import "Walter.h"
 #import "DrawOffset.h"
 
 @interface GuyView : CCNode
-@property(nonatomic, retain) Guy *guy;
-- (id)init:(Guy *)_guy following:(DrawOffset *)_offset;
+@property(nonatomic, retain) Walter *guy;
+- (id)init:(Walter *)_guy following:(DrawOffset *)_offset;
 @end

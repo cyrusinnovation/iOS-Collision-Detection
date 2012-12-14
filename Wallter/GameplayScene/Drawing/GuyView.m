@@ -6,7 +6,7 @@
 #import "CCDrawingPrimitives.h"
 
 @implementation GuyView {
-	Guy *guy;
+	Walter *guy;
 	ccColor4F color;
 
 	CGPolygon drawPoly;
@@ -15,7 +15,7 @@
 
 @synthesize guy;
 
-- (id)init:(Guy *)_guy following:(DrawOffset *) _offset {
+- (id)init:(Walter *)_guy following:(DrawOffset *) _offset {
 	if (self = [super init]) {
 		guy = _guy;
 		offset = _offset;

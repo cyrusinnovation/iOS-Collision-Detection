@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "Polygon.h"
 #import "SATResult.h"
-#import "Guy.h"
+#import "Walter.h"
 
 @interface Platform : NSObject
 
@@ -23,7 +23,7 @@
 
 - (id)init:(CGPolygon) poly;
 
-- (SATResult)test:(Guy *)guy;
+- (SATResult)test:(Walter *)guy;
 
 + (Platform *)from:(CGPolygon)polygon;
 

@@ -2,7 +2,7 @@
 // Created by najati on 9/24/12.
 //
 
-#import "Guy.h"
+#import "Walter.h"
 #import "Stage.h"
 #import "BadGuy.h"
 #import "ccTypes.h"
@@ -11,10 +11,10 @@
 
 @interface Simulation : NSObject
 
-@property(nonatomic, retain) Guy *guy;
+@property(nonatomic, retain) Walter *guy;
 @property(nonatomic, retain) Stage *stage;
 
-- (id)initFor:(Guy *)_guy in:(Stage *)_stage;
+- (id)initFor:(Walter *)_guy in:(Stage *)_stage;
 
 - (void)update:(ccTime)dt;
 

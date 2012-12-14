@@ -8,7 +8,7 @@
 #import "Polygon.h"
 #import "NewPlatformListener.h"
 
-@class Guy;
+@class Walter;
 @class Platform;
 
 @interface Stage : NSObject
@@ -18,7 +18,7 @@
 
 
 - (void)addPlatform:(Platform *)platform;
-- (void)generateAround:(Guy *)guy;
+- (void)generateAround:(Walter *)guy;
 
 - (void)prime;
 @end

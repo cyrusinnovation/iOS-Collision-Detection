@@ -12,7 +12,7 @@ typedef enum {
 	wallJump
 } JumpType;
 
-@interface Guy : NSObject
+@interface Walter : NSObject
 @property(nonatomic) CGPoint location;
 
 @property(nonatomic,readonly) BOOL runningRight;

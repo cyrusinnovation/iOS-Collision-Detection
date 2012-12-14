@@ -3,14 +3,14 @@
 //
 
 #import "MeleeAttackView.h"
-#import "Guy.h"
+#import "Walter.h"
 #import "CCDrawingPrimitives.h"
 
 ccColor4F color;
 
 @implementation MeleeAttackView {
 	MeleeAttack *attack;
-	Guy *guy;
+	Walter *guy;
 
 	CGPolygon drawPoly;
 	DrawOffset *offset;

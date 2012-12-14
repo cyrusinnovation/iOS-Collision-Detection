@@ -5,7 +5,7 @@
 #import "MeleeAttack.h"
 
 @implementation MeleeAttack {
-	Guy *guy;
+	Walter *guy;
 	CGPolygon polygon;
 	ccTime age;
 	ccTime max_age;
@@ -17,7 +17,7 @@
 	return age > max_age;
 }
 
-- (id)init:(Guy *)_guy {
+- (id)init:(Walter *)_guy {
 	if (self = [super init]) {
 		guy = _guy;
 		polygon = make_block(0, 0, 0, 0);

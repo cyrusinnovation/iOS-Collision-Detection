@@ -9,7 +9,7 @@
 #import "Platform.h"
 
 @implementation Simulation {
-	Guy *guy;
+	Walter *guy;
 	Stage *stage;
 	NSMutableArray *attacks;
 	NSMutableArray *badguys;
@@ -18,7 +18,7 @@
 @synthesize guy;
 @synthesize stage;
 
-- (id)initFor:(Guy *)_guy in:(Stage *)_stage {
+- (id)initFor:(Walter *)_guy in:(Stage *)_stage {
 	if (self = [super init]) {
 		guy = _guy;
 		stage = _stage;
