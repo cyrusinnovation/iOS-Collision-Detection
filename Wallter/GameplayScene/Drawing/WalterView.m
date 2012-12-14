@@ -2,10 +2,10 @@
 // Created by najati on 9/24/12.
 //
 
-#import "GuyView.h"
+#import "WalterView.h"
 #import "CCDrawingPrimitives.h"
 
-@implementation GuyView {
+@implementation WalterView {
 	Walter *guy;
 	ccColor4F color;
 

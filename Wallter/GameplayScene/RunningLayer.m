@@ -9,7 +9,7 @@
 #import "RunningLayer.h"
 
 #import "StageView.h"
-#import "GuyView.h"
+#import "WalterView.h"
 #import "Simulation.h"
 #import "MeleeAttack.h"
 #import "MeleeAttackView.h"
@@ -90,7 +90,7 @@
 	[stage prime];
 
 	[self addChild:[[StageView alloc] init:stage following:drawOffset]];
-	[self addChild:[[GuyView alloc] init:walter following:drawOffset]];
+	[self addChild:[[WalterView alloc] init:walter following:drawOffset]];
 
 	[self setUpScoreLabel];
 }
