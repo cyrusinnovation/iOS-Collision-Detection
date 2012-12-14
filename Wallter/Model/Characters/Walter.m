@@ -2,8 +2,9 @@
 // Created by najati on 9/24/12.
 //
 
-#import <mm_malloc.h>
 #import "Walter.h"
+#import "WalterObserver.h"
+#import "NullWalterObserver.h"
 
 typedef enum {
 	stateRunningLeft,
@@ -27,6 +28,8 @@ typedef enum {
 	CGFloat top;
 	CGFloat left;
 	CGFloat right;
+
+	NSObject <WalterObserver> *walterObserver;
 }
 
 @synthesize location;
@@ -37,37 +40,42 @@ typedef enum {
 @synthesize right;
 @synthesize width;
 
+@synthesize walterObserver;
 
 - (BOOL)runningRight {
 	return state == stateRunningRight;
 }
 
 - (id)initAt:(CGPoint)at {
-	if (self = [super init]) {
-		size = cgp(20, 30);
-		width = size.x;
+	self = [super init];
+	if (!self) return self;
 
-		base_polygon = make_block(0, 0, size.x, size.y);
-		local_polygon = make_block(0, 0, 0, 0);
+	self.walterObserver = [NullWalterObserver instance];
 
-		[self updateLocation:at];
+	size = cgp(20, 30);
+	width = size.x;
 
-		runningSpeed = 500;
-		velocity = cgp(runningSpeed, 0);
+	base_polygon = make_block(0, 0, size.x, size.y);
+	local_polygon = make_block(0, 0, 0, 0);
 
-		jumpVelocity = 700;
+	[self updateLocation:at];
 
-		inTheAir = false;
-		onAWall = false;
+	runningSpeed = 500;
+	velocity = cgp(runningSpeed, 0);
 
-		state = stateRunningRight;
+	jumpVelocity = 700;
 
-		dead = false;
-	}
+	inTheAir = false;
+	onAWall = false;
+
+	state = stateRunningRight;
+
+	dead = false;
+
 	return self;
 }
 
--(void) updateLocation:(CGPoint) newLocation {
+- (void)updateLocation:(CGPoint)newLocation {
 	location = newLocation;
 	CGPoint delta = location;
 	transform_polygon(base_polygon, delta, local_polygon);
@@ -87,7 +95,7 @@ typedef enum {
 	velocity = cgp_add(velocity, frame_velocity);
 
 	CGPoint movement = cgp_times(velocity, dt);
-	[self updateLocation: cgp_add(location, movement)];
+	[self updateLocation:cgp_add(location, movement)];
 
 	inTheAir = true;
 	onAWall = false;
@@ -119,9 +127,16 @@ typedef enum {
 	if (jumpFromGround || jumpFromAWall) {
 		velocity = cgp(-runningSpeed, jumpVelocity);
 		state = stateRunningLeft;
+		[walterObserver runningLeft];
 
-		if (jumpFromGround) return groundJump;
-		else return wallJump;
+		if (jumpFromGround) {
+			[walterObserver groundJump];
+			return groundJump;
+		}
+		else {
+			[walterObserver wallJump];
+			return wallJump;
+		}
 	} else {
 		return noJump;
 	}
@@ -134,9 +149,16 @@ typedef enum {
 	if (jumpFromGround || jumpFromAWall) {
 		velocity = cgp(runningSpeed, jumpVelocity);
 		state = stateRunningRight;
+		[walterObserver runningRight];
 
-		if (jumpFromGround) return groundJump;
-		else return wallJump;
+		if (jumpFromGround) {
+			[walterObserver groundJump];
+			return groundJump;
+		}
+		else {
+			[walterObserver wallJump];
+			return wallJump;
+		}
 	} else {
 		return noJump;
 	}

@@ -99,7 +99,10 @@
 
 	[self addChild:[[StageView alloc] init:stage following:drawOffset]];
 //	[self addChild:[[WalterPolygonView alloc] init:walter following:drawOffset]];
-	[self addChild:[[WalterView alloc] init:walter camera:drawOffset batchNode:batchNode]];
+	WalterView *walterView = [[WalterView alloc] init:walter camera:drawOffset batchNode:batchNode];
+	[self addChild:walterView];
+
+	walter.walterObserver = walterView;
 
 	[self setUpScoreLabel];
 }

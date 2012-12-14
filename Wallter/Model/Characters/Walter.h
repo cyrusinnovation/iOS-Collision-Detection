@@ -6,6 +6,8 @@
 #import "ccTypes.h"
 #import "WorldConstants.h"
 
+@protocol WalterObserver;
+
 typedef enum {
 	noJump,
 	groundJump,
@@ -23,6 +25,7 @@ typedef enum {
 @property(nonatomic, readonly) CGFloat right;
 @property(nonatomic, readonly) CGFloat width;
 
+@property(nonatomic) NSObject <WalterObserver> *walterObserver;
 
 - (id)initAt:(CGPoint)at;
 - (CGPolygon)polygon;

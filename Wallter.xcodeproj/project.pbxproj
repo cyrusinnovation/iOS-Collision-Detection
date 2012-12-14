@@ -58,6 +58,7 @@
 		C13DAC4007F78F104693B1DC /* MeleeAttackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA528AD7DC83A7DF56196 /* MeleeAttackView.m */; };
 		C13DAC44522C8AAB53FC3944 /* WalterPolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8B72436BB9AC747616E /* WalterPolygonView.m */; };
 		C13DAD4F5D5236CC58258270 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE56EF1C7A3A92071EC1 /* Platform.m */; };
+		C13DADB5B6F972C8AA3E16B1 /* NullWalterObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA1F665EFDBDD8992973F /* NullWalterObserver.m */; };
 		C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE0149979D7F1AD08FC0 /* HighScores.m */; };
 		C13DAF21BB7647FD50F41515 /* frames.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13DA4DE18E7E6D4B788CD52 /* frames.plist */; };
 		C13DAFF30CB6EC1EA407F94C /* instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA21E3C760AFE9D6B2438 /* instructions.png */; };
@@ -98,8 +99,11 @@
 		0824998B1610A3720041907E /* libCocosLibs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCocosLibs.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libCocosLibs.a"; sourceTree = "<group>"; };
 		0824998C1610A3720041907E /* libiOSGeometryTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiOSGeometryTools.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libiOSGeometryTools.a"; sourceTree = "<group>"; };
 		0824998D1610A3720041907E /* libkazmath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkazmath.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libkazmath.a"; sourceTree = "<group>"; };
+		C13DA03469EAA3602DE0DCD1 /* WalterObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterObserver.h; sourceTree = "<group>"; };
 		C13DA039BC81030E82667ED9 /* HighScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScore.m; sourceTree = "<group>"; };
 		C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageView.m; sourceTree = "<group>"; };
+		C13DA1305F378EEA0092A2F4 /* NullWalterObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullWalterObserver.h; sourceTree = "<group>"; };
+		C13DA1F665EFDBDD8992973F /* NullWalterObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullWalterObserver.m; sourceTree = "<group>"; };
 		C13DA21E3C760AFE9D6B2438 /* instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions.png; path = Resources/instructions.png; sourceTree = "<group>"; };
 		C13DA26664A89D7FB2C9F547 /* WalterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterController.m; sourceTree = "<group>"; };
 		C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttack.m; sourceTree = "<group>"; };
@@ -272,6 +276,9 @@
 				C13DABCD158D631E2C4F22FF /* Walter.m */,
 				C13DAF552C3FBFBB53AA95C3 /* MeleeAttack.h */,
 				C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */,
+				C13DA03469EAA3602DE0DCD1 /* WalterObserver.h */,
+				C13DA1F665EFDBDD8992973F /* NullWalterObserver.m */,
+				C13DA1305F378EEA0092A2F4 /* NullWalterObserver.h */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -484,6 +491,7 @@
 				C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */,
 				C13DA2C91DE5A727FD28770F /* AddBadGuyToStageObserver.m in Sources */,
 				C13DA12DB8502CFDDCF8E867 /* WalterView.m in Sources */,
+				C13DADB5B6F972C8AA3E16B1 /* NullWalterObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

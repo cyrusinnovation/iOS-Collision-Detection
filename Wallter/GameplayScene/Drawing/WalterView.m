@@ -6,6 +6,8 @@
 #import "CCSpriteFrameCache.h"
 #import "CCSpriteBatchNode.h"
 #import "CCSprite.h"
+#import "CCAnimation.h"
+#import "CCActionInterval.h"
 
 @implementation WalterView {
 	Walter *walter;
@@ -22,9 +24,24 @@
 	walter = _guy;
 	camera = _camera;
 
-	walterSprite = [CCSprite spriteWithSpriteFrameName:@"walk0.png"];
+	walterSprite = [CCSprite spriteWithSpriteFrameName:@"run0.png"];
 	batchNode = _batchNode;
 	[batchNode addChild:walterSprite];
+
+	CCAnimation *runningAnimation = [CCAnimation animation];
+	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run1.png"]];
+	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run2.png"]];
+	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run3.png"]];
+	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run4.png"]];
+	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run5.png"]];
+	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run6.png"]];
+	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run7.png"]];
+	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run0.png"]];
+	[runningAnimation setDelayPerUnit:0.1f];
+	[runningAnimation setRestoreOriginalFrame:true];
+
+	id runningAnimationAction = [CCAnimate actionWithAnimation:runningAnimation];
+	[walterSprite runAction:[CCRepeatForever actionWithAction:runningAnimationAction]];
 
 	return self;
 }
@@ -36,7 +53,22 @@
 	position.x += walter.width / 2;
 	position.y += walterSprite.boundingBox.size.height / 2;
 	[walterSprite setPosition:position];
+
 	[super draw];
+}
+
+- (void)runningLeft {
+	[walterSprite setFlipX:!walter.runningRight];
+}
+
+- (void)runningRight {
+	[walterSprite setFlipX:!walter.runningRight];
+}
+
+- (void)wallJump {
+}
+
+- (void)groundJump {
 }
 
 - (void)dealloc {
