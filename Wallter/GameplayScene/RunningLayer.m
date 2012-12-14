@@ -13,12 +13,12 @@
 #import "Simulation.h"
 #import "MeleeAttack.h"
 #import "MeleeAttackView.h"
-#import "BadGuyView.h"
-#import "Platform.h"
 #import "WalterController.h"
 #import "SettingsLayer.h"
 #import "HighScoresLayer.h"
 #import "HighScores.h"
+#import "AddBadGuyToStageObserver.h"
+#import "BadGuyView.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -39,8 +39,6 @@
 	WalterController *walterController;
 	BOOL transitioning;
 }
-
-@synthesize stage;
 
 + (CCScene *)scene {
 	CCScene *scene = [CCScene node];
@@ -82,9 +80,12 @@
 	drawOffset = [[DrawOffset alloc] init:walter];
 
 	stage = [[Stage alloc] init];
-	stage.listener = self;
 
 	simulation = [[Simulation alloc] initFor:walter in:stage];
+
+	AddBadGuyToStageObserver *addBadguyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation];
+	addBadguyToStageObserver.characterAddedObserver = self;
+	stage.platformAddedObserver = addBadguyToStageObserver;
 
 	[stage prime];
 
@@ -119,7 +120,7 @@
 	// TODO OPT don't update the score string every frame
 	[scoreLabel setString:[NSString stringWithFormat:@"%d", (int) score]];
 
-	if (walter.location.y < stage.death_height || walter.dead) {
+	if (walter.location.y < stage.deathHeight || walter.dead) {
 		[self transitionAfterPlayerDeath];
 	} else {
 		[stage generateAround:walter];
@@ -141,24 +142,7 @@
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:scene withColor:ccBLACK]];
 }
 
-- (void)addedPlatform:(Platform *)platform {
-	int numberOfBaddies = rand() % 4;
-	if (numberOfBaddies == 0) return;
-
-	float x = platform.center;
-	float y = platform.top;
-
-	if (numberOfBaddies < 3) {
-		[self addBadguy:cgp(x, y)];
-	} else {
-		[self addBadguy:cgp(x - 80, y)];
-		[self addBadguy:cgp(x + 80, y)];
-	}
-}
-
-- (void)addBadguy:(CGPoint)location {
-	BadGuy *badGuy = [[BadGuy alloc] init:location];
-	[simulation addBadGuy:badGuy];
+- (void)addedCharacter:(BadGuy *)badGuy {
 	[self addChild:[[BadGuyView alloc] init:badGuy withOffset:drawOffset]];
 }
 

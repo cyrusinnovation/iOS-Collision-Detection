@@ -39,6 +39,7 @@
 		C13DA19617F7777FFF40B5F9 /* HighScoresLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */; };
 		C13DA1CDA463874E50BF6557 /* StageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */; };
 		C13DA1EA0E51AE06DBC61B12 /* BadGuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */; };
+		C13DA2C91DE5A727FD28770F /* AddBadGuyToStageObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABEB49BD00198D9B8C60 /* AddBadGuyToStageObserver.m */; };
 		C13DA3223DE6BE67FFC5F6D4 /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DADF252B545D0A0B803D0 /* Simulation.m */; };
 		C13DA3DE8588B7C7C96C5DBB /* MeleeAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */; };
 		C13DA4AFFC86A6D20F1A98EA /* instructions~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */; };
@@ -117,13 +118,16 @@
 		C13DA8E5C9D2A3894034C780 /* DrawOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawOffset.m; sourceTree = "<group>"; };
 		C13DA9C6C1BA867C67CBD1F2 /* BadGuy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuy.m; sourceTree = "<group>"; };
 		C13DA9D03DAF3987369155F4 /* BadGuyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuyView.h; sourceTree = "<group>"; };
-		C13DAB30C5541131B661D9E6 /* NewPlatformListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlatformListener.h; sourceTree = "<group>"; };
+		C13DAB30C5541131B661D9E6 /* PlatformAddedObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformAddedObserver.h; sourceTree = "<group>"; };
+		C13DAB74C3EAFB7C25238773 /* AddBadGuyToStageObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBadGuyToStageObserver.h; path = Wallter/Model/Stage/AddBadGuyToStageObserver.h; sourceTree = SOURCE_ROOT; };
 		C13DABBB5B6640C268C25E87 /* WalterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterController.h; sourceTree = "<group>"; };
 		C13DABCD158D631E2C4F22FF /* Walter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Walter.m; sourceTree = "<group>"; };
+		C13DABEB49BD00198D9B8C60 /* AddBadGuyToStageObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddBadGuyToStageObserver.m; path = Wallter/Model/Stage/AddBadGuyToStageObserver.m; sourceTree = SOURCE_ROOT; };
 		C13DAC4D144518306031944D /* font.fnt */ = {isa = PBXFileReference; lastKnownFileType = file.fnt; name = font.fnt; path = Resources/font.fnt; sourceTree = "<group>"; };
 		C13DACB6C4FE5DBBF77EDCAF /* NullStageListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullStageListener.h; sourceTree = "<group>"; };
 		C13DACC274D872245BD2809B /* StageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageView.h; sourceTree = "<group>"; };
 		C13DAD1503891DAAB4661AFA /* Walter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Walter.h; sourceTree = "<group>"; };
+		C13DAD629E5D76CF7839C3D1 /* CharacterAddedObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterAddedObserver.h; sourceTree = "<group>"; };
 		C13DAD62E4709EA93612BC08 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		C13DAD86D609664E02DC4B14 /* BadGuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuy.h; sourceTree = "<group>"; };
 		C13DAD9E4FA18A741102AE3E /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
@@ -317,6 +321,8 @@
 				C13DA782D2CA44D6E511580F /* Control */,
 				082499801610A3500041907E /* RunningLayer.h */,
 				082499811610A3500041907E /* RunningLayer.m */,
+				C13DABEB49BD00198D9B8C60 /* AddBadGuyToStageObserver.m */,
+				C13DAB74C3EAFB7C25238773 /* AddBadGuyToStageObserver.h */,
 			);
 			path = GameplayScene;
 			sourceTree = "<group>";
@@ -352,13 +358,14 @@
 		C13DAF51587A476C093A610C /* Stage */ = {
 			isa = PBXGroup;
 			children = (
-				C13DAB30C5541131B661D9E6 /* NewPlatformListener.h */,
+				C13DAB30C5541131B661D9E6 /* PlatformAddedObserver.h */,
 				C13DAE3028B60AF56506B2AE /* Stage.h */,
 				C13DAD62E4709EA93612BC08 /* Platform.h */,
 				C13DACB6C4FE5DBBF77EDCAF /* NullStageListener.h */,
 				C13DA3BBAF9CD850916C625F /* Stage.m */,
 				C13DAE56EF1C7A3A92071EC1 /* Platform.m */,
 				C13DA72780F71E58C6DFC83A /* NullStageListener.m */,
+				C13DAD629E5D76CF7839C3D1 /* CharacterAddedObserver.h */,
 			);
 			path = Stage;
 			sourceTree = "<group>";
@@ -462,6 +469,7 @@
 				C13DA19617F7777FFF40B5F9 /* HighScoresLayer.m in Sources */,
 				C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */,
 				C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */,
+				C13DA2C91DE5A727FD28770F /* AddBadGuyToStageObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

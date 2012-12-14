@@ -10,7 +10,7 @@
 @implementation NullStageListener
 - (void)addedPlatform:(Platform *)platform { }
 
-+ (NSObject <NewPlatformListener> *)instance {
++ (NSObject <PlatformAddedObserver> *)instance {
 	return [[NullStageListener alloc] init];
 }
 

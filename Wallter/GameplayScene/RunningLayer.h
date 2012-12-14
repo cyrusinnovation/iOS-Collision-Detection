@@ -10,17 +10,10 @@
 #import "cocos2d.h"
 #import "Polygon.h"
 #import "Stage.h"
-#import "NewPlatformListener.h"
+#import "PlatformAddedObserver.h"
 #import "GuyControllerEndpoint.h"
+#import "CharacterAddedObserver.h"
 
-@interface
-RunningLayer : CCLayerColor<NewPlatformListener, GuyControllerEndpoint>
-
-@property(nonatomic, retain) Stage *stage;
-
+@interface RunningLayer : CCLayerColor<CharacterAddedObserver, GuyControllerEndpoint>
 + (CCScene *)scene;
-
-- (void)addedPlatform:(Platform *)platform;
-
-
 @end

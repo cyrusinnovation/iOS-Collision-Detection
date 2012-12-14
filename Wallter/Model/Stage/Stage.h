@@ -1,20 +1,18 @@
 //
 // Created by najati on 9/24/12.
 //
-// To change the template use AppCode | Preferences | File Templates.
-//
 
 #import <Foundation/Foundation.h>
 #import "Polygon.h"
-#import "NewPlatformListener.h"
+#import "PlatformAddedObserver.h"
 
 @class Walter;
 @class Platform;
 
 @interface Stage : NSObject
 @property(nonatomic, retain) NSMutableArray *walls;
-@property(nonatomic, retain) NSObject <NewPlatformListener> *listener;
-@property(nonatomic, readonly) float death_height;
+@property(nonatomic, retain) NSObject <PlatformAddedObserver> *platformAddedObserver;
+@property(nonatomic, readonly) float deathHeight;
 
 
 - (void)addPlatform:(Platform *)platform;

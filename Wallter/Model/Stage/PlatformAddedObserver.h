@@ -9,7 +9,7 @@
 
 @class Platform;
 
-@protocol NewPlatformListener
+@protocol PlatformAddedObserver
 
 -(void)addedPlatform:(Platform *) platform;
 

@@ -14,7 +14,7 @@
 
 @implementation Stage {
 	GenerateDirection generate_direction;
-	NSObject <NewPlatformListener> *listener;
+	NSObject <PlatformAddedObserver> *platformAddedObserver;
 
 	NSMutableArray *walls;
 	Platform *last_platform;
@@ -33,12 +33,12 @@
 	float gap_before_tall_building;
 	float fire_escape_offset;
 	float fire_escape_width;
-	float death_height;
+	float deathHeight;
 }
 
 @synthesize walls;
-@synthesize listener;
-@synthesize death_height;
+@synthesize platformAddedObserver;
+@synthesize deathHeight;
 
 
 - (id)init {
@@ -63,9 +63,9 @@
 		fire_escape_offset = 80;
 		fire_escape_width = 20;
 
-		listener = [NullStageListener instance];
+		platformAddedObserver = [NullStageListener instance];
 
-		death_height = -2*platform_depth;
+		deathHeight = -2*platform_depth;
 	}
 	return self;
 }
@@ -113,7 +113,7 @@
 	float top = last_platform.bottom + platform_depth + [self nextPlatformHeight];
 
 	Platform *platform = [self makeNewPlatformAfter:last_platform space_between:jump_distance width:platformLength top:top bottom:last_platform.bottom];
-	[listener addedPlatform:platform];
+	[platformAddedObserver addedPlatform:platform];
 }
 
 - (void)addAWallJump {
@@ -164,9 +164,9 @@
 	if (guy.location.y > next_trigger_height) {
 		[self generateNextLevel];
 		next_trigger_height += height_between_levels;
-		death_height += height_between_levels;
+		deathHeight += height_between_levels;
 
-		while (((Platform *) [walls objectAtIndex:0]).top < death_height) {
+		while (((Platform *) [walls objectAtIndex:0]).top < deathHeight) {
 			[walls removeObjectAtIndex:0];
 		}
 	}

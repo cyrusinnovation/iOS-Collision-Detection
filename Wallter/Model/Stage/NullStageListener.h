@@ -6,9 +6,9 @@
 
 
 #import <Foundation/Foundation.h>
-#import "NewPlatformListener.h"
+#import "PlatformAddedObserver.h"
 
-@interface NullStageListener : NSObject<NewPlatformListener>
-+ (NSObject <NewPlatformListener> *)instance;
+@interface NullStageListener : NSObject<PlatformAddedObserver>
++ (NSObject <PlatformAddedObserver> *)instance;
 
 @end
