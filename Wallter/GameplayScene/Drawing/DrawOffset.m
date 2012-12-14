@@ -21,7 +21,13 @@
 	return self;
 }
 
+// TODO this should probably be made aware of the update interval so the rate of
+// return is consistent across framerates
 -(void) update {
+	[self moveCloserToDesiredOffset];
+}
+
+- (void)moveCloserToDesiredOffset {
 	CGPoint desiredCameraOffset = [self getDesiredCameraOffset];
 	CGPoint difference = cgp_subtract(desiredCameraOffset, delta);
 	cgp_scale(&difference, RATE_OF_RETURN);
