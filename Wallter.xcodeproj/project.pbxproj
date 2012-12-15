@@ -40,6 +40,7 @@
 		C13DA19617F7777FFF40B5F9 /* HighScoresLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */; };
 		C13DA1CDA463874E50BF6557 /* StageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */; };
 		C13DA1EA0E51AE06DBC61B12 /* BadGuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */; };
+		C13DA209331CF69FA0F297A3 /* SimpleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAFF98D4926B7EBF76DDC /* SimpleButton.m */; };
 		C13DA2C91DE5A727FD28770F /* AddBadGuyToStageObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABEB49BD00198D9B8C60 /* AddBadGuyToStageObserver.m */; };
 		C13DA3223DE6BE67FFC5F6D4 /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DADF252B545D0A0B803D0 /* Simulation.m */; };
 		C13DA3DE8588B7C7C96C5DBB /* MeleeAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */; };
@@ -101,6 +102,7 @@
 		0824998D1610A3720041907E /* libkazmath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkazmath.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libkazmath.a"; sourceTree = "<group>"; };
 		C13DA03469EAA3602DE0DCD1 /* WalterObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterObserver.h; sourceTree = "<group>"; };
 		C13DA039BC81030E82667ED9 /* HighScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScore.m; sourceTree = "<group>"; };
+		C13DA07630AA078B61584534 /* SimpleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleButton.h; sourceTree = "<group>"; };
 		C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageView.m; sourceTree = "<group>"; };
 		C13DA1305F378EEA0092A2F4 /* NullWalterObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullWalterObserver.h; sourceTree = "<group>"; };
 		C13DA1F665EFDBDD8992973F /* NullWalterObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullWalterObserver.m; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		C13DAF3CF5E884D4B2147FDA /* WorldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldConstants.h; sourceTree = "<group>"; };
 		C13DAF462675923577E06076 /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
 		C13DAF552C3FBFBB53AA95C3 /* MeleeAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeAttack.h; sourceTree = "<group>"; };
+		C13DAFF98D4926B7EBF76DDC /* SimpleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +342,8 @@
 				082499811610A3500041907E /* RunningLayer.m */,
 				C13DABEB49BD00198D9B8C60 /* AddBadGuyToStageObserver.m */,
 				C13DAB74C3EAFB7C25238773 /* AddBadGuyToStageObserver.h */,
+				C13DAFF98D4926B7EBF76DDC /* SimpleButton.m */,
+				C13DA07630AA078B61584534 /* SimpleButton.h */,
 			);
 			path = GameplayScene;
 			sourceTree = "<group>";
@@ -492,6 +497,7 @@
 				C13DA2C91DE5A727FD28770F /* AddBadGuyToStageObserver.m in Sources */,
 				C13DA12DB8502CFDDCF8E867 /* WalterView.m in Sources */,
 				C13DADB5B6F972C8AA3E16B1 /* NullWalterObserver.m in Sources */,
+				C13DA209331CF69FA0F297A3 /* SimpleButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

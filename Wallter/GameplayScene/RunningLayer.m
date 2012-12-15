@@ -1,8 +1,6 @@
 //
-//  Wallter
-//
-//  Created by Najati Imam on 9/24/12.
-//  Copyright Cyrus Innovation 2012. All rights reserved.
+//  by najati
+//  copyright cyrus innovation
 //
 
 
@@ -20,6 +18,7 @@
 #import "AddBadGuyToStageObserver.h"
 #import "BadGuyView.h"
 #import "WalterView.h"
+#import "SimpleButton.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -52,7 +51,7 @@
 - (id)init {
 	self = ([self initLayer]);
 	if (self == nil) return nil;
-	
+
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
 
@@ -63,6 +62,16 @@
 	buffer = 0;
 	frameTime = 0.01;
 	[self initStage];
+
+	CGSize s = [self currentWindowSize];
+
+	SimpleButton *button = [[SimpleButton alloc] init:self selector:@selector(jump)];
+	[button setPosition:cgp(s.width - 80, 16)];
+	[self addChild:button];
+
+	SimpleButton *attackButton = [[SimpleButton alloc] init:self selector:@selector(attack)];
+	[attackButton setPosition:cgp(s.width - 80*2, 16)];
+	[self addChild:attackButton];
 
 	return self;
 }
@@ -211,6 +220,10 @@
 
 - (void)jumpRight {
 	if ([walter jumpRight] == wallJump) score += 57;
+}
+
+- (void)jump {
+	[walter jump];
 }
 
 #pragma mark utils

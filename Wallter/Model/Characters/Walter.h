@@ -39,4 +39,6 @@ typedef enum {
 - (JumpType)jumpRight;
 
 - (void)kill;
+
+- (void)jump;
 @end

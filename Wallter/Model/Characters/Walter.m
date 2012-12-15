@@ -135,6 +135,36 @@ typedef enum {
 	frameCollisionCount++;
 }
 
+- (JumpType)jump {
+	JumpType jump = noJump;
+
+	if (action == walterIsRunning) {
+		if (direction == walterIsRunningRight) {
+			velocity = cgp(runningSpeed, jumpVelocity);
+		} else {
+			velocity = cgp(-runningSpeed, jumpVelocity);
+		}
+
+		[self updateAction:walterIsGroundJumping];
+
+		jump = groundJump;
+	} else if (action == walterIsOnAWall) {
+		if (direction == walterIsRunningRight) {
+			velocity = cgp(-runningSpeed, jumpVelocity);
+			[self updateDirection:walterIsRunningLeft];
+		} else {
+			velocity = cgp(runningSpeed, jumpVelocity);
+			[self updateDirection:walterIsRunningRight];
+		}
+
+		[self updateAction:walterIsWallJumping];
+
+		jump = wallJump;
+	}
+
+	return jump;
+}
+
 - (JumpType)jumpLeft {
 	bool jumpFromGround = action == walterIsRunning && direction == walterIsRunningLeft;
 	bool jumpFromAWall = action == walterIsOnAWall && direction == walterIsRunningRight;
