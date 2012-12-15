@@ -124,7 +124,7 @@
 }
 
 - (void)update:(ccTime)dt {
-	buffer += dt * 0.8;
+	buffer += dt * 0.6;
 	while (buffer >= frameTime) {
 		buffer -= frameTime;
 		[self updateInternal:frameTime];

@@ -31,6 +31,7 @@
 	camera = _camera;
 
 	walterSprite = [CCSprite spriteWithSpriteFrameName:@"run0.png"];
+	[walterSprite setScale:1.25];
 	batchNode = _batchNode;
 	[batchNode addChild:walterSprite];
 

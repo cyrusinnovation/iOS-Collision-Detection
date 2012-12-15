@@ -14,7 +14,8 @@
 }
 
 -(id)init:(id) _target selector:(SEL)_selector {
-	sprite = [[CCSprite alloc] initWithSpriteFrameName:@"button.png"];
+	sprite = [[CCSprite alloc] initWithSpriteFrameName:@"gem1.png"];
+	[sprite setScale:8];
 
 	CGSize spriteSize = sprite.boundingBox.size;
 	self = [super initWithColor:(ccColor4B) {0, 0, 0, 0} width:spriteSize.width height:spriteSize.height];
@@ -35,7 +36,7 @@
 		return false;
 	}
 	
-	[sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"button.down.png"]];
+	[sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"gem2.png"]];
 	[target performSelector:selector];
 
 	return true;
@@ -51,7 +52,7 @@
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-	[sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"button.png"]];
+	[sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"gem1.png"]];
 }
 
 - (void)registerWithTouchDispatcher {
