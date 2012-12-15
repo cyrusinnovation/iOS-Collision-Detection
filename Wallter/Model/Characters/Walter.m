@@ -3,7 +3,6 @@
 //
 
 #import "Walter.h"
-#import "WalterObserver.h"
 #import "NullWalterObserver.h"
 
 typedef enum {
@@ -29,6 +28,7 @@ typedef enum {
 
 	WalterDirection direction;
 	WalterAction action;
+	int frameCollisionCount;
 
 	bool dead;
 	CGPolygon base_polygon;
@@ -76,6 +76,7 @@ typedef enum {
 
 	[self updateDirection:walterIsRunningRight];
 	[self updateAction:walterIsRunning];
+	frameCollisionCount = 0;
 
 	dead = false;
 
@@ -98,8 +99,6 @@ typedef enum {
 }
 
 - (void)update:(ccTime)dt {
-	CGPoint originalLocation = location;
-
 	CGPoint frame_velocity = cgp_times([WorldConstants gravity], dt);
 	velocity = cgp_add(velocity, frame_velocity);
 
@@ -108,7 +107,11 @@ typedef enum {
 
 	if ((action == walterIsGroundJumping || action == walterIsWallJumping) && velocity.y < 0) {
 		[self updateAction:walterIsFalling];
+	} else if (action == walterIsRunning && frameCollisionCount == 0) {
+		[self updateAction:walterIsFalling];
 	}
+
+	frameCollisionCount = 0;
 }
 
 - (void)correct:(CGPoint)delta {
@@ -128,6 +131,8 @@ typedef enum {
 	if (delta.x != 0) {
 		[self updateAction:walterIsOnAWall];
 	}
+
+	frameCollisionCount++;
 }
 
 - (JumpType)jumpLeft {
@@ -175,6 +180,7 @@ typedef enum {
 }
 
 - (void)updateAction:(WalterAction)_action {
+	if (action == _action) return;
 	action = _action;
 
 	switch (action) {

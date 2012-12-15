@@ -34,7 +34,7 @@
 	batchNode = _batchNode;
 	[batchNode addChild:walterSprite];
 
-	float frameDelay = 0.1f;
+	float frameDelay = 0.07f;
 
 	runningAnimation = [[CCAnimation alloc] init];
 	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run1.png"]];
@@ -60,7 +60,7 @@
 	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump3.png"]];
 	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump4.png"]];
 	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump5.png"]];
-	[jumpDownAnimation setDelayPerUnit:frameDelay/2];
+	[jumpDownAnimation setDelayPerUnit:frameDelay];
 	[jumpDownAnimation setRestoreOriginalFrame:false];
 
 	landAnimation = [[CCAnimation alloc] init];
