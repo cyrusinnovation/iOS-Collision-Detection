@@ -6,7 +6,8 @@
 #import "ccTypes.h"
 #import "WorldConstants.h"
 
-@protocol WalterObserver;
+#import "WalterObserver.h"
+
 
 typedef enum {
 	noJump,

@@ -8,6 +8,7 @@
 #import "CCSprite.h"
 #import "CCAnimation.h"
 #import "CCActionInterval.h"
+#import "CCActionInstant.h"
 
 @implementation WalterView {
 	Walter *walter;
@@ -19,6 +20,7 @@
 	CCAnimation *runningAnimation;
 	CCAnimation *jumpUpAnimation;
 	CCAnimation *jumpDownAnimation;
+	CCAnimation *landAnimation;
 }
 
 - (id)init:(Walter *)_guy camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode {
@@ -45,6 +47,7 @@
 	[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run0.png"]];
 	[runningAnimation setDelayPerUnit:frameDelay];
 	[runningAnimation setRestoreOriginalFrame:true];
+	[runningAnimation setLoops:INFINITY];
 
 	jumpUpAnimation = [[CCAnimation alloc] init];
 	[jumpUpAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump0.png"]];
@@ -57,10 +60,14 @@
 	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump3.png"]];
 	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump4.png"]];
 	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump5.png"]];
-	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump6.png"]];
-	[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump7.png"]];
-	[jumpDownAnimation setDelayPerUnit:frameDelay];
+	[jumpDownAnimation setDelayPerUnit:frameDelay/2];
 	[jumpDownAnimation setRestoreOriginalFrame:false];
+
+	landAnimation = [[CCAnimation alloc] init];
+	[landAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump6.png"]];
+	[landAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump7.png"]];
+	[landAnimation setDelayPerUnit:frameDelay/2];
+	[landAnimation setRestoreOriginalFrame:false];
 
 	[walterSprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:runningAnimation]]];
 
@@ -86,14 +93,25 @@
 	[walterSprite setFlipX:!walter.runningRight];
 }
 
-- (void)wallJump {
+- (void)wallJumping {
 	[walterSprite stopAllActions];
-
 	[walterSprite runAction:[CCAnimate actionWithAnimation:jumpUpAnimation]];
 }
 
-- (void)groundJump {
-	[self wallJump];
+- (void)groundJumping {
+	[self wallJumping];
+}
+
+- (void)falling {
+	[walterSprite stopAllActions];
+	[walterSprite runAction:[CCAnimate actionWithAnimation:jumpDownAnimation]];
+}
+
+- (void)running {
+	[walterSprite stopAllActions];
+	CCFiniteTimeAction* landAnimationAction = [CCAnimate actionWithAnimation:landAnimation];
+	CCFiniteTimeAction* runAnimationAction = [CCAnimate actionWithAnimation:runningAnimation];
+	[walterSprite runAction:[CCSequence actionOne:landAnimationAction two:runAnimationAction]];
 }
 
 - (void)dealloc {

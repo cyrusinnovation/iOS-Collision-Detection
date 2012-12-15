@@ -13,7 +13,9 @@
 
 - (void)runningLeft { }
 - (void)runningRight { }
-- (void)wallJump { }
-- (void)groundJump { }
+- (void)wallJumping { }
+- (void)groundJumping { }
+- (void)falling { }
+- (void)running { }
 
 @end

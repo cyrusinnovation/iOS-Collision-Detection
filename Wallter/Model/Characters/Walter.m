@@ -98,11 +98,17 @@ typedef enum {
 }
 
 - (void)update:(ccTime)dt {
+	CGPoint originalLocation = location;
+
 	CGPoint frame_velocity = cgp_times([WorldConstants gravity], dt);
 	velocity = cgp_add(velocity, frame_velocity);
 
 	CGPoint movement = cgp_times(velocity, dt);
 	[self updateLocation:cgp_add(location, movement)];
+
+	if ((action == walterIsGroundJumping || action == walterIsWallJumping) && velocity.y < 0) {
+		[self updateAction:walterIsFalling];
+	}
 }
 
 - (void)correct:(CGPoint)delta {
@@ -115,7 +121,7 @@ typedef enum {
 	killer = cgp_project(cgp(0, -1000), killer);
 	velocity = cgp_subtract(velocity, killer);
 
-	if ((action == walterIsGroundJumping || action == walterIsWallJumping) && delta.y > 0 && velocity.y == 0) {
+	if ((action == walterIsGroundJumping || action == walterIsWallJumping || action == walterIsFalling) && delta.y > 0 && velocity.y == 0) {
 		[self updateAction:walterIsRunning];
 	}
 
@@ -146,32 +152,6 @@ typedef enum {
 	}
 }
 
-- (void)updateAction:(WalterAction)_action {
-	action = _action;
-
-	switch (action) {
-		case walterIsWallJumping:
-			[walterObserver wallJump];
-			break;
-		case walterIsGroundJumping:
-			[walterObserver groundJump];
-			break;
-	}
-}
-
-- (void)updateDirection:(WalterDirection)_direction {
-	direction = _direction;
-
-	switch (direction) {
-		case walterIsRunningLeft:
-			[walterObserver runningLeft];
-			break;
-		case walterIsRunningRight:
-			[walterObserver runningRight];
-			break;
-	}
-}
-
 - (JumpType)jumpRight {
 	bool jumpFromGround = action == walterIsRunning && direction == walterIsRunningRight;
 	bool jumpFromAWall = action == walterIsOnAWall && direction == walterIsRunningLeft;
@@ -191,6 +171,38 @@ typedef enum {
 		}
 	} else {
 		return noJump;
+	}
+}
+
+- (void)updateAction:(WalterAction)_action {
+	action = _action;
+
+	switch (action) {
+		case walterIsWallJumping:
+			[walterObserver wallJumping];
+			break;
+		case walterIsGroundJumping:
+			[walterObserver groundJumping];
+			break;
+		case walterIsFalling:
+			[walterObserver falling];
+			break;
+		case walterIsRunning:
+			[walterObserver running];
+			break;
+	}
+}
+
+- (void)updateDirection:(WalterDirection)_direction {
+	direction = _direction;
+
+	switch (direction) {
+		case walterIsRunningLeft:
+			[walterObserver runningLeft];
+			break;
+		case walterIsRunningRight:
+			[walterObserver runningRight];
+			break;
 	}
 }
 
