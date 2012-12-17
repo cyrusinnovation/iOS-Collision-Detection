@@ -11,10 +11,15 @@
 
 	id target;
 	SEL selector;
+	NSString *frame;
+	NSString *downFrame;
 }
 
--(id)init:(id) _target selector:(SEL)_selector {
-	sprite = [[CCSprite alloc] initWithSpriteFrameName:@"gem1.png"];
+-(id)init:(id) _target selector:(SEL)_selector frame:(NSString *)_frame downFrame:(NSString *)_downFrame {
+	frame = _frame;
+	downFrame = _downFrame;
+	
+	sprite = [[CCSprite alloc] initWithSpriteFrameName:frame];
 	[sprite setScale:8];
 
 	CGSize spriteSize = sprite.boundingBox.size;
@@ -36,7 +41,7 @@
 		return false;
 	}
 	
-	[sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"gem2.png"]];
+	[sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:downFrame]];
 	[target performSelector:selector];
 
 	return true;
@@ -52,7 +57,7 @@
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-	[sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"gem1.png"]];
+	[sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frame]];
 }
 
 - (void)registerWithTouchDispatcher {

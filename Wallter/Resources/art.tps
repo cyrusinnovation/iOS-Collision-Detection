@@ -172,6 +172,8 @@
             <filename>../../../../stuff/java/ItsPanda/resources/images/walk5.png</filename>
             <filename>../../../../stuff/java/ItsPanda/resources/images/walk6.png</filename>
             <filename>../../../../stuff/java/ItsPanda/resources/images/walk7.png</filename>
+            <filename>../../../../stuff/java/ItsPanda/resources/images/gem1.down.png</filename>
+            <filename>../../../../stuff/java/ItsPanda/resources/images/gem4.down.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

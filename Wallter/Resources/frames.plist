@@ -17,10 +17,23 @@
                 <key>sourceSize</key>
                 <string>{32,32}</string>
             </dict>
+            <key>gem1.down.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{152,2},{16,16}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{16,16}}</string>
+                <key>sourceSize</key>
+                <string>{16,16}</string>
+            </dict>
             <key>gem1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{121,238},{16,16}}</string>
+                <string>{{170,2},{16,16}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +46,7 @@
             <key>gem2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{103,238},{16,16}}</string>
+                <string>{{121,238},{16,16}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -44,6 +57,19 @@
                 <string>{16,16}</string>
             </dict>
             <key>gem3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{103,238},{16,16}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{16,16}}</string>
+                <key>sourceSize</key>
+                <string>{16,16}</string>
+            </dict>
+            <key>gem4.down.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{85,238},{16,16}}</string>
@@ -72,7 +98,7 @@
             <key>grass.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{152,36},{32,32}}</string>
+                <string>{{152,54},{32,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -293,7 +319,7 @@
             <key>stone.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{152,2},{32,32}}</string>
+                <string>{{152,20},{32,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -417,7 +443,7 @@
             <key>size</key>
             <string>{256,256}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:834fed33df9e9ea215b30dcf353d26be$</string>
+            <string>$TexturePacker:SmartUpdate:afd2bc573bae061fdc65b345df8274e3$</string>
             <key>textureFileName</key>
             <string>frames.png</string>
         </dict>
