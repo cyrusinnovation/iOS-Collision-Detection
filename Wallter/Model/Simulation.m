@@ -30,15 +30,25 @@
 
 - (void)update:(ccTime)dt {
 	[guy update:dt];
+	[self updateAttacks:dt];
+	[self killWalterIfHesTouchingABadGuy];
+	[self correctWalterPositionGivenCollisionsWithWalls];
+}
+
+- (void)updateAttacks:(ccTime)dt {
 	for (int j = attacks.count - 1; j >= 0; j--) {
 		MeleeAttack *attack = [attacks objectAtIndex:j];
-
 		[attack update:dt];
-
 		if (attack.isDead) {
 			[attacks removeObjectAtIndex:j];
 		} else {
-			for (int i = badguys.count -1; i >= 0; i--) {
+			[self killBadguysIfTheyTouchThisAttack:attack];
+		}
+	}
+}
+
+- (void)killBadguysIfTheyTouchThisAttack:(MeleeAttack *)attack {
+	for (int i = badguys.count -1; i >= 0; i--) {
 				BadGuy *badGuy = [badguys objectAtIndex:i];
 				SATResult result = sat_test(badGuy.polygon, attack.polygon);
 				// test(badGuy, attack)
@@ -49,16 +59,18 @@
 					[badguys removeObjectAtIndex:i];
 				}
 			}
-		}
-	}
+}
 
+- (void)killWalterIfHesTouchingABadGuy {
 	for (BadGuy *badGuy in badguys) {
 		SATResult result = sat_test(badGuy.polygon, guy.polygon);
 		if (result.penetrating) {
 			[guy kill];
 		}
 	}
+}
 
+- (void)correctWalterPositionGivenCollisionsWithWalls {
 	for (Platform *wall in stage.walls) {
 		SATResult result = [wall test:guy];
 		if (result.penetrating) {
