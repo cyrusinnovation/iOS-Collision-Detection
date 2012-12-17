@@ -40,5 +40,5 @@ typedef enum {
 
 - (void)kill;
 
-- (void)jump;
+- (JumpType)jump;
 @end

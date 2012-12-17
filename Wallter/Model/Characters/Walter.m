@@ -226,6 +226,8 @@ typedef enum {
 		case walterIsRunning:
 			[walterObserver running];
 			break;
+        case walterIsOnAWall:
+            break;
 	}
 }
 

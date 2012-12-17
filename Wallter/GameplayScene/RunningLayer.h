@@ -14,6 +14,8 @@
 #import "GuyControllerEndpoint.h"
 #import "CharacterAddedObserver.h"
 
+#define INTERFACE_LAYER 100
+
 @interface RunningLayer : CCLayerColor<CharacterAddedObserver, GuyControllerEndpoint>
 + (CCScene *)scene;
 @end

@@ -41,6 +41,7 @@
 			for (int i = badguys.count -1; i >= 0; i--) {
 				BadGuy *badGuy = [badguys objectAtIndex:i];
 				SATResult result = sat_test(badGuy.polygon, attack.polygon);
+				// test(badGuy, attack)
 				if (result.penetrating) {
 					[badGuy kill];
 				}
@@ -64,12 +65,6 @@
 			[guy correct:result.penetration];
 		}
 	}
-}
-
-- (void)dealloc {
-	[guy release];
-	[stage release];
-	[super dealloc];
 }
 
 - (void)addAttack:(MeleeAttack *)_attack {

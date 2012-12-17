@@ -35,6 +35,7 @@
 		0824998E1610A3720041907E /* libCocosLibs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998B1610A3720041907E /* libCocosLibs.a */; };
 		0824998F1610A3720041907E /* libiOSGeometryTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998C1610A3720041907E /* libiOSGeometryTools.a */; };
 		082499901610A3720041907E /* libkazmath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0824998D1610A3720041907E /* libkazmath.a */; };
+		0864B2EF167FC0E500DFBF27 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0864B2EE167FC0E500DFBF27 /* Default-568h@2x.png */; };
 		C13DA049CCF00D8D33DB445C /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8E5C9D2A3894034C780 /* Camera.m */; };
 		C13DA12DB8502CFDDCF8E867 /* WalterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8D3B37A810875D6B3BA /* WalterView.m */; };
 		C13DA19617F7777FFF40B5F9 /* HighScoresLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */; };
@@ -100,6 +101,7 @@
 		0824998B1610A3720041907E /* libCocosLibs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCocosLibs.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libCocosLibs.a"; sourceTree = "<group>"; };
 		0824998C1610A3720041907E /* libiOSGeometryTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiOSGeometryTools.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libiOSGeometryTools.a"; sourceTree = "<group>"; };
 		0824998D1610A3720041907E /* libkazmath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkazmath.a; path = "../../../Library/Developer/Xcode/DerivedData/iPhone-easxiwpwzobmbvbqvxsxbvtnwafz/Build/Products/Debug-iphoneos/libkazmath.a"; sourceTree = "<group>"; };
+		0864B2EE167FC0E500DFBF27 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C13DA03469EAA3602DE0DCD1 /* WalterObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterObserver.h; sourceTree = "<group>"; };
 		C13DA039BC81030E82667ED9 /* HighScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScore.m; sourceTree = "<group>"; };
 		C13DA07630AA078B61584534 /* SimpleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleButton.h; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		082497E41610A34D0041907E = {
 			isa = PBXGroup;
 			children = (
+				0864B2EE167FC0E500DFBF27 /* Default-568h@2x.png */,
 				082499911610A3810041907E /* Library References */,
 				082498051610A34E0041907E /* Wallter */,
 				082497F21610A34D0041907E /* Frameworks */,
@@ -462,6 +465,7 @@
 				C13DAB87958E81815103A421 /* font.png in Resources */,
 				C13DAF21BB7647FD50F41515 /* frames.plist in Resources */,
 				C13DAB8AAB4D321759295FF2 /* frames.png in Resources */,
+				0864B2EF167FC0E500DFBF27 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -536,6 +541,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = (

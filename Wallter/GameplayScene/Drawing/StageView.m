@@ -38,7 +38,6 @@
 
 - (void)dealloc {
 	free_polygon(drawPoly);
-	[super dealloc];
 }
 
 @end

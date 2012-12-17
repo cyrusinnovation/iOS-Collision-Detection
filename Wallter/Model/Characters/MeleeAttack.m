@@ -52,8 +52,6 @@
 
 - (void)dealloc {
 	free_polygon(polygon);
-	[guy release];
-	[super dealloc];
 }
 
 - (void)update:(ccTime)dt {

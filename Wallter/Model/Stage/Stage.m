@@ -87,11 +87,6 @@
 	last_platform = platform;
 }
 
-- (void)dealloc {
-	[walls release];
-	[super dealloc];
-}
-
 - (void)generateNextLevel {
 	int platformCount = rand() % 8 + 1;
 

@@ -116,9 +116,7 @@
 }
 
 - (void)dealloc {
-	[walter release];
 	[batchNode removeChild:walterSprite cleanup:true];
-	[super dealloc];
 }
 
 @end

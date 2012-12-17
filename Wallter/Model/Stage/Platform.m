@@ -67,7 +67,6 @@
 
 - (void)dealloc {
 	free_polygon(polygon);
-	[super dealloc];
 }
 
 - (SATResult)test:(Walter *)guy {

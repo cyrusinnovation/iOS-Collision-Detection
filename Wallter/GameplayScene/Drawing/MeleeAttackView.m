@@ -44,9 +44,7 @@ ccColor4F color;
 }
 
 - (void)dealloc {
-	[attack release];
 	free_polygon(drawPoly);
-	[super dealloc];
 }
 
 @end

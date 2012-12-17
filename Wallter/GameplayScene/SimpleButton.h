@@ -9,6 +9,4 @@
 @interface SimpleButton : CCLayerColor
 - (id)init:(id)_target selector:(SEL)_selector frame:(NSString *)_frame downFrame:(NSString *)_downFrame;
 
-- (id)init:(id)_target selector:(SEL)_selector;
-
 @end

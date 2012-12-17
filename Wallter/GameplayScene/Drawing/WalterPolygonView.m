@@ -35,9 +35,7 @@
 }
 
 - (void)dealloc {
-	[walter release];
 	free_polygon(drawPoly);
-	[super dealloc];
 }
 
 @end

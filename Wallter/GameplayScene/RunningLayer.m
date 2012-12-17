@@ -67,11 +67,11 @@
 
 	SimpleButton *button = [[SimpleButton alloc] init:self selector:@selector(jump) frame:@"gem1.png" downFrame:@"gem1.down.png"];
 	[button setPosition:cgp(s.width - 80, 16)];
-	[self addChild:button];
+	[self addChild:button z:INTERFACE_LAYER];
 
 	SimpleButton *attackButton = [[SimpleButton alloc] init:self selector:@selector(attack) frame:@"gem4.png" downFrame:@"gem4.down.png"];
 	[attackButton setPosition:cgp(s.width - 80*2, 16)];
-	[self addChild:attackButton];
+	[self addChild:attackButton z:INTERFACE_LAYER];
 
 	return self;
 }
@@ -120,7 +120,7 @@
 	scoreLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"font.fnt"];
 	CGSize s = [[CCDirector sharedDirector] winSize];
 	scoreLabel.position = cgp(s.width / 2, s.height - 30);
-	[self addChild:scoreLabel z:100];
+	[self addChild:scoreLabel z:INTERFACE_LAYER];
 }
 
 - (void)update:(ccTime)dt {
@@ -176,11 +176,6 @@
 	} else {
 		waltersLocation = walter.location;
 	}
-}
-
-- (void)dealloc {
-	[stage release];
-	[super dealloc];
 }
 
 #pragma mark Touch methods

@@ -45,9 +45,7 @@
 }
 
 - (void)dealloc {
-	[badguy release];
 	free_polygon(drawPoly);
-	[super dealloc];
 }
 
 @end
