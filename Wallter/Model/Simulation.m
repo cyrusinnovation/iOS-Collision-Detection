@@ -94,7 +94,7 @@
 }
 
 - (void)correctWalterPositionGivenCollisionsWithWalls {
-	for (Platform *wall in stage.walls) {
+	for (id<BoundedPolygon> wall in stage.elements) {
 		SATResult result = [Simulation test:wall against:walter];
 		if (result.penetrating) {
 			[walter collides:result with:wall];

@@ -36,10 +36,12 @@
 	float deathHeight;
 }
 
-@synthesize walls;
 @synthesize platformAddedObserver;
 @synthesize deathHeight;
 
+-(NSMutableArray *) elements {
+	return walls;
+}
 
 - (id)init {
 	if (self = [super init]) {
@@ -178,5 +180,7 @@
 - (int)nextPlatformHeight {
 	return rand() % 3 * 25;
 }
+
+
 
 @end

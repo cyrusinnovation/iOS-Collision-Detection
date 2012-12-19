@@ -5,5 +5,5 @@
 
 
 @protocol Environment <NSObject>
-@property(nonatomic, retain) NSMutableArray *elements;
+@property(nonatomic, retain, readonly) NSMutableArray *elements;
 @end

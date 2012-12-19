@@ -30,7 +30,7 @@
 
 	CGPoint delta = [offset getOffset];
 
-	for (Platform *wall in stage.walls) {
+	for (Platform *wall in stage.elements) {
 		transform_polygon(wall.polygon, delta, drawPoly);
 		ccDrawSolidPoly(drawPoly.points, drawPoly.count, color);
 	}
