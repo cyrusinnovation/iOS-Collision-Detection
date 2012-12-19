@@ -141,7 +141,7 @@
 	// TODO OPT don't update the score string every frame
 	[scoreLabel setString:[NSString stringWithFormat:@"%d", (int) score]];
 
-	if (walter.location.y < stage.deathHeight || walter.dead) {
+	if (walter.location.y < stage.deathHeight || walter.isExpired) {
 		[self transitionAfterPlayerDeath];
 	} else {
 		[stage generateAround:walter];

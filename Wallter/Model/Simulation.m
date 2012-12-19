@@ -6,7 +6,6 @@
 #import "SeparatingAxisTest.h"
 #import "MeleeAttack.h"
 #import "Platform.h"
-#import "SimulationActor.h"
 
 @implementation Simulation {
 	Walter *walter;
@@ -85,10 +84,10 @@
 }
 
 - (void)killWalterIfHesTouchingABadGuy {
-	for (BadGuy *badGuy in badguys) {
+	for (id<BoundedPolygon> badGuy in badguys) {
 		SATResult result = [Simulation test:badGuy against:walter];
 		if (result.penetrating) {
-			[walter kill];
+			[walter collides:result with:badGuy];
 		}
 	}
 }

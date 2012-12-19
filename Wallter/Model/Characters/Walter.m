@@ -4,6 +4,7 @@
 
 #import "Walter.h"
 #import "NullWalterObserver.h"
+#import "BadGuy.h"
 
 typedef enum {
 	walterIsRunningLeft,
@@ -42,16 +43,17 @@ typedef enum {
 }
 
 @synthesize location;
-@synthesize dead;
-@synthesize bottom;
+
 @synthesize top;
+@synthesize bottom;
 @synthesize left;
 @synthesize right;
+
 @synthesize width;
 
 @synthesize walterObserver;
 
-- (BOOL)runningRight {
+- (Boolean)runningRight {
 	return direction == walterIsRunningRight;
 }
 
@@ -244,8 +246,15 @@ typedef enum {
 	}
 }
 
-- (void)kill {
-	dead = true;
+-(Boolean) isExpired {
+	return dead;
 }
+
+- (void)collides:(SATResult)result with:(id <BoundedPolygon>)that {
+	if ([that isMemberOfClass:[BadGuy class]]) {
+		dead = true;
+	}
+}
+
 
 @end

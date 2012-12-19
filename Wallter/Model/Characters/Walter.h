@@ -8,6 +8,7 @@
 
 #import "WalterObserver.h"
 #import "BoundedPolygon.h"
+#import "SimulationActor.h"
 
 typedef enum {
 	noJump,
@@ -15,11 +16,10 @@ typedef enum {
 	wallJump
 } JumpType;
 
-@interface Walter : NSObject<BoundedPolygon>
+@interface Walter : NSObject<BoundedPolygon, SimulationActor>
 @property(nonatomic) CGPoint location;
 
-@property(nonatomic,readonly) BOOL runningRight;
-@property(nonatomic, readonly) bool dead;
+@property(nonatomic,readonly) Boolean runningRight;
 @property(nonatomic, readonly) CGFloat bottom;
 @property(nonatomic, readonly) CGFloat top;
 @property(nonatomic, readonly) CGFloat left;
@@ -35,10 +35,7 @@ typedef enum {
 - (void)correct:(CGPoint)delta;
 
 - (JumpType)jumpLeft;
-
 - (JumpType)jumpRight;
-
-- (void)kill;
-
 - (JumpType)jump;
+
 @end
