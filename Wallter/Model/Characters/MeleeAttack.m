@@ -12,6 +12,7 @@
 }
 
 @synthesize guy;
+@synthesize polygon;
 
 - (BOOL)isDead {
 	return age > max_age;
@@ -26,7 +27,29 @@
 	return self;
 }
 
-- (CGPolygon)polygon {
+- (CGFloat)top {
+	return polygon.points[2].y;
+}
+
+- (CGFloat)bottom {
+	return polygon.points[0].y;
+}
+
+- (CGFloat)left {
+	return polygon.points[0].x;
+}
+
+- (CGFloat)right {
+	return polygon.points[2].x;
+}
+
+- (void)dealloc {
+	free_polygon(polygon);
+}
+
+- (void)update:(ccTime)dt {
+	age += dt;
+
 	int attack_width = 70;
 	if (guy.runningRight) {
 		CGPolygon guyPoly = guy.polygon;
@@ -47,15 +70,6 @@
 		polygon.points[3] = guyPoly.points[3];
 		polygon.points[3].x -= attack_width;
 	}
-	return polygon;
-}
-
-- (void)dealloc {
-	free_polygon(polygon);
-}
-
-- (void)update:(ccTime)dt {
-	age += dt;
 }
 
 @end

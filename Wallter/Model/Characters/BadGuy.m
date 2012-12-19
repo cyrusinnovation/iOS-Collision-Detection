@@ -1,14 +1,8 @@
 //
 // Created by najati on 9/25/12.
 //
-// To change the template use AppCode | Preferences | File Templates.
-//
 
-
-#import <CoreGraphics/CoreGraphics.h>
 #import "BadGuy.h"
-#import "Polygon.h"
-
 
 @implementation BadGuy {
 	CGPolygon polygon;
@@ -18,13 +12,23 @@
 @synthesize polygon;
 @synthesize dead;
 
+@synthesize top;
+@synthesize bottom;
+@synthesize left;
+@synthesize right;
+
 - (id)init:(CGPoint)point {
 	if (self = [super init]) {
-		polygon = make_block(point.x, point.y, point.x + 20, point.y + 30);
+		left = point.x;
+		bottom = point.y;
+		right = left + 20;
+		top = bottom + 30;
+		polygon = make_block(left, bottom, right, top);
 		dead = false;
 	}
 	return self;
 }
+
 
 - (void)kill {
 	dead = true;

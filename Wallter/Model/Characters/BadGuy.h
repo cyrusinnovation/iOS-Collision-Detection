@@ -7,13 +7,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Polygon.h"
+#import "BoundedPolygon.h"
 
-@interface BadGuy : NSObject
+@interface BadGuy : NSObject<BoundedPolygon>
+
 @property(nonatomic, readonly) CGPolygon polygon;
 @property(nonatomic, readonly) bool dead;
 
-
 - (id)init:(CGPoint)point;
-
 - (void)kill;
+
 @end

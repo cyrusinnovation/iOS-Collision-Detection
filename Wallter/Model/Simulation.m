@@ -5,22 +5,21 @@
 #import "Simulation.h"
 #import "SeparatingAxisTest.h"
 #import "MeleeAttack.h"
-#import "SATResult.h"
 #import "Platform.h"
 
 @implementation Simulation {
-	Walter *guy;
+	Walter *walter;
 	Stage *stage;
 	NSMutableArray *attacks;
 	NSMutableArray *badguys;
 }
 
-@synthesize guy;
+@synthesize walter;
 @synthesize stage;
 
 - (id)initFor:(Walter *)_guy in:(Stage *)_stage {
 	if (self = [super init]) {
-		guy = _guy;
+		walter = _guy;
 		stage = _stage;
 		attacks = [[NSMutableArray alloc] init];
 		badguys = [[NSMutableArray alloc] init];
@@ -42,10 +41,20 @@
 //		[actors update:dt];
 //	}
 
-	[guy update:dt];
+	[walter update:dt];
 	[self updateAttacks:dt];
 	[self killWalterIfHesTouchingABadGuy];
 	[self correctWalterPositionGivenCollisionsWithWalls];
+}
+
++ (SATResult)test:(id<BoundedPolygon>) this against:(id<BoundedPolygon>)that {
+	if (that.bottom > this.top ||
+			that.top < this.bottom ||
+			that.right < this.left ||
+			that.left > this.right) {
+		return (SATResult) {cgp(0, 0), false};
+	}
+	return sat_test(that.polygon, this.polygon);
 }
 
 - (void)updateAttacks:(ccTime)dt {
@@ -63,7 +72,7 @@
 - (void)killBadGuysIfTheyTouchThisAttack:(MeleeAttack *)attack {
 	for (int i = badguys.count - 1; i >= 0; i--) {
 		BadGuy *badGuy = [badguys objectAtIndex:i];
-		SATResult result = sat_test(badGuy.polygon, attack.polygon);
+		SATResult result = [Simulation test:badGuy against:attack];
 		// test(badGuy, attack)
 		if (result.penetrating) {
 			[badGuy kill];
@@ -76,28 +85,18 @@
 
 - (void)killWalterIfHesTouchingABadGuy {
 	for (BadGuy *badGuy in badguys) {
-		SATResult result = sat_test(badGuy.polygon, guy.polygon);
+		SATResult result = [Simulation test:badGuy against:walter];
 		if (result.penetrating) {
-			[guy kill];
+			[walter kill];
 		}
 	}
 }
 
-+ (SATResult)test:(id<BoundedPolygon>) this against:(id<BoundedPolygon>)that {
-	if (that.bottom > this.top ||
-			that.top < this.bottom ||
-			that.right < this.left ||
-			that.left > this.right) {
-		return (SATResult) {cgp(0, 0), false};
-	}
-	return sat_test(that.polygon, this.polygon);
-}
-
 - (void)correctWalterPositionGivenCollisionsWithWalls {
 	for (Platform *wall in stage.walls) {
-		SATResult result = [Simulation test:wall against:guy];
+		SATResult result = [Simulation test:wall against:walter];
 		if (result.penetrating) {
-			[guy correct:result.penetration];
+			[walter correct:result.penetration];
 		}
 	}
 }

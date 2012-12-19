@@ -2,7 +2,6 @@
 // Created by najati on 9/27/12.
 //
 
-
 #import "Platform.h"
 
 @implementation Platform {
