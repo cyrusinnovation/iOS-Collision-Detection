@@ -6,12 +6,14 @@
 #import "SeparatingAxisTest.h"
 #import "MeleeAttack.h"
 #import "Platform.h"
+#import "Stage.h"
+#import "Walter.h"
 
 @implementation Simulation {
 	id<BoundedPolygon, SimulationActor> walter;
 	Stage *stage;
 	NSMutableArray *attacks;
-	NSMutableArray *badguys;
+	NSMutableArray *enemies;
 }
 
 @synthesize stage;
@@ -21,7 +23,7 @@
 		walter = _guy;
 		stage = _stage;
 		attacks = [[NSMutableArray alloc] init];
-		badguys = [[NSMutableArray alloc] init];
+		enemies = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -69,21 +71,21 @@
 }
 
 - (void)killBadGuysIfTheyTouchThisAttack:(MeleeAttack *)attack {
-	for (int i = badguys.count - 1; i >= 0; i--) {
-		id<SimulationActor, BoundedPolygon> badGuy = [badguys objectAtIndex:i];
+	for (int i = enemies.count - 1; i >= 0; i--) {
+		id<SimulationActor, BoundedPolygon> badGuy = [enemies objectAtIndex:i];
 		SATResult result = [Simulation test:badGuy against:attack];
 		// test(badGuy, attack)
 		if (result.penetrating) {
 			[badGuy collides:result with:attack];
 		}
 		if (badGuy.isExpired) {
-			[badguys removeObjectAtIndex:i];
+			[enemies removeObjectAtIndex:i];
 		}
 	}
 }
 
 - (void)killWalterIfHesTouchingABadGuy {
-	for (id<BoundedPolygon> badGuy in badguys) {
+	for (id<BoundedPolygon> badGuy in enemies) {
 		SATResult result = [Simulation test:badGuy against:walter];
 		if (result.penetrating) {
 			[walter collides:result with:badGuy];
@@ -100,11 +102,11 @@
 	}
 }
 
-- (void)addAttack:(MeleeAttack *)_attack {
+- (void)addAttack:(id<BoundedPolygon, SimulationActor>)_attack {
 	[attacks addObject:_attack];
 }
 
-- (void)addBadGuy:(BadGuy *)bg {
-	[badguys addObject:bg];
+- (void)addEnemy:(id<BoundedPolygon, SimulationActor>)enemy {
+	[enemies addObject:enemy];
 }
 @end

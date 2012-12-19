@@ -2,12 +2,16 @@
 // Created by najati on 9/24/12.
 //
 
-#import "Walter.h"
-#import "Stage.h"
-#import "BadGuy.h"
 #import "ccTypes.h"
 
+#import "Environment.h"
+#import "BoundedPolygon.h"
+#import "SimulationActor.h"
+
+@class BadGuy;
 @class MeleeAttack;
+@class Stage;
+@class Walter;
 
 @interface Simulation : NSObject
 
@@ -17,7 +21,6 @@
 
 - (void)update:(ccTime)dt;
 
-- (void)addAttack:(MeleeAttack *)_attack;
-
-- (void)addBadGuy:(BadGuy *)guy;
+- (void)addAttack:(id<BoundedPolygon, SimulationActor>)_attack;
+- (void)addEnemy:(id<BoundedPolygon, SimulationActor>)enemy;
 @end

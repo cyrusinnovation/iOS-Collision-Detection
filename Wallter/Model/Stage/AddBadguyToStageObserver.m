@@ -43,7 +43,7 @@
 
 - (void)addBadguy:(CGPoint)location {
 	BadGuy *badGuy = [[BadGuy alloc] init:location];
-	[simulation addBadGuy:badGuy];
+	[simulation addEnemy:badGuy];
 	[characterAddedObserver addedCharacter:badGuy];
 }
 
