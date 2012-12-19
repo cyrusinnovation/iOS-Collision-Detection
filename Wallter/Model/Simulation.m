@@ -7,13 +7,13 @@
 #import "SeparatingAxisTest.h"
 
 @implementation Simulation {
-	id<BoundedPolygon, SimulationActor> mainActor;
-	id<Environment> environment;
+	id <BoundedPolygon, SimulationActor> mainActor;
+	id <Environment> environment;
 	NSMutableArray *attacks;
 	NSMutableArray *enemies;
 }
 
-- (id)initFor:(id<BoundedPolygon, SimulationActor>)_mainActor in:(id<Environment>)_environment {
+- (id)initFor:(id <BoundedPolygon, SimulationActor>)_mainActor in:(id <Environment>)_environment {
 	if (self = [super init]) {
 		mainActor = _mainActor;
 		environment = _environment;
@@ -38,12 +38,16 @@
 //	}
 
 	[mainActor update:dt];
-	[self updateAttacks:dt];
-	[self killWalterIfHesTouchingABadGuy];
-	[self correctWalterPositionGivenCollisionsWithWalls];
+	[self testMainActorAgainstPolys:environment.elements];
+
+	[self updateActors:dt actors:attacks];
+	[self testEnemiesAgainstAttacks];
+
+	[self updateActors:dt actors:enemies];
+	[self testMainActorAgainstPolys:enemies];
 }
 
-+ (SATResult)test:(id<BoundedPolygon>) this against:(id<BoundedPolygon>)that {
++ (SATResult)test:(id <BoundedPolygon>)this against:(id <BoundedPolygon>)that {
 	if (that.bottom > this.top ||
 			that.top < this.bottom ||
 			that.right < this.left ||
@@ -53,34 +57,33 @@
 	return sat_test(that.polygon, this.polygon);
 }
 
-- (void)updateAttacks:(ccTime)dt {
-	for (int j = attacks.count - 1; j >= 0; j--) {
-		id<BoundedPolygon, SimulationActor> attack = [attacks objectAtIndex:j];
-		[attack update:dt];
-		if (attack.isExpired) {
-			[attacks removeObjectAtIndex:j];
+- (void)updateActors:(ccTime)dt actors:(NSMutableArray *)actors {
+	for (int i = actors.count - 1; i >= 0; i--) {
+		id <BoundedPolygon, SimulationActor> actor = [actors objectAtIndex:i];
+		if (actor.isExpired) {
+			[actors removeObjectAtIndex:i];
 		} else {
-			[self killBadGuysIfTheyTouchThisAttack:attack];
+			[actor update:dt];
 		}
 	}
 }
 
-- (void)killBadGuysIfTheyTouchThisAttack:(id<BoundedPolygon>)attack {
-	for (int i = enemies.count - 1; i >= 0; i--) {
-		id<SimulationActor, BoundedPolygon> badGuy = [enemies objectAtIndex:i];
-		SATResult result = [Simulation test:badGuy against:attack];
-		// test(badGuy, attack)
-		if (result.penetrating) {
-			[badGuy collides:result with:attack];
-		}
-		if (badGuy.isExpired) {
-			[enemies removeObjectAtIndex:i];
+- (void)testEnemiesAgainstAttacks {
+	for (int j = attacks.count - 1; j >= 0; j--) {
+		id <BoundedPolygon, SimulationActor> attack = [attacks objectAtIndex:j];
+		for (int i = enemies.count - 1; i >= 0; i--) {
+			id <SimulationActor, BoundedPolygon> enemy = [enemies objectAtIndex:i];
+
+			SATResult result = [Simulation test:enemy against:attack];
+			if (result.penetrating) {
+				[enemy collides:result with:attack];
+			}
 		}
 	}
 }
 
-- (void)killWalterIfHesTouchingABadGuy {
-	for (id<BoundedPolygon> badGuy in enemies) {
+- (void)testMainActorAgainstPolys:(NSMutableArray *)array {
+	for (id <BoundedPolygon> badGuy in array) {
 		SATResult result = [Simulation test:badGuy against:mainActor];
 		if (result.penetrating) {
 			[mainActor collides:result with:badGuy];
@@ -88,20 +91,11 @@
 	}
 }
 
-- (void)correctWalterPositionGivenCollisionsWithWalls {
-	for (id<BoundedPolygon> wall in environment.elements) {
-		SATResult result = [Simulation test:wall against:mainActor];
-		if (result.penetrating) {
-			[mainActor collides:result with:wall];
-		}
-	}
-}
-
-- (void)addAttack:(id<BoundedPolygon, SimulationActor>)attack {
+- (void)addAttack:(id <BoundedPolygon, SimulationActor>)attack {
 	[attacks addObject:attack];
 }
 
-- (void)addEnemy:(id<BoundedPolygon, SimulationActor>)enemy {
+- (void)addEnemy:(id <BoundedPolygon, SimulationActor>)enemy {
 	[enemies addObject:enemy];
 }
 @end
