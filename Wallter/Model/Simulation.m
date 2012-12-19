@@ -28,26 +28,14 @@
 	[mainActor update:dt];
 	[self test:mainActor against:environment.elements];
 
-	[self updateActors:dt actors:attacks];
-	[self testEnemiesAgainstAttacks];
+	[self update:attacks dt:dt];
+	[self testMultiple:enemies against:attacks];
 
-	[self updateActors:dt actors:enemies];
+	[self update:enemies dt:dt];
 	[self test:mainActor against:enemies];
 }
 
-+ (void)test:(id <BoundedPolygon>)this against:(id <BoundedPolygon>)that does:(void (^) (SATResult))block {
-	if (that.bottom > this.top) return;
-	if (that.top < this.bottom) return;
-	if (that.right < this.left) return;
-	if (that.left > this.right) return;
-
-	SATResult result = sat_test(this.polygon, that.polygon);
-	if (result.penetrating) {
-		block(result);
-	}
-}
-
-- (void)updateActors:(ccTime)dt actors:(NSMutableArray *)actors {
+- (void)update:(NSMutableArray *)actors dt:(ccTime)dt {
 	for (int i = actors.count - 1; i >= 0; i--) {
 		id <BoundedPolygon, SimulationActor> actor = [actors objectAtIndex:i];
 		if (actor.isExpired) {
@@ -58,9 +46,9 @@
 	}
 }
 
-- (void)testEnemiesAgainstAttacks {
-	for (id <BoundedPolygon, SimulationActor> enemy in enemies) {
-		[self test:enemy against:attacks];
+- (void)testMultiple:(NSMutableArray *)actors against:(NSMutableArray *)polygons {
+	for (id <BoundedPolygon, SimulationActor> actor in actors) {
+		[self test:actor against:polygons];
 	}
 }
 
@@ -79,4 +67,19 @@
 - (void)addEnemy:(id <BoundedPolygon, SimulationActor>)enemy {
 	[enemies addObject:enemy];
 }
+
+#pragma mark Static methods
+
++ (void)test:(id <BoundedPolygon>)this against:(id <BoundedPolygon>)that does:(void (^) (SATResult))block {
+	if (that.bottom > this.top) return;
+	if (that.top < this.bottom) return;
+	if (that.right < this.left) return;
+	if (that.left > this.right) return;
+
+	SATResult result = sat_test(this.polygon, that.polygon);
+	if (result.penetrating) {
+		block(result);
+	}
+}
+
 @end
