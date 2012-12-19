@@ -8,13 +8,8 @@
 #import "BoundedPolygon.h"
 #import "SimulationActor.h"
 
-@class BadGuy;
-@class MeleeAttack;
-@class Stage;
-@class Walter;
-
 @interface Simulation : NSObject
-- (id)initFor:(id <BoundedPolygon, SimulationActor>)_guy in:(id <Environment>)_environment;
+- (id)initFor:(id <BoundedPolygon, SimulationActor>)_mainActor in:(id <Environment>)_environment;
 - (void)update:(ccTime)dt;
 
 - (void)addAttack:(id<BoundedPolygon, SimulationActor>)attack;
