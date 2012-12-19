@@ -52,7 +52,7 @@
 - (void)update:(ccTime)dt {
 	age += dt;
 
-	int attack_width = 70;
+	int attack_width = MELEE_ATTACK_WIDTH;
 	if (guy.runningRight) {
 		CGPolygon guyPoly = guy.polygon;
 		polygon.points[0] = guyPoly.points[1];

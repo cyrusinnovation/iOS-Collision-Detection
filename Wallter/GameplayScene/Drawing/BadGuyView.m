@@ -10,7 +10,7 @@
 #import "BadGuy.h"
 #import "BadGuyView.h"
 
-CCAnimation *walkingAnimation;
+static CCAnimation *walkingAnimation;
 
 @implementation BadGuyView {
 	BadGuy *badGuy;
@@ -21,7 +21,7 @@ CCAnimation *walkingAnimation;
 }
 
 + (void) initialize {
-	float frameDelay = 0.3f;
+	float frameDelay = 0.2f;
 
 	walkingAnimation = [[CCAnimation alloc] init];
 	[walkingAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk1.png"]];

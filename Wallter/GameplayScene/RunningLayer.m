@@ -18,6 +18,7 @@
 #import "WalterView.h"
 #import "SimpleButton.h"
 #import "BadGuyView.h"
+#import "MeleeAttackView.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -55,7 +56,7 @@
 
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"frames.plist"];
 	batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
-	[self addChild:batchNode];
+	[self addChild:batchNode z:10];
 
 	buffer = 0;
 	frameTime = 0.01;
@@ -184,8 +185,7 @@
 - (void)attack {
 	MeleeAttack *attack = [[MeleeAttack alloc] init:walter];
 	[simulation addAttack:attack];
-	MeleeAttackPolygonView *view = [[MeleeAttackPolygonView alloc] init:attack following:drawOffset];
-	[self addChild:view];
+	[self addChild:[[MeleeAttackView alloc] init:attack following:drawOffset batchNode:batchNode] z:10];
 }
 
 - (void)jump {

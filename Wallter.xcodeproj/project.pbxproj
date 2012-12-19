@@ -63,6 +63,7 @@
 		C13DADB5B6F972C8AA3E16B1 /* NullWalterObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA1F665EFDBDD8992973F /* NullWalterObserver.m */; };
 		C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE0149979D7F1AD08FC0 /* HighScores.m */; };
 		C13DAF21BB7647FD50F41515 /* frames.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13DA4DE18E7E6D4B788CD52 /* frames.plist */; };
+		C13DAF35541F3B8365BC0363 /* MeleeAttackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA47B10239D01FFB6471F /* MeleeAttackView.m */; };
 		C13DAFF30CB6EC1EA407F94C /* instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA21E3C760AFE9D6B2438 /* instructions.png */; };
 /* End PBXBuildFile section */
 
@@ -115,11 +116,13 @@
 		C13DA3703765C3BFF39B04B8 /* HighScoresLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresLayer.h; sourceTree = "<group>"; };
 		C13DA3BBAF9CD850916C625F /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stage.m; sourceTree = "<group>"; };
 		C13DA3C4164ED47B8E11378F /* HighScores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScores.h; sourceTree = "<group>"; };
+		C13DA47B10239D01FFB6471F /* MeleeAttackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttackView.m; sourceTree = "<group>"; };
 		C13DA4DE18E7E6D4B788CD52 /* frames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = frames.plist; path = Resources/frames.plist; sourceTree = "<group>"; };
 		C13DA528AD7DC83A7DF56196 /* MeleeAttackPolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttackPolygonView.m; sourceTree = "<group>"; };
 		C13DA53EA54BC0E98062AC3D /* WalterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterView.h; sourceTree = "<group>"; };
 		C13DA58B6BB9F07A3AD0949A /* BadGuyPolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuyPolygonView.m; sourceTree = "<group>"; };
 		C13DA601C9BDD45869ECD67D /* HighScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScore.h; sourceTree = "<group>"; };
+		C13DA628E78B57594F107F65 /* MeleeAttackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeAttackView.h; sourceTree = "<group>"; };
 		C13DA6ADE58116D4A5A14BBE /* WalterPolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterPolygonView.h; sourceTree = "<group>"; };
 		C13DA72780F71E58C6DFC83A /* NullStageListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullStageListener.m; sourceTree = "<group>"; };
 		C13DA73281B6CEE82FE1BC7C /* Simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simulation.h; sourceTree = "<group>"; };
@@ -372,6 +375,8 @@
 				C13DA53EA54BC0E98062AC3D /* WalterView.h */,
 				C13DA976EA9216DDB08B49D6 /* BadGuyView.h */,
 				C13DA30848178DAAFD85ECA6 /* BadGuyView.m */,
+				C13DA628E78B57594F107F65 /* MeleeAttackView.h */,
+				C13DA47B10239D01FFB6471F /* MeleeAttackView.m */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
@@ -498,6 +503,7 @@
 				C13DADB5B6F972C8AA3E16B1 /* NullWalterObserver.m in Sources */,
 				C13DA209331CF69FA0F297A3 /* SimpleButton.m in Sources */,
 				C13DA9845B750E4338B966E7 /* BadGuyView.m in Sources */,
+				C13DAF35541F3B8365BC0363 /* MeleeAttackView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
