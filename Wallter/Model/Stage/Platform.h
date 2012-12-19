@@ -1,16 +1,11 @@
 //
 // Created by najati on 9/27/12.
 //
-// To change the template use AppCode | Preferences | File Templates.
-//
 
-
-#import <Foundation/Foundation.h>
 #import "Polygon.h"
-#import "SATResult.h"
-#import "Walter.h"
+#import "BoundedPolygon.h"
 
-@interface Platform : NSObject
+@interface Platform : NSObject<BoundedPolygon>
 
 @property(nonatomic, readonly) CGPolygon polygon;
 
@@ -22,8 +17,6 @@
 @property(nonatomic, readonly) float width;
 
 - (id)init:(CGPolygon) poly;
-
-- (SATResult)test:(Walter *)guy;
 
 + (Platform *)from:(CGPolygon)polygon;
 

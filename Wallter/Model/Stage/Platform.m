@@ -1,12 +1,9 @@
 //
 // Created by najati on 9/27/12.
 //
-// To change the template use AppCode | Preferences | File Templates.
-//
 
 
 #import "Platform.h"
-#import "SeparatingAxisTest.h"
 
 @implementation Platform {
 	CGPolygon polygon;
@@ -67,17 +64,6 @@
 
 - (void)dealloc {
 	free_polygon(polygon);
-}
-
-- (SATResult)test:(Walter *)guy {
-	if (guy.bottom > top ||
-			guy.top < bottom ||
-			guy.right < left ||
-			guy.left > right) {
-		return (SATResult) {cgp(0, 0), false};
-	}
-	SATResult result = sat_test(guy.polygon, polygon);
-	return result;
 }
 
 @end

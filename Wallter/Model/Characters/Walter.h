@@ -7,7 +7,7 @@
 #import "WorldConstants.h"
 
 #import "WalterObserver.h"
-
+#import "BoundedPolygon.h"
 
 typedef enum {
 	noJump,
@@ -15,7 +15,7 @@ typedef enum {
 	wallJump
 } JumpType;
 
-@interface Walter : NSObject
+@interface Walter : NSObject<BoundedPolygon>
 @property(nonatomic) CGPoint location;
 
 @property(nonatomic,readonly) BOOL runningRight;

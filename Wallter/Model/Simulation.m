@@ -29,6 +29,19 @@
 }
 
 - (void)update:(ccTime)dt {
+//	for (int i = actors.count - 1; i >= 0; i--) {
+//		SimulationActor *actor = [actors objectAtIndex:i];
+//		if (actor.isDead) {
+//			[actors removeObjectAtIndex:i];
+//		} else {
+//			[actors update:dt];
+//		}
+//	}
+//
+//	for (int i = actors.count - 1; i >= 0; i--) {
+//		[actors update:dt];
+//	}
+
 	[guy update:dt];
 	[self updateAttacks:dt];
 	[self killWalterIfHesTouchingABadGuy];
@@ -42,23 +55,23 @@
 		if (attack.isDead) {
 			[attacks removeObjectAtIndex:j];
 		} else {
-			[self killBadguysIfTheyTouchThisAttack:attack];
+			[self killBadGuysIfTheyTouchThisAttack:attack];
 		}
 	}
 }
 
-- (void)killBadguysIfTheyTouchThisAttack:(MeleeAttack *)attack {
-	for (int i = badguys.count -1; i >= 0; i--) {
-				BadGuy *badGuy = [badguys objectAtIndex:i];
-				SATResult result = sat_test(badGuy.polygon, attack.polygon);
-				// test(badGuy, attack)
-				if (result.penetrating) {
-					[badGuy kill];
-				}
-				if (badGuy.dead) {
-					[badguys removeObjectAtIndex:i];
-				}
-			}
+- (void)killBadGuysIfTheyTouchThisAttack:(MeleeAttack *)attack {
+	for (int i = badguys.count - 1; i >= 0; i--) {
+		BadGuy *badGuy = [badguys objectAtIndex:i];
+		SATResult result = sat_test(badGuy.polygon, attack.polygon);
+		// test(badGuy, attack)
+		if (result.penetrating) {
+			[badGuy kill];
+		}
+		if (badGuy.dead) {
+			[badguys removeObjectAtIndex:i];
+		}
+	}
 }
 
 - (void)killWalterIfHesTouchingABadGuy {
@@ -70,9 +83,19 @@
 	}
 }
 
++ (SATResult)test:(id<BoundedPolygon>) this against:(id<BoundedPolygon>)that {
+	if (that.bottom > this.top ||
+			that.top < this.bottom ||
+			that.right < this.left ||
+			that.left > this.right) {
+		return (SATResult) {cgp(0, 0), false};
+	}
+	return sat_test(that.polygon, this.polygon);
+}
+
 - (void)correctWalterPositionGivenCollisionsWithWalls {
 	for (Platform *wall in stage.walls) {
-		SATResult result = [wall test:guy];
+		SATResult result = [Simulation test:wall against:guy];
 		if (result.penetrating) {
 			[guy correct:result.penetration];
 		}
