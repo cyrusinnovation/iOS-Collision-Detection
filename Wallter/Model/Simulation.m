@@ -3,25 +3,20 @@
 //
 
 #import "Simulation.h"
+
 #import "SeparatingAxisTest.h"
-#import "MeleeAttack.h"
-#import "Platform.h"
-#import "Stage.h"
-#import "Walter.h"
 
 @implementation Simulation {
 	id<BoundedPolygon, SimulationActor> walter;
-	Stage *stage;
+	id<Environment> environment;
 	NSMutableArray *attacks;
 	NSMutableArray *enemies;
 }
 
-@synthesize stage;
-
-- (id)initFor:(id<BoundedPolygon, SimulationActor>)_guy in:(Stage *)_stage {
+- (id)initFor:(id<BoundedPolygon, SimulationActor>)_guy in:(id<Environment>)_environment {
 	if (self = [super init]) {
 		walter = _guy;
-		stage = _stage;
+		environment = _environment;
 		attacks = [[NSMutableArray alloc] init];
 		enemies = [[NSMutableArray alloc] init];
 	}
@@ -70,7 +65,7 @@
 	}
 }
 
-- (void)killBadGuysIfTheyTouchThisAttack:(MeleeAttack *)attack {
+- (void)killBadGuysIfTheyTouchThisAttack:(id<BoundedPolygon>)attack {
 	for (int i = enemies.count - 1; i >= 0; i--) {
 		id<SimulationActor, BoundedPolygon> badGuy = [enemies objectAtIndex:i];
 		SATResult result = [Simulation test:badGuy against:attack];
@@ -94,7 +89,7 @@
 }
 
 - (void)correctWalterPositionGivenCollisionsWithWalls {
-	for (id<BoundedPolygon> wall in stage.elements) {
+	for (id<BoundedPolygon> wall in environment.elements) {
 		SATResult result = [Simulation test:wall against:walter];
 		if (result.penetrating) {
 			[walter collides:result with:wall];
@@ -102,8 +97,8 @@
 	}
 }
 
-- (void)addAttack:(id<BoundedPolygon, SimulationActor>)_attack {
-	[attacks addObject:_attack];
+- (void)addAttack:(id<BoundedPolygon, SimulationActor>)attack {
+	[attacks addObject:attack];
 }
 
 - (void)addEnemy:(id<BoundedPolygon, SimulationActor>)enemy {

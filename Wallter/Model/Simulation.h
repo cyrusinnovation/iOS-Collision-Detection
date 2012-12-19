@@ -14,13 +14,9 @@
 @class Walter;
 
 @interface Simulation : NSObject
-
-@property(nonatomic, retain) Stage *stage;
-
-- (id)initFor:(Walter *)_guy in:(Stage *)_stage;
-
+- (id)initFor:(id <BoundedPolygon, SimulationActor>)_guy in:(id <Environment>)_environment;
 - (void)update:(ccTime)dt;
 
-- (void)addAttack:(id<BoundedPolygon, SimulationActor>)_attack;
+- (void)addAttack:(id<BoundedPolygon, SimulationActor>)attack;
 - (void)addEnemy:(id<BoundedPolygon, SimulationActor>)enemy;
 @end
