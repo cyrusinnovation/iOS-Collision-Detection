@@ -5,6 +5,7 @@
 #import "Walter.h"
 #import "NullWalterObserver.h"
 #import "BadGuy.h"
+#import "Platform.h"
 
 typedef enum {
 	walterIsRunningLeft,
@@ -251,7 +252,9 @@ typedef enum {
 }
 
 - (void)collides:(SATResult)result with:(id <BoundedPolygon>)that {
-	if ([that isMemberOfClass:[BadGuy class]]) {
+	if ([that isMemberOfClass:[Platform class]]) {
+		[self correct:result.penetration];
+	} else if ([that isMemberOfClass:[BadGuy class]]) {
 		dead = true;
 	}
 }

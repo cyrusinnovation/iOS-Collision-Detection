@@ -30,7 +30,6 @@ typedef enum {
 
 - (id)initAt:(CGPoint)at;
 - (CGPolygon)polygon;
-- (void)update:(ccTime)dt;
 
 - (void)correct:(CGPoint)delta;
 

@@ -11,7 +11,6 @@
 
 @interface Simulation : NSObject
 
-@property(nonatomic, retain) Walter *walter;
 @property(nonatomic, retain) Stage *stage;
 
 - (id)initFor:(Walter *)_guy in:(Stage *)_stage;

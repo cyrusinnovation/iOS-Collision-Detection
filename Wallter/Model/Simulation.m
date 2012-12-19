@@ -8,16 +8,15 @@
 #import "Platform.h"
 
 @implementation Simulation {
-	Walter *walter;
+	id<BoundedPolygon, SimulationActor> walter;
 	Stage *stage;
 	NSMutableArray *attacks;
 	NSMutableArray *badguys;
 }
 
-@synthesize walter;
 @synthesize stage;
 
-- (id)initFor:(Walter *)_guy in:(Stage *)_stage {
+- (id)initFor:(id<BoundedPolygon, SimulationActor>)_guy in:(Stage *)_stage {
 	if (self = [super init]) {
 		walter = _guy;
 		stage = _stage;
@@ -96,7 +95,7 @@
 	for (Platform *wall in stage.walls) {
 		SATResult result = [Simulation test:wall against:walter];
 		if (result.penetrating) {
-			[walter correct:result.penetration];
+			[walter collides:result with:wall];
 		}
 	}
 }
