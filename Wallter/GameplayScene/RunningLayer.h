@@ -11,11 +11,10 @@
 #import "Polygon.h"
 #import "Stage.h"
 #import "PlatformAddedObserver.h"
-#import "GuyControllerEndpoint.h"
 #import "CharacterAddedObserver.h"
 
 #define INTERFACE_LAYER 100
 
-@interface RunningLayer : CCLayerColor<CharacterAddedObserver, GuyControllerEndpoint>
+@interface RunningLayer : CCLayerColor<CharacterAddedObserver>
 + (CCScene *)scene;
 @end

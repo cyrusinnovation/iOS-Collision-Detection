@@ -168,50 +168,6 @@ typedef enum {
 	return jump;
 }
 
-- (JumpType)jumpLeft {
-	bool jumpFromGround = action == walterIsRunning && direction == walterIsRunningLeft;
-	bool jumpFromAWall = action == walterIsOnAWall && direction == walterIsRunningRight;
-
-	if (jumpFromGround || jumpFromAWall) {
-		velocity = cgp(-runningSpeed, jumpVelocity);
-
-		[self updateDirection:walterIsRunningLeft];
-
-		if (jumpFromGround) {
-			[self updateAction:walterIsGroundJumping];
-			return groundJump;
-		}
-		else {
-			[self updateAction:walterIsWallJumping];
-			return wallJump;
-		}
-	} else {
-		return noJump;
-	}
-}
-
-- (JumpType)jumpRight {
-	bool jumpFromGround = action == walterIsRunning && direction == walterIsRunningRight;
-	bool jumpFromAWall = action == walterIsOnAWall && direction == walterIsRunningLeft;
-
-	if (jumpFromGround || jumpFromAWall) {
-		velocity = cgp(runningSpeed, jumpVelocity);
-
-		[self updateDirection:walterIsRunningRight];
-
-		if (jumpFromGround) {
-			[self updateAction:walterIsGroundJumping];
-			return groundJump;
-		}
-		else {
-			[self updateAction:walterIsWallJumping];
-			return wallJump;
-		}
-	} else {
-		return noJump;
-	}
-}
-
 - (void)updateAction:(WalterAction)_action {
 	if (action == _action) return;
 	action = _action;

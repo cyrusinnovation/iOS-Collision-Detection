@@ -7,11 +7,9 @@
 #import "RunningLayer.h"
 
 #import "StageView.h"
-#import "WalterPolygonView.h"
 #import "Simulation.h"
 #import "MeleeAttack.h"
 #import "MeleeAttackView.h"
-#import "WalterController.h"
 #import "SettingsLayer.h"
 #import "HighScoresLayer.h"
 #import "HighScores.h"
@@ -36,7 +34,6 @@
 
 	Camera *drawOffset;
 
-	WalterController *walterController;
 	BOOL transitioning;
 	CCSpriteBatchNode *batchNode;
 }
@@ -92,7 +89,6 @@
 	score = 0;
 
 	walter = [[Walter alloc] initAt:waltersLocation];
-	walterController = [WalterController from:self attackDelay:frameTime * 3];
 
 	drawOffset = [[Camera alloc] init:walter];
 
@@ -147,8 +143,6 @@
 		[stage generateAround:walter];
 		[self checkForStuckedness:dt];
 	}
-
-	[walterController update:dt];
 }
 
 - (void)transitionAfterPlayerDeath {
@@ -180,41 +174,15 @@
 
 #pragma mark Touch methods
 
-- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	[walterController touchStarted:location];
-	return true;
-}
-
-- (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
-	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	[walterController touchMoved:location];
-}
-
-- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-	[walterController touchEnded:location];
-}
-
 - (void)registerWithTouchDispatcher {
 	[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 }
-
-#pragma mark controller endpoints
 
 - (void)attack {
 	MeleeAttack *attack = [[MeleeAttack alloc] init:walter];
 	[simulation addAttack:attack];
 	MeleeAttackView *view = [[MeleeAttackView alloc] init:attack following:drawOffset];
 	[self addChild:view];
-}
-
-- (void)jumpLeft {
-	if ([walter jumpLeft] == wallJump) score += 57;
-}
-
-- (void)jumpRight {
-	if ([walter jumpRight] == wallJump) score += 57;
 }
 
 - (void)jump {

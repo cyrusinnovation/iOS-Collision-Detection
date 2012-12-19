@@ -51,7 +51,6 @@
 		C13DA573FD6A3D7B2355F72A /* WorldConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA74ECD4552676249D903 /* WorldConstants.m */; };
 		C13DA5F6E12F6A03C63C56C9 /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAF462675923577E06076 /* SettingsLayer.m */; };
 		C13DA76E377213D13357DA55 /* Walter.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABCD158D631E2C4F22FF /* Walter.m */; };
-		C13DA85C20C041BB266FD926 /* WalterController.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA26664A89D7FB2C9F547 /* WalterController.m */; };
 		C13DA9500816F608D0D5A22A /* font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = C13DAC4D144518306031944D /* font.fnt */; };
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
 		C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA039BC81030E82667ED9 /* HighScore.m */; };
@@ -109,7 +108,6 @@
 		C13DA1305F378EEA0092A2F4 /* NullWalterObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullWalterObserver.h; sourceTree = "<group>"; };
 		C13DA1F665EFDBDD8992973F /* NullWalterObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullWalterObserver.m; sourceTree = "<group>"; };
 		C13DA21E3C760AFE9D6B2438 /* instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions.png; path = Resources/instructions.png; sourceTree = "<group>"; };
-		C13DA26664A89D7FB2C9F547 /* WalterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterController.m; sourceTree = "<group>"; };
 		C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttack.m; sourceTree = "<group>"; };
 		C13DA26819D80296C434DA06 /* BoundedPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundedPolygon.h; path = Wallter/Model/BoundedPolygon.h; sourceTree = SOURCE_ROOT; };
 		C13DA3703765C3BFF39B04B8 /* HighScoresLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresLayer.h; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 		C13DA9F5C6E3738D2748E6CE /* SimulationActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationActor.h; sourceTree = "<group>"; };
 		C13DAB30C5541131B661D9E6 /* PlatformAddedObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformAddedObserver.h; sourceTree = "<group>"; };
 		C13DAB74C3EAFB7C25238773 /* AddBadGuyToStageObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBadGuyToStageObserver.h; path = Wallter/Model/Stage/AddBadGuyToStageObserver.h; sourceTree = SOURCE_ROOT; };
-		C13DABBB5B6640C268C25E87 /* WalterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterController.h; sourceTree = "<group>"; };
 		C13DABCD158D631E2C4F22FF /* Walter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Walter.m; sourceTree = "<group>"; };
 		C13DABEB49BD00198D9B8C60 /* AddBadGuyToStageObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddBadGuyToStageObserver.m; path = Wallter/Model/Stage/AddBadGuyToStageObserver.m; sourceTree = SOURCE_ROOT; };
 		C13DAC4D144518306031944D /* font.fnt */ = {isa = PBXFileReference; lastKnownFileType = file.fnt; name = font.fnt; path = Resources/font.fnt; sourceTree = "<group>"; };
@@ -152,7 +149,6 @@
 		C13DAE15ADFFE40921C784D5 /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
 		C13DAE3028B60AF56506B2AE /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stage.h; sourceTree = "<group>"; };
 		C13DAE56EF1C7A3A92071EC1 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
-		C13DAE9172E26D1D4F57D550 /* GuyControllerEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuyControllerEndpoint.h; sourceTree = "<group>"; };
 		C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions~ipad.png"; path = "Resources/instructions~ipad.png"; sourceTree = "<group>"; };
 		C13DAF1A9F03E0F1ED35B515 /* frames.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frames.png; path = Resources/frames.png; sourceTree = "<group>"; };
 		C13DAF3CF5E884D4B2147FDA /* WorldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldConstants.h; sourceTree = "<group>"; };
@@ -318,16 +314,6 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		C13DA782D2CA44D6E511580F /* Control */ = {
-			isa = PBXGroup;
-			children = (
-				C13DABBB5B6640C268C25E87 /* WalterController.h */,
-				C13DA26664A89D7FB2C9F547 /* WalterController.m */,
-				C13DAE9172E26D1D4F57D550 /* GuyControllerEndpoint.h */,
-			);
-			path = Control;
-			sourceTree = "<group>";
-		};
 		C13DA8FED25423C7A9864519 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,7 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				C13DADE7937EEDED59544A66 /* Drawing */,
-				C13DA782D2CA44D6E511580F /* Control */,
 				082499801610A3500041907E /* RunningLayer.h */,
 				082499811610A3500041907E /* RunningLayer.m */,
 				C13DABEB49BD00198D9B8C60 /* AddBadGuyToStageObserver.m */,
@@ -499,7 +484,6 @@
 				C13DA049CCF00D8D33DB445C /* Camera.m in Sources */,
 				C13DAD4F5D5236CC58258270 /* Platform.m in Sources */,
 				C13DA55BC2945B890248CD8B /* NullStageListener.m in Sources */,
-				C13DA85C20C041BB266FD926 /* WalterController.m in Sources */,
 				C13DA5F6E12F6A03C63C56C9 /* SettingsLayer.m in Sources */,
 				C13DA19617F7777FFF40B5F9 /* HighScoresLayer.m in Sources */,
 				C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */,
