@@ -10,28 +10,17 @@
 #import "BadGuy.h"
 #import "BadGuyView.h"
 
+CCAnimation *walkingAnimation;
+
 @implementation BadGuyView {
 	BadGuy *badGuy;
 
 	Camera *camera;
 	CCSprite *badGuySprite;
 	CCSpriteBatchNode *batchNode;
-
-	CCAnimation *walkingAnimation;
 }
 
-- (id)init:(BadGuy *)_badGuy camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode {
-	self = [super init];
-	if (!self) return self;
-
-	badGuy = _badGuy;
-	camera = _camera;
-
-	badGuySprite = [CCSprite spriteWithSpriteFrameName:@"walk0.png"];
-	[badGuySprite setScale:1.25];
-	batchNode = _batchNode;
-	[batchNode addChild:badGuySprite z:10];
-
++ (void) initialize {
 	float frameDelay = 0.3f;
 
 	walkingAnimation = [[CCAnimation alloc] init];
@@ -46,9 +35,23 @@
 	[walkingAnimation setDelayPerUnit:frameDelay];
 	[walkingAnimation setRestoreOriginalFrame:true];
 	[walkingAnimation setLoops:INFINITY];
+}
+
+- (id)init:(BadGuy *)_badGuy camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode {
+	self = [super init];
+	if (!self) return self;
+
+	[self scheduleUpdate];
+
+	badGuy = _badGuy;
+	camera = _camera;
+
+	badGuySprite = [CCSprite spriteWithSpriteFrameName:@"walk0.png"];
+	[badGuySprite setScale:1.25];
+	batchNode = _batchNode;
+	[batchNode addChild:badGuySprite z:10];
 
 	[badGuySprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkingAnimation]]];
-
 	[badGuySprite setFlipX:!badGuy.facingRight];
 
 	return self;
@@ -63,6 +66,12 @@
 	[badGuySprite setPosition:position];
 
 	[super draw];
+}
+
+-(void)update:(ccTime) dt {
+	if (badGuy.dead) {
+		[self removeFromParentAndCleanup:true];
+	}
 }
 
 - (void)dealloc {
