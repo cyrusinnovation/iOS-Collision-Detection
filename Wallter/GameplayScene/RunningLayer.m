@@ -9,7 +9,7 @@
 #import "StageView.h"
 #import "Simulation.h"
 #import "MeleeAttack.h"
-#import "MeleeAttackView.h"
+#import "MeleeAttackPolygonView.h"
 #import "SettingsLayer.h"
 #import "HighScoresLayer.h"
 #import "HighScores.h"
@@ -103,7 +103,6 @@
 	[stage prime];
 
 	[self addChild:[[StageView alloc] init:stage following:drawOffset]];
-//	[self addChild:[[WalterPolygonView alloc] init:walter following:drawOffset]];
 	WalterView *walterView = [[WalterView alloc] init:walter camera:drawOffset batchNode:batchNode];
 	[self addChild:walterView];
 
@@ -181,7 +180,7 @@
 - (void)attack {
 	MeleeAttack *attack = [[MeleeAttack alloc] init:walter];
 	[simulation addAttack:attack];
-	MeleeAttackView *view = [[MeleeAttackView alloc] init:attack following:drawOffset];
+	MeleeAttackPolygonView *view = [[MeleeAttackPolygonView alloc] init:attack following:drawOffset];
 	[self addChild:view];
 }
 

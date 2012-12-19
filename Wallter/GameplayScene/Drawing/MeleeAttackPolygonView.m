@@ -2,13 +2,13 @@
 // Created by najati on 9/25/12.
 //
 
-#import "MeleeAttackView.h"
+#import "MeleeAttackPolygonView.h"
 #import "Walter.h"
 #import "CCDrawingPrimitives.h"
 
 ccColor4F color;
 
-@implementation MeleeAttackView {
+@implementation MeleeAttackPolygonView {
 	MeleeAttack *attack;
 	CGPolygon drawPoly;
 	Camera *offset;
