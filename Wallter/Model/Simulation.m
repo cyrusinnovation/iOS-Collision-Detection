@@ -5,6 +5,7 @@
 #import "Simulation.h"
 
 #import "SeparatingAxisTest.h"
+#import "SATResult.h"
 
 @implementation Simulation {
 	id <BoundedPolygon, SimulationActor> mainActor;
@@ -47,14 +48,16 @@
 	[self testMainActorAgainstPolys:enemies];
 }
 
-+ (SATResult)test:(id <BoundedPolygon>)this against:(id <BoundedPolygon>)that {
-	if (that.bottom > this.top ||
-			that.top < this.bottom ||
-			that.right < this.left ||
-			that.left > this.right) {
-		return (SATResult) {cgp(0, 0), false};
++ (void)test:(id <BoundedPolygon>)this against:(id <BoundedPolygon>)that does:( void (^) (SATResult))block {
+	if (that.bottom > this.top) return;
+	if (that.top < this.bottom) return;
+	if (that.right < this.left) return;
+	if (that.left > this.right) return;
+	
+	SATResult result = sat_test(that.polygon, this.polygon);
+	if (result.penetrating) {
+		block(result);
 	}
-	return sat_test(that.polygon, this.polygon);
 }
 
 - (void)updateActors:(ccTime)dt actors:(NSMutableArray *)actors {
@@ -73,21 +76,18 @@
 		id <BoundedPolygon, SimulationActor> attack = [attacks objectAtIndex:j];
 		for (int i = enemies.count - 1; i >= 0; i--) {
 			id <SimulationActor, BoundedPolygon> enemy = [enemies objectAtIndex:i];
-
-			SATResult result = [Simulation test:enemy against:attack];
-			if (result.penetrating) {
+			[Simulation test:enemy against:attack does:^(SATResult result) {
 				[enemy collides:result with:attack];
-			}
+			}];
 		}
 	}
 }
 
 - (void)testMainActorAgainstPolys:(NSMutableArray *)array {
 	for (id <BoundedPolygon> badGuy in array) {
-		SATResult result = [Simulation test:badGuy against:mainActor];
-		if (result.penetrating) {
+		[Simulation test:badGuy against:mainActor does:^(SATResult result) {
 			[mainActor collides:result with:badGuy];
-		}
+		}];
 	}
 }
 
