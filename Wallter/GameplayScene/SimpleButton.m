@@ -20,7 +20,6 @@
 	downFrame = _downFrame;
 	
 	sprite = [[CCSprite alloc] initWithSpriteFrameName:frame];
-	[sprite setScale:8];
 
 	CGSize spriteSize = sprite.boundingBox.size;
 	self = [super initWithColor:(ccColor4B) {0, 0, 0, 0} width:spriteSize.width height:spriteSize.height];

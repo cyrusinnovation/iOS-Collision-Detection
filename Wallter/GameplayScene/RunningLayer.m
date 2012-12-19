@@ -62,11 +62,11 @@
 
 	CGSize s = [self currentWindowSize];
 
-	SimpleButton *button = [[SimpleButton alloc] init:self selector:@selector(jump) frame:@"gem1.png" downFrame:@"gem1.down.png"];
+	SimpleButton *button = [[SimpleButton alloc] init:self selector:@selector(jump) frame:@"button.blue.png" downFrame:@"button.blue.down.png"];
 	[button setPosition:cgp(s.width - 80, 16)];
 	[self addChild:button z:INTERFACE_LAYER];
 
-	SimpleButton *attackButton = [[SimpleButton alloc] init:self selector:@selector(attack) frame:@"gem4.png" downFrame:@"gem4.down.png"];
+	SimpleButton *attackButton = [[SimpleButton alloc] init:self selector:@selector(attack) frame:@"button.red.png" downFrame:@"button.red.down.png"];
 	[attackButton setPosition:cgp(s.width - 80*2, 16)];
 	[self addChild:attackButton z:INTERFACE_LAYER];
 
