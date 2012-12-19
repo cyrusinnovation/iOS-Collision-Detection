@@ -115,7 +115,7 @@
 - (void)setUpScoreLabel {
 	scoreLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"font.fnt"];
 	CGSize s = [[CCDirector sharedDirector] winSize];
-	scoreLabel.position = cgp(s.width / 2, s.height - 30);
+	scoreLabel.position = cgp(75, 40);
 	[self addChild:scoreLabel z:INTERFACE_LAYER];
 }
 
