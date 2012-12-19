@@ -5,10 +5,10 @@
 //
 
 
-#import "BadGuyView.h"
+#import "BadGuyPolygonView.h"
 #import "CCDrawingPrimitives.h"
 
-@implementation BadGuyView {
+@implementation BadGuyPolygonView {
 	BadGuy *badguy;
 	ccColor4F color;
 

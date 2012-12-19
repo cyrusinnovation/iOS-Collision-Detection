@@ -40,7 +40,7 @@
 		C13DA12DB8502CFDDCF8E867 /* WalterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8D3B37A810875D6B3BA /* WalterView.m */; };
 		C13DA19617F7777FFF40B5F9 /* HighScoresLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */; };
 		C13DA1CDA463874E50BF6557 /* StageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */; };
-		C13DA1EA0E51AE06DBC61B12 /* BadGuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */; };
+		C13DA1EA0E51AE06DBC61B12 /* BadGuyPolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA58B6BB9F07A3AD0949A /* BadGuyPolygonView.m */; };
 		C13DA209331CF69FA0F297A3 /* SimpleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAFF98D4926B7EBF76DDC /* SimpleButton.m */; };
 		C13DA2C91DE5A727FD28770F /* AddBadGuyToStageObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABEB49BD00198D9B8C60 /* AddBadGuyToStageObserver.m */; };
 		C13DA3223DE6BE67FFC5F6D4 /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DADF252B545D0A0B803D0 /* Simulation.m */; };
@@ -53,6 +53,7 @@
 		C13DA76E377213D13357DA55 /* Walter.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABCD158D631E2C4F22FF /* Walter.m */; };
 		C13DA9500816F608D0D5A22A /* font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = C13DAC4D144518306031944D /* font.fnt */; };
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
+		C13DA9845B750E4338B966E7 /* EnemyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA30848178DAAFD85ECA6 /* EnemyView.m */; };
 		C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA039BC81030E82667ED9 /* HighScore.m */; };
 		C13DAB87958E81815103A421 /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA7DA065CD1CEC755DCBA /* font.png */; };
 		C13DAB8AAB4D321759295FF2 /* frames.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAF1A9F03E0F1ED35B515 /* frames.png */; };
@@ -110,13 +111,14 @@
 		C13DA21E3C760AFE9D6B2438 /* instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions.png; path = Resources/instructions.png; sourceTree = "<group>"; };
 		C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttack.m; sourceTree = "<group>"; };
 		C13DA26819D80296C434DA06 /* BoundedPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundedPolygon.h; path = Wallter/Model/BoundedPolygon.h; sourceTree = SOURCE_ROOT; };
+		C13DA30848178DAAFD85ECA6 /* EnemyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyView.m; sourceTree = "<group>"; };
 		C13DA3703765C3BFF39B04B8 /* HighScoresLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresLayer.h; sourceTree = "<group>"; };
 		C13DA3BBAF9CD850916C625F /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stage.m; sourceTree = "<group>"; };
 		C13DA3C4164ED47B8E11378F /* HighScores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScores.h; sourceTree = "<group>"; };
 		C13DA4DE18E7E6D4B788CD52 /* frames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = frames.plist; path = Resources/frames.plist; sourceTree = "<group>"; };
 		C13DA528AD7DC83A7DF56196 /* MeleeAttackPolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttackPolygonView.m; sourceTree = "<group>"; };
 		C13DA53EA54BC0E98062AC3D /* WalterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterView.h; sourceTree = "<group>"; };
-		C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuyView.m; sourceTree = "<group>"; };
+		C13DA58B6BB9F07A3AD0949A /* BadGuyPolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuyPolygonView.m; sourceTree = "<group>"; };
 		C13DA601C9BDD45869ECD67D /* HighScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScore.h; sourceTree = "<group>"; };
 		C13DA6ADE58116D4A5A14BBE /* WalterPolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterPolygonView.h; sourceTree = "<group>"; };
 		C13DA72780F71E58C6DFC83A /* NullStageListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullStageListener.m; sourceTree = "<group>"; };
@@ -129,8 +131,9 @@
 		C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresLayer.m; sourceTree = "<group>"; };
 		C13DA8D3B37A810875D6B3BA /* WalterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterView.m; sourceTree = "<group>"; };
 		C13DA8E5C9D2A3894034C780 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
+		C13DA976EA9216DDB08B49D6 /* EnemyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyView.h; sourceTree = "<group>"; };
 		C13DA9C6C1BA867C67CBD1F2 /* BadGuy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuy.m; sourceTree = "<group>"; };
-		C13DA9D03DAF3987369155F4 /* BadGuyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuyView.h; sourceTree = "<group>"; };
+		C13DA9D03DAF3987369155F4 /* BadGuyPolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuyPolygonView.h; sourceTree = "<group>"; };
 		C13DA9F5C6E3738D2748E6CE /* SimulationActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationActor.h; sourceTree = "<group>"; };
 		C13DAB30C5541131B661D9E6 /* PlatformAddedObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformAddedObserver.h; sourceTree = "<group>"; };
 		C13DAB74C3EAFB7C25238773 /* AddBadGuyToStageObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBadGuyToStageObserver.h; path = Wallter/Model/Stage/AddBadGuyToStageObserver.h; sourceTree = SOURCE_ROOT; };
@@ -355,8 +358,8 @@
 		C13DADE7937EEDED59544A66 /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
-				C13DA9D03DAF3987369155F4 /* BadGuyView.h */,
-				C13DA58B6BB9F07A3AD0949A /* BadGuyView.m */,
+				C13DA9D03DAF3987369155F4 /* BadGuyPolygonView.h */,
+				C13DA58B6BB9F07A3AD0949A /* BadGuyPolygonView.m */,
 				C13DA8127DE99147554E59B3 /* Camera.h */,
 				C13DA8E5C9D2A3894034C780 /* Camera.m */,
 				C13DA6ADE58116D4A5A14BBE /* WalterPolygonView.h */,
@@ -367,6 +370,8 @@
 				C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */,
 				C13DA8D3B37A810875D6B3BA /* WalterView.m */,
 				C13DA53EA54BC0E98062AC3D /* WalterView.h */,
+				C13DA976EA9216DDB08B49D6 /* EnemyView.h */,
+				C13DA30848178DAAFD85ECA6 /* EnemyView.m */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
@@ -480,7 +485,7 @@
 				C13DA3DE8588B7C7C96C5DBB /* MeleeAttack.m in Sources */,
 				C13DAC4007F78F104693B1DC /* MeleeAttackPolygonView.m in Sources */,
 				C13DA511333E2B8D9BB738F0 /* BadGuy.m in Sources */,
-				C13DA1EA0E51AE06DBC61B12 /* BadGuyView.m in Sources */,
+				C13DA1EA0E51AE06DBC61B12 /* BadGuyPolygonView.m in Sources */,
 				C13DA049CCF00D8D33DB445C /* Camera.m in Sources */,
 				C13DAD4F5D5236CC58258270 /* Platform.m in Sources */,
 				C13DA55BC2945B890248CD8B /* NullStageListener.m in Sources */,
@@ -492,6 +497,7 @@
 				C13DA12DB8502CFDDCF8E867 /* WalterView.m in Sources */,
 				C13DADB5B6F972C8AA3E16B1 /* NullWalterObserver.m in Sources */,
 				C13DA209331CF69FA0F297A3 /* SimpleButton.m in Sources */,
+				C13DA9845B750E4338B966E7 /* EnemyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

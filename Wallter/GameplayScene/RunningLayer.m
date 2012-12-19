@@ -14,9 +14,10 @@
 #import "HighScoresLayer.h"
 #import "HighScores.h"
 #import "AddBadGuyToStageObserver.h"
-#import "BadGuyView.h"
+#import "BadGuyPolygonView.h"
 #import "WalterView.h"
 #import "SimpleButton.h"
+#import "EnemyView.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -113,7 +114,6 @@
 
 - (void)setUpScoreLabel {
 	scoreLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"font.fnt"];
-	CGSize s = [[CCDirector sharedDirector] winSize];
 	scoreLabel.position = cgp(75, 40);
 	[self addChild:scoreLabel z:INTERFACE_LAYER];
 }
@@ -157,7 +157,8 @@
 }
 
 - (void)addedCharacter:(BadGuy *)badGuy {
-	[self addChild:[[BadGuyView alloc] init:badGuy withOffset:drawOffset]];
+	[self addChild:[[BadGuyPolygonView alloc] init:badGuy withOffset:drawOffset]];
+	[self addChild:[[EnemyView alloc] init:badGuy camera:drawOffset batchNode:batchNode]];
 }
 
 - (void)checkForStuckedness:(ccTime)d {
@@ -175,6 +176,10 @@
 
 - (void)registerWithTouchDispatcher {
 	[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+	return true;
 }
 
 - (void)attack {

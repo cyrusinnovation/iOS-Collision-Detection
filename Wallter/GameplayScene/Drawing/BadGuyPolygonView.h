@@ -9,6 +9,6 @@
 #import "BadGuy.h"
 #import "Camera.h"
 
-@interface BadGuyView : CCNode
+@interface BadGuyPolygonView : CCNode
 - (id)init:(BadGuy *)_badguy withOffset:(Camera *)_guy;
 @end
