@@ -25,36 +25,23 @@
 }
 
 - (void)update:(ccTime)dt {
-//	for (int i = actors.count - 1; i >= 0; i--) {
-//		SimulationActor *actor = [actors objectAtIndex:i];
-//		if (actor.isDead) {
-//			[actors removeObjectAtIndex:i];
-//		} else {
-//			[actors update:dt];
-//		}
-//	}
-//
-//	for (int i = actors.count - 1; i >= 0; i--) {
-//		[actors update:dt];
-//	}
-
 	[mainActor update:dt];
-	[self testMainActorAgainstPolys:environment.elements];
+	[self test:mainActor against:environment.elements];
 
 	[self updateActors:dt actors:attacks];
 	[self testEnemiesAgainstAttacks];
 
 	[self updateActors:dt actors:enemies];
-	[self testMainActorAgainstPolys:enemies];
+	[self test:mainActor against:enemies];
 }
 
-+ (void)test:(id <BoundedPolygon>)this against:(id <BoundedPolygon>)that does:( void (^) (SATResult))block {
++ (void)test:(id <BoundedPolygon>)this against:(id <BoundedPolygon>)that does:(void (^) (SATResult))block {
 	if (that.bottom > this.top) return;
 	if (that.top < this.bottom) return;
 	if (that.right < this.left) return;
 	if (that.left > this.right) return;
-	
-	SATResult result = sat_test(that.polygon, this.polygon);
+
+	SATResult result = sat_test(this.polygon, that.polygon);
 	if (result.penetrating) {
 		block(result);
 	}
@@ -72,21 +59,15 @@
 }
 
 - (void)testEnemiesAgainstAttacks {
-	for (int j = attacks.count - 1; j >= 0; j--) {
-		id <BoundedPolygon, SimulationActor> attack = [attacks objectAtIndex:j];
-		for (int i = enemies.count - 1; i >= 0; i--) {
-			id <SimulationActor, BoundedPolygon> enemy = [enemies objectAtIndex:i];
-			[Simulation test:enemy against:attack does:^(SATResult result) {
-				[enemy collides:result with:attack];
-			}];
-		}
+	for (id <BoundedPolygon, SimulationActor> enemy in enemies) {
+		[self test:enemy against:attacks];
 	}
 }
 
-- (void)testMainActorAgainstPolys:(NSMutableArray *)array {
-	for (id <BoundedPolygon> badGuy in array) {
-		[Simulation test:badGuy against:mainActor does:^(SATResult result) {
-			[mainActor collides:result with:badGuy];
+- (void)test:(id <BoundedPolygon, SimulationActor>)actor against:(NSMutableArray *)polygons {
+	for (id <BoundedPolygon> polygon in polygons) {
+		[Simulation test:actor against:polygon does:^(SATResult result) {
+			[actor collides:result with:polygon];
 		}];
 	}
 }
