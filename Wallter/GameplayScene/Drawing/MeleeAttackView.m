@@ -10,8 +10,6 @@ ccColor4F color;
 
 @implementation MeleeAttackView {
 	MeleeAttack *attack;
-	Walter *guy;
-
 	CGPolygon drawPoly;
 	Camera *offset;
 }
@@ -19,7 +17,6 @@ ccColor4F color;
 - (id)init:(MeleeAttack *)_attack following:(Camera *) _offset {
 	if (self = [super init]) {
 		attack = _attack;
-		guy = attack.guy;
 		offset = _offset;
 
 		[self scheduleUpdate];
