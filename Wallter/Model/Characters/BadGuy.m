@@ -3,6 +3,7 @@
 //
 
 #import "BadGuy.h"
+#import "MeleeAttack.h"
 
 @implementation BadGuy {
 	CGPolygon polygon;
@@ -29,9 +30,14 @@
 	return self;
 }
 
+-(Boolean) isExpired {
+	return dead;
+}
 
-- (void)kill {
-	dead = true;
+- (void)collides:(SATResult)result with:(id <BoundedPolygon>)that {
+	if ([that isMemberOfClass:[MeleeAttack class]]) {
+		dead = true;
+	}
 }
 
 @end

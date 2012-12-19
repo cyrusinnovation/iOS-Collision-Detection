@@ -8,13 +8,13 @@
 #import <Foundation/Foundation.h>
 #import "Polygon.h"
 #import "BoundedPolygon.h"
+#import "SimulationActor.h"
 
-@interface BadGuy : NSObject<BoundedPolygon>
+@interface BadGuy : NSObject<BoundedPolygon, SimulationActor>
 
 @property(nonatomic, readonly) CGPolygon polygon;
 @property(nonatomic, readonly) bool dead;
 
 - (id)init:(CGPoint)point;
-- (void)kill;
 
 @end
