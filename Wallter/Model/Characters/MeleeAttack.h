@@ -5,11 +5,7 @@
 #import "Walter.h"
 #import "Polygon.h"
 
-@interface MeleeAttack : NSObject<BoundedPolygon>
-@property(nonatomic, retain) Walter *guy;
-@property(nonatomic, readonly) BOOL isDead;
-
+@interface MeleeAttack : NSObject<BoundedPolygon, SimulationActor>
 - (id)init:(Walter *)_guy;
-
 - (void)update:(ccTime)dt;
 @end

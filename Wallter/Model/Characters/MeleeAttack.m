@@ -11,12 +11,7 @@
 	ccTime max_age;
 }
 
-@synthesize guy;
 @synthesize polygon;
-
-- (BOOL)isDead {
-	return age > max_age;
-}
 
 - (id)init:(Walter *)_guy {
 	if (self = [super init]) {
@@ -45,6 +40,13 @@
 
 - (void)dealloc {
 	free_polygon(polygon);
+}
+
+- (void)collides:(SATResult)result with:(id <BoundedPolygon>)that {
+}
+
+- (Boolean)isExpired {
+	return age > max_age;
 }
 
 - (void)update:(ccTime)dt {

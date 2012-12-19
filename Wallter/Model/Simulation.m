@@ -58,9 +58,9 @@
 
 - (void)updateAttacks:(ccTime)dt {
 	for (int j = attacks.count - 1; j >= 0; j--) {
-		MeleeAttack *attack = [attacks objectAtIndex:j];
+		id<BoundedPolygon, SimulationActor> attack = [attacks objectAtIndex:j];
 		[attack update:dt];
-		if (attack.isDead) {
+		if (attack.isExpired) {
 			[attacks removeObjectAtIndex:j];
 		} else {
 			[self killBadGuysIfTheyTouchThisAttack:attack];
