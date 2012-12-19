@@ -32,7 +32,7 @@
 	batchNode = _batchNode;
 	[batchNode addChild:badGuySprite z:10];
 
-	float frameDelay = 0.13f;
+	float frameDelay = 0.3f;
 
 	walkingAnimation = [[CCAnimation alloc] init];
 	[walkingAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk1.png"]];
@@ -48,6 +48,8 @@
 	[walkingAnimation setLoops:INFINITY];
 
 	[badGuySprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkingAnimation]]];
+
+	[badGuySprite setFlipX:!badGuy.facingRight];
 
 	return self;
 }

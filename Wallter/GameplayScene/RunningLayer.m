@@ -157,7 +157,6 @@
 }
 
 - (void)addedCharacter:(BadGuy *)badGuy {
-	[self addChild:[[BadGuyPolygonView alloc] init:badGuy withOffset:drawOffset]];
 	[self addChild:[[EnemyView alloc] init:badGuy camera:drawOffset batchNode:batchNode]];
 }
 

@@ -7,13 +7,13 @@
 #import "Platform.h"
 #import "NullStageListener.h"
 
-// TODO hahah fix this
-#define GenerateDirection bool
-#define Left true
-#define Right false
+typedef enum {
+	generateLeft,
+	generateRight
+} GenerateDirection;
 
 @implementation Stage {
-	GenerateDirection generate_direction;
+	GenerateDirection generateDirection;
 	NSObject <PlatformAddedObserver> *platformAddedObserver;
 
 	NSMutableArray *walls;
@@ -55,7 +55,7 @@
 
 		height_between_levels = 550;
 
-		generate_direction = Right;
+		generateDirection = generateRight;
 		platform_depth = 100;
 
 		gap_before_tall_building = 30;
@@ -77,7 +77,7 @@
 
 	[self addPlatform:[Platform from:make_block(-200, -platform_depth, 1000, 0)]];
 
-	generate_direction = Right;
+	generateDirection = generateRight;
 	[self generateNextLevel];
 	[self generateNextLevel];
 
@@ -110,7 +110,7 @@
 	float top = last_platform.bottom + platform_depth + [self nextPlatformHeight];
 
 	Platform *platform = [self makeNewPlatformAfter:last_platform space_between:jump_distance width:platformLength top:top bottom:last_platform.bottom];
-	[platformAddedObserver addedPlatform:platform];
+	[platformAddedObserver addedPlatform:platform goingRight:(generateDirection == generateRight)];
 }
 
 - (void)addAWallJump {
@@ -132,7 +132,7 @@
 
 	Platform *fire_escape = [self makeFireEscapeNextTo:tall_building top:next_level_top bottom:jumpPlatform.top + fire_escape_clearance];
 
-	generate_direction = !generate_direction;
+	generateDirection = !generateDirection;
 	[self makeNewPlatformAfter:fire_escape space_between:0 width:[self nextPlatformLength] top:next_level_top bottom:next_level_bottom];
 }
 
@@ -144,7 +144,7 @@
 - (Platform *)makeNewPlatformAfter:(Platform *)last space_between:(float)space_between width:(float)width top:(float)top bottom:(float)bottom {
 	float left_edge;
 	float right_edge;
-	if (generate_direction == Right) {
+	if (generateDirection == generateRight) {
 		left_edge = last.right + space_between;
 		right_edge = left_edge + width;
 	} else {

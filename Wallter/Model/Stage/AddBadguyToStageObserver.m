@@ -26,7 +26,7 @@
 	return self;
 }
 
-- (void)addedPlatform:(Platform *)platform {
+- (void)addedPlatform:(Platform *)platform goingRight:(Boolean)goingRight {
 	int numberOfBaddies = rand() % 4;
 	if (numberOfBaddies == 0) return;
 
@@ -34,15 +34,15 @@
 	float y = platform.top;
 
 	if (numberOfBaddies < 3) {
-		[self addBadguy:cgp(x, y)];
+		[self addBadguy:cgp(x, y) facingRight:!goingRight];
 	} else {
-		[self addBadguy:cgp(x - 80, y)];
-		[self addBadguy:cgp(x + 80, y)];
+		[self addBadguy:cgp(x - 80, y) facingRight:!goingRight];
+		[self addBadguy:cgp(x + 80, y) facingRight:!goingRight];
 	}
 }
 
-- (void)addBadguy:(CGPoint)location {
-	BadGuy *badGuy = [[BadGuy alloc] init:location];
+- (void)addBadguy:(CGPoint)location facingRight:(bool)facingRight {
+	BadGuy *badGuy = [[BadGuy alloc] init:location facingRight:facingRight];
 	[simulation addEnemy:badGuy];
 	[characterAddedObserver addedCharacter:badGuy];
 }

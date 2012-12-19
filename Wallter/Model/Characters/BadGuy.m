@@ -5,32 +5,34 @@
 #import "BadGuy.h"
 #import "MeleeAttack.h"
 
-@implementation BadGuy {
-	CGPolygon polygon;
-	bool dead;
-}
+@implementation BadGuy
 
 @synthesize polygon;
 @synthesize dead;
+@synthesize facingRight;
 
 @synthesize top;
 @synthesize bottom;
 @synthesize left;
 @synthesize right;
 
-- (id)init:(CGPoint)point {
-	if (self = [super init]) {
-		left = point.x;
-		bottom = point.y;
-		right = left + 20;
-		top = bottom + 30;
-		polygon = make_block(left, bottom, right, top);
-		dead = false;
-	}
+- (id)init:(CGPoint)point facingRight:(Boolean)_facingRight {
+	self = self = [super init];
+	if (!self) return self;
+
+	dead = false;
+	facingRight = _facingRight;
+
+	left = point.x;
+	bottom = point.y;
+	right = left + 20;
+	top = bottom + 30;
+	polygon = make_block(left, bottom, right, top);
+
 	return self;
 }
 
--(Boolean) isExpired {
+- (Boolean)isExpired {
 	return dead;
 }
 

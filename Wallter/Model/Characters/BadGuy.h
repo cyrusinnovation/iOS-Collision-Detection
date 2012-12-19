@@ -14,7 +14,8 @@
 
 @property(nonatomic, readonly) CGPolygon polygon;
 @property(nonatomic, readonly) bool dead;
+@property(nonatomic, readonly) bool facingRight;
 
-- (id)init:(CGPoint)point;
+- (id)init:(CGPoint)point facingRight:(Boolean)_facingRight;
 
 @end
