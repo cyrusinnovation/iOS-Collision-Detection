@@ -17,7 +17,7 @@
 #import "BadGuyPolygonView.h"
 #import "WalterView.h"
 #import "SimpleButton.h"
-#import "EnemyView.h"
+#import "BadGuyView.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -157,7 +157,7 @@
 }
 
 - (void)addedCharacter:(BadGuy *)badGuy {
-	[self addChild:[[EnemyView alloc] init:badGuy camera:drawOffset batchNode:batchNode]];
+	[self addChild:[[BadGuyView alloc] init:badGuy camera:drawOffset batchNode:batchNode]];
 }
 
 - (void)checkForStuckedness:(ccTime)d {

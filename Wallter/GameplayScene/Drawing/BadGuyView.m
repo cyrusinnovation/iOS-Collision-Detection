@@ -8,9 +8,9 @@
 #import "CCAnimation.h"
 #import "CCActionInterval.h"
 #import "BadGuy.h"
-#import "EnemyView.h"
+#import "BadGuyView.h"
 
-@implementation EnemyView {
+@implementation BadGuyView {
 	BadGuy *badGuy;
 
 	Camera *camera;

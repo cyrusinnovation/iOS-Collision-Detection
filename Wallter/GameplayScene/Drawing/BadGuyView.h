@@ -11,6 +11,6 @@
 @class CCAnimation;
 @class BadGuy;
 
-@interface EnemyView : CCNode
+@interface BadGuyView : CCNode
 - (id)init:(BadGuy *)_guy camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode;
 @end
