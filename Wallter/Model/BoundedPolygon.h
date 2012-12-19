@@ -3,6 +3,7 @@
 // copyright Cyrus Innovation
 //
 
+#import "Polygon.h"
 
 @protocol BoundedPolygon <NSObject>
 
