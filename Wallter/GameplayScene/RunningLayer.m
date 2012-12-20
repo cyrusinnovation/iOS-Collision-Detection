@@ -9,7 +9,6 @@
 #import "StageView.h"
 #import "Simulation.h"
 #import "MeleeAttack.h"
-#import "MeleeAttackPolygonView.h"
 #import "SettingsLayer.h"
 #import "HighScoresLayer.h"
 #import "HighScores.h"
@@ -78,10 +77,14 @@
 	[CDSoundEngine setMixerSampleRate:CD_SAMPLE_RATE_MID];
 	[[CDAudioManager sharedManager] setResignBehavior:kAMRBStopPlay autoHandle:YES];
 	audio = [SimpleAudioEngine sharedEngine];
+	[audio preloadBackgroundMusic:@"music.mp3"];
 	[audio preloadEffect:@"DSOOF.WAV"];
 	[audio preloadEffect:@"DSPISTOL.WAV"];
 	[audio preloadEffect:@"DSPLDETH.WAV"];
 	[audio preloadEffect:@"DSPODTH3.WAV"];
+
+	[audio setBackgroundMusicVolume:0.75f];
+	[audio playBackgroundMusic:@"music.mp3" loop:true];
 
 	return self;
 }
@@ -159,6 +162,8 @@
 
 - (void)transitionAfterPlayerDeath {
 	transitioning = true;
+
+	[audio stopBackgroundMusic];
 
 	CCScene *scene;
 	if ([HighScores isHighScore:score]) {

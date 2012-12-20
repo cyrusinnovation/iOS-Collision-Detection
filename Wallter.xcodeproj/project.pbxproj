@@ -60,6 +60,7 @@
 		C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA039BC81030E82667ED9 /* HighScore.m */; };
 		C13DAB87958E81815103A421 /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA7DA065CD1CEC755DCBA /* font.png */; };
 		C13DAB8AAB4D321759295FF2 /* frames.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAF1A9F03E0F1ED35B515 /* frames.png */; };
+		C13DABE01052A92CF3C1189B /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C13DAF3C8D82BEAD85937866 /* music.mp3 */; };
 		C13DAC4007F78F104693B1DC /* MeleeAttackPolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA528AD7DC83A7DF56196 /* MeleeAttackPolygonView.m */; };
 		C13DAC44522C8AAB53FC3944 /* WalterPolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8B72436BB9AC747616E /* WalterPolygonView.m */; };
 		C13DACC9B197EE3C8F544B2A /* DSPODTH3.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */; };
@@ -165,6 +166,7 @@
 		C13DAE56EF1C7A3A92071EC1 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
 		C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions~ipad.png"; path = "Resources/instructions~ipad.png"; sourceTree = "<group>"; };
 		C13DAF1A9F03E0F1ED35B515 /* frames.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frames.png; path = Resources/frames.png; sourceTree = "<group>"; };
+		C13DAF3C8D82BEAD85937866 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = music.mp3; path = Resources/Sounds/music.mp3; sourceTree = "<group>"; };
 		C13DAF3CF5E884D4B2147FDA /* WorldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldConstants.h; sourceTree = "<group>"; };
 		C13DAF462675923577E06076 /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
 		C13DAF552C3FBFBB53AA95C3 /* MeleeAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeAttack.h; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				C13DAACF31F9CC01ED798443 /* DSPISTOL.WAV */,
 				C13DAA44B915D358A079ADED /* DSPLDETH.WAV */,
 				C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */,
+				C13DAF3C8D82BEAD85937866 /* music.mp3 */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				C13DAB3B66902E18CDCDDEA9 /* DSPISTOL.WAV in Resources */,
 				C13DAB45A49D689D9F90D384 /* DSPLDETH.WAV in Resources */,
 				C13DACC9B197EE3C8F544B2A /* DSPODTH3.WAV in Resources */,
+				C13DABE01052A92CF3C1189B /* music.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
