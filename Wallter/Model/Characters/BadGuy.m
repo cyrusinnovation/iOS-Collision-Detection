@@ -4,6 +4,7 @@
 
 #import "BadGuy.h"
 #import "MeleeAttack.h"
+#import "SimpleAudioEngine.h"
 
 @implementation BadGuy
 
@@ -37,8 +38,11 @@
 }
 
 - (void)collides:(SATResult)result with:(id <BoundedPolygon>)that {
+	if (dead) return;
 	if ([that isMemberOfClass:[MeleeAttack class]]) {
 		dead = true;
+		// TODO for the love of God ...
+		[[SimpleAudioEngine sharedEngine] playEffect:@"DSPODTH3.WAV"];
 	}
 }
 

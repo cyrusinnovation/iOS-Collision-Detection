@@ -51,14 +51,18 @@
 		C13DA573FD6A3D7B2355F72A /* WorldConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA74ECD4552676249D903 /* WorldConstants.m */; };
 		C13DA5F6E12F6A03C63C56C9 /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAF462675923577E06076 /* SettingsLayer.m */; };
 		C13DA76E377213D13357DA55 /* Walter.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABCD158D631E2C4F22FF /* Walter.m */; };
+		C13DA89E73232EF2099BF9D0 /* DSOOF.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DA229349A0CFB7C6E5F63 /* DSOOF.WAV */; };
 		C13DA9500816F608D0D5A22A /* font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = C13DAC4D144518306031944D /* font.fnt */; };
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
 		C13DA9845B750E4338B966E7 /* BadGuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA30848178DAAFD85ECA6 /* BadGuyView.m */; };
+		C13DAB3B66902E18CDCDDEA9 /* DSPISTOL.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DAACF31F9CC01ED798443 /* DSPISTOL.WAV */; };
+		C13DAB45A49D689D9F90D384 /* DSPLDETH.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DAA44B915D358A079ADED /* DSPLDETH.WAV */; };
 		C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA039BC81030E82667ED9 /* HighScore.m */; };
 		C13DAB87958E81815103A421 /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA7DA065CD1CEC755DCBA /* font.png */; };
 		C13DAB8AAB4D321759295FF2 /* frames.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAF1A9F03E0F1ED35B515 /* frames.png */; };
 		C13DAC4007F78F104693B1DC /* MeleeAttackPolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA528AD7DC83A7DF56196 /* MeleeAttackPolygonView.m */; };
 		C13DAC44522C8AAB53FC3944 /* WalterPolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8B72436BB9AC747616E /* WalterPolygonView.m */; };
+		C13DACC9B197EE3C8F544B2A /* DSPODTH3.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */; };
 		C13DAD4F5D5236CC58258270 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE56EF1C7A3A92071EC1 /* Platform.m */; };
 		C13DADB5B6F972C8AA3E16B1 /* NullWalterObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA1F665EFDBDD8992973F /* NullWalterObserver.m */; };
 		C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE0149979D7F1AD08FC0 /* HighScores.m */; };
@@ -108,8 +112,10 @@
 		C13DA07630AA078B61584534 /* SimpleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleButton.h; sourceTree = "<group>"; };
 		C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageView.m; sourceTree = "<group>"; };
 		C13DA1305F378EEA0092A2F4 /* NullWalterObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullWalterObserver.h; sourceTree = "<group>"; };
+		C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPODTH3.WAV; path = Resources/Sounds/DSPODTH3.WAV; sourceTree = "<group>"; };
 		C13DA1F665EFDBDD8992973F /* NullWalterObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullWalterObserver.m; sourceTree = "<group>"; };
 		C13DA21E3C760AFE9D6B2438 /* instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions.png; path = Resources/instructions.png; sourceTree = "<group>"; };
+		C13DA229349A0CFB7C6E5F63 /* DSOOF.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSOOF.WAV; path = Resources/Sounds/DSOOF.WAV; sourceTree = "<group>"; };
 		C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttack.m; sourceTree = "<group>"; };
 		C13DA26819D80296C434DA06 /* BoundedPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundedPolygon.h; path = Wallter/Model/BoundedPolygon.h; sourceTree = SOURCE_ROOT; };
 		C13DA30848178DAAFD85ECA6 /* BadGuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuyView.m; sourceTree = "<group>"; };
@@ -138,6 +144,8 @@
 		C13DA9C6C1BA867C67CBD1F2 /* BadGuy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuy.m; sourceTree = "<group>"; };
 		C13DA9D03DAF3987369155F4 /* BadGuyPolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuyPolygonView.h; sourceTree = "<group>"; };
 		C13DA9F5C6E3738D2748E6CE /* SimulationActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationActor.h; sourceTree = "<group>"; };
+		C13DAA44B915D358A079ADED /* DSPLDETH.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPLDETH.WAV; path = Resources/Sounds/DSPLDETH.WAV; sourceTree = "<group>"; };
+		C13DAACF31F9CC01ED798443 /* DSPISTOL.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPISTOL.WAV; path = Resources/Sounds/DSPISTOL.WAV; sourceTree = "<group>"; };
 		C13DAB30C5541131B661D9E6 /* PlatformAddedObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformAddedObserver.h; sourceTree = "<group>"; };
 		C13DAB74C3EAFB7C25238773 /* AddBadGuyToStageObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBadGuyToStageObserver.h; path = Wallter/Model/Stage/AddBadGuyToStageObserver.h; sourceTree = SOURCE_ROOT; };
 		C13DABCD158D631E2C4F22FF /* Walter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Walter.m; sourceTree = "<group>"; };
@@ -255,6 +263,7 @@
 				0824981E1610A34E0041907E /* iTunesArtwork */,
 				C13DA4DE18E7E6D4B788CD52 /* frames.plist */,
 				C13DAF1A9F03E0F1ED35B515 /* frames.png */,
+				C13DA0823701E070E6A6C0D1 /* Sounds */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -276,6 +285,17 @@
 				0824998D1610A3720041907E /* libkazmath.a */,
 			);
 			name = "Library References";
+			sourceTree = "<group>";
+		};
+		C13DA0823701E070E6A6C0D1 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C13DA229349A0CFB7C6E5F63 /* DSOOF.WAV */,
+				C13DAACF31F9CC01ED798443 /* DSPISTOL.WAV */,
+				C13DAA44B915D358A079ADED /* DSPLDETH.WAV */,
+				C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		C13DA0E9B891C7ABE83D62D6 /* Characters */ = {
@@ -467,6 +487,10 @@
 				C13DAF21BB7647FD50F41515 /* frames.plist in Resources */,
 				C13DAB8AAB4D321759295FF2 /* frames.png in Resources */,
 				0864B2EF167FC0E500DFBF27 /* Default-568h@2x.png in Resources */,
+				C13DA89E73232EF2099BF9D0 /* DSOOF.WAV in Resources */,
+				C13DAB3B66902E18CDCDDEA9 /* DSPISTOL.WAV in Resources */,
+				C13DAB45A49D689D9F90D384 /* DSPLDETH.WAV in Resources */,
+				C13DACC9B197EE3C8F544B2A /* DSPODTH3.WAV in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +555,7 @@
 					"\"CocosLibs/cocos2d\"",
 					"\"CocosLibs/kazmath/include\"",
 					"\"iOSGeometryTools\"",
+					"\"CocosLibs/CocosDenshion\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
@@ -560,6 +585,7 @@
 					"\"CocosLibs/cocos2d\"",
 					"\"CocosLibs/kazmath/include\"",
 					"\"iOSGeometryTools\"",
+					"\"CocosLibs/CocosDenshion\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;

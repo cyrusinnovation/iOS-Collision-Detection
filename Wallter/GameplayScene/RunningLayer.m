@@ -19,6 +19,7 @@
 #import "SimpleButton.h"
 #import "BadGuyView.h"
 #import "MeleeAttackView.h"
+#import "SimpleAudioEngine.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -38,6 +39,8 @@
 
 	BOOL transitioning;
 	CCSpriteBatchNode *batchNode;
+
+	SimpleAudioEngine *audio;
 }
 
 + (CCScene *)scene {
@@ -71,6 +74,14 @@
 	SimpleButton *attackButton = [[SimpleButton alloc] init:self selector:@selector(attack) frame:@"button.red.png" downFrame:@"button.red.down.png"];
 	[attackButton setPosition:cgp(s.width - 80*2, 16)];
 	[self addChild:attackButton z:INTERFACE_LAYER];
+
+	[CDSoundEngine setMixerSampleRate:CD_SAMPLE_RATE_MID];
+	[[CDAudioManager sharedManager] setResignBehavior:kAMRBStopPlay autoHandle:YES];
+	audio = [SimpleAudioEngine sharedEngine];
+	[audio preloadEffect:@"DSOOF.WAV"];
+	[audio preloadEffect:@"DSPISTOL.WAV"];
+	[audio preloadEffect:@"DSPLDETH.WAV"];
+	[audio preloadEffect:@"DSPODTH3.WAV"];
 
 	return self;
 }
@@ -139,6 +150,7 @@
 
 	if (walter.location.y < stage.deathHeight || walter.isExpired) {
 		[self transitionAfterPlayerDeath];
+		[audio playEffect:@"DSPLDETH.WAV"];
 	} else {
 		[stage generateAround:walter];
 		[self checkForStuckedness:dt];
@@ -186,10 +198,13 @@
 	MeleeAttack *attack = [[MeleeAttack alloc] init:walter];
 	[simulation addAttack:attack];
 	[self addChild:[[MeleeAttackView alloc] init:attack following:drawOffset batchNode:batchNode] z:10];
+
+	[audio playEffect:@"DSPISTOL.WAV"];
 }
 
 - (void)jump {
-	[walter jump];
+	if ([walter jump] == noJump) return;
+	[audio playEffect:@"DSOOF.WAV"];
 }
 
 #pragma mark utils
