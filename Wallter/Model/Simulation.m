@@ -25,6 +25,7 @@
 		environment = _environment;
 		attacks = [[NSMutableArray alloc] init];
 		enemies = [[NSMutableArray alloc] init];
+		tickers = [[NSMutableArray alloc] init];
 	}
 	return self;
 }

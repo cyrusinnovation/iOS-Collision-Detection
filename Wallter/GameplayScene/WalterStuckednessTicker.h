@@ -3,9 +3,8 @@
 // copyright Cyrus Innovation
 //
 
-#import "ccTypes.h"
-#import "Walter.h"
 #import "SimulationTicker.h"
+#import "Walter.h"
 
 @interface WalterStuckednessTicker : NSObject <SimulationTicker>
 - (id)init:(Walter *)_walter;

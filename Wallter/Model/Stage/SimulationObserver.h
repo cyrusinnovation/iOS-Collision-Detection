@@ -2,12 +2,10 @@
 // Created by najati on 12/14/12.
 //
 
-#import <Foundation/Foundation.h>
-
-@class BadGuy;
-@class MeleeAttack;
+#import "BoundedPolygon.h"
+#import "SimulationActor.h"
 
 @protocol SimulationObserver
--(void)addedCharacter:(BadGuy*) badGuy;
--(void)addedAttack:(MeleeAttack*) attack;
+-(void)addedCharacter:(id<BoundedPolygon, SimulationActor>) character;
+-(void)addedAttack:(id <BoundedPolygon, SimulationActor>) attack;
 @end

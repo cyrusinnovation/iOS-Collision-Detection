@@ -23,6 +23,7 @@
 #import "AggregateWalterObserver.h"
 #import "WalterWeapon.h"
 #import "WalterStuckednessTicker.h"
+#import "WalterDeathFallTicker.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -121,6 +122,7 @@
 	walterWeapon.observer = walterSoundEffects;
 
 	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
+	[simulation addTicker:[[WalterDeathFallTicker alloc] init:walter in:stage]];
 
 	[stage prime];
 
@@ -147,14 +149,12 @@
 	[simulation update:dt];
 	[camera update];
 
-	score += dt * 0.07;
+	score += dt * 21;
 	// TODO OPT don't update the score string every frame
 	[scoreLabel setString:[NSString stringWithFormat:@"%d", (int) score]];
 
-	if (walter.location.y < stage.deathHeight || walter.isExpired) {
+	if (walter.isExpired) {
 		[self transitionAfterPlayerDeath];
-	} else {
-		[stage generateAround:walter];
 	}
 }
 
@@ -174,11 +174,13 @@
 
 #pragma mark SimulationObserver
 
-- (void)addedCharacter:(BadGuy *)badGuy {
-	[self addChild:[[BadGuyView alloc] init:badGuy camera:camera batchNode:batchNode]];
+-(void)addedCharacter:(id<BoundedPolygon, SimulationActor>) character {
+	if (![character isKindOfClass:[BadGuy class]]) return;
+	[self addChild:[[BadGuyView alloc] init:character camera:camera batchNode:batchNode]];
 }
 
-- (void)addedAttack:(MeleeAttack *)attack {
+-(void)addedAttack:(id <BoundedPolygon, SimulationActor>) attack {
+	if (![attack isKindOfClass:[MeleeAttack class]]) return;
 	[self addChild:[[MeleeAttackView alloc] init:attack following:camera batchNode:batchNode]];
 }
 
@@ -197,5 +199,6 @@
 - (CGSize)currentWindowSize {
 	return [[CCDirector sharedDirector] winSize];
 }
+
 
 @end
