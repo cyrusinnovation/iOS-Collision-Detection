@@ -165,7 +165,8 @@
 
 	CCScene *scene;
 	if ([HighScores isHighScore:score]) {
-		scene = [SettingsLayer scene:score];
+		// TODO
+		scene = [SettingsLayer scene];
 	} else {
 		scene = [HighScoresLayer scene];
 	}
