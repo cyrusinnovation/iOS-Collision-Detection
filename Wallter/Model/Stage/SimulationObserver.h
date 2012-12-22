@@ -5,7 +5,9 @@
 #import <Foundation/Foundation.h>
 
 @class BadGuy;
+@class MeleeAttack;
 
-@protocol CharacterAddedObserver
+@protocol SimulationObserver
 -(void)addedCharacter:(BadGuy*) badGuy;
+-(void)addedAttack:(MeleeAttack*) attack;
 @end

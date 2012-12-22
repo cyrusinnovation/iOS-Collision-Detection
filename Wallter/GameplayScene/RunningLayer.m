@@ -18,10 +18,10 @@
 #import "SimpleButton.h"
 #import "BadGuyView.h"
 #import "MeleeAttackView.h"
-#import "SimpleAudioEngine.h"
 #import "AudioPlayer.h"
 #import "WalterSoundEffects.h"
 #import "AggregateWalterObserver.h"
+#import "WalterWeapon.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -37,12 +37,13 @@
 
 	float score;
 
-	Camera *drawOffset;
+	Camera *camera;
 
 	BOOL transitioning;
 	CCSpriteBatchNode *batchNode;
 
 	AudioPlayer *audio;
+	WalterWeapon *walterWeapon;
 }
 
 + (CCScene *)scene {
@@ -66,23 +67,24 @@
 	buffer = 0;
 	frameTime = 0.01;
 	[self initStage];
+	[self initButtons];
 
-	CGSize s = [self currentWindowSize];
-
-	SimpleButton *button = [[SimpleButton alloc] init:self selector:@selector(jump) frame:@"button.blue.png" downFrame:@"button.blue.down.png"];
-	[button setPosition:cgp(s.width - 80, 16)];
-	[self addChild:button z:INTERFACE_LAYER];
-
-	SimpleButton *attackButton = [[SimpleButton alloc] init:self selector:@selector(attack) frame:@"button.red.png" downFrame:@"button.red.down.png"];
-	[attackButton setPosition:cgp(s.width - 80*2, 16)];
-	[self addChild:attackButton z:INTERFACE_LAYER];
-
-	[CDSoundEngine setMixerSampleRate:CD_SAMPLE_RATE_MID];
-	[[CDAudioManager sharedManager] setResignBehavior:kAMRBStopPlay autoHandle:YES];
 	audio = [[AudioPlayer alloc] init];
 	[audio playBackgroundMusic:@"music.mp3"];
 
 	return self;
+}
+
+- (void)initButtons {
+	CGSize s = [self currentWindowSize];
+
+	SimpleButton *button = [[SimpleButton alloc] init:walter selector:@selector(jump) frame:@"button.blue.png" downFrame:@"button.blue.down.png"];
+	[button setPosition:cgp(s.width - 80, 16)];
+	[self addChild:button z:INTERFACE_LAYER];
+
+	SimpleButton *attackButton = [[SimpleButton alloc] init:walterWeapon selector:@selector(attack) frame:@"button.red.png" downFrame:@"button.red.down.png"];
+	[attackButton setPosition:cgp(s.width - 80*2, 16)];
+	[self addChild:attackButton z:INTERFACE_LAYER];
 }
 
 - (CCLayerColor *)initLayer {
@@ -100,27 +102,27 @@
 	timeAtCurrentPosition = 0;
 	score = 0;
 
-	walter = [[Walter alloc] initAt:waltersLocation];
-
-	drawOffset = [[Camera alloc] init:walter];
-
 	stage = [[Stage alloc] init];
-
+	walter = [[Walter alloc] initAt:waltersLocation];
 	simulation = [[Simulation alloc] initFor:walter in:stage];
+	walterWeapon = [[WalterWeapon alloc] initFor:walter in:simulation];
+	simulation.simulationObserver = self;
+	
+	camera = [[Camera alloc] init:walter];
 
 	AddBadGuyToStageObserver *addBadguyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation];
-	addBadguyToStageObserver.characterAddedObserver = self;
 	stage.platformAddedObserver = addBadguyToStageObserver;
 
-	[stage prime];
-
-	[self addChild:[[StageView alloc] init:stage following:drawOffset]];
-
-	WalterView *walterView = [[WalterView alloc] init:walter camera:drawOffset batchNode:batchNode];
+	[self addChild:[[StageView alloc] init:stage following:camera]];
+	WalterView *walterView = [[WalterView alloc] init:walter camera:camera batchNode:batchNode];
 	[self addChild:walterView];
 
 	WalterSoundEffects *walterSoundEffects = [[WalterSoundEffects alloc] init];
-	walter.walterObserver = [[AggregateWalterObserver alloc] initWithObservers:[NSArray arrayWithObjects:walterView, walterSoundEffects, nil]];
+
+	NSArray *observers = [NSArray arrayWithObjects:walterView, walterSoundEffects, nil];
+	walter.observer = [[AggregateWalterObserver alloc] initWithObservers:observers];
+
+	[stage prime];
 
 	[self setUpScoreLabel];
 }
@@ -143,7 +145,7 @@
 	if (transitioning) return;
 
 	[simulation update:dt];
-	[drawOffset update];
+	[camera update];
 
 	score += fabs(walter.location.x - waltersLocation.x) * 0.07;
 	// TODO OPT don't update the score string every frame
@@ -171,10 +173,6 @@
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:scene withColor:ccBLACK]];
 }
 
-- (void)addedCharacter:(BadGuy *)badGuy {
-	[self addChild:[[BadGuyView alloc] init:badGuy camera:drawOffset batchNode:batchNode]];
-}
-
 - (void)checkForStuckedness:(ccTime)d {
 	if (walter.location.x == waltersLocation.x && walter.location.y == waltersLocation.y) {
 		timeAtCurrentPosition += d;
@@ -186,6 +184,16 @@
 	}
 }
 
+#pragma mark SimulationObserver
+
+- (void)addedCharacter:(BadGuy *)badGuy {
+	[self addChild:[[BadGuyView alloc] init:badGuy camera:camera batchNode:batchNode]];
+}
+
+- (void)addedAttack:(MeleeAttack *)attack {
+	[self addChild:[[MeleeAttackView alloc] init:attack following:camera batchNode:batchNode]];
+}
+
 #pragma mark Touch methods
 
 - (void)registerWithTouchDispatcher {
@@ -194,16 +202,6 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 	return true;
-}
-
-- (void)attack {
-	MeleeAttack *attack = [[MeleeAttack alloc] init:walter];
-	[simulation addAttack:attack];
-	[self addChild:[[MeleeAttackView alloc] init:attack following:drawOffset batchNode:batchNode] z:10];
-}
-
-- (void)jump {
-	[walter jump];
 }
 
 #pragma mark utils

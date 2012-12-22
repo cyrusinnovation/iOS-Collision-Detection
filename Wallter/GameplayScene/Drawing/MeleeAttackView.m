@@ -49,9 +49,9 @@ static CCAnimation *fireBallAnimation;
 	[attackSprite setScaleY:0.7];
 
 	batchNode = _batchNode;
-	[batchNode addChild:attackSprite z:10];
+	[batchNode addChild:attackSprite];
 
-	[attackSprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:fireBallAnimation]]];
+	[attackSprite runAction:[CCAnimate actionWithAnimation:fireBallAnimation]];
 
 	return self;
 }

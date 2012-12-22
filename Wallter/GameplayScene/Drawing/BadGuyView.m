@@ -48,8 +48,9 @@ static CCAnimation *walkingAnimation;
 
 	badGuySprite = [CCSprite spriteWithSpriteFrameName:@"walk0.png"];
 	[badGuySprite setScale:1.25];
+
 	batchNode = _batchNode;
-	[batchNode addChild:badGuySprite z:10];
+	[batchNode addChild:badGuySprite];
 
 	[badGuySprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkingAnimation]]];
 	[badGuySprite setFlipX:!badGuy.facingRight];

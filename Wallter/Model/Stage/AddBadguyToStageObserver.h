@@ -5,9 +5,8 @@
 #import "PlatformAddedObserver.h"
 #import "Simulation.h"
 
-@protocol CharacterAddedObserver;
+@protocol SimulationObserver;
 
 @interface AddBadGuyToStageObserver : NSObject<PlatformAddedObserver>
-@property (nonatomic, retain) NSObject <CharacterAddedObserver> *characterAddedObserver;
 - (id)init:(Simulation *)simulation;
 @end

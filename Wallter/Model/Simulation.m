@@ -6,6 +6,7 @@
 
 #import "SeparatingAxisTest.h"
 #import "SATResult.h"
+#import "SimulationObserver.h"
 
 @implementation Simulation {
 	id <BoundedPolygon, SimulationActor> mainActor;
@@ -13,6 +14,8 @@
 	NSMutableArray *attacks;
 	NSMutableArray *enemies;
 }
+
+@synthesize simulationObserver;
 
 - (id)initFor:(id <BoundedPolygon, SimulationActor>)_mainActor in:(id <Environment>)_environment {
 	if (self = [super init]) {
@@ -62,10 +65,12 @@
 
 - (void)addAttack:(id <BoundedPolygon, SimulationActor>)attack {
 	[attacks addObject:attack];
+	[simulationObserver addedAttack:attack];
 }
 
 - (void)addEnemy:(id <BoundedPolygon, SimulationActor>)enemy {
 	[enemies addObject:enemy];
+	[simulationObserver addedCharacter:enemy];
 }
 
 #pragma mark Static methods

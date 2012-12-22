@@ -6,6 +6,7 @@
 #import "AggregateWalterObserver.h"
 #import "BadGuy.h"
 #import "Platform.h"
+#import "MeleeAttack.h"
 
 typedef enum {
 	walterIsRunningLeft,
@@ -21,7 +22,6 @@ typedef enum {
 } WalterAction;
 
 @implementation Walter {
-	Stage *stage;
 	CGPoint location;
 	CGPoint size;
 	CGPoint velocity;
@@ -40,7 +40,7 @@ typedef enum {
 	CGFloat left;
 	CGFloat right;
 
-	NSObject <WalterObserver> *walterObserver;
+	NSObject <WalterObserver> *observer;
 }
 
 @synthesize location;
@@ -52,7 +52,7 @@ typedef enum {
 
 @synthesize width;
 
-@synthesize walterObserver;
+@synthesize observer;
 
 - (Boolean)runningRight {
 	return direction == walterIsRunningRight;
@@ -62,7 +62,7 @@ typedef enum {
 	self = [super init];
 	if (!self) return self;
 
-	self.walterObserver = [[AggregateWalterObserver alloc] init];
+	self.observer = [[AggregateWalterObserver alloc] init];
 
 	size = cgp(20, 30);
 	width = size.x;
@@ -174,16 +174,16 @@ typedef enum {
 
 	switch (action) {
 		case walterIsWallJumping:
-			[walterObserver wallJumping];
+			[observer wallJumping];
 			break;
 		case walterIsGroundJumping:
-			[walterObserver groundJumping];
+			[observer groundJumping];
 			break;
 		case walterIsFalling:
-			[walterObserver falling];
+			[observer falling];
 			break;
 		case walterIsRunning:
-			[walterObserver running];
+			[observer running];
 			break;
         case walterIsOnAWall:
             break;
@@ -195,10 +195,10 @@ typedef enum {
 
 	switch (direction) {
 		case walterIsRunningLeft:
-			[walterObserver runningLeft];
+			[observer runningLeft];
 			break;
 		case walterIsRunningRight:
-			[walterObserver runningRight];
+			[observer runningRight];
 			break;
 	}
 }
@@ -214,6 +214,5 @@ typedef enum {
 		dead = true;
 	}
 }
-
 
 @end
