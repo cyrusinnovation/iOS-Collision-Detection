@@ -22,6 +22,7 @@
 #import "WalterSoundEffects.h"
 #import "AggregateWalterObserver.h"
 #import "WalterWeapon.h"
+#import "WalterStuckednessTicker.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -30,8 +31,6 @@
 
 	ccTime buffer;
 	ccTime frameTime;
-	CGPoint waltersLocation;
-	ccTime timeAtCurrentPosition;
 
 	CCLabelBMFont *scoreLabel;
 
@@ -98,12 +97,10 @@
 	[self removeAllChildrenWithCleanup:true];
 	[self addChild:batchNode];
 
-	waltersLocation = cgp(30, 50);
-	timeAtCurrentPosition = 0;
 	score = 0;
 
 	stage = [[Stage alloc] init];
-	walter = [[Walter alloc] initAt:waltersLocation];
+	walter = [[Walter alloc] initAt:cgp(30, 50)];
 	simulation = [[Simulation alloc] initFor:walter in:stage];
 	walterWeapon = [[WalterWeapon alloc] initFor:walter in:simulation];
 	simulation.simulationObserver = self;
@@ -122,6 +119,8 @@
 	walter.observer = [[AggregateWalterObserver alloc] initWithObservers:observers];
 
 	walterWeapon.observer = walterSoundEffects;
+
+	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
 
 	[stage prime];
 
@@ -148,7 +147,7 @@
 	[simulation update:dt];
 	[camera update];
 
-	score += fabs(walter.location.x - waltersLocation.x) * 0.07;
+	score += dt * 0.07;
 	// TODO OPT don't update the score string every frame
 	[scoreLabel setString:[NSString stringWithFormat:@"%d", (int) score]];
 
@@ -156,7 +155,6 @@
 		[self transitionAfterPlayerDeath];
 	} else {
 		[stage generateAround:walter];
-		[self checkForStuckedness:dt];
 	}
 }
 
@@ -172,17 +170,6 @@
 		scene = [HighScoresLayer scene];
 	}
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:scene withColor:ccBLACK]];
-}
-
-- (void)checkForStuckedness:(ccTime)d {
-	if (walter.location.x == waltersLocation.x && walter.location.y == waltersLocation.y) {
-		timeAtCurrentPosition += d;
-		if (timeAtCurrentPosition > 1) {
-			[self initStage];
-		}
-	} else {
-		waltersLocation = walter.location;
-	}
 }
 
 #pragma mark SimulationObserver

@@ -7,12 +7,14 @@
 #import "SeparatingAxisTest.h"
 #import "SATResult.h"
 #import "SimulationObserver.h"
+#import "SimulationTicker.h"
 
 @implementation Simulation {
 	id <BoundedPolygon, SimulationActor> mainActor;
 	id <Environment> environment;
 	NSMutableArray *attacks;
 	NSMutableArray *enemies;
+	NSMutableArray *tickers;
 }
 
 @synthesize simulationObserver;
@@ -36,6 +38,10 @@
 
 	[self update:enemies dt:dt];
 	[self test:mainActor against:enemies];
+
+	for (id<SimulationTicker> ticker in tickers) {
+		[ticker update:dt];
+	}
 }
 
 - (void)update:(NSMutableArray *)actors dt:(ccTime)dt {
@@ -71,6 +77,10 @@
 - (void)addEnemy:(id <BoundedPolygon, SimulationActor>)enemy {
 	[enemies addObject:enemy];
 	[simulationObserver addedCharacter:enemy];
+}
+
+- (void)addTicker:(id <SimulationTicker>)ticker {
+	[tickers addObject:ticker];
 }
 
 #pragma mark Static methods

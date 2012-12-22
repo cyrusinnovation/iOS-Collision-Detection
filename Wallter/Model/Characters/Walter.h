@@ -34,4 +34,6 @@ typedef enum {
 - (void)correct:(CGPoint)delta;
 
 - (JumpType)jump;
+
+- (void)kill;
 @end

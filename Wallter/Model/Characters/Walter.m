@@ -185,8 +185,8 @@ typedef enum {
 		case walterIsRunning:
 			[observer running];
 			break;
-        case walterIsOnAWall:
-            break;
+		case walterIsOnAWall:
+			break;
 	}
 }
 
@@ -203,7 +203,7 @@ typedef enum {
 	}
 }
 
--(Boolean) isExpired {
+- (Boolean)isExpired {
 	return dead;
 }
 
@@ -211,8 +211,13 @@ typedef enum {
 	if ([that isMemberOfClass:[Platform class]]) {
 		[self correct:result.penetration];
 	} else if ([that isMemberOfClass:[BadGuy class]]) {
-		dead = true;
+		[self kill];
 	}
+}
+
+- (void)kill {
+	dead = true;
+	[observer dying];
 }
 
 @end

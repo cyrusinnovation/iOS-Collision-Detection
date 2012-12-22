@@ -7,6 +7,7 @@
 #import "Environment.h"
 #import "BoundedPolygon.h"
 #import "SimulationActor.h"
+#import "SimulationTicker.h"
 
 @protocol SimulationObserver;
 
@@ -18,4 +19,6 @@
 
 - (void)addAttack:(id<BoundedPolygon, SimulationActor>)attack;
 - (void)addEnemy:(id<BoundedPolygon, SimulationActor>)enemy;
+
+- (void)addTicker:(id <SimulationTicker>)ticker;
 @end
