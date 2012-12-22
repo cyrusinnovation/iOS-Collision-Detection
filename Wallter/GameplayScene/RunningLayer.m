@@ -1,10 +1,11 @@
 //
-//  by najati
-//  copyright cyrus innovation
+// by najati
+// copyright cyrus innovation
 //
 
-
 #import "RunningLayer.h"
+
+#import "Stage.h"
 
 #import "StageView.h"
 #import "Simulation.h"

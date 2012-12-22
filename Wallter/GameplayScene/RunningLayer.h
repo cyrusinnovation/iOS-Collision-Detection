@@ -1,16 +1,9 @@
 //
-//  Wallter
+// najati
+// copyright cyrus innovation
 //
-//  Created by Najati Imam on 9/24/12.
-//  Copyright Cyrus Innovation 2012. All rights reserved.
-//
-
-#import <GameKit/GameKit.h>
 
 #import "cocos2d.h"
-#import "Polygon.h"
-#import "Stage.h"
-#import "PlatformAddedObserver.h"
 #import "SimulationObserver.h"
 
 #define INTERFACE_LAYER 100
