@@ -47,14 +47,6 @@ static NSString *namery = @"Player";
 	[textField removeFromSuperview];
 }
 
-- (CGAffineTransform)getTransform:(CGPoint)loc {
-	CGSize s = [[CCDirector sharedDirector] winSize];
-	CGSize textFrame = textField.frame.size;
-	CGAffineTransform transform = CGAffineTransformMakeTranslation(textFrame.height / 2 + loc.y, s.width - textFrame.width / 2 - loc.x);
-	transform = CGAffineTransformRotate(transform, -M_PI_2);
-	return transform;
-}
-
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 	CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
 	CGSize s = [[CCDirector sharedDirector] winSize];
