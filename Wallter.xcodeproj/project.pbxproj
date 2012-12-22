@@ -51,7 +51,9 @@
 		C13DA573FD6A3D7B2355F72A /* WorldConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA74ECD4552676249D903 /* WorldConstants.m */; };
 		C13DA5F6E12F6A03C63C56C9 /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAF462675923577E06076 /* SettingsLayer.m */; };
 		C13DA76E377213D13357DA55 /* Walter.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABCD158D631E2C4F22FF /* Walter.m */; };
+		C13DA7FCD5FA88F0FEE8C2C7 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA899C635096195F322D4 /* Settings.m */; };
 		C13DA89E73232EF2099BF9D0 /* DSOOF.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DA229349A0CFB7C6E5F63 /* DSOOF.WAV */; };
+		C13DA919629AA7DC77F47AB5 /* FileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD9DAA3C35C41FD32140 /* FileAccess.m */; };
 		C13DA9500816F608D0D5A22A /* font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = C13DAC4D144518306031944D /* font.fnt */; };
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
 		C13DA9845B750E4338B966E7 /* BadGuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA30848178DAAFD85ECA6 /* BadGuyView.m */; };
@@ -127,6 +129,7 @@
 		C13DA4DE18E7E6D4B788CD52 /* frames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = frames.plist; path = Resources/frames.plist; sourceTree = "<group>"; };
 		C13DA528AD7DC83A7DF56196 /* MeleeAttackPolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttackPolygonView.m; sourceTree = "<group>"; };
 		C13DA53EA54BC0E98062AC3D /* WalterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterView.h; sourceTree = "<group>"; };
+		C13DA56D84681BFF93B2DD13 /* FileAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAccess.h; sourceTree = "<group>"; };
 		C13DA58B6BB9F07A3AD0949A /* BadGuyPolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuyPolygonView.m; sourceTree = "<group>"; };
 		C13DA601C9BDD45869ECD67D /* HighScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScore.h; sourceTree = "<group>"; };
 		C13DA628E78B57594F107F65 /* MeleeAttackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeAttackView.h; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 		C13DA74ECD4552676249D903 /* WorldConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldConstants.m; sourceTree = "<group>"; };
 		C13DA7DA065CD1CEC755DCBA /* font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = font.png; path = Resources/font.png; sourceTree = "<group>"; };
 		C13DA8127DE99147554E59B3 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		C13DA8956FFC25A2D367AD99 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		C13DA899C635096195F322D4 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		C13DA8B72436BB9AC747616E /* WalterPolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterPolygonView.m; sourceTree = "<group>"; };
 		C13DA8C2061E0F100D3949CB /* MeleeAttackPolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeAttackPolygonView.h; sourceTree = "<group>"; };
 		C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresLayer.m; sourceTree = "<group>"; };
@@ -158,6 +163,7 @@
 		C13DAD629E5D76CF7839C3D1 /* CharacterAddedObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterAddedObserver.h; sourceTree = "<group>"; };
 		C13DAD62E4709EA93612BC08 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		C13DAD86D609664E02DC4B14 /* BadGuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuy.h; sourceTree = "<group>"; };
+		C13DAD9DAA3C35C41FD32140 /* FileAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileAccess.m; sourceTree = "<group>"; };
 		C13DAD9E4FA18A741102AE3E /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
 		C13DADF252B545D0A0B803D0 /* Simulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simulation.m; sourceTree = "<group>"; };
 		C13DAE0149979D7F1AD08FC0 /* HighScores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScores.m; sourceTree = "<group>"; };
@@ -339,6 +345,10 @@
 				0824997E1610A3500041907E /* AppDelegate.m */,
 				0824997D1610A3500041907E /* AppDelegate.h */,
 				C13DA8FED25423C7A9864519 /* Layers */,
+				C13DA899C635096195F322D4 /* Settings.m */,
+				C13DA8956FFC25A2D367AD99 /* Settings.h */,
+				C13DA56D84681BFF93B2DD13 /* FileAccess.h */,
+				C13DAD9DAA3C35C41FD32140 /* FileAccess.m */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -532,6 +542,8 @@
 				C13DA209331CF69FA0F297A3 /* SimpleButton.m in Sources */,
 				C13DA9845B750E4338B966E7 /* BadGuyView.m in Sources */,
 				C13DAF35541F3B8365BC0363 /* MeleeAttackView.m in Sources */,
+				C13DA7FCD5FA88F0FEE8C2C7 /* Settings.m in Sources */,
+				C13DA919629AA7DC77F47AB5 /* FileAccess.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
