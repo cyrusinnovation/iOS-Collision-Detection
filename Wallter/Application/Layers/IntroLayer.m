@@ -1,17 +1,11 @@
 //
-//  IntroLayer.m
-//  Wallter
-//
-//  Created by Najati Imam on 9/24/12.
-//  Copyright Cyrus Innovation 2012. All rights reserved.
+//  najati
+//  copyright Cyrus Innovation 2012
 //
 
-
-// Import the interfaces
 #import "IntroLayer.h"
 #import "RunningLayer.h"
 #import "SettingsLayer.h"
-
 
 #pragma mark - IntroLayer
 

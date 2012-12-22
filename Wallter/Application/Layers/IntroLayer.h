@@ -1,15 +1,11 @@
 //
-//  IntroLayer.h
-//  Wallter
-//
-//  Created by Najati Imam on 9/24/12.
-//  Copyright Cyrus Innovation 2012. All rights reserved.
+// najati
+// copyright cyrus
 //
 
 #import "cocos2d.h"
 
-@interface IntroLayer : CCLayer {
-}
+@interface IntroLayer : CCLayer
 
 + (CCScene *)scene;
 
