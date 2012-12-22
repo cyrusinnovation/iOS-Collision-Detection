@@ -118,9 +118,6 @@
 - (void)dying {
 }
 
-- (void)attacking {
-}
-
 - (void)dealloc {
 	[batchNode removeChild:walterSprite cleanup:true];
 }

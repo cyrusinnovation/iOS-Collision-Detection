@@ -12,5 +12,4 @@
 - (void)falling;
 - (void)running;
 - (void)dying;
--(void) attacking;
 @end

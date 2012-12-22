@@ -50,8 +50,4 @@
 	for (id <WalterObserver> observer in observers) {[observer dying];}
 }
 
-- (void)attacking {
-	for (id <WalterObserver> observer in observers) {[observer attacking];}
-}
-
 @end

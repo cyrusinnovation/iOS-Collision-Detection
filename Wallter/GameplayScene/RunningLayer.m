@@ -110,17 +110,18 @@
 	
 	camera = [[Camera alloc] init:walter];
 
-	AddBadGuyToStageObserver *addBadguyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation];
-	stage.platformAddedObserver = addBadguyToStageObserver;
+	AddBadGuyToStageObserver *addBadGuyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation];
+	stage.platformAddedObserver = addBadGuyToStageObserver;
 
 	[self addChild:[[StageView alloc] init:stage following:camera]];
 	WalterView *walterView = [[WalterView alloc] init:walter camera:camera batchNode:batchNode];
 	[self addChild:walterView];
 
 	WalterSoundEffects *walterSoundEffects = [[WalterSoundEffects alloc] init];
-
 	NSArray *observers = [NSArray arrayWithObjects:walterView, walterSoundEffects, nil];
 	walter.observer = [[AggregateWalterObserver alloc] initWithObservers:observers];
+
+	walterWeapon.observer = walterSoundEffects;
 
 	[stage prime];
 

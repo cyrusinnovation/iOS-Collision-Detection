@@ -36,7 +36,7 @@
 - (void)playEffect:(NSString *)string {
 	if (playingSoundEffects) {
 		[audio playEffect:string];
-	}	
+	}
 }
 
 - (void)playBackgroundMusic:(NSString *)string {

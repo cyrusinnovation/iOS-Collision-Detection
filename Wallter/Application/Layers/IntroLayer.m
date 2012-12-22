@@ -33,7 +33,10 @@
 	background.position = ccp(size.width / 2, size.height / 2);
 
 	[self addChild:background];
-	[self scheduleOnce:@selector(makeTransition:) delay:1.5];
+}
+
+-(void)onEnterTransitionDidFinish {
+	[self scheduleOnce:@selector(makeTransition:) delay:0.5];
 }
 
 - (void)makeTransition:(ccTime)dt {

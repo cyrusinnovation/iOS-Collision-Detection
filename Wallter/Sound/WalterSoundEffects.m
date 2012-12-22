@@ -4,16 +4,20 @@
 //
 
 #import "WalterSoundEffects.h"
+#import "SimpleAudioEngine.h"
 
 @implementation WalterSoundEffects {
 	AudioPlayer *audio;
 }
 
-- (id)init:(AudioPlayer *)_audio {
+- (id)init {
 	self = [super init];
 	if (!self) return self;
 
-	audio = _audio;
+	[CDSoundEngine setMixerSampleRate:CD_SAMPLE_RATE_MID];
+	[[CDAudioManager sharedManager] setResignBehavior:kAMRBStopPlay autoHandle:YES];
+
+	audio = [SimpleAudioEngine sharedEngine];
 
 	return self;
 }
@@ -42,7 +46,7 @@
 	[audio playEffect:@"DSPLDETH.WAV"];
 }
 
-- (void)attacking {
+- (void)attacking:(MeleeAttack *)attack {
 	[audio playEffect:@"DSPISTOL.WAV"];
 }
 

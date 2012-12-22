@@ -2,8 +2,7 @@
 #import "CGPoint_ops.h"
 #import "HighScoresLayer.h"
 #import "HighScores.h"
-
-static NSString *namery = @"Player";
+#import "Settings.h"
 
 @implementation SettingsLayer {
 	UITextField *textField;
@@ -29,15 +28,27 @@ static NSString *namery = @"Player";
 	return self;
 }
 
+- (void)updatePlayerName {
+	[Settings instance].playerName = textField.text;
+	[[Settings instance] save];
+}
+
+
 - (void)onEnterTransitionDidFinish {
 	[super onEnterTransitionDidFinish];
 
-	textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-	[textField setCenter:cgp(100, 100)];
-//	CGAffineTransform transform = [self getTransform:cgp(10, 20)];
-//	[textField setTransform:transform];
+	CGSize s = [[CCDirector sharedDirector] winSize];
+	NSString *playerName = [Settings instance].playerName;
+	CGPoint location = cgp(s.width / 2, s.height / 2);
+
+	[self showTextField:playerName location:location size:(CGSize) {200, 20}];
+}
+
+- (void)showTextField:(NSString *)playerName location:(CGPoint)location size:(CGSize)size {
+	textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+	[textField setCenter:location];
 	[textField setDelegate:self];
-	[textField setText:namery];
+	[textField setText:playerName];
 	[textField setTextColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1.0]];
 	[textField setBackgroundColor:[UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1.0]];
 	[[[CCDirector sharedDirector] view] addSubview:textField];
@@ -78,9 +89,10 @@ static NSString *namery = @"Player";
 
 - (void)textFieldDidEndEditing:(UITextField *)_textField {
 	if (_textField != textField) return;
-
 	[textField endEditing:YES];
- 	namery = textField.text;
+
+	[self updatePlayerName];
 }
+
 
 @end

@@ -24,7 +24,7 @@ static HighScores *_instance = nil;
 }
 
 - (BOOL)isHighScore:(float)score {
-	return score > highScore;
+	return score >= highScore;
 }
 
 + (HighScore *)getHighestScore {

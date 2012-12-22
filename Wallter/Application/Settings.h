@@ -11,8 +11,8 @@
 
 - (void)save;
 
-@property(assign) Boolean soundEffectsOn;
-@property(assign) Boolean musicOn;
-@property(assign) NSString *playerName;
+@property(assign) BOOL soundEffectsOn;
+@property(assign) BOOL musicOn;
+@property(retain) NSString *playerName;
 
 @end

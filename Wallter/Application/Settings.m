@@ -14,31 +14,31 @@
 @synthesize musicOn;
 @synthesize playerName;
 
-static Settings *instance = nil;
+static Settings *_instance = nil;
 
 +(Settings *) instance {
 	@synchronized ([Settings class]) {
-		if (!instance) {
-			instance = readFromFile(@"Settings");
+		if (!_instance) {
+			_instance = readFromFile(@"Settings");
 		}
-		if (!instance) {
-			instance = [[self alloc] init];
-			[instance save];
+		if (!_instance) {
+			_instance = [[self alloc] init];
+			[_instance save];
 		}
-		return instance;
+		return _instance;
 	}
 }
 
 +(id)alloc
 {
 	@synchronized ([Settings class]) {
-		instance = [super alloc];
-		return instance;
+		_instance = [super alloc];
+		return _instance;
 	}
 }
 
 - (void)save {
-	saveToFile(instance, @"Settings");
+	saveToFile(_instance, @"Settings");
 }
 
 -(id)init {
@@ -56,9 +56,9 @@ static Settings *instance = nil;
 	self = [super init];
 	if (!self) return self;
 
-	[decoder decodeBoolForKey:@"soundEffectsOn"];
-	[decoder decodeBoolForKey:@"musicOn"];
-	[decoder decodeObjectForKey:@"playerName"];
+	soundEffectsOn = [decoder decodeBoolForKey:@"soundEffectsOn"];
+	musicOn = [decoder decodeBoolForKey:@"musicOn"];
+	playerName = [decoder decodeObjectForKey:@"playerName"];
 
 	return self;
 }
