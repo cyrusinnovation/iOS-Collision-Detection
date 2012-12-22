@@ -186,16 +186,6 @@
 	[self addChild:[[MeleeAttackView alloc] init:attack following:camera batchNode:batchNode]];
 }
 
-#pragma mark Touch methods
-
-- (void)registerWithTouchDispatcher {
-	[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-}
-
-- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-	return true;
-}
-
 #pragma mark utils
 
 - (CGSize)currentWindowSize {
