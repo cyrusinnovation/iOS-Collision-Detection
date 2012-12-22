@@ -19,6 +19,9 @@
 #import "BadGuyView.h"
 #import "MeleeAttackView.h"
 #import "SimpleAudioEngine.h"
+#import "AudioPlayer.h"
+#import "WalterSoundEffects.h"
+#import "AggregateWalterObserver.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -39,7 +42,7 @@
 	BOOL transitioning;
 	CCSpriteBatchNode *batchNode;
 
-	SimpleAudioEngine *audio;
+	AudioPlayer *audio;
 }
 
 + (CCScene *)scene {
@@ -76,15 +79,8 @@
 
 	[CDSoundEngine setMixerSampleRate:CD_SAMPLE_RATE_MID];
 	[[CDAudioManager sharedManager] setResignBehavior:kAMRBStopPlay autoHandle:YES];
-	audio = [SimpleAudioEngine sharedEngine];
-	[audio preloadBackgroundMusic:@"music.mp3"];
-	[audio preloadEffect:@"DSOOF.WAV"];
-	[audio preloadEffect:@"DSPISTOL.WAV"];
-	[audio preloadEffect:@"DSPLDETH.WAV"];
-	[audio preloadEffect:@"DSPODTH3.WAV"];
-
-	[audio setBackgroundMusicVolume:0.75f];
-	[audio playBackgroundMusic:@"music.mp3" loop:true];
+	audio = [[AudioPlayer alloc] init];
+	[audio playBackgroundMusic:@"music.mp3"];
 
 	return self;
 }
@@ -119,10 +115,12 @@
 	[stage prime];
 
 	[self addChild:[[StageView alloc] init:stage following:drawOffset]];
+
 	WalterView *walterView = [[WalterView alloc] init:walter camera:drawOffset batchNode:batchNode];
 	[self addChild:walterView];
 
-	walter.walterObserver = walterView;
+	WalterSoundEffects *walterSoundEffects = [[WalterSoundEffects alloc] init];
+	walter.walterObserver = [[AggregateWalterObserver alloc] initWithObservers:[NSArray arrayWithObjects:walterView, walterSoundEffects, nil]];
 
 	[self setUpScoreLabel];
 }
@@ -153,7 +151,6 @@
 
 	if (walter.location.y < stage.deathHeight || walter.isExpired) {
 		[self transitionAfterPlayerDeath];
-		[audio playEffect:@"DSPLDETH.WAV"];
 	} else {
 		[stage generateAround:walter];
 		[self checkForStuckedness:dt];
@@ -203,13 +200,10 @@
 	MeleeAttack *attack = [[MeleeAttack alloc] init:walter];
 	[simulation addAttack:attack];
 	[self addChild:[[MeleeAttackView alloc] init:attack following:drawOffset batchNode:batchNode] z:10];
-
-	[audio playEffect:@"DSPISTOL.WAV"];
 }
 
 - (void)jump {
-	if ([walter jump] == noJump) return;
-	[audio playEffect:@"DSOOF.WAV"];
+	[walter jump];
 }
 
 #pragma mark utils

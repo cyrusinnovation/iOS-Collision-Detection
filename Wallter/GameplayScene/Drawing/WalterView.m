@@ -67,7 +67,7 @@
 	landAnimation = [[CCAnimation alloc] init];
 	[landAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump6.png"]];
 	[landAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump7.png"]];
-	[landAnimation setDelayPerUnit:frameDelay/2];
+	[landAnimation setDelayPerUnit:frameDelay / 2];
 	[landAnimation setRestoreOriginalFrame:false];
 
 	[walterSprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:runningAnimation]]];
@@ -110,9 +110,15 @@
 
 - (void)running {
 	[walterSprite stopAllActions];
-	CCFiniteTimeAction* landAnimationAction = [CCAnimate actionWithAnimation:landAnimation];
-	CCFiniteTimeAction* runAnimationAction = [CCAnimate actionWithAnimation:runningAnimation];
+	CCFiniteTimeAction *landAnimationAction = [CCAnimate actionWithAnimation:landAnimation];
+	CCFiniteTimeAction *runAnimationAction = [CCAnimate actionWithAnimation:runningAnimation];
 	[walterSprite runAction:[CCSequence actionOne:landAnimationAction two:runAnimationAction]];
+}
+
+- (void)dying {
+}
+
+- (void)attacking {
 }
 
 - (void)dealloc {

@@ -45,6 +45,7 @@
 		C13DA2C91DE5A727FD28770F /* AddBadGuyToStageObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABEB49BD00198D9B8C60 /* AddBadGuyToStageObserver.m */; };
 		C13DA3223DE6BE67FFC5F6D4 /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DADF252B545D0A0B803D0 /* Simulation.m */; };
 		C13DA3DE8588B7C7C96C5DBB /* MeleeAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */; };
+		C13DA44ED8710F83573F3BAC /* WalterSoundEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA413D923663BA9085DDB /* WalterSoundEffects.m */; };
 		C13DA4AFFC86A6D20F1A98EA /* instructions~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */; };
 		C13DA511333E2B8D9BB738F0 /* BadGuy.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA9C6C1BA867C67CBD1F2 /* BadGuy.m */; };
 		C13DA55BC2945B890248CD8B /* NullStageListener.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA72780F71E58C6DFC83A /* NullStageListener.m */; };
@@ -57,6 +58,7 @@
 		C13DA9500816F608D0D5A22A /* font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = C13DAC4D144518306031944D /* font.fnt */; };
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
 		C13DA9845B750E4338B966E7 /* BadGuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA30848178DAAFD85ECA6 /* BadGuyView.m */; };
+		C13DAB2D86C18659CC892385 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA4B1F006BA6F8983BF02 /* AudioPlayer.m */; };
 		C13DAB3B66902E18CDCDDEA9 /* DSPISTOL.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DAACF31F9CC01ED798443 /* DSPISTOL.WAV */; };
 		C13DAB45A49D689D9F90D384 /* DSPLDETH.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DAA44B915D358A079ADED /* DSPLDETH.WAV */; };
 		C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA039BC81030E82667ED9 /* HighScore.m */; };
@@ -67,7 +69,7 @@
 		C13DAC44522C8AAB53FC3944 /* WalterPolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8B72436BB9AC747616E /* WalterPolygonView.m */; };
 		C13DACC9B197EE3C8F544B2A /* DSPODTH3.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */; };
 		C13DAD4F5D5236CC58258270 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE56EF1C7A3A92071EC1 /* Platform.m */; };
-		C13DADB5B6F972C8AA3E16B1 /* NullWalterObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA1F665EFDBDD8992973F /* NullWalterObserver.m */; };
+		C13DADB5B6F972C8AA3E16B1 /* AggregateWalterObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA1F665EFDBDD8992973F /* AggregateWalterObserver.m */; };
 		C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE0149979D7F1AD08FC0 /* HighScores.m */; };
 		C13DAF21BB7647FD50F41515 /* frames.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13DA4DE18E7E6D4B788CD52 /* frames.plist */; };
 		C13DAF35541F3B8365BC0363 /* MeleeAttackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA47B10239D01FFB6471F /* MeleeAttackView.m */; };
@@ -114,9 +116,9 @@
 		C13DA039BC81030E82667ED9 /* HighScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScore.m; sourceTree = "<group>"; };
 		C13DA07630AA078B61584534 /* SimpleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleButton.h; sourceTree = "<group>"; };
 		C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageView.m; sourceTree = "<group>"; };
-		C13DA1305F378EEA0092A2F4 /* NullWalterObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullWalterObserver.h; sourceTree = "<group>"; };
+		C13DA1305F378EEA0092A2F4 /* AggregateWalterObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AggregateWalterObserver.h; sourceTree = "<group>"; };
 		C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPODTH3.WAV; path = Resources/Sounds/DSPODTH3.WAV; sourceTree = "<group>"; };
-		C13DA1F665EFDBDD8992973F /* NullWalterObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullWalterObserver.m; sourceTree = "<group>"; };
+		C13DA1F665EFDBDD8992973F /* AggregateWalterObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AggregateWalterObserver.m; sourceTree = "<group>"; };
 		C13DA21E3C760AFE9D6B2438 /* instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions.png; path = Resources/instructions.png; sourceTree = "<group>"; };
 		C13DA229349A0CFB7C6E5F63 /* DSOOF.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSOOF.WAV; path = Resources/Sounds/DSOOF.WAV; sourceTree = "<group>"; };
 		C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttack.m; sourceTree = "<group>"; };
@@ -125,7 +127,9 @@
 		C13DA3703765C3BFF39B04B8 /* HighScoresLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresLayer.h; sourceTree = "<group>"; };
 		C13DA3BBAF9CD850916C625F /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stage.m; sourceTree = "<group>"; };
 		C13DA3C4164ED47B8E11378F /* HighScores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScores.h; sourceTree = "<group>"; };
+		C13DA413D923663BA9085DDB /* WalterSoundEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterSoundEffects.m; sourceTree = "<group>"; };
 		C13DA47B10239D01FFB6471F /* MeleeAttackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttackView.m; sourceTree = "<group>"; };
+		C13DA4B1F006BA6F8983BF02 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		C13DA4DE18E7E6D4B788CD52 /* frames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = frames.plist; path = Resources/frames.plist; sourceTree = "<group>"; };
 		C13DA528AD7DC83A7DF56196 /* MeleeAttackPolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttackPolygonView.m; sourceTree = "<group>"; };
 		C13DA53EA54BC0E98062AC3D /* WalterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterView.h; sourceTree = "<group>"; };
@@ -171,11 +175,13 @@
 		C13DAE3028B60AF56506B2AE /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stage.h; sourceTree = "<group>"; };
 		C13DAE56EF1C7A3A92071EC1 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
 		C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions~ipad.png"; path = "Resources/instructions~ipad.png"; sourceTree = "<group>"; };
+		C13DAEE956883072F29C96D2 /* WalterSoundEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterSoundEffects.h; sourceTree = "<group>"; };
 		C13DAF1A9F03E0F1ED35B515 /* frames.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frames.png; path = Resources/frames.png; sourceTree = "<group>"; };
 		C13DAF3C8D82BEAD85937866 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = music.mp3; path = Resources/Sounds/music.mp3; sourceTree = "<group>"; };
 		C13DAF3CF5E884D4B2147FDA /* WorldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldConstants.h; sourceTree = "<group>"; };
 		C13DAF462675923577E06076 /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
 		C13DAF552C3FBFBB53AA95C3 /* MeleeAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeAttack.h; sourceTree = "<group>"; };
+		C13DAF70C2D30521DD83C609 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
 		C13DAFF98D4926B7EBF76DDC /* SimpleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -245,6 +251,7 @@
 				082499791610A3500041907E /* Supporting Files */,
 				C13DA4225D06259CD520F93D /* Model */,
 				C13DA5F954BB97C7D3ED0CEE /* Application */,
+				C13DA92F17C7EE49647ACFF9 /* Sound */,
 			);
 			path = Wallter;
 			sourceTree = "<group>";
@@ -317,8 +324,8 @@
 				C13DAF552C3FBFBB53AA95C3 /* MeleeAttack.h */,
 				C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */,
 				C13DA03469EAA3602DE0DCD1 /* WalterObserver.h */,
-				C13DA1F665EFDBDD8992973F /* NullWalterObserver.m */,
-				C13DA1305F378EEA0092A2F4 /* NullWalterObserver.h */,
+				C13DA1F665EFDBDD8992973F /* AggregateWalterObserver.m */,
+				C13DA1305F378EEA0092A2F4 /* AggregateWalterObserver.h */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -364,6 +371,17 @@
 				C13DAF462675923577E06076 /* SettingsLayer.m */,
 			);
 			path = Layers;
+			sourceTree = "<group>";
+		};
+		C13DA92F17C7EE49647ACFF9 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				C13DAEE956883072F29C96D2 /* WalterSoundEffects.h */,
+				C13DA413D923663BA9085DDB /* WalterSoundEffects.m */,
+				C13DA4B1F006BA6F8983BF02 /* AudioPlayer.m */,
+				C13DAF70C2D30521DD83C609 /* AudioPlayer.h */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 		C13DAC8042F0F4DAA48895A7 /* GameplayScene */ = {
@@ -538,12 +556,14 @@
 				C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */,
 				C13DA2C91DE5A727FD28770F /* AddBadGuyToStageObserver.m in Sources */,
 				C13DA12DB8502CFDDCF8E867 /* WalterView.m in Sources */,
-				C13DADB5B6F972C8AA3E16B1 /* NullWalterObserver.m in Sources */,
+				C13DADB5B6F972C8AA3E16B1 /* AggregateWalterObserver.m in Sources */,
 				C13DA209331CF69FA0F297A3 /* SimpleButton.m in Sources */,
 				C13DA9845B750E4338B966E7 /* BadGuyView.m in Sources */,
 				C13DAF35541F3B8365BC0363 /* MeleeAttackView.m in Sources */,
 				C13DA7FCD5FA88F0FEE8C2C7 /* Settings.m in Sources */,
 				C13DA919629AA7DC77F47AB5 /* FileAccess.m in Sources */,
+				C13DA44ED8710F83573F3BAC /* WalterSoundEffects.m in Sources */,
+				C13DAB2D86C18659CC892385 /* AudioPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

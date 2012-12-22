@@ -1,0 +1,50 @@
+//
+// by najati 
+// copyright Cyrus Innovation
+//
+
+#import "WalterSoundEffects.h"
+
+@implementation WalterSoundEffects {
+	AudioPlayer *audio;
+}
+
+- (id)init:(AudioPlayer *)_audio {
+	self = [super init];
+	if (!self) return self;
+
+	audio = _audio;
+
+	return self;
+}
+
+- (void)runningLeft {
+}
+
+- (void)runningRight {
+}
+
+- (void)wallJumping {
+	[audio playEffect:@"DSOOF.WAV"];
+}
+
+- (void)groundJumping {
+	[audio playEffect:@"DSOOF.WAV"];
+}
+
+- (void)falling {
+}
+
+- (void)running {
+}
+
+- (void)dying {
+	[audio playEffect:@"DSPLDETH.WAV"];
+}
+
+- (void)attacking {
+	[audio playEffect:@"DSPISTOL.WAV"];
+}
+
+
+@end

@@ -3,7 +3,7 @@
 //
 
 #import "Walter.h"
-#import "NullWalterObserver.h"
+#import "AggregateWalterObserver.h"
 #import "BadGuy.h"
 #import "Platform.h"
 
@@ -62,7 +62,7 @@ typedef enum {
 	self = [super init];
 	if (!self) return self;
 
-	self.walterObserver = [NullWalterObserver instance];
+	self.walterObserver = [[AggregateWalterObserver alloc] init];
 
 	size = cgp(20, 30);
 	width = size.x;
