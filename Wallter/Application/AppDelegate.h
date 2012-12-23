@@ -1,9 +1,6 @@
 //
-//  AppDelegate.h
-//  Wallter
-//
-//  Created by Najati Imam on 9/24/12.
-//  Copyright Cyrus Innovation 2012. All rights reserved.
+//  najati
+//  Copyright Cyrus Innovation 2012
 //
 
 #import <UIKit/UIKit.h>

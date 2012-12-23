@@ -2,7 +2,7 @@
 <data version="1.0">
     <struct type="Settings">
         <key>fileFormatVersion</key>
-        <int>0</int>
+        <int>1</int>
         <key>variation</key>
         <string>main</string>
         <key>verbose</key>
@@ -217,6 +217,12 @@
             <filename>../../../../Desktop/flames/explosion-36.png</filename>
             <filename>../../../../Desktop/flames/explosion-37.png</filename>
             <filename>../../../../Desktop/flames/explosion-38.png</filename>
+            <filename>speaker.off.png</filename>
+            <filename>speaker.on.png</filename>
+            <filename>pencil.png</filename>
+            <filename>pencil.down.png</filename>
+            <filename>check.down.png</filename>
+            <filename>check.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

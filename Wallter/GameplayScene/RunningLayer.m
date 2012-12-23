@@ -61,7 +61,6 @@
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
 
-	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"frames.plist"];
 	batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
 

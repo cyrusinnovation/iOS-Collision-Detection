@@ -1,9 +1,6 @@
 //
-//  AppDelegate.m
-//  Wallter
-//
-//  Created by Najati Imam on 9/24/12.
-//  Copyright Cyrus Innovation 2012. All rights reserved.
+//  najati
+//  Copyright Cyrus Innovation 2012
 //
 
 #import "cocos2d.h"
@@ -57,6 +54,9 @@
 
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
+
+	// TODO this doesn't go here
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"frames.plist"];
 
 	[director_ pushScene:[IntroLayer scene]];
 
