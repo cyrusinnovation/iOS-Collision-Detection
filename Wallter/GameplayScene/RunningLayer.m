@@ -24,6 +24,7 @@
 #import "WalterWeapon.h"
 #import "WalterStuckednessTicker.h"
 #import "WalterDeathFallTicker.h"
+#import "IntroLayer.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -164,14 +165,7 @@
 
 	[audio stopBackgroundMusic];
 
-	// TODO lolwut?
-	CCScene *scene;
-	if ([HighScores isHighScore:score]) {
-		scene = [HighScoresLayer scene];
-	} else {
-		scene = [HighScoresLayer scene];
-	}
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:scene withColor:ccBLACK]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[IntroLayer scene] withColor:ccBLACK]];
 }
 
 #pragma mark SimulationObserver

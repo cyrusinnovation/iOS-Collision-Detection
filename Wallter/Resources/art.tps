@@ -223,6 +223,10 @@
             <filename>pencil.down.png</filename>
             <filename>check.down.png</filename>
             <filename>check.png</filename>
+            <filename>go.down.png</filename>
+            <filename>go.up.png</filename>
+            <filename>settings.down.png</filename>
+            <filename>settings.up.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

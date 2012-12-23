@@ -1,9 +1,8 @@
 #import "SettingsLayer.h"
 #import "CGPoint_ops.h"
-#import "HighScoresLayer.h"
 #import "Settings.h"
 #import "SimpleButton.h"
-#import "RunningLayer.h"
+#import "IntroLayer.h"
 
 @implementation SettingsLayer {
 	CCLabelBMFont *helloLabel;
@@ -25,7 +24,7 @@
 
 - (id)init {
 	CGSize s = [[CCDirector sharedDirector] winSize];
-	self = [super initWithColor:(ccColor4B) {100, 100, 220, 255} width:s.width height:s.height];
+	self = [super initWithColor:(ccColor4B) {247, 243, 231, 255} width:s.width height:s.height];
 	if (!self) return self;
 
 	self.isTouchEnabled = YES;
@@ -121,7 +120,7 @@
 }
 
 - (void)transitionToHighScores {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[RunningLayer scene] withColor:ccBLACK]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[IntroLayer scene] withColor:ccBLACK]];
 }
 
 #pragma mark UITextFieldDelegate
