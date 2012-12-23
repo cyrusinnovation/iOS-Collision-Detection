@@ -25,6 +25,7 @@
 #import "WalterStuckednessTicker.h"
 #import "WalterDeathFallTicker.h"
 #import "IntroLayer.h"
+#import "GameOverLayer.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -165,7 +166,7 @@
 
 	[audio stopBackgroundMusic];
 
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[IntroLayer scene] withColor:ccBLACK]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameOverLayer scene] withColor:ccBLACK]];
 }
 
 #pragma mark SimulationObserver
