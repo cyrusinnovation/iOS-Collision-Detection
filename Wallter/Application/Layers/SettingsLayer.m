@@ -78,7 +78,7 @@
 	[saveAndExitButton setPosition:cgp(s.width - 80 * 1, 16)];
 	[self addChild:saveAndExitButton z:10];
 
-	nameInputLocation = cgp(-10, -10);
+	nameInputLocation = cgp(-1000, -1000);
 	nameInputSize = (CGSize) {0, 0};
 
 	textField = [SettingsLayer createTextField:[Settings instance].playerName delegate:self location:nameInputLocation size:nameInputSize];
