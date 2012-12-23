@@ -7,18 +7,20 @@
 
 #import "Platform.h"
 #import "BadGuy.h"
-#import "Simulation.h"
-#import "SimulationObserver.h"
+#import "AudioPlayer.h"
 
 @implementation AddBadGuyToStageObserver {
 	Simulation *simulation;
+	AudioPlayer *audio;
 }
 
-- (id)init:(Simulation *)_simulation{
+- (id)init:(Simulation *)_simulation audio:(AudioPlayer *)_audio {
 	self = [super init];
 	if (self == nil) return nil;
 	
 	simulation = _simulation;
+	audio = _audio;
+
 	return self;
 }
 
@@ -39,7 +41,12 @@
 
 - (void)addBadGuy:(CGPoint)location facingRight:(bool)facingRight {
 	BadGuy *badGuy = [[BadGuy alloc] init:location facingRight:facingRight];
+	badGuy.observer = self;
 	[simulation addEnemy:badGuy];
+}
+
+- (void)badGuyDied {
+	[audio playEffect:@"DSPODTH3.WAV"];
 }
 
 @end

@@ -184,6 +184,7 @@
 		C13DAE3028B60AF56506B2AE /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stage.h; sourceTree = "<group>"; };
 		C13DAE56EF1C7A3A92071EC1 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
 		C13DAE5A67578EFA7B9FC148 /* WalterDeathFallTicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterDeathFallTicker.m; sourceTree = "<group>"; };
+		C13DAE91B9F2870774F52D98 /* BadGuyObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuyObserver.h; sourceTree = "<group>"; };
 		C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "instructions~ipad.png"; path = "Resources/instructions~ipad.png"; sourceTree = "<group>"; };
 		C13DAEC01D91A462F77BD378 /* WalterDeathFallTicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterDeathFallTicker.h; sourceTree = "<group>"; };
 		C13DAEE956883072F29C96D2 /* WalterSoundEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterSoundEffects.h; sourceTree = "<group>"; };
@@ -463,6 +464,7 @@
 				C13DA72780F71E58C6DFC83A /* NullStageListener.m */,
 				C13DAD629E5D76CF7839C3D1 /* SimulationObserver.h */,
 				C13DA26819D80296C434DA06 /* BoundedPolygon.h */,
+				C13DAE91B9F2870774F52D98 /* BadGuyObserver.h */,
 			);
 			path = Stage;
 			sourceTree = "<group>";

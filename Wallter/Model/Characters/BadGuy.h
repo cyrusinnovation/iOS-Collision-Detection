@@ -7,12 +7,15 @@
 #import "Polygon.h"
 #import "BoundedPolygon.h"
 #import "SimulationActor.h"
+#import "BadGuyObserver.h"
 
 @interface BadGuy : NSObject<BoundedPolygon, SimulationActor>
 
 @property(nonatomic, readonly) CGPolygon polygon;
 @property(nonatomic, readonly) bool dead;
 @property(nonatomic, readonly) bool facingRight;
+
+@property(nonatomic) id <BadGuyObserver> observer;
 
 - (id)init:(CGPoint)point facingRight:(BOOL)_facingRight;
 

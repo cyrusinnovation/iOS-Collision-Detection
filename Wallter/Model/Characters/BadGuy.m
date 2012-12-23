@@ -4,7 +4,6 @@
 
 #import "BadGuy.h"
 #import "MeleeAttack.h"
-#import "SimpleAudioEngine.h"
 
 @implementation BadGuy
 
@@ -16,6 +15,8 @@
 @synthesize bottom;
 @synthesize left;
 @synthesize right;
+
+@synthesize observer;
 
 - (id)init:(CGPoint)point facingRight:(BOOL)_facingRight {
 	self = self = [super init];
@@ -41,8 +42,11 @@
 	if (dead) return;
 	if ([that isMemberOfClass:[MeleeAttack class]]) {
 		dead = true;
-		// TODO for the love of God ...
-		[[SimpleAudioEngine sharedEngine] playEffect:@"DSPODTH3.WAV"];
+
+		// TODO null pattern
+		if (observer) {
+			[observer badGuyDied];
+		}
 	}
 }
 

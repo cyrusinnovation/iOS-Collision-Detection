@@ -109,7 +109,7 @@
 	
 	camera = [[Camera alloc] init:walter];
 
-	AddBadGuyToStageObserver *addBadGuyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation];
+	AddBadGuyToStageObserver *addBadGuyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation audio:audio];
 	stage.platformAddedObserver = addBadGuyToStageObserver;
 
 	[self addChild:[[StageView alloc] init:stage following:camera]];
