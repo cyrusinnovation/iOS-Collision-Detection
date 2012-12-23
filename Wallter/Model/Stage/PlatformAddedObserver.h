@@ -9,6 +9,6 @@
 
 @protocol PlatformAddedObserver
 
-- (void)addedPlatform:(Platform *)platform goingRight:(Boolean)facingRight;
+- (void)addedPlatform:(Platform *)platform goingRight:(BOOL)facingRight;
 
 @end

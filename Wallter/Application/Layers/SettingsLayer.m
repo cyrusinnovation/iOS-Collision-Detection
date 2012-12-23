@@ -3,13 +3,17 @@
 #import "HighScoresLayer.h"
 #import "Settings.h"
 #import "SimpleButton.h"
+#import "RunningLayer.h"
 
 @implementation SettingsLayer {
+	CCLabelBMFont *helloLabel;
+
 	UITextField *textField;
 	CGPoint nameInputLocation;
 	CGSize nameInputSize;
 
-	CCLabelBMFont *helloLabel;
+	SimpleButton *musicOnOffButton;
+	SimpleButton *soundEffectsOnOffButton;
 }
 
 + (CCScene *)scene {
@@ -41,7 +45,7 @@
 	[self addChild:musicLabel z:30];
 
 	CCLabelBMFont *soundLabel = [CCLabelBMFont labelWithString:@"Sound" fntFile:@"font.fnt"];
-	soundLabel.position = cgp(labelX, topLabelHeight - labelSpacing*2);
+	soundLabel.position = cgp(labelX, topLabelHeight - labelSpacing * 2);
 	soundLabel.anchorPoint = cgp(0, 0);
 	[self addChild:soundLabel z:30];
 
@@ -49,19 +53,29 @@
 	CGFloat buttonSpacing = labelSpacing;
 	int buttonX = 30;
 
-	SimpleButton *editNameButton = [[SimpleButton alloc] init:self selector:@selector(editPlayerName) frame:@"pencil.png" downFrame:@"pencil.down.png"];
+	SimpleButton *editNameButton = [[SimpleButton alloc] init:@"pencil.png" downFrame:@"pencil.down.png"];
+	[editNameButton setReleaseCallbackTarget:self selector:@selector(editPlayerName)];
 	[editNameButton setPosition:cgp(buttonX, topButtonHeight)];
 	[self addChild:editNameButton z:10];
 
-	SimpleButton *musicOnOffButton = [[SimpleButton alloc] init:self selector:@selector(changeMusicSetting) frame:@"speaker.on.png" downFrame:@"speaker.off.png"];
+	musicOnOffButton = [[SimpleButton alloc] init:@"speaker.on.png" downFrame:@"speaker.off.png"];
+	[musicOnOffButton setDepressCallbackTarget:self selector:@selector(changeMusicSetting)];
+	[musicOnOffButton setReleaseCallbackTarget:self selector:@selector(changeMusicSetting)];
 	[musicOnOffButton setPosition:cgp(buttonX, topButtonHeight - buttonSpacing)];
+	musicOnOffButton.togglable = true;
+	musicOnOffButton.depressed = ![Settings instance].musicOn;
 	[self addChild:musicOnOffButton z:10];
 
-	SimpleButton *soundEffectsOnOffButton = [[SimpleButton alloc] init:self selector:@selector(changeSoundSetting) frame:@"speaker.on.png" downFrame:@"speaker.off.png"];
-	[soundEffectsOnOffButton setPosition:cgp(buttonX, topButtonHeight - buttonSpacing*2)];
+	soundEffectsOnOffButton = [[SimpleButton alloc] init:@"speaker.on.png" downFrame:@"speaker.off.png"];
+	[soundEffectsOnOffButton setDepressCallbackTarget:self selector:@selector(changeSoundSetting)];
+	[soundEffectsOnOffButton setReleaseCallbackTarget:self selector:@selector(changeSoundSetting)];
+	[soundEffectsOnOffButton setPosition:cgp(buttonX, topButtonHeight - buttonSpacing * 2)];
+	soundEffectsOnOffButton.togglable = true;
+	soundEffectsOnOffButton.depressed = ![Settings instance].soundEffectsOn;
 	[self addChild:soundEffectsOnOffButton z:10];
 
-	SimpleButton *saveAndExitButton = [[SimpleButton alloc] init:self selector:@selector(transitionToHighScores) frame:@"check.png" downFrame:@"check.down.png"];
+	SimpleButton *saveAndExitButton = [[SimpleButton alloc] init:@"check.png" downFrame:@"check.down.png"];
+	[saveAndExitButton setReleaseCallbackTarget:self selector:@selector(transitionToHighScores)];
 	[saveAndExitButton setPosition:cgp(s.width - 80 * 1, 16)];
 	[self addChild:saveAndExitButton z:10];
 
@@ -73,7 +87,7 @@
 	return self;
 }
 
-- (void) textChange {
+- (void)textChange {
 	NSString *text = [NSString stringWithFormat:@"Hello, %@", textField.text];
 	[helloLabel setString:text];
 }
@@ -99,13 +113,15 @@
 }
 
 - (void)changeSoundSetting {
+	[Settings instance].soundEffectsOn = !soundEffectsOnOffButton.depressed;
 }
 
 - (void)changeMusicSetting {
+	[Settings instance].musicOn = !musicOnOffButton.depressed;
 }
 
 - (void)transitionToHighScores {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HighScoresLayer scene] withColor:ccBLACK]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[RunningLayer scene] withColor:ccBLACK]];
 }
 
 #pragma mark UITextFieldDelegate

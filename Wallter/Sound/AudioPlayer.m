@@ -27,8 +27,8 @@
 
 	[audio setBackgroundMusicVolume:0.75f];
 
-	playingMusic = [[Settings instance] musicOn];
-	playingSoundEffects = [[Settings instance] soundEffectsOn];
+	playingMusic = [Settings instance].musicOn;
+	playingSoundEffects = [Settings instance].soundEffectsOn;
 
 	return self;
 }

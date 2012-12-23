@@ -45,7 +45,7 @@
 - (void)collides:(SATResult)result with:(id <BoundedPolygon>)that {
 }
 
-- (Boolean)isExpired {
+- (BOOL)isExpired {
 	return age > max_age;
 }
 

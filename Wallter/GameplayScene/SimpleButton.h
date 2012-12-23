@@ -7,6 +7,12 @@
 #import "cocos2d.h"
 
 @interface SimpleButton : CCLayerColor
-- (id)init:(id)_target selector:(SEL)_selector frame:(NSString *)_frame downFrame:(NSString *)_downFrame;
+- (id)init:(NSString *)_upFrame downFrame:(NSString *)_downFrame;
+
+- (void)setDepressCallbackTarget:(id)_target selector:(SEL)_selector;
+- (void)setReleaseCallbackTarget:(id)_target selector:(SEL)_selector;
+
+@property(nonatomic) BOOL togglable;
+@property(nonatomic) BOOL depressed;
 
 @end

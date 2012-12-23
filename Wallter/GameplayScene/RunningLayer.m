@@ -10,7 +10,6 @@
 #import "StageView.h"
 #import "Simulation.h"
 #import "MeleeAttack.h"
-#import "SettingsLayer.h"
 #import "HighScoresLayer.h"
 #import "HighScores.h"
 #import "AddBadGuyToStageObserver.h"
@@ -64,13 +63,13 @@
 	batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
 
+	audio = [[AudioPlayer alloc] init];
+	[audio playBackgroundMusic:@"music.mp3"];
+
 	buffer = 0;
 	frameTime = 0.01;
 	[self initStage];
 	[self initButtons];
-
-	audio = [[AudioPlayer alloc] init];
-	[audio playBackgroundMusic:@"music.mp3"];
 
 	return self;
 }
@@ -78,11 +77,13 @@
 - (void)initButtons {
 	CGSize s = [self currentWindowSize];
 
-	SimpleButton *button = [[SimpleButton alloc] init:walter selector:@selector(jump) frame:@"button.blue.png" downFrame:@"button.blue.down.png"];
+	SimpleButton *button = [[SimpleButton alloc] init:@"button.blue.png" downFrame:@"button.blue.down.png"];
+	[button setDepressCallbackTarget:walter selector:@selector(jump)];
 	[button setPosition:cgp(s.width - 80, 16)];
 	[self addChild:button z:INTERFACE_LAYER];
 
-	SimpleButton *attackButton = [[SimpleButton alloc] init:walterWeapon selector:@selector(attack) frame:@"button.red.png" downFrame:@"button.red.down.png"];
+	SimpleButton *attackButton = [[SimpleButton alloc] init:@"button.red.png" downFrame:@"button.red.down.png"];
+	[attackButton setDepressCallbackTarget:walterWeapon selector:@selector(attack)];
 	[attackButton setPosition:cgp(s.width - 80*2, 16)];
 	[self addChild:attackButton z:INTERFACE_LAYER];
 }
@@ -115,7 +116,7 @@
 	WalterView *walterView = [[WalterView alloc] init:walter camera:camera batchNode:batchNode];
 	[self addChild:walterView];
 
-	WalterSoundEffects *walterSoundEffects = [[WalterSoundEffects alloc] init];
+	WalterSoundEffects *walterSoundEffects = [[WalterSoundEffects alloc] init:audio];
 	NSArray *observers = [NSArray arrayWithObjects:walterView, walterSoundEffects, nil];
 	walter.observer = [[AggregateWalterObserver alloc] initWithObservers:observers];
 
@@ -163,10 +164,10 @@
 
 	[audio stopBackgroundMusic];
 
+	// TODO lolwut?
 	CCScene *scene;
 	if ([HighScores isHighScore:score]) {
-		// TODO actually pass in new score
-		scene = [SettingsLayer scene];
+		scene = [HighScoresLayer scene];
 	} else {
 		scene = [HighScoresLayer scene];
 	}

@@ -54,7 +54,7 @@ typedef enum {
 
 @synthesize observer;
 
-- (Boolean)runningRight {
+- (BOOL)runningRight {
 	return direction == walterIsRunningRight;
 }
 
@@ -203,7 +203,7 @@ typedef enum {
 	}
 }
 
-- (Boolean)isExpired {
+- (BOOL)isExpired {
 	return dead;
 }
 

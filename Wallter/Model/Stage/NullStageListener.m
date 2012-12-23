@@ -7,7 +7,7 @@
 #import "Platform.h"
 
 @implementation NullStageListener
-- (void)addedPlatform:(Platform *)platform goingRight:(Boolean)facingRight { }
+- (void)addedPlatform:(Platform *)platform goingRight:(BOOL)facingRight { }
 
 + (NSObject <PlatformAddedObserver> *)instance {
 	return [[NullStageListener alloc] init];

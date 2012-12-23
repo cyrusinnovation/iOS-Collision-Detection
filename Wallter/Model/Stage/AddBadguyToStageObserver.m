@@ -22,7 +22,7 @@
 	return self;
 }
 
-- (void)addedPlatform:(Platform *)platform goingRight:(Boolean)goingRight {
+- (void)addedPlatform:(Platform *)platform goingRight:(BOOL)goingRight {
 	int numberOfBaddies = rand() % 4;
 	if (numberOfBaddies == 0) return;
 

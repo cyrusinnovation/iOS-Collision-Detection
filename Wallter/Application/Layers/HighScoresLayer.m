@@ -1,8 +1,8 @@
 #import "HighScoresLayer.h"
-#import "IntroLayer.h"
 #import "HighScores.h"
 #import "HighScore.h"
 #import "CGPoint_ops.h"
+#import "RunningLayer.h"
 
 @implementation HighScoresLayer {
 }
@@ -30,7 +30,7 @@
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[IntroLayer scene] withColor:ccBLACK]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[RunningLayer scene] withColor:ccBLACK]];
 }
 
 @end

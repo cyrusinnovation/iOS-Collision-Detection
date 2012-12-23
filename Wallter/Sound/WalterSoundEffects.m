@@ -10,14 +10,14 @@
 	AudioPlayer *audio;
 }
 
-- (id)init {
+- (id)init:(AudioPlayer *)player {
 	self = [super init];
 	if (!self) return self;
 
 	[CDSoundEngine setMixerSampleRate:CD_SAMPLE_RATE_MID];
 	[[CDAudioManager sharedManager] setResignBehavior:kAMRBStopPlay autoHandle:YES];
 
-	audio = [SimpleAudioEngine sharedEngine];
+	audio = player;
 
 	return self;
 }

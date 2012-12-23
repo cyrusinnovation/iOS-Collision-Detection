@@ -19,7 +19,7 @@ typedef enum {
 @interface Walter : NSObject<BoundedPolygon, SimulationActor>
 @property(nonatomic) CGPoint location;
 
-@property(nonatomic,readonly) Boolean runningRight;
+@property(nonatomic,readonly) BOOL runningRight;
 @property(nonatomic, readonly) CGFloat bottom;
 @property(nonatomic, readonly) CGFloat top;
 @property(nonatomic, readonly) CGFloat left;

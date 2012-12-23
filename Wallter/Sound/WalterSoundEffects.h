@@ -8,4 +8,5 @@
 #import "WalterWeaponObserver.h"
 
 @interface WalterSoundEffects : NSObject <WalterObserver,WalterWeaponObserver>
+- (id)init:(AudioPlayer *)player;
 @end

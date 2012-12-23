@@ -17,7 +17,7 @@
 @synthesize left;
 @synthesize right;
 
-- (id)init:(CGPoint)point facingRight:(Boolean)_facingRight {
+- (id)init:(CGPoint)point facingRight:(BOOL)_facingRight {
 	self = self = [super init];
 	if (!self) return self;
 
@@ -33,7 +33,7 @@
 	return self;
 }
 
-- (Boolean)isExpired {
+- (BOOL)isExpired {
 	return dead;
 }
 
