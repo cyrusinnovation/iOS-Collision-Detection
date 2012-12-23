@@ -39,6 +39,7 @@
 		C13DA049CCF00D8D33DB445C /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8E5C9D2A3894034C780 /* Camera.m */; };
 		C13DA12DB8502CFDDCF8E867 /* WalterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8D3B37A810875D6B3BA /* WalterView.m */; };
 		C13DA19617F7777FFF40B5F9 /* HighScoresLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */; };
+		C13DA1A2E5226B130ABB7D92 /* title.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C13DACCD96A0A99BFC618944 /* title.jpg */; };
 		C13DA1CDA463874E50BF6557 /* StageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */; };
 		C13DA1EA0E51AE06DBC61B12 /* BadGuyPolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA58B6BB9F07A3AD0949A /* BadGuyPolygonView.m */; };
 		C13DA209331CF69FA0F297A3 /* SimpleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAFF98D4926B7EBF76DDC /* SimpleButton.m */; };
@@ -172,6 +173,7 @@
 		C13DAC4D144518306031944D /* font.fnt */ = {isa = PBXFileReference; lastKnownFileType = file.fnt; name = font.fnt; path = Resources/font.fnt; sourceTree = "<group>"; };
 		C13DACB6C4FE5DBBF77EDCAF /* NullStageListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullStageListener.h; sourceTree = "<group>"; };
 		C13DACC274D872245BD2809B /* StageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageView.h; sourceTree = "<group>"; };
+		C13DACCD96A0A99BFC618944 /* title.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = title.jpg; path = Resources/title.jpg; sourceTree = "<group>"; };
 		C13DAD1503891DAAB4661AFA /* Walter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Walter.h; sourceTree = "<group>"; };
 		C13DAD629E5D76CF7839C3D1 /* SimulationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationObserver.h; sourceTree = "<group>"; };
 		C13DAD62E4709EA93612BC08 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				C13DA4DE18E7E6D4B788CD52 /* frames.plist */,
 				C13DAF1A9F03E0F1ED35B515 /* frames.png */,
 				C13DA0823701E070E6A6C0D1 /* Sounds */,
+				C13DACCD96A0A99BFC618944 /* title.jpg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				C13DAB45A49D689D9F90D384 /* DSPLDETH.WAV in Resources */,
 				C13DACC9B197EE3C8F544B2A /* DSPODTH3.WAV in Resources */,
 				C13DABE01052A92CF3C1189B /* music.mp3 in Resources */,
+				C13DA1A2E5226B130ABB7D92 /* title.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
