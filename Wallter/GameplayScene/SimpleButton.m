@@ -95,12 +95,16 @@
 }
 
 - (void)rrelease {
+	[self rrelease:true];
+}
+
+- (void)rrelease:(BOOL) callCallback {
 	if (!_depressed) return;
 	_depressed = false;
 
 	[sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:upFrame]];
 
-	if (releaseTarget) {
+	if (callCallback && releaseTarget) {
 		[releaseTarget performSelector:releaseSelector];
 	}
 }
@@ -116,7 +120,9 @@
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
-//	[sprite setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:upFrame]];
+	if (!togglable && ![self isTouchInside:touch]) {
+		[self rrelease:false];
+	}
 }
 
 - (void)registerWithTouchDispatcher {
