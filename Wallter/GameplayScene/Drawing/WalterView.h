@@ -9,7 +9,9 @@
 
 @class CCSpriteBatchNode;
 @class CCAnimation;
+@class ActorView;
+@class ViewFactory;
 
 @interface WalterView : CCNode <WalterObserver>
-- (id)init:(Walter *)_model camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode;
+- (id)init:(ActorView *)_view factory:(ViewFactory *) _viewFactory;
 @end

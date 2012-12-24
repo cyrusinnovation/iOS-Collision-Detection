@@ -122,14 +122,13 @@
 	stage.platformAddedObserver = addBadGuyToStageObserver;
 
 	[self addChild:[[StageView alloc] init:simulation following:camera]];
-	WalterView *walterView = [[WalterView alloc] init:walter camera:camera batchNode:batchNode];
+	ActorView *walterView = [viewFactory createWalterView:walter];
 	[self addChild:walterView];
 
-	WalterSoundEffects *walterSoundEffects = [[WalterSoundEffects alloc] init:audio];
-	NSArray *observers = [NSArray arrayWithObjects:walterView, walterSoundEffects, nil];
+	NSArray *observers = [NSArray arrayWithObjects:[[WalterView alloc] init:walterView factory:viewFactory], [[WalterSoundEffects alloc] init:audio], nil];
 	walter.observer = [[AggregateWalterObserver alloc] initWithObservers:observers];
 
-	walterWeapon.observer = walterSoundEffects;
+	walterWeapon.observer = ([[WalterSoundEffects alloc] init:audio]);
 
 	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
 	[simulation addTicker:[[WalterDeathFallTicker alloc] init:walter in:stage]];

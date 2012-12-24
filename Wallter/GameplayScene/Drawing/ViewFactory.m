@@ -5,15 +5,19 @@
 
 #import "ViewFactory.h"
 
-static CCAnimation *fireBallAnimation;
-static CCAnimation *walkingAnimation;
-
 @implementation ViewFactory {
 	Camera *camera;
 	CCSpriteBatchNode *batchNode;
 }
+@synthesize fireBallAnimation;
+@synthesize walkingAnimation;
+@synthesize runningAnimation;
+@synthesize jumpUpAnimation;
+@synthesize jumpDownAnimation;
+@synthesize landAnimation;
 
-+ (void)initialize {
+
+- (void)initializeAnimations {
 	{
 		float frameDelay = 0.008f;
 
@@ -43,6 +47,43 @@ static CCAnimation *walkingAnimation;
 		[walkingAnimation setRestoreOriginalFrame:true];
 		[walkingAnimation setLoops:INFINITY];
 	}
+
+	{
+		float frameDelay = 0.07f;
+
+		runningAnimation = [[CCAnimation alloc] init];
+		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run1.png"]];
+		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run2.png"]];
+		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run3.png"]];
+		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run4.png"]];
+		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run5.png"]];
+		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run6.png"]];
+		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run7.png"]];
+		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run0.png"]];
+		[runningAnimation setDelayPerUnit:frameDelay];
+		[runningAnimation setRestoreOriginalFrame:true];
+		[runningAnimation setLoops:INFINITY];
+
+		jumpUpAnimation = [[CCAnimation alloc] init];
+		[jumpUpAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump0.png"]];
+		[jumpUpAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump1.png"]];
+		[jumpUpAnimation setDelayPerUnit:0.1f];
+		[jumpUpAnimation setRestoreOriginalFrame:false];
+
+		jumpDownAnimation = [[CCAnimation alloc] init];
+		[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump2.png"]];
+		[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump3.png"]];
+		[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump4.png"]];
+		[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump5.png"]];
+		[jumpDownAnimation setDelayPerUnit:frameDelay];
+		[jumpDownAnimation setRestoreOriginalFrame:false];
+
+		landAnimation = [[CCAnimation alloc] init];
+		[landAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump6.png"]];
+		[landAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump7.png"]];
+		[landAnimation setDelayPerUnit:frameDelay / 2];
+		[landAnimation setRestoreOriginalFrame:false];
+	}
 }
 
 - (id)init:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode {
@@ -51,6 +92,8 @@ static CCAnimation *walkingAnimation;
 
 	camera = _camera;
 	batchNode = _batchNode;
+	
+	[self initializeAnimations];
 
 	return self;
 }
@@ -66,6 +109,14 @@ static CCAnimation *walkingAnimation;
 	[view startRepeatingAnimation:walkingAnimation];
 	[view setFlipX:!model.facingRight];
 	return view;
+}
+
+-(ActorView *)createWalterView:(Walter *)model {
+	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) _initialFrame:@"run0.png" camera:camera batchNode:batchNode];
+	[view startRepeatingAnimation:walkingAnimation];
+	[view setFlipX:!model.runningRight];
+	return view;
+
 }
 
 @end

@@ -13,5 +13,7 @@
 
 - (void)setFlipX:(BOOL)x;
 
+- (void)playAnimations:(CCAnimation *)firstAnimation andThen:(CCAnimation *)secondAnimation;
+
 
 @end
