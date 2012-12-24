@@ -45,8 +45,6 @@
 		08461DFA15FE5E8200844D0B /* ccConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461D0B15FE5E8200844D0B /* ccConfig.h */; };
 		08461DFB15FE5E8200844D0B /* CCConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461D0C15FE5E8200844D0B /* CCConfiguration.h */; };
 		08461DFC15FE5E8200844D0B /* CCConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 08461D0D15FE5E8200844D0B /* CCConfiguration.m */; };
-		08461DFD15FE5E8200844D0B /* ccDeprecated.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461D0E15FE5E8200844D0B /* ccDeprecated.h */; };
-		08461DFE15FE5E8200844D0B /* ccDeprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = 08461D0F15FE5E8200844D0B /* ccDeprecated.m */; };
 		08461DFF15FE5E8200844D0B /* CCDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461D1015FE5E8200844D0B /* CCDirector.h */; };
 		08461E0015FE5E8200844D0B /* CCDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 08461D1115FE5E8200844D0B /* CCDirector.m */; };
 		08461E0115FE5E8200844D0B /* CCDrawingPrimitives.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461D1215FE5E8200844D0B /* CCDrawingPrimitives.h */; };
@@ -164,13 +162,9 @@
 		08461E7115FE5E8200844D0B /* CCTouchHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461D8415FE5E8200844D0B /* CCTouchHandler.h */; };
 		08461E7215FE5E8200844D0B /* CCTouchHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 08461D8515FE5E8200844D0B /* CCTouchHandler.m */; };
 		08461E7315FE5E8200844D0B /* CCDirectorMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461D8715FE5E8200844D0B /* CCDirectorMac.h */; };
-		08461E7415FE5E8200844D0B /* CCDirectorMac.m in Sources */ = {isa = PBXBuildFile; fileRef = 08461D8815FE5E8200844D0B /* CCDirectorMac.m */; };
 		08461E7515FE5E8200844D0B /* CCEventDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461D8915FE5E8200844D0B /* CCEventDispatcher.h */; };
-		08461E7615FE5E8200844D0B /* CCEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 08461D8A15FE5E8200844D0B /* CCEventDispatcher.m */; };
 		08461E7715FE5E8200844D0B /* CCGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461D8B15FE5E8200844D0B /* CCGLView.h */; };
-		08461E7815FE5E8200844D0B /* CCGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08461D8C15FE5E8200844D0B /* CCGLView.m */; };
 		08461E7915FE5E8200844D0B /* CCWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461D8D15FE5E8200844D0B /* CCWindow.h */; };
-		08461E7A15FE5E8200844D0B /* CCWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 08461D8E15FE5E8200844D0B /* CCWindow.m */; };
 		08461E7B15FE5E8200844D0B /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 08461D9015FE5E8200844D0B /* base64.c */; };
 		08461E7C15FE5E8200844D0B /* base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461D9115FE5E8200844D0B /* base64.h */; };
 		08461E7D15FE5E8200844D0B /* CCArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461D9215FE5E8200844D0B /* CCArray.h */; };
@@ -1374,7 +1368,6 @@
 				08461DF815FE5E8200844D0B /* CCCamera.h in Headers */,
 				08461DFA15FE5E8200844D0B /* ccConfig.h in Headers */,
 				08461DFB15FE5E8200844D0B /* CCConfiguration.h in Headers */,
-				08461DFD15FE5E8200844D0B /* ccDeprecated.h in Headers */,
 				08461DFF15FE5E8200844D0B /* CCDirector.h in Headers */,
 				08461E0115FE5E8200844D0B /* CCDrawingPrimitives.h in Headers */,
 				08461E0315FE5E8200844D0B /* CCGLProgram.h in Headers */,
@@ -1732,7 +1725,6 @@
 				08461DF715FE5E8200844D0B /* CCAtlasNode.m in Sources */,
 				08461DF915FE5E8200844D0B /* CCCamera.m in Sources */,
 				08461DFC15FE5E8200844D0B /* CCConfiguration.m in Sources */,
-				08461DFE15FE5E8200844D0B /* ccDeprecated.m in Sources */,
 				08461E0015FE5E8200844D0B /* CCDirector.m in Sources */,
 				08461E0215FE5E8200844D0B /* CCDrawingPrimitives.m in Sources */,
 				08461E0415FE5E8200844D0B /* CCGLProgram.m in Sources */,
@@ -1781,10 +1773,6 @@
 				08461E6D15FE5E8200844D0B /* CCGLView.m in Sources */,
 				08461E7015FE5E8200844D0B /* CCTouchDispatcher.m in Sources */,
 				08461E7215FE5E8200844D0B /* CCTouchHandler.m in Sources */,
-				08461E7415FE5E8200844D0B /* CCDirectorMac.m in Sources */,
-				08461E7615FE5E8200844D0B /* CCEventDispatcher.m in Sources */,
-				08461E7815FE5E8200844D0B /* CCGLView.m in Sources */,
-				08461E7A15FE5E8200844D0B /* CCWindow.m in Sources */,
 				08461E7B15FE5E8200844D0B /* base64.c in Sources */,
 				08461E7E15FE5E8200844D0B /* CCArray.m in Sources */,
 				08461E8015FE5E8200844D0B /* ccCArray.m in Sources */,
@@ -1984,7 +1972,6 @@
 				GCC_PREFIX_HEADER = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "\"CocosLibs/kazmath/include\"";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -2001,7 +1988,6 @@
 				GCC_PREFIX_HEADER = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "\"CocosLibs/kazmath/include\"";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -2018,7 +2004,6 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS = YES;
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				ZERO_LINK = "";
@@ -2036,7 +2021,6 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS = YES;
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				ZERO_LINK = NO;
@@ -2171,7 +2155,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSGeometryTools/iOSGeometryTools-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -2185,7 +2168,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSGeometryTools/iOSGeometryTools-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
