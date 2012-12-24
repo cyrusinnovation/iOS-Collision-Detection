@@ -91,27 +91,35 @@ static CCAnimation *landAnimation;
 }
 
 - (void)wallJumping {
-	[sprite stopAllActions];
-	[sprite runAction:[CCAnimate actionWithAnimation:jumpUpAnimation]];
+	[self startAnimation:jumpUpAnimation];
 }
 
 - (void)groundJumping {
-	[self wallJumping];
+	[self startAnimation:jumpUpAnimation];
 }
 
 - (void)falling {
-	[sprite stopAllActions];
-	[sprite runAction:[CCAnimate actionWithAnimation:jumpDownAnimation]];
+	[self startAnimation:jumpDownAnimation];
 }
 
 - (void)running {
-	[sprite stopAllActions];
-	CCFiniteTimeAction *landAnimationAction = [CCAnimate actionWithAnimation:landAnimation];
-	CCFiniteTimeAction *runAnimationAction = [CCAnimate actionWithAnimation:runningAnimation];
-	[sprite runAction:[CCSequence actionOne:landAnimationAction two:runAnimationAction]];
+	[self playAnimations:landAnimation andThen:runningAnimation];
 }
 
 - (void)dying {
+}
+
+- (void)startAnimation:(CCAnimation *)animation {
+	// TODO would it be possible to stop just the animation action
+	[sprite stopAllActions];
+	[sprite runAction:[CCAnimate actionWithAnimation:animation]];
+}
+
+- (void)playAnimations:(CCAnimation *)firstAnimation andThen:(CCAnimation *)secondAnimation {
+	[sprite stopAllActions];
+	CCFiniteTimeAction *firstAnimationAction = [CCAnimate actionWithAnimation:firstAnimation];
+	CCFiniteTimeAction *secondAnimationAction = [CCAnimate actionWithAnimation:secondAnimation];
+	[sprite runAction:[CCSequence actionOne:firstAnimationAction two:secondAnimationAction]];
 }
 
 - (void)draw {
