@@ -9,6 +9,11 @@
 @implementation Camera {
 	Walter *guy;
 	CGPoint delta;
+
+	float yOffset;
+	float xOffset;
+	float rateOfReturn;
+	CGFloat screenWidth;
 }
 
 @synthesize scale;
@@ -17,7 +22,12 @@
 	if (self = [super init]) {
 		guy = _guy;
 		delta = cgp(160, 240);
-		scale = 0.5;
+		scale = 0.75;
+
+		yOffset = 110;
+		xOffset = 50;
+		screenWidth = [[CCDirector sharedDirector] winSize].width;
+		rateOfReturn = 0.02;
 	}
 	return self;
 }
@@ -31,16 +41,18 @@
 - (void)moveCloserToDesiredOffset {
 	CGPoint desiredCameraOffset = [self getDesiredCameraOffset];
 	CGPoint difference = cgp_subtract(desiredCameraOffset, delta);
-	cgp_scale(&difference, RATE_OF_RETURN);
+	cgp_scale(&difference, rateOfReturn*scale);
 	delta = cgp_add(delta, difference);
 }
 
 - (CGPoint)getDesiredCameraOffset {
-	float y = Y_OFFSET;
+	float y = yOffset/scale;
 
-	int x = X_OFFSET_WHEN_RUNNING_RIGHT;
-	if (!guy.runningRight) {
-		x = X_OFFSET_WHEN_RUNNING_LEFT;
+	float x;
+	if (guy.runningRight) {
+		x = xOffset;
+	} else {
+		x = screenWidth/scale - xOffset;
 	}
 
 	CGPoint target_delta = cgp(x, y);
