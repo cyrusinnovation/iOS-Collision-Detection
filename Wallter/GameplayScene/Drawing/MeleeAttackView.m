@@ -15,12 +15,13 @@
 static CCAnimation *fireBallAnimation;
 
 @implementation MeleeAttackView {
-	MeleeAttack *meleeAttack;
+	MeleeAttack *model;
 
 	CCSpriteBatchNode *batchNode;
-	CCSprite *attackSprite;
+	CCSprite *sprite;
 
 	Camera *camera;
+	CGPoint scale;
 }
 
 + (void) initialize {
@@ -42,32 +43,34 @@ static CCAnimation *fireBallAnimation;
 
 	[self scheduleUpdate];
 
-	meleeAttack = _attack;
+	scale = cgp(2, 0.7);
+
+	model = _attack;
 	camera = _offset;
 
-	attackSprite = [CCSprite spriteWithSpriteFrameName:@"explosion-00.png"];
+	sprite = [CCSprite spriteWithSpriteFrameName:@"explosion-00.png"];
 
 	batchNode = _batchNode;
-	[batchNode addChild:attackSprite];
+	[batchNode addChild:sprite];
 
-	[attackSprite runAction:[CCAnimate actionWithAnimation:fireBallAnimation]];
+	[sprite runAction:[CCAnimate actionWithAnimation:fireBallAnimation]];
 
 	return self;
 }
 
-- (void)draw {
-	[camera transform:attackSprite to:meleeAttack scale:cgp(2, 0.7)];
-	[super draw];
-}
-
 -(void)update:(ccTime) dt {
-	if (meleeAttack.isExpired) {
+	if (model.isExpired) {
 		[self removeFromParentAndCleanup:true];
 	}
 }
 
+- (void)draw {
+	[camera transform:sprite to:model scale:scale];
+	[super draw];
+}
+
 - (void)dealloc {
-	[batchNode removeChild:attackSprite cleanup:true];
+	[batchNode removeChild:sprite cleanup:true];
 }
 
 @end

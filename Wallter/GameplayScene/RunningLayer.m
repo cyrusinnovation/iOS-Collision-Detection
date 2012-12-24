@@ -24,6 +24,7 @@
 #import "WalterDeathFallTicker.h"
 #import "GameOverLayer.h"
 #import "BlockOverTimeAction.h"
+#import "Platform.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -185,7 +186,8 @@
 }
 
 - (void)addedEnvironmentElement:(id <BoundedPolygon>)element {
-
+	if (![element isKindOfClass:[Platform class]]) return;
+//	[self addChild:[[PlatformView alloc] init:element following:camera batchNode:batchNode]];
 }
 
 

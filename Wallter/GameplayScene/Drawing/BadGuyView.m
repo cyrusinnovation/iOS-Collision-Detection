@@ -13,11 +13,12 @@
 static CCAnimation *walkingAnimation;
 
 @implementation BadGuyView {
-	BadGuy *badGuy;
+	BadGuy *model;
 
 	Camera *camera;
-	CCSprite *badGuySprite;
+	CCSprite *sprite;
 	CCSpriteBatchNode *batchNode;
+	CGPoint scale;
 }
 
 + (void) initialize {
@@ -43,34 +44,36 @@ static CCAnimation *walkingAnimation;
 
 	[self scheduleUpdate];
 
-	badGuy = _badGuy;
+	scale = cgp(1.25, 1.25);
+
+	model = _badGuy;
 	camera = _camera;
 
-	badGuySprite = [CCSprite spriteWithSpriteFrameName:@"walk0.png"];
-	[badGuySprite setScale:1.25 * camera.scale];
+	sprite = [CCSprite spriteWithSpriteFrameName:@"walk0.png"];
+	[sprite setScale:1.25 * camera.scale];
 
 	batchNode = _batchNode;
-	[batchNode addChild:badGuySprite];
+	[batchNode addChild:sprite];
 
-	[badGuySprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkingAnimation]]];
-	[badGuySprite setFlipX:!badGuy.facingRight];
+	[sprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkingAnimation]]];
+	[sprite setFlipX:!model.facingRight];
 
 	return self;
 }
 
-- (void)draw {
-	[camera transform:badGuySprite to:badGuy scale:cgp(1.25, 1.25)];
-	[super draw];
-}
-
 -(void)update:(ccTime) dt {
-	if (badGuy.dead) {
+	if (model.isExpired) {
 		[self removeFromParentAndCleanup:true];
 	}
 }
 
+- (void)draw {
+	[camera transform:sprite to:model scale:scale];
+	[super draw];
+}
+
 - (void)dealloc {
-	[batchNode removeChild:badGuySprite cleanup:true];
+	[batchNode removeChild:sprite cleanup:true];
 }
 
 @end

@@ -10,31 +10,23 @@
 #import "CCActionInterval.h"
 #import "CCActionInstant.h"
 
+
+static CCAnimation *runningAnimation;
+static CCAnimation *jumpUpAnimation;
+static CCAnimation *jumpDownAnimation;
+static CCAnimation *landAnimation;
+
 @implementation WalterView {
-	Walter *walter;
+	Walter *model;
 
 	Camera *camera;
-	CCSprite *walterSprite;
+	CCSprite *sprite;
 	CCSpriteBatchNode *batchNode;
 
-	CCAnimation *runningAnimation;
-	CCAnimation *jumpUpAnimation;
-	CCAnimation *jumpDownAnimation;
-	CCAnimation *landAnimation;
+	CGPoint scale;
 }
 
-- (id)init:(Walter *)_guy camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode {
-	self = [super init];
-	if (!self) return self;
-
-	walter = _guy;
-	camera = _camera;
-
-	walterSprite = [CCSprite spriteWithSpriteFrameName:@"run0.png"];
-	[walterSprite setScale:1.25 * camera.scale];
-	batchNode = _batchNode;
-	[batchNode addChild:walterSprite];
-
++ (void)initialize {
 	float frameDelay = 0.07f;
 
 	runningAnimation = [[CCAnimation alloc] init];
@@ -69,28 +61,38 @@
 	[landAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump7.png"]];
 	[landAnimation setDelayPerUnit:frameDelay / 2];
 	[landAnimation setRestoreOriginalFrame:false];
+}
 
-	[walterSprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:runningAnimation]]];
+- (id)init:(Walter *)_guy camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode {
+	self = [super init];
+	if (!self) return self;
+
+	scale = cgp(1.25, 1.25);
+
+	model = _guy;
+	camera = _camera;
+
+	sprite = [CCSprite spriteWithSpriteFrameName:@"run0.png"];
+	[sprite setScale:1.25 * camera.scale];
+	batchNode = _batchNode;
+	[batchNode addChild:sprite];
+
+	[sprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:runningAnimation]]];
 
 	return self;
 }
 
-- (void)draw {
-	[camera transform:walterSprite to:walter scale:cgp(1.25, 1.25)];
-	[super draw];
-}
-
 - (void)runningLeft {
-	[walterSprite setFlipX:!walter.runningRight];
+	[sprite setFlipX:!model.runningRight];
 }
 
 - (void)runningRight {
-	[walterSprite setFlipX:!walter.runningRight];
+	[sprite setFlipX:!model.runningRight];
 }
 
 - (void)wallJumping {
-	[walterSprite stopAllActions];
-	[walterSprite runAction:[CCAnimate actionWithAnimation:jumpUpAnimation]];
+	[sprite stopAllActions];
+	[sprite runAction:[CCAnimate actionWithAnimation:jumpUpAnimation]];
 }
 
 - (void)groundJumping {
@@ -98,22 +100,27 @@
 }
 
 - (void)falling {
-	[walterSprite stopAllActions];
-	[walterSprite runAction:[CCAnimate actionWithAnimation:jumpDownAnimation]];
+	[sprite stopAllActions];
+	[sprite runAction:[CCAnimate actionWithAnimation:jumpDownAnimation]];
 }
 
 - (void)running {
-	[walterSprite stopAllActions];
+	[sprite stopAllActions];
 	CCFiniteTimeAction *landAnimationAction = [CCAnimate actionWithAnimation:landAnimation];
 	CCFiniteTimeAction *runAnimationAction = [CCAnimate actionWithAnimation:runningAnimation];
-	[walterSprite runAction:[CCSequence actionOne:landAnimationAction two:runAnimationAction]];
+	[sprite runAction:[CCSequence actionOne:landAnimationAction two:runAnimationAction]];
 }
 
 - (void)dying {
 }
 
+- (void)draw {
+	[camera transform:sprite to:model scale:scale];
+	[super draw];
+}
+
 - (void)dealloc {
-	[batchNode removeChild:walterSprite cleanup:true];
+	[batchNode removeChild:sprite cleanup:true];
 }
 
 @end
