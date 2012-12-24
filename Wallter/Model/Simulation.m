@@ -81,7 +81,7 @@
 	[simulationObserver addedCharacter:enemy];
 }
 
-- (void)addEnvironmentElement:(id <BoundedPolygon>)element {
+- (void)addEnvironmentElement:(id <BoundedPolygon, SimulationActor>)element {
 	[environment addObject:element];
 	[simulationObserver addedEnvironmentElement:element];
 }

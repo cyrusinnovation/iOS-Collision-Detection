@@ -3,9 +3,7 @@
 //
 
 
-#import "Polygon.h"
-
-@class Platform;
+#import "Platform.h"
 
 @protocol PlatformAddedObserver
 

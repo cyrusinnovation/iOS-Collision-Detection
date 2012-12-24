@@ -187,9 +187,9 @@
 	[self addChild:[viewFactory createMeleeAttackView:attack]];
 }
 
-- (void)addedEnvironmentElement:(id <BoundedPolygon>)element {
+- (void)addedEnvironmentElement:(id <BoundedPolygon, SimulationActor>)element {
 	if (![element isKindOfClass:[Platform class]]) return;
-//	[self addChild:[[PlatformView alloc] init:element following:camera batchNode:batchNode]];
+	[self addChild:[viewFactory createPlatformView:element]];
 }
 
 

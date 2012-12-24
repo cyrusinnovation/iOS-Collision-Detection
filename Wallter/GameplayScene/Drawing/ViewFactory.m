@@ -116,7 +116,11 @@
 	[view startRepeatingAnimation:walkingAnimation];
 	[view setFlipX:!model.runningRight];
 	return view;
+}
 
+-(ActorView *)createPlatformView:(Platform *)model {
+	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) _initialFrame:@"stone.png" camera:camera batchNode:batchNode];
+	return view;
 }
 
 @end

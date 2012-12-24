@@ -21,6 +21,6 @@
 
 - (void)addAttack:(id <BoundedPolygon, SimulationActor>)attack;
 - (void)addEnemy:(id <BoundedPolygon, SimulationActor>)enemy;
-- (void)addEnvironmentElement:(id <BoundedPolygon>)element;
+- (void)addEnvironmentElement:(id <BoundedPolygon, SimulationActor>)element;
 - (void)addTicker:(id <SimulationTicker>)ticker;
 @end

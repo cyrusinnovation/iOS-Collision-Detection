@@ -3,8 +3,9 @@
 // copyright Cyrus Innovation
 //
 
-#import "SATResult.h"
 #import "ccTypes.h"
+#import "SATResult.h"
+#import "BoundedPolygon.h"
 
 @protocol SimulationActor <NSObject>
 - (void)collides:(SATResult)result with:(id <BoundedPolygon>)that;

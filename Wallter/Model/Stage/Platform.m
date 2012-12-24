@@ -53,6 +53,17 @@
 	return self;
 }
 
+- (void)collides:(SATResult)result with:(id <BoundedPolygon>)that {
+}
+
+- (BOOL)isExpired {
+	// TODO boom
+	return false;
+}
+
+- (void)update:(ccTime)dt {
+}
+
 - (void)dealloc {
 	free_polygon(polygon);
 }

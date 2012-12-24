@@ -2,10 +2,11 @@
 // Created by najati on 9/27/12.
 //
 
-#import "Polygon.h"
+#import "SimulationActor.h"
 #import "BoundedPolygon.h"
+#import "Polygon.h"
 
-@interface Platform : NSObject<BoundedPolygon>
+@interface Platform : NSObject<BoundedPolygon,SimulationActor>
 
 @property(nonatomic, readonly) CGPolygon polygon;
 

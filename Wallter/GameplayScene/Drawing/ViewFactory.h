@@ -27,9 +27,11 @@
 
 
 - init:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode;
+
 - (ActorView *)createMeleeAttackView:(MeleeAttack *)model;
 - (ActorView *)createBadGuyView:(BadGuy *)model;
-
 - (ActorView *)createWalterView:(Walter *)model;
+- (ActorView *)createPlatformView:(Platform *)model;
+
 
 @end
