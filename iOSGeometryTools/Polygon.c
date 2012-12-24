@@ -61,6 +61,14 @@ void transform_polygon(CGPolygon initial, CGPoint delta, CGPolygon final) {
 	}
 }
 
+void scale_polygon(CGPolygon initial, float scale, CGPolygon final) {
+	assert(final.count >= initial.count);
+
+	for (int i = 0; i < initial.count; i++) {
+		final.points[i] = cgp_times(initial.points[i], scale);
+	}
+}
+
 CGPolygon make_block(float x1, float y1, float x2, float y2) {
     return polygon_from(4, cgp(x1, y1),
                         cgp(x2, y1),

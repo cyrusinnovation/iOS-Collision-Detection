@@ -3,7 +3,7 @@
 //
 
 
-#import <Foundation/Foundation.h>
+#import "cocos2d.h"
 #import "Walter.h"
 
 #define Y_OFFSET 110
@@ -12,9 +12,16 @@
 #define RATE_OF_RETURN 0.02
 
 @interface Camera : NSObject
-- (CGPoint)getOffset;
-- (id)init:(Walter *)guy;
 
+@property(nonatomic) float scale;
+
+// TODO not walter
+- (id)init:(Walter *)guy;
 - (void)update;
 
+- (CGPoint)getOffset;
+
+- (void)transform:(CCSprite *)sprite to:(id <BoundedPolygon>)location;
+
+- (void)transform:(CGPolygon)polygon into:(CGPolygon)into;
 @end

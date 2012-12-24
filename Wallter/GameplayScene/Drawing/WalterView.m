@@ -31,7 +31,7 @@
 	camera = _camera;
 
 	walterSprite = [CCSprite spriteWithSpriteFrameName:@"run0.png"];
-	[walterSprite setScale:1.25];
+	[walterSprite setScale:1.25 * camera.scale];
 	batchNode = _batchNode;
 	[batchNode addChild:walterSprite];
 
@@ -76,13 +76,7 @@
 }
 
 - (void)draw {
-	CGPoint delta = [camera getOffset];
-
-	CGPoint position = cgp_add(walter.location, delta);
-	position.x += walter.width / 2;
-	position.y += walterSprite.boundingBox.size.height / 2;
-	[walterSprite setPosition:position];
-
+	[camera transform:walterSprite to:walter];
 	[super draw];
 }
 

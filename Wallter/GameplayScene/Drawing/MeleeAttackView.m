@@ -17,9 +17,10 @@ static CCAnimation *fireBallAnimation;
 @implementation MeleeAttackView {
 	MeleeAttack *meleeAttack;
 
-	Camera *camera;
-	CCSprite *attackSprite;
 	CCSpriteBatchNode *batchNode;
+	CCSprite *attackSprite;
+
+	Camera *camera;
 }
 
 + (void) initialize {
@@ -45,8 +46,8 @@ static CCAnimation *fireBallAnimation;
 	camera = _offset;
 
 	attackSprite = [CCSprite spriteWithSpriteFrameName:@"explosion-00.png"];
-	[attackSprite setScaleX:2];
-	[attackSprite setScaleY:0.7];
+	[attackSprite setScaleX:2 * camera.scale];
+	[attackSprite setScaleY:0.7 * camera.scale];
 
 	batchNode = _batchNode;
 	[batchNode addChild:attackSprite];
@@ -57,13 +58,7 @@ static CCAnimation *fireBallAnimation;
 }
 
 - (void)draw {
-	CGPoint delta = [camera getOffset];
-
-	CGPoint position = cgp_add(cgp(meleeAttack.left, meleeAttack.bottom), delta);
-	position.x += 70 / 2;
-	position.y += 30 / 2;
-	[attackSprite setPosition:position];
-
+	[camera transform:attackSprite to:meleeAttack];
 	[super draw];
 }
 

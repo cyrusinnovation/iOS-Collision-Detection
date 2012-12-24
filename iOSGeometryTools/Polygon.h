@@ -22,6 +22,7 @@ void free_polygon(CGPolygon p);
 
 Range project_polygon(CGPolygon polgon, CGPoint vector);
 void transform_polygon(CGPolygon initial, CGPoint delta, CGPolygon final);
+void scale_polygon(CGPolygon initial, float scale, CGPolygon final);
 
 CGPolygon make_block(float x1, float y1, float x2, float y2);
 

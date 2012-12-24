@@ -47,7 +47,7 @@ static CCAnimation *walkingAnimation;
 	camera = _camera;
 
 	badGuySprite = [CCSprite spriteWithSpriteFrameName:@"walk0.png"];
-	[badGuySprite setScale:1.25];
+	[badGuySprite setScale:1.25 * camera.scale];
 
 	batchNode = _batchNode;
 	[batchNode addChild:badGuySprite];
@@ -59,13 +59,7 @@ static CCAnimation *walkingAnimation;
 }
 
 - (void)draw {
-	CGPoint delta = [camera getOffset];
-
-	CGPoint position = cgp_add(cgp(badGuy.left, badGuy.bottom), delta);
-	position.x += (badGuySprite.boundingBox.size.width) / 2;
-	position.y += badGuySprite.boundingBox.size.height / 2;
-	[badGuySprite setPosition:position];
-
+	[camera transform:badGuySprite to:badGuy];
 	[super draw];
 }
 
