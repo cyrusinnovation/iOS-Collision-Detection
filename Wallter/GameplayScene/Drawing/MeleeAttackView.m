@@ -46,8 +46,6 @@ static CCAnimation *fireBallAnimation;
 	camera = _offset;
 
 	attackSprite = [CCSprite spriteWithSpriteFrameName:@"explosion-00.png"];
-	[attackSprite setScaleX:2 * camera.scale];
-	[attackSprite setScaleY:0.7 * camera.scale];
 
 	batchNode = _batchNode;
 	[batchNode addChild:attackSprite];
@@ -58,7 +56,7 @@ static CCAnimation *fireBallAnimation;
 }
 
 - (void)draw {
-	[camera transform:attackSprite to:meleeAttack];
+	[camera transform:attackSprite to:meleeAttack scale:cgp(2, 0.7)];
 	[super draw];
 }
 

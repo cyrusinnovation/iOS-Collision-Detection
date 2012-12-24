@@ -76,6 +76,7 @@
 		C13DAD4F5D5236CC58258270 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE56EF1C7A3A92071EC1 /* Platform.m */; };
 		C13DADB5B6F972C8AA3E16B1 /* AggregateWalterObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA1F665EFDBDD8992973F /* AggregateWalterObserver.m */; };
 		C13DADB7916E57EFEC9D77D0 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA41FA6A07836816BEFF0 /* GameOverLayer.m */; };
+		C13DAE19651BD9268C1C41A5 /* BlockOverTimeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA44F4CB8EB80D8941D13 /* BlockOverTimeAction.m */; };
 		C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE0149979D7F1AD08FC0 /* HighScores.m */; };
 		C13DAF21BB7647FD50F41515 /* frames.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13DA4DE18E7E6D4B788CD52 /* frames.plist */; };
 		C13DAF35541F3B8365BC0363 /* MeleeAttackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA47B10239D01FFB6471F /* MeleeAttackView.m */; };
@@ -129,6 +130,7 @@
 		C13DA1F665EFDBDD8992973F /* AggregateWalterObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AggregateWalterObserver.m; sourceTree = "<group>"; };
 		C13DA21E3C760AFE9D6B2438 /* instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions.png; path = Resources/instructions.png; sourceTree = "<group>"; };
 		C13DA229349A0CFB7C6E5F63 /* DSOOF.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSOOF.WAV; path = Resources/Sounds/DSOOF.WAV; sourceTree = "<group>"; };
+		C13DA22F6FF1B645A29926EF /* BlockOverTimeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockOverTimeAction.h; sourceTree = "<group>"; };
 		C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttack.m; sourceTree = "<group>"; };
 		C13DA26819D80296C434DA06 /* BoundedPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundedPolygon.h; path = Wallter/Model/BoundedPolygon.h; sourceTree = SOURCE_ROOT; };
 		C13DA2819599D03C41C9F27F /* WalterWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterWeapon.m; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		C13DA3CEFA728DBEF3278A67 /* WalterWeaponObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterWeaponObserver.h; sourceTree = "<group>"; };
 		C13DA413D923663BA9085DDB /* WalterSoundEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterSoundEffects.m; sourceTree = "<group>"; };
 		C13DA41FA6A07836816BEFF0 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
+		C13DA44F4CB8EB80D8941D13 /* BlockOverTimeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockOverTimeAction.m; sourceTree = "<group>"; };
 		C13DA47B10239D01FFB6471F /* MeleeAttackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttackView.m; sourceTree = "<group>"; };
 		C13DA4B1F006BA6F8983BF02 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		C13DA4DE18E7E6D4B788CD52 /* frames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = frames.plist; path = Resources/frames.plist; sourceTree = "<group>"; };
@@ -380,6 +383,8 @@
 				C13DA8956FFC25A2D367AD99 /* Settings.h */,
 				C13DA56D84681BFF93B2DD13 /* FileAccess.h */,
 				C13DAD9DAA3C35C41FD32140 /* FileAccess.m */,
+				C13DA44F4CB8EB80D8941D13 /* BlockOverTimeAction.m */,
+				C13DA22F6FF1B645A29926EF /* BlockOverTimeAction.h */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -602,6 +607,7 @@
 				C13DA6AB796CC4D89C4677CD /* WalterStuckednessTicker.m in Sources */,
 				C13DA8F3D3AB6875774DA61E /* WalterDeathFallTicker.m in Sources */,
 				C13DADB7916E57EFEC9D77D0 /* GameOverLayer.m in Sources */,
+				C13DAE19651BD9268C1C41A5 /* BlockOverTimeAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

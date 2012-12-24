@@ -59,7 +59,7 @@ static CCAnimation *walkingAnimation;
 }
 
 - (void)draw {
-	[camera transform:badGuySprite to:badGuy];
+	[camera transform:badGuySprite to:badGuy scale:cgp(1.25, 1.25)];
 	[super draw];
 }
 

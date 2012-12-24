@@ -75,7 +75,7 @@ typedef enum {
 - (void)prime {
 	[walls removeAllObjects];
 
-	[self addPlatform:[Platform from:make_block(-200, -platform_depth, 1000, 0)]];
+	[self addPlatform:[Platform from:make_block(-200, -platform_depth, 2000, 0)]];
 
 	generateDirection = generateRight;
 	[self generateNextLevel];

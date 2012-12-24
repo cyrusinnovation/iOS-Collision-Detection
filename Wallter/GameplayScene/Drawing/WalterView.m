@@ -76,7 +76,7 @@
 }
 
 - (void)draw {
-	[camera transform:walterSprite to:walter];
+	[camera transform:walterSprite to:walter scale:cgp(1.25, 1.25)];
 	[super draw];
 }
 

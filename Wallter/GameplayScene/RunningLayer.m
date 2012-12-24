@@ -26,6 +26,7 @@
 #import "WalterDeathFallTicker.h"
 #import "IntroLayer.h"
 #import "GameOverLayer.h"
+#import "BlockOverTimeAction.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -73,6 +74,11 @@
 	[self initStage];
 	[self initButtons];
 
+	void (^zoomBlock)(float) = ^(float t) {
+		camera.scale = 0.25 + 0.75 * t;
+	};
+	[self runAction:[[BlockOverTimeAction alloc] init:zoomBlock duration:4]];
+
 	return self;
 }
 
@@ -86,7 +92,7 @@
 
 	SimpleButton *attackButton = [[SimpleButton alloc] init:@"button.red.png" downFrame:@"button.red.down.png"];
 	[attackButton setDepressCallbackTarget:walterWeapon selector:@selector(attack)];
-	[attackButton setPosition:cgp(s.width - 80*2, 16)];
+	[attackButton setPosition:cgp(s.width - 80 * 2, 16)];
 	[self addChild:attackButton z:INTERFACE_LAYER];
 }
 
@@ -108,7 +114,7 @@
 	simulation = [[Simulation alloc] initFor:walter in:stage];
 	walterWeapon = [[WalterWeapon alloc] initFor:walter in:simulation];
 	simulation.simulationObserver = self;
-	
+
 	camera = [[Camera alloc] init:walter];
 
 	AddBadGuyToStageObserver *addBadGuyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation audio:audio];
@@ -171,12 +177,12 @@
 
 #pragma mark SimulationObserver
 
--(void)addedCharacter:(id<BoundedPolygon, SimulationActor>) character {
+- (void)addedCharacter:(id <BoundedPolygon, SimulationActor>)character {
 	if (![character isKindOfClass:[BadGuy class]]) return;
 	[self addChild:[[BadGuyView alloc] init:character camera:camera batchNode:batchNode]];
 }
 
--(void)addedAttack:(id <BoundedPolygon, SimulationActor>) attack {
+- (void)addedAttack:(id <BoundedPolygon, SimulationActor>)attack {
 	if (![attack isKindOfClass:[MeleeAttack class]]) return;
 	[self addChild:[[MeleeAttackView alloc] init:attack following:camera batchNode:batchNode]];
 }

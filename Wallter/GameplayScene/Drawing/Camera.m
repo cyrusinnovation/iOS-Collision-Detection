@@ -64,7 +64,7 @@
 	return cgp_subtract(delta, guy.location);
 }
 
-- (void)transform:(CCSprite *)sprite to:(id <BoundedPolygon>)location {
+- (void)transform:(CCSprite *)sprite to:(id <BoundedPolygon>)location scale:(CGPoint)spriteScale {
 	CGPoint currentDelta = [self getOffset];
 
 	// TODO take as precondition?
@@ -72,6 +72,9 @@
 	CGPoint position = cgp_add(cgp((location.left + location.right) / 2, location.bottom), currentDelta);
 	cgp_scale(&position, scale);
 	[sprite setPosition:position];
+
+	[sprite setScaleX:scale * spriteScale.x];
+	[sprite setScaleY:scale * spriteScale.y];
 }
 
 - (void)transform:(CGPolygon)polygon into:(CGPolygon)into {
