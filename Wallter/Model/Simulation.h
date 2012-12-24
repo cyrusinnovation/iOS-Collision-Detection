@@ -4,7 +4,6 @@
 
 #import "ccTypes.h"
 
-#import "Environment.h"
 #import "BoundedPolygon.h"
 #import "SimulationActor.h"
 #import "SimulationTicker.h"
@@ -12,13 +11,16 @@
 @protocol SimulationObserver;
 
 @interface Simulation : NSObject
-- (id)initFor:(id <BoundedPolygon, SimulationActor>)_mainActor in:(id <Environment>)_environment;
-@property (nonatomic, retain) NSObject <SimulationObserver> *simulationObserver;
+
+- (id)initFor:(id <BoundedPolygon, SimulationActor>)_mainActor;
+
+@property(nonatomic, retain) NSObject <SimulationObserver> *simulationObserver;
+@property(nonatomic, strong) NSMutableArray *environment;
 
 - (void)update:(ccTime)dt;
 
-- (void)addAttack:(id<BoundedPolygon, SimulationActor>)attack;
-- (void)addEnemy:(id<BoundedPolygon, SimulationActor>)enemy;
-
+- (void)addAttack:(id <BoundedPolygon, SimulationActor>)attack;
+- (void)addEnemy:(id <BoundedPolygon, SimulationActor>)enemy;
+- (void)addEnvironmentElement:(id <BoundedPolygon>)element;
 - (void)addTicker:(id <SimulationTicker>)ticker;
 @end

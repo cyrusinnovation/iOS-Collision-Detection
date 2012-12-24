@@ -7,6 +7,8 @@
 #import "Walter.h"
 #import "Camera.h"
 
+@class Simulation;
+
 @interface StageView : CCNode
-- (id)init:(Stage *)_stage following:(Camera *)_offset;
+- (id)init:(Simulation *)_stage following:(Camera *)_offset;
 @end

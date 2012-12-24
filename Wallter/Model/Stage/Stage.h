@@ -5,14 +5,16 @@
 #import <Foundation/Foundation.h>
 #import "Polygon.h"
 #import "PlatformAddedObserver.h"
-#import "Environment.h"
 
 @class Walter;
 @class Platform;
+@class Simulation;
 
-@interface Stage : NSObject<Environment>
+@interface Stage : NSObject
 @property(nonatomic, retain) NSObject <PlatformAddedObserver> *platformAddedObserver;
 @property(nonatomic, readonly) float deathHeight;
+
+- (id)init:(Simulation *)_simulation;
 
 - (void)addPlatform:(Platform *)platform;
 - (void)generateAround:(Walter *)guy;

@@ -3,12 +3,11 @@
 //
 
 #import "StageView.h"
-#import "CCDrawingPrimitives.h"
-#import "Platform.h"
+#import "Simulation.h"
 
 @implementation StageView {
 	ccColor4F color;
-	Stage *stage;
+	Simulation *simulation;
 	Camera *offset;
 
 	CGPolygon drawPoly;
@@ -16,9 +15,9 @@
 	float scale;
 }
 
-- (id)init:(Stage *)_stage following:(Camera *) _offset {
+- (id)init:(Simulation *)_stage following:(Camera *)_offset {
 	if (self = [super init]) {
-		stage = _stage;
+		simulation = _stage;
 		offset = _offset;
 		color = (ccColor4F) {0.8588, 0.4588, 0.1882, 1.0};
 
@@ -32,8 +31,8 @@
 - (void)draw {
 	[super draw];
 
-	for (Platform *wall in stage.elements) {
-		[offset transform:wall.polygon into: drawPoly];
+	for (id<BoundedPolygon> wall in simulation.environment) {
+		[offset transform:wall.polygon into:drawPoly];
 		ccDrawSolidPoly(drawPoly.points, drawPoly.count, color);
 	}
 }

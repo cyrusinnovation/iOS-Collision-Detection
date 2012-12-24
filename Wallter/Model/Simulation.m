@@ -11,7 +11,6 @@
 
 @implementation Simulation {
 	id <BoundedPolygon, SimulationActor> mainActor;
-	id <Environment> environment;
 	NSMutableArray *attacks;
 	NSMutableArray *enemies;
 	NSMutableArray *tickers;
@@ -19,10 +18,12 @@
 
 @synthesize simulationObserver;
 
-- (id)initFor:(id <BoundedPolygon, SimulationActor>)_mainActor in:(id <Environment>)_environment {
+@synthesize environment;
+
+- (id)initFor:(id <BoundedPolygon, SimulationActor>)_mainActor {
 	if (self = [super init]) {
 		mainActor = _mainActor;
-		environment = _environment;
+		environment = [[NSMutableArray alloc] init];
 		attacks = [[NSMutableArray alloc] init];
 		enemies = [[NSMutableArray alloc] init];
 		tickers = [[NSMutableArray alloc] init];
@@ -32,7 +33,7 @@
 
 - (void)update:(ccTime)dt {
 	[mainActor update:dt];
-	[self test:mainActor against:environment.elements];
+	[self test:mainActor against:environment];
 
 	[self update:attacks dt:dt];
 	[self testMultiple:enemies against:attacks];
@@ -78,6 +79,11 @@
 - (void)addEnemy:(id <BoundedPolygon, SimulationActor>)enemy {
 	[enemies addObject:enemy];
 	[simulationObserver addedCharacter:enemy];
+}
+
+- (void)addEnvironmentElement:(id <BoundedPolygon>)element {
+	[environment addObject:element];
+	[simulationObserver addedEnvironmentElement:element];
 }
 
 - (void)addTicker:(id <SimulationTicker>)ticker {

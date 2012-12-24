@@ -10,8 +10,6 @@
 #import "StageView.h"
 #import "Simulation.h"
 #import "MeleeAttack.h"
-#import "HighScoresLayer.h"
-#import "HighScores.h"
 #import "AddBadGuyToStageObserver.h"
 #import "BadGuyPolygonView.h"
 #import "WalterView.h"
@@ -24,7 +22,6 @@
 #import "WalterWeapon.h"
 #import "WalterStuckednessTicker.h"
 #import "WalterDeathFallTicker.h"
-#import "IntroLayer.h"
 #import "GameOverLayer.h"
 #import "BlockOverTimeAction.h"
 
@@ -109,9 +106,9 @@
 
 	score = 0;
 
-	stage = [[Stage alloc] init];
 	walter = [[Walter alloc] initAt:cgp(30, 50)];
-	simulation = [[Simulation alloc] initFor:walter in:stage];
+	simulation = [[Simulation alloc] initFor:walter];
+	stage = [[Stage alloc] init:simulation];
 	walterWeapon = [[WalterWeapon alloc] initFor:walter in:simulation];
 	simulation.simulationObserver = self;
 
@@ -120,7 +117,7 @@
 	AddBadGuyToStageObserver *addBadGuyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation audio:audio];
 	stage.platformAddedObserver = addBadGuyToStageObserver;
 
-	[self addChild:[[StageView alloc] init:stage following:camera]];
+	[self addChild:[[StageView alloc] init:simulation following:camera]];
 	WalterView *walterView = [[WalterView alloc] init:walter camera:camera batchNode:batchNode];
 	[self addChild:walterView];
 
@@ -186,6 +183,11 @@
 	if (![attack isKindOfClass:[MeleeAttack class]]) return;
 	[self addChild:[[MeleeAttackView alloc] init:attack following:camera batchNode:batchNode]];
 }
+
+- (void)addedEnvironmentElement:(id <BoundedPolygon>)element {
+
+}
+
 
 #pragma mark utils
 

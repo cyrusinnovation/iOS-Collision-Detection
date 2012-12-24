@@ -190,7 +190,6 @@
 		C13DAD9E4FA18A741102AE3E /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
 		C13DADF252B545D0A0B803D0 /* Simulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simulation.m; sourceTree = "<group>"; };
 		C13DAE0149979D7F1AD08FC0 /* HighScores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScores.m; sourceTree = "<group>"; };
-		C13DAE15ADFFE40921C784D5 /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
 		C13DAE3028B60AF56506B2AE /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stage.h; sourceTree = "<group>"; };
 		C13DAE56EF1C7A3A92071EC1 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
 		C13DAE5A67578EFA7B9FC148 /* WalterDeathFallTicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterDeathFallTicker.m; sourceTree = "<group>"; };
@@ -368,7 +367,6 @@
 				C13DAF51587A476C093A610C /* Stage */,
 				C13DACDC031908A750D0096B /* Scoring */,
 				C13DA9F5C6E3738D2748E6CE /* SimulationActor.h */,
-				C13DAE15ADFFE40921C784D5 /* Environment.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";

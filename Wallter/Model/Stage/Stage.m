@@ -6,6 +6,7 @@
 #import "Walter.h"
 #import "Platform.h"
 #import "NullStageListener.h"
+#import "Simulation.h"
 
 typedef enum {
 	generateLeft,
@@ -13,10 +14,11 @@ typedef enum {
 } GenerateDirection;
 
 @implementation Stage {
+	Simulation *simulation;
+	
 	GenerateDirection generateDirection;
 	NSObject <PlatformAddedObserver> *platformAddedObserver;
 
-	NSMutableArray *walls;
 	Platform *last_platform;
 
 	float min_platform_length;
@@ -39,14 +41,11 @@ typedef enum {
 @synthesize platformAddedObserver;
 @synthesize deathHeight;
 
--(NSMutableArray *) elements {
-	return walls;
-}
 
-- (id)init {
+- (id)init:(Simulation *)_simulation {
 	if (self = [super init]) {
-		walls = [[NSMutableArray alloc] init];
-
+		simulation = _simulation;
+		
 		min_platform_length = 400;
 		max_platform_width = 700;
 
@@ -73,8 +72,6 @@ typedef enum {
 }
 
 - (void)prime {
-	[walls removeAllObjects];
-
 	[self addPlatform:[Platform from:make_block(-200, -platform_depth, 2000, 0)]];
 
 	generateDirection = generateRight;
@@ -85,7 +82,7 @@ typedef enum {
 }
 
 - (void)addPlatform:(Platform *)platform {
-	[walls addObject:platform];
+	[simulation addEnvironmentElement:platform];
 	last_platform = platform;
 }
 
@@ -163,8 +160,8 @@ typedef enum {
 		next_trigger_height += height_between_levels;
 		deathHeight += height_between_levels;
 
-		while (((Platform *) [walls objectAtIndex:0]).top < deathHeight) {
-			[walls removeObjectAtIndex:0];
+		while (((Platform *) [simulation.environment objectAtIndex:0]).top < deathHeight) {
+			[simulation.environment removeObjectAtIndex:0];
 		}
 	}
 }

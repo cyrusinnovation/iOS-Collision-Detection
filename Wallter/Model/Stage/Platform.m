@@ -4,15 +4,7 @@
 
 #import "Platform.h"
 
-@implementation Platform {
-	CGPolygon polygon;
-	float right;
-	float left;
-	float center;
-	float top;
-	float bottom;
-	float width;
-}
+@implementation Platform
 
 @synthesize polygon;
 

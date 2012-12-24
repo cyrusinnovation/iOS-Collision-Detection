@@ -8,4 +8,5 @@
 @protocol SimulationObserver
 -(void)addedCharacter:(id<BoundedPolygon, SimulationActor>) character;
 -(void)addedAttack:(id <BoundedPolygon, SimulationActor>) attack;
+- (void)addedEnvironmentElement:(id <BoundedPolygon>)element;
 @end
