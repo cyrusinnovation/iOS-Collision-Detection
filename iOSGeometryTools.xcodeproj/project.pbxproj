@@ -221,7 +221,6 @@
 		0846257F15FE69B200844D0B /* matrix.c in Sources */ = {isa = PBXBuildFile; fileRef = 0846256415FE69B200844D0B /* matrix.c */; };
 		0846258015FE69B200844D0B /* mat3.c in Sources */ = {isa = PBXBuildFile; fileRef = 0846256515FE69B200844D0B /* mat3.c */; };
 		0846258115FE69B200844D0B /* mat4.c in Sources */ = {isa = PBXBuildFile; fileRef = 0846256615FE69B200844D0B /* mat4.c */; };
-		0846258215FE69B200844D0B /* neon_matrix_impl.c in Sources */ = {isa = PBXBuildFile; fileRef = 0846256715FE69B200844D0B /* neon_matrix_impl.c */; };
 		0846258315FE69B200844D0B /* plane.c in Sources */ = {isa = PBXBuildFile; fileRef = 0846256815FE69B200844D0B /* plane.c */; };
 		0846258415FE69B200844D0B /* quaternion.c in Sources */ = {isa = PBXBuildFile; fileRef = 0846256915FE69B200844D0B /* quaternion.c */; };
 		0846258515FE69B200844D0B /* ray2.c in Sources */ = {isa = PBXBuildFile; fileRef = 0846256A15FE69B200844D0B /* ray2.c */; };
@@ -1801,7 +1800,6 @@
 				0846257F15FE69B200844D0B /* matrix.c in Sources */,
 				0846258015FE69B200844D0B /* mat3.c in Sources */,
 				0846258115FE69B200844D0B /* mat4.c in Sources */,
-				0846258215FE69B200844D0B /* neon_matrix_impl.c in Sources */,
 				0846258315FE69B200844D0B /* plane.c in Sources */,
 				0846258415FE69B200844D0B /* quaternion.c in Sources */,
 				0846258515FE69B200844D0B /* ray2.c in Sources */,

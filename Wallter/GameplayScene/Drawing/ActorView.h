@@ -9,4 +9,9 @@
 
 - (void)startAnimation:(CCAnimation *)animation;
 
+- (void)startRepeatingAnimation:(CCAnimation *)animation;
+
+- (void)setFlipX:(BOOL)x;
+
+
 @end

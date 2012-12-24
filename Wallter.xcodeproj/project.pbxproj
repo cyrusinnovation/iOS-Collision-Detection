@@ -62,7 +62,6 @@
 		C13DA919629AA7DC77F47AB5 /* FileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD9DAA3C35C41FD32140 /* FileAccess.m */; };
 		C13DA9500816F608D0D5A22A /* font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = C13DAC4D144518306031944D /* font.fnt */; };
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
-		C13DA9845B750E4338B966E7 /* BadGuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA30848178DAAFD85ECA6 /* BadGuyView.m */; };
 		C13DAA2AA5584EB2189608DE /* ViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA439AFF2A6E84058756F /* ViewFactory.m */; };
 		C13DAB2D86C18659CC892385 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA4B1F006BA6F8983BF02 /* AudioPlayer.m */; };
 		C13DAB3B66902E18CDCDDEA9 /* DSPISTOL.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DAACF31F9CC01ED798443 /* DSPISTOL.WAV */; };
@@ -135,7 +134,6 @@
 		C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttack.m; sourceTree = "<group>"; };
 		C13DA26819D80296C434DA06 /* BoundedPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundedPolygon.h; path = Wallter/Model/BoundedPolygon.h; sourceTree = SOURCE_ROOT; };
 		C13DA2819599D03C41C9F27F /* WalterWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterWeapon.m; sourceTree = "<group>"; };
-		C13DA30848178DAAFD85ECA6 /* BadGuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuyView.m; sourceTree = "<group>"; };
 		C13DA3703765C3BFF39B04B8 /* HighScoresLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresLayer.h; sourceTree = "<group>"; };
 		C13DA38305816BF389092D82 /* WalterStuckednessTicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterStuckednessTicker.h; sourceTree = "<group>"; };
 		C13DA3BBAF9CD850916C625F /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stage.m; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 		C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresLayer.m; sourceTree = "<group>"; };
 		C13DA8D3B37A810875D6B3BA /* WalterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterView.m; sourceTree = "<group>"; };
 		C13DA8E5C9D2A3894034C780 /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
-		C13DA976EA9216DDB08B49D6 /* BadGuyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuyView.h; sourceTree = "<group>"; };
 		C13DA9C6C1BA867C67CBD1F2 /* BadGuy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuy.m; sourceTree = "<group>"; };
 		C13DA9D03DAF3987369155F4 /* BadGuyPolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuyPolygonView.h; sourceTree = "<group>"; };
 		C13DA9F5C6E3738D2748E6CE /* SimulationActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationActor.h; sourceTree = "<group>"; };
@@ -461,8 +458,6 @@
 				C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */,
 				C13DA8D3B37A810875D6B3BA /* WalterView.m */,
 				C13DA53EA54BC0E98062AC3D /* WalterView.h */,
-				C13DA976EA9216DDB08B49D6 /* BadGuyView.h */,
-				C13DA30848178DAAFD85ECA6 /* BadGuyView.m */,
 				C13DA628E78B57594F107F65 /* ActorView.h */,
 				C13DA47B10239D01FFB6471F /* ActorView.m */,
 				C13DA439AFF2A6E84058756F /* ViewFactory.m */,
@@ -600,7 +595,6 @@
 				C13DA12DB8502CFDDCF8E867 /* WalterView.m in Sources */,
 				C13DADB5B6F972C8AA3E16B1 /* AggregateWalterObserver.m in Sources */,
 				C13DA209331CF69FA0F297A3 /* SimpleButton.m in Sources */,
-				C13DA9845B750E4338B966E7 /* BadGuyView.m in Sources */,
 				C13DAF35541F3B8365BC0363 /* ActorView.m in Sources */,
 				C13DA7FCD5FA88F0FEE8C2C7 /* Settings.m in Sources */,
 				C13DA919629AA7DC77F47AB5 /* FileAccess.m in Sources */,

@@ -5,10 +5,13 @@
 
 #import "cocos2d.h"
 
-@class MeleeAttack;
-@class Camera;
+#import "Camera.h"
+#import "ActorView.h"
+#import "MeleeAttack.h"
+#import "BadGuy.h"
 
 @interface ViewFactory : NSObject
 - init:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode;
-- (CCNode *)createViewFor:(MeleeAttack *)_model;
+- (ActorView *)createMeleeAttackView:(MeleeAttack *)model;
+- (ActorView *)createBadGuyView:(BadGuy *)model;
 @end

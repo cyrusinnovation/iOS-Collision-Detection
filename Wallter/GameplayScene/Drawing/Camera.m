@@ -4,7 +4,6 @@
 
 
 #import "Camera.h"
-#import "BadGuyView.h"
 
 @implementation Camera {
 	Walter *guy;
