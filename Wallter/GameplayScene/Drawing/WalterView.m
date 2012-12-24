@@ -63,31 +63,34 @@ static CCAnimation *landAnimation;
 	[landAnimation setRestoreOriginalFrame:false];
 }
 
-- (id)init:(Walter *)_guy camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode {
+- (id)init:(Walter *)_model camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode {
 	self = [super init];
 	if (!self) return self;
+	[self scheduleUpdate];
+
+	model = _model;
+	camera = _camera;
+	batchNode = _batchNode;
 
 	scale = cgp(1.25, 1.25);
 
-	model = _guy;
-	camera = _camera;
-
 	sprite = [CCSprite spriteWithSpriteFrameName:@"run0.png"];
-	[sprite setScale:1.25 * camera.scale];
-	batchNode = _batchNode;
+	[sprite setScaleX:scale.x * camera.scale];
+	[sprite setScaleY:scale.y * camera.scale];
 	[batchNode addChild:sprite];
 
-	[sprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:runningAnimation]]];
+	[self startRepeatingAnimation:runningAnimation];
+
 
 	return self;
 }
 
 - (void)runningLeft {
-	[sprite setFlipX:!model.runningRight];
+	[self setFlipX:!model.runningRight];
 }
 
 - (void)runningRight {
-	[sprite setFlipX:!model.runningRight];
+	[self setFlipX:!model.runningRight];
 }
 
 - (void)wallJumping {
@@ -109,6 +112,16 @@ static CCAnimation *landAnimation;
 - (void)dying {
 }
 
+- (void)setFlipX:(BOOL)x {
+	[sprite setFlipX:x];
+}
+
+- (void)startRepeatingAnimation:(CCAnimation *)animation {
+	// TODO would it be possible to stop just the animation action
+	[sprite stopAllActions];
+	[sprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]]];
+}
+
 - (void)startAnimation:(CCAnimation *)animation {
 	// TODO would it be possible to stop just the animation action
 	[sprite stopAllActions];
@@ -120,6 +133,12 @@ static CCAnimation *landAnimation;
 	CCFiniteTimeAction *firstAnimationAction = [CCAnimate actionWithAnimation:firstAnimation];
 	CCFiniteTimeAction *secondAnimationAction = [CCAnimate actionWithAnimation:secondAnimation];
 	[sprite runAction:[CCSequence actionOne:firstAnimationAction two:secondAnimationAction]];
+}
+
+-(void)update:(ccTime) dt {
+	if (model.isExpired) {
+		[self removeFromParentAndCleanup:true];
+	}
 }
 
 - (void)draw {

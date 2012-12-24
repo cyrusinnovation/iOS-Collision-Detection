@@ -11,5 +11,5 @@
 @class CCAnimation;
 
 @interface WalterView : CCNode <WalterObserver>
-- (id)init:(Walter *)_guy camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode;
+- (id)init:(Walter *)_model camera:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode;
 @end

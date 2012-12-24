@@ -15,7 +15,7 @@
 #import "WalterView.h"
 #import "SimpleButton.h"
 #import "BadGuyView.h"
-#import "MeleeAttackView.h"
+#import "ActorView.h"
 #import "AudioPlayer.h"
 #import "WalterSoundEffects.h"
 #import "AggregateWalterObserver.h"
@@ -25,6 +25,7 @@
 #import "GameOverLayer.h"
 #import "BlockOverTimeAction.h"
 #import "Platform.h"
+#import "ViewFactory.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -45,6 +46,7 @@
 
 	AudioPlayer *audio;
 	WalterWeapon *walterWeapon;
+	ViewFactory *viewFactory;
 }
 
 + (CCScene *)scene {
@@ -66,6 +68,8 @@
 
 	audio = [[AudioPlayer alloc] init];
 	[audio playBackgroundMusic:@"music.mp3"];
+	
+	viewFactory = [[ViewFactory alloc] init:camera batchNode:batchNode];
 
 	buffer = 0;
 	frameTime = 0.01;
@@ -177,12 +181,12 @@
 
 - (void)addedCharacter:(id <BoundedPolygon, SimulationActor>)character {
 	if (![character isKindOfClass:[BadGuy class]]) return;
-	[self addChild:[[BadGuyView alloc] init:character camera:camera batchNode:batchNode]];
+	[self addChild:[[BadGuyView alloc] init:character _scale:cgp(1.25, 1.25) _initialFrame:@"walk0.png" camera:camera batchNode:batchNode]];
 }
 
 - (void)addedAttack:(id <BoundedPolygon, SimulationActor>)attack {
 	if (![attack isKindOfClass:[MeleeAttack class]]) return;
-	[self addChild:[[MeleeAttackView alloc] init:attack following:camera batchNode:batchNode]];
+	[self addChild:[viewFactory createViewFor:attack]];
 }
 
 - (void)addedEnvironmentElement:(id <BoundedPolygon>)element {
