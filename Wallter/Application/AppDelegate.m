@@ -27,9 +27,9 @@
 	director_ = (CCDirectorIOS *) [CCDirector sharedDirector];
 	director_.wantsFullScreenLayout = YES;
 
-#ifdef RELEASE_DEBUG
+//#ifdef RELEASE_DEBUG
 	[director_ setDisplayStats:YES];
-#endif
+//#endif
 
 	[director_ setAnimationInterval:1.0 / 60];
 	[director_ setView:glView];
@@ -111,4 +111,3 @@
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
 @end
-

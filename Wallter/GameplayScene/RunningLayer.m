@@ -189,7 +189,7 @@
 
 - (void)addedEnvironmentElement:(id <BoundedPolygon, SimulationActor>)element {
 	if (![element isKindOfClass:[Platform class]]) return;
-	[self addChild:[viewFactory createPlatformView:element]];
+	[self addChild:[viewFactory createPlatformView:element parent:self]];
 }
 
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081C2BCC168938B10007B217 /* neon_matrix_impl.c in Sources */ = {isa = PBXBuildFile; fileRef = 0846256715FE69B200844D0B /* neon_matrix_impl.c */; };
 		08461CC615FE5DA500844D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08028DE315C1C55E002DC0B4 /* Foundation.framework */; };
 		08461DD815FE5E8200844D0B /* CCAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461CE915FE5E8200844D0B /* CCAction.h */; };
 		08461DD915FE5E8200844D0B /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 08461CEA15FE5E8200844D0B /* CCAction.m */; };
@@ -1795,6 +1796,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				081C2BCC168938B10007B217 /* neon_matrix_impl.c in Sources */,
 				0846257D15FE69B200844D0B /* aabb.c in Sources */,
 				0846257E15FE69B200844D0B /* mat4stack.c in Sources */,
 				0846257F15FE69B200844D0B /* matrix.c in Sources */,

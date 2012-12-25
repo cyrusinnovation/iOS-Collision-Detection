@@ -31,7 +31,6 @@
 - (ActorView *)createMeleeAttackView:(MeleeAttack *)model;
 - (ActorView *)createBadGuyView:(BadGuy *)model;
 - (ActorView *)createWalterView:(Walter *)model;
-- (ActorView *)createPlatformView:(Platform *)model;
-
+- (ActorView *)createPlatformView:(Platform *)model parent:(CCNode *)parent;
 
 @end

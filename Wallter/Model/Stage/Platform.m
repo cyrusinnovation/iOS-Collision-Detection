@@ -14,7 +14,7 @@
 @synthesize top;
 @synthesize bottom;
 @synthesize width;
-
+@synthesize height;
 
 + (Platform *)from:(CGPolygon)polygon {
 	return [[Platform alloc] init:polygon];
@@ -49,6 +49,7 @@
 		center = (left + right) / 2;
 		
 		width = right - left;
+		height = top - bottom;
 	}
 	return self;
 }

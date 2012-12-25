@@ -16,7 +16,6 @@
 @synthesize jumpDownAnimation;
 @synthesize landAnimation;
 
-
 - (void)initializeAnimations {
 	{
 		float frameDelay = 0.008f;
@@ -92,35 +91,43 @@
 
 	camera = _camera;
 	batchNode = _batchNode;
-	
+
 	[self initializeAnimations];
 
 	return self;
 }
 
 - (ActorView *)createMeleeAttackView:(MeleeAttack *)model {
-	ActorView *view = [[ActorView alloc] init:model _scale:cgp(2, 0.7) _initialFrame:@"explosion-00.png" camera:camera batchNode:batchNode];
+	ActorView *view = [[ActorView alloc] init:model _scale:cgp(2, 0.7) initialFrame:@"explosion-00.png" camera:camera parent:batchNode];
 	[view startAnimation:fireBallAnimation];
 	return view;
 }
 
 - (ActorView *)createBadGuyView:(BadGuy *)model {
-	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) _initialFrame:@"walk0.png" camera:camera batchNode:batchNode];
+	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) initialFrame:@"walk0.png" camera:camera parent:batchNode];
 	[view startRepeatingAnimation:walkingAnimation];
 	[view setFlipX:!model.facingRight];
 	return view;
 }
 
--(ActorView *)createWalterView:(Walter *)model {
-	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) _initialFrame:@"run0.png" camera:camera batchNode:batchNode];
+- (ActorView *)createWalterView:(Walter *)model {
+	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) initialFrame:@"run0.png" camera:camera parent:batchNode];
 	[view startRepeatingAnimation:walkingAnimation];
 	[view setFlipX:!model.runningRight];
 	return view;
 }
 
--(ActorView *)createPlatformView:(Platform *)model {
-	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) _initialFrame:@"stone.png" camera:camera batchNode:batchNode];
-	return view;
+- (ActorView *)createPlatformView:(Platform *)model parent:(CCNode *)parent {
+	CCSprite *sprite = [CCSprite spriteWithFile:@"stone.png" rect:(CGRect) {0, 0, model.width, model.height}];
+
+	sprite.anchorPoint = ccp(0, 0);
+
+	[sprite setContentSize:(CGSize) {model.width, model.height}];
+
+	ccTexParams tp = {GL_NEAREST, GL_NEAREST, GL_REPEAT, GL_REPEAT};
+	[sprite.texture setTexParameters:&tp];
+
+	return [[ActorView alloc] init:model _scale:cgp(1, 1) sprite:sprite camera:camera parent:parent];
 }
 
 @end
