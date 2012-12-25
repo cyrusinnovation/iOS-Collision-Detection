@@ -47,7 +47,6 @@
 	WalterWeapon *walterWeapon;
 	ViewFactory *viewFactory;
 	float timeScale;
-	NSMutableDictionary *platformViews;
 }
 
 + (CCScene *)scene {
@@ -63,8 +62,6 @@
 
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
-
-	platformViews = [NSMutableDictionary dictionary];
 
 	batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
@@ -202,7 +199,6 @@
 	if (![element isKindOfClass:[Platform class]]) return;
 	[self addChild:[viewFactory createPlatformView:element parent:self]];
 }
-
 
 #pragma mark utils
 
