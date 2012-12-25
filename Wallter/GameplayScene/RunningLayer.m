@@ -25,6 +25,7 @@
 #import "BlockOverTimeAction.h"
 #import "Platform.h"
 #import "ViewFactory.h"
+#import "EnterAndExitTicker.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -46,6 +47,7 @@
 	AudioPlayer *audio;
 	WalterWeapon *walterWeapon;
 	ViewFactory *viewFactory;
+	float timeScale;
 }
 
 + (CCScene *)scene {
@@ -70,16 +72,23 @@
 
 	buffer = 0;
 	frameTime = 0.01;
+	timeScale = 0.6;
 	[self initStage];
 	[self initButtons];
 
-	void (^zoomBlock)(float) = ^(float t) {
-		camera.scale = 0.25 + 0.75 * t;
-	};
-	[self runAction:[[BlockOverTimeAction alloc] init:zoomBlock duration:4]];
-
 	return self;
 }
+
+- (void)onEnter {
+	[super onEnter];
+
+	void (^zoomBlock)(float) = ^(float t) {
+		camera.scale = 0.25 + 0.75 * t;
+		NSLog(@"scale: %f", camera.scale);
+	};
+	[self runAction:[[BlockOverTimeAction alloc] init:zoomBlock duration:4]];
+}
+
 
 - (void)initButtons {
 	CGSize s = [self currentWindowSize];
@@ -115,6 +124,7 @@
 	simulation.simulationObserver = self;
 
 	camera = [[Camera alloc] init:walter];
+	camera.scale = 0.25;
 	// TODO yucky that this in here
 	viewFactory = [[ViewFactory alloc] init:camera batchNode:batchNode];
 
@@ -132,6 +142,7 @@
 
 	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
 	[simulation addTicker:[[WalterDeathFallTicker alloc] init:walter in:stage]];
+	[simulation addTicker:[[EnterAndExitTicker alloc] init:simulation camera:camera]];
 
 	[stage prime];
 
@@ -145,7 +156,7 @@
 }
 
 - (void)update:(ccTime)dt {
-	buffer += dt * 0.6;
+	buffer += dt * timeScale;
 	while (buffer >= frameTime) {
 		buffer -= frameTime;
 		[self updateInternal:frameTime];

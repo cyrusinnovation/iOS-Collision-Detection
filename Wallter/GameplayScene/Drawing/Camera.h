@@ -19,4 +19,8 @@
 - (void)transform:(CCSprite *)sprite to:(id <BoundedPolygon>)location scale:(CGPoint)scale;
 
 - (void)transform:(CGPolygon)polygon into:(CGPolygon)into;
+
+- (CGRect)currentRect;
+
+- (CGRect)transform:(CGRect)rect;
 @end

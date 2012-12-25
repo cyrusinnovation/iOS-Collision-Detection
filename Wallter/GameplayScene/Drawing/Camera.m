@@ -3,6 +3,7 @@
 //
 
 
+#import <mm_malloc.h>
 #import "Camera.h"
 
 @implementation Camera {
@@ -12,7 +13,7 @@
 	float yOffset;
 	float xOffset;
 	float rateOfReturn;
-	CGFloat screenWidth;
+	CGSize screenSize;
 }
 
 @synthesize scale;
@@ -25,7 +26,7 @@
 
 		yOffset = 110;
 		xOffset = 50;
-		screenWidth = [[CCDirector sharedDirector] winSize].width;
+		screenSize = [[CCDirector sharedDirector] winSize];
 		rateOfReturn = 0.02;
 	}
 	return self;
@@ -40,18 +41,18 @@
 - (void)moveCloserToDesiredOffset {
 	CGPoint desiredCameraOffset = [self getDesiredCameraOffset];
 	CGPoint difference = cgp_subtract(desiredCameraOffset, delta);
-	cgp_scale(&difference, rateOfReturn*scale);
+	cgp_scale(&difference, rateOfReturn * scale);
 	delta = cgp_add(delta, difference);
 }
 
 - (CGPoint)getDesiredCameraOffset {
-	float y = yOffset/scale;
+	float y = yOffset / scale;
 
 	float x;
 	if (guy.runningRight) {
 		x = xOffset;
 	} else {
-		x = screenWidth/scale - xOffset;
+		x = screenSize.width / scale - xOffset;
 	}
 
 	CGPoint target_delta = cgp(x, y);
@@ -82,4 +83,28 @@
 	scale_polygon(into, scale, into);
 }
 
+- (CGRect)transform:(CGRect)rect {
+	CGPoint currentDelta = [self getOffset];
+	CGPoint start = cgp_add(rect.origin, currentDelta);
+	CGPoint end = cgp_add(cgp(rect.origin.x + rect.size.width, rect.origin.y  + rect.size.height), currentDelta);
+
+	start = cgp_times(start, scale);
+	end = cgp_times(end, scale);
+
+	CGRect result;
+	result.origin = start;
+	result.size = (CGSize) { end.x - start.x, end.y - start.y };
+	return result;
+}
+
+- (CGRect)currentRect {
+	CGRect result;
+
+	result.origin = cgp_subtract(cgp(0, 0), [self getOffset]);
+
+	CGPoint size = cgp_times((CGPoint) {screenSize.width, screenSize.height}, 1 / scale);
+	result.size = (CGSize) { size.x, size.y };
+
+	return result;
+}
 @end

@@ -77,6 +77,7 @@
 		C13DAD4F5D5236CC58258270 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE56EF1C7A3A92071EC1 /* Platform.m */; };
 		C13DADB5B6F972C8AA3E16B1 /* AggregateWalterObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA1F665EFDBDD8992973F /* AggregateWalterObserver.m */; };
 		C13DADB7916E57EFEC9D77D0 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA41FA6A07836816BEFF0 /* GameOverLayer.m */; };
+		C13DADC0787616F1FCA5E770 /* EnterAndExitTicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA088AEA2E22D796A284D /* EnterAndExitTicker.m */; };
 		C13DAE19651BD9268C1C41A5 /* BlockOverTimeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA44F4CB8EB80D8941D13 /* BlockOverTimeAction.m */; };
 		C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE0149979D7F1AD08FC0 /* HighScores.m */; };
 		C13DAF21BB7647FD50F41515 /* frames.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13DA4DE18E7E6D4B788CD52 /* frames.plist */; };
@@ -124,6 +125,7 @@
 		C13DA039BC81030E82667ED9 /* HighScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScore.m; sourceTree = "<group>"; };
 		C13DA0635045D8000470DAD9 /* WalterStuckednessTicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterStuckednessTicker.m; sourceTree = "<group>"; };
 		C13DA07630AA078B61584534 /* SimpleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleButton.h; sourceTree = "<group>"; };
+		C13DA088AEA2E22D796A284D /* EnterAndExitTicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterAndExitTicker.m; sourceTree = "<group>"; };
 		C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageView.m; sourceTree = "<group>"; };
 		C13DA1305F378EEA0092A2F4 /* AggregateWalterObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AggregateWalterObserver.h; sourceTree = "<group>"; };
 		C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPODTH3.WAV; path = Resources/Sounds/DSPODTH3.WAV; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		C13DA9F5C6E3738D2748E6CE /* SimulationActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationActor.h; sourceTree = "<group>"; };
 		C13DAA02EB11D06BD2C72CCA /* WalterWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterWeapon.h; sourceTree = "<group>"; };
 		C13DAA44B915D358A079ADED /* DSPLDETH.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPLDETH.WAV; path = Resources/Sounds/DSPLDETH.WAV; sourceTree = "<group>"; };
+		C13DAA6983CE3CA648D3C011 /* EnterAndExitTicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterAndExitTicker.h; sourceTree = "<group>"; };
 		C13DAACF31F9CC01ED798443 /* DSPISTOL.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPISTOL.WAV; path = Resources/Sounds/DSPISTOL.WAV; sourceTree = "<group>"; };
 		C13DAB30C5541131B661D9E6 /* PlatformAddedObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformAddedObserver.h; sourceTree = "<group>"; };
 		C13DAB74C3EAFB7C25238773 /* AddBadGuyToStageObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBadGuyToStageObserver.h; path = Wallter/Model/Stage/AddBadGuyToStageObserver.h; sourceTree = SOURCE_ROOT; };
@@ -431,6 +434,8 @@
 				C13DAC43994BBA419E90D564 /* SimulationTicker.h */,
 				C13DAE5A67578EFA7B9FC148 /* WalterDeathFallTicker.m */,
 				C13DAEC01D91A462F77BD378 /* WalterDeathFallTicker.h */,
+				C13DA088AEA2E22D796A284D /* EnterAndExitTicker.m */,
+				C13DAA6983CE3CA648D3C011 /* EnterAndExitTicker.h */,
 			);
 			path = GameplayScene;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				C13DADB7916E57EFEC9D77D0 /* GameOverLayer.m in Sources */,
 				C13DAE19651BD9268C1C41A5 /* BlockOverTimeAction.m in Sources */,
 				C13DAA2AA5584EB2189608DE /* ViewFactory.m in Sources */,
+				C13DADC0787616F1FCA5E770 /* EnterAndExitTicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
