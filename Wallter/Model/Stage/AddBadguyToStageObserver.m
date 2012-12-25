@@ -25,18 +25,18 @@
 }
 
 - (void)addedPlatform:(Platform *)platform goingRight:(BOOL)goingRight {
-	int numberOfBaddies = rand() % 4;
-	if (numberOfBaddies == 0) return;
-
-	float x = platform.center;
-	float y = platform.top;
-
-	if (numberOfBaddies < 3) {
-		[self addBadGuy:cgp(x, y) facingRight:!goingRight];
-	} else {
-		[self addBadGuy:cgp(x - 80, y) facingRight:!goingRight];
-		[self addBadGuy:cgp(x + 80, y) facingRight:!goingRight];
-	}
+//	int numberOfBaddies = rand() % 4;
+//	if (numberOfBaddies == 0) return;
+//
+//	float x = platform.center;
+//	float y = platform.top;
+//
+//	if (numberOfBaddies < 3) {
+//		[self addBadGuy:cgp(x, y) facingRight:!goingRight];
+//	} else {
+//		[self addBadGuy:cgp(x - 80, y) facingRight:!goingRight];
+//		[self addBadGuy:cgp(x + 80, y) facingRight:!goingRight];
+//	}
 }
 
 - (void)addBadGuy:(CGPoint)location facingRight:(bool)facingRight {

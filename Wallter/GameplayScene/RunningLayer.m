@@ -84,11 +84,9 @@
 
 	void (^zoomBlock)(float) = ^(float t) {
 		camera.scale = 0.25 + 0.75 * t;
-		NSLog(@"scale: %f", camera.scale);
 	};
 	[self runAction:[[BlockOverTimeAction alloc] init:zoomBlock duration:4]];
 }
-
 
 - (void)initButtons {
 	CGSize s = [self currentWindowSize];
@@ -131,7 +129,7 @@
 	AddBadGuyToStageObserver *addBadGuyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation audio:audio];
 	stage.platformAddedObserver = addBadGuyToStageObserver;
 
-	[self addChild:[[StageView alloc] init:simulation following:camera]];
+//	[self addChild:[[StageView alloc] init:simulation following:camera]];
 	ActorView *walterView = [viewFactory createWalterView:walter];
 	[self addChild:walterView];
 
