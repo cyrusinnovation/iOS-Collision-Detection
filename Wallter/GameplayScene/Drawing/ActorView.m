@@ -69,8 +69,13 @@
 
 -(void)update:(ccTime) dt {
 	if (model.expired) {
-		[self removeFromParentAndCleanup:true];
+		[self remove];
 	}
+}
+
+- (void)remove {
+	[self removeFromParentAndCleanup:true];
+	[sprite removeFromParentAndCleanup:true];
 }
 
 - (void)draw {
@@ -78,8 +83,9 @@
 	[super draw];
 }
 
--(void)dealloc {
-  [parent removeChild:sprite cleanup:true];
+- (void)dealloc {
+	[self remove];
 }
+
 
 @end

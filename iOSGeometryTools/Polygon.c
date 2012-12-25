@@ -8,10 +8,18 @@
 
 #include "Polygon.h"
 
-#include <float.h>
 #include <stdlib.h>
-#include <stdarg.h>
 #include <assert.h>
+#include <string.h>
+
+CGPolygon polygon_copy(CGPolygon other) {
+	CGPolygon ret;
+	ret.count = other.count;
+	int size = ret.count * sizeof(CGPoint);
+	ret.points = malloc(size);
+	memcpy(ret.points, other.points, size);
+	return ret;
+}
 
 CGPolygon polygon_from(int count, ...) {
     va_list args;

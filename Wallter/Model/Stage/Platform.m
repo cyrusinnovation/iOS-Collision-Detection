@@ -68,7 +68,7 @@
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-	return [[[self class] alloc] init:polygon];
+	return [[[self class] alloc] init:polygon_copy(polygon)];
 }
 
 - (void)dealloc {

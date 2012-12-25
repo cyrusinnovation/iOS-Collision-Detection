@@ -23,6 +23,7 @@
 #import "WalterDeathFallTicker.h"
 #import "GameOverLayer.h"
 #import "BlockOverTimeAction.h"
+#import "Platform.h"
 #import "ViewFactory.h"
 #import "EnterAndExitTicker.h"
 
@@ -47,6 +48,7 @@
 	WalterWeapon *walterWeapon;
 	ViewFactory *viewFactory;
 	float timeScale;
+	NSMutableDictionary *platformViews;
 }
 
 + (CCScene *)scene {
@@ -62,6 +64,8 @@
 
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
+
+	platformViews = [NSMutableDictionary dictionary];
 
 	batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
@@ -108,10 +112,6 @@
 }
 
 - (void)initStage {
-	// TODO we probably shouldn't actually do this, maybe?
-	[self removeAllChildrenWithCleanup:true];
-	[self addChild:batchNode];
-
 	score = 0;
 
 	walter = [[Walter alloc] initAt:cgp(30, 50)];
@@ -128,7 +128,6 @@
 	AddBadGuyToStageObserver *addBadGuyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation audio:audio];
 	stage.platformAddedObserver = addBadGuyToStageObserver;
 
-	[self addChild:[[StageView alloc] init:simulation following:camera]];
 	ActorView *walterView = [viewFactory createWalterView:walter];
 	[self addChild:walterView];
 
@@ -196,9 +195,8 @@
 }
 
 - (void)addedEnvironmentElement:(id <BoundedPolygon, SimulationActor>)element {
-	if (![element isKindOfClass:[Platform class]]) return;
-	[self addChild:[viewFactory createPlatformView:element parent:self]];
 }
+
 
 #pragma mark utils
 
@@ -207,9 +205,21 @@
 }
 
 - (void)platformEnteredView:(id <BoundedPolygon>)element {
+	if (![element isKindOfClass:[Platform class]]) return;
+	Platform *platform = (Platform *) element;
+
+	ActorView *view = [viewFactory createPlatformView:platform parent:self];
+	[self addChild:view];
+	[platformViews setObject:view forKey:platform];
 }
 
 - (void)platformLeftView:(id <BoundedPolygon>)element {
+	if (![element isKindOfClass:[Platform class]]) return;
+	Platform *platform = (Platform *) element;
+
+	ActorView *view = [platformViews objectForKey:platform];
+	[self removeChild:view cleanup:true];
+	[platformViews removeObjectForKey:platform];
 }
 
 

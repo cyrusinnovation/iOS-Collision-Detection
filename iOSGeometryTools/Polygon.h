@@ -17,6 +17,7 @@ typedef struct {
     int count;
 } CGPolygon;
 
+CGPolygon polygon_copy(CGPolygon other);
 CGPolygon polygon_from(int count, ...);
 void free_polygon(CGPolygon p);
 
