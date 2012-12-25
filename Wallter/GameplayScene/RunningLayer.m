@@ -23,7 +23,6 @@
 #import "WalterDeathFallTicker.h"
 #import "GameOverLayer.h"
 #import "BlockOverTimeAction.h"
-#import "Platform.h"
 #import "ViewFactory.h"
 #import "EnterAndExitTicker.h"
 
@@ -48,6 +47,7 @@
 	WalterWeapon *walterWeapon;
 	ViewFactory *viewFactory;
 	float timeScale;
+	NSMutableDictionary *platformViews;
 }
 
 + (CCScene *)scene {
@@ -63,6 +63,8 @@
 
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
+
+	platformViews = [NSMutableDictionary dictionary];
 
 	batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
@@ -129,7 +131,7 @@
 	AddBadGuyToStageObserver *addBadGuyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation audio:audio];
 	stage.platformAddedObserver = addBadGuyToStageObserver;
 
-//	[self addChild:[[StageView alloc] init:simulation following:camera]];
+	[self addChild:[[StageView alloc] init:simulation following:camera]];
 	ActorView *walterView = [viewFactory createWalterView:walter];
 	[self addChild:walterView];
 
@@ -140,7 +142,7 @@
 
 	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
 	[simulation addTicker:[[WalterDeathFallTicker alloc] init:walter in:stage]];
-	[simulation addTicker:[[EnterAndExitTicker alloc] init:simulation camera:camera]];
+	[simulation addTicker:[[EnterAndExitTicker alloc] init:simulation camera:camera listener:self]];
 
 	[stage prime];
 
@@ -171,7 +173,7 @@
 	// TODO OPT don't update the score string every frame
 	[scoreLabel setString:[NSString stringWithFormat:@"%d", (int) score]];
 
-	if (walter.isExpired) {
+	if (walter.expired) {
 		[self transitionAfterPlayerDeath];
 	}
 }
@@ -206,6 +208,12 @@
 
 - (CGSize)currentWindowSize {
 	return [[CCDirector sharedDirector] winSize];
+}
+
+- (void)platformEnteredView:(id <BoundedPolygon>)element {
+}
+
+- (void)platformLeftView:(id <BoundedPolygon>)element {
 }
 
 

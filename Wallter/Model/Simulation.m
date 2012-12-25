@@ -33,6 +33,8 @@
 
 - (void)update:(ccTime)dt {
 	[mainActor update:dt];
+
+	[self update:environment dt:dt];
 	[self test:mainActor against:environment];
 
 	[self update:attacks dt:dt];
@@ -49,7 +51,7 @@
 - (void)update:(NSMutableArray *)actors dt:(ccTime)dt {
 	for (int i = actors.count - 1; i >= 0; i--) {
 		id <BoundedPolygon, SimulationActor> actor = [actors objectAtIndex:i];
-		if (actor.isExpired) {
+		if (actor.expired) {
 			[actors removeObjectAtIndex:i];
 		} else {
 			[actor update:dt];

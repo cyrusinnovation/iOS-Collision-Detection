@@ -176,6 +176,7 @@
 		C13DAA02EB11D06BD2C72CCA /* WalterWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterWeapon.h; sourceTree = "<group>"; };
 		C13DAA44B915D358A079ADED /* DSPLDETH.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPLDETH.WAV; path = Resources/Sounds/DSPLDETH.WAV; sourceTree = "<group>"; };
 		C13DAA6983CE3CA648D3C011 /* EnterAndExitTicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterAndExitTicker.h; sourceTree = "<group>"; };
+		C13DAAA326E0DE729B95B624 /* EnvironmentOnScreenObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentOnScreenObserver.h; sourceTree = "<group>"; };
 		C13DAACF31F9CC01ED798443 /* DSPISTOL.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPISTOL.WAV; path = Resources/Sounds/DSPISTOL.WAV; sourceTree = "<group>"; };
 		C13DAB30C5541131B661D9E6 /* PlatformAddedObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformAddedObserver.h; sourceTree = "<group>"; };
 		C13DAB74C3EAFB7C25238773 /* AddBadGuyToStageObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBadGuyToStageObserver.h; path = Wallter/Model/Stage/AddBadGuyToStageObserver.h; sourceTree = SOURCE_ROOT; };
@@ -436,6 +437,7 @@
 				C13DAEC01D91A462F77BD378 /* WalterDeathFallTicker.h */,
 				C13DA088AEA2E22D796A284D /* EnterAndExitTicker.m */,
 				C13DAA6983CE3CA648D3C011 /* EnterAndExitTicker.h */,
+				C13DAAA326E0DE729B95B624 /* EnvironmentOnScreenObserver.h */,
 			);
 			path = GameplayScene;
 			sourceTree = "<group>";

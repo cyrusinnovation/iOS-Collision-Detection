@@ -160,8 +160,13 @@ typedef enum {
 		next_trigger_height += height_between_levels;
 		deathHeight += height_between_levels;
 
-		while (((Platform *) [simulation.environment objectAtIndex:0]).top < deathHeight) {
-			[simulation.environment removeObjectAtIndex:0];
+		// TODO won't work with environments object other than platform
+		for (Platform *platform in simulation.environment) {
+			if (platform.top < deathHeight) {
+				platform.expired = true;
+			} else{
+				break;
+			}
 		}
 	}
 }

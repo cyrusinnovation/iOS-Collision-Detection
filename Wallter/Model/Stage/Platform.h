@@ -6,7 +6,7 @@
 #import "BoundedPolygon.h"
 #import "Polygon.h"
 
-@interface Platform : NSObject<BoundedPolygon,SimulationActor>
+@interface Platform : NSObject<BoundedPolygon,SimulationActor,NSCopying>
 
 @property(nonatomic, readonly) CGPolygon polygon;
 
@@ -18,8 +18,9 @@
 @property(nonatomic, readonly) float width;
 @property(nonatomic, readonly) float height;
 
-- (id)init:(CGPolygon) poly;
+@property(nonatomic) BOOL expired;
 
+- (id)init:(CGPolygon) poly;
 + (Platform *)from:(CGPolygon)polygon;
 
 @end

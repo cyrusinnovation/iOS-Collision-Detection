@@ -30,6 +30,7 @@
 
 	sprite = _sprite;
 
+	[camera transform:sprite to:model scale:scale];
 	[parent addChild:sprite];
 
 	return self;
@@ -67,7 +68,7 @@
 }
 
 -(void)update:(ccTime) dt {
-	if (model.isExpired) {
+	if (model.expired) {
 		[self removeFromParentAndCleanup:true];
 	}
 }
@@ -77,8 +78,8 @@
 	[super draw];
 }
 
-- (void)dealloc {
-	[parent removeChild:sprite cleanup:true];
+-(void)dealloc {
+  [parent removeChild:sprite cleanup:true];
 }
 
 @end

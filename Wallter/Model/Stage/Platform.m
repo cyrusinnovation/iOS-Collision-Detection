@@ -16,12 +16,15 @@
 @synthesize width;
 @synthesize height;
 
+@synthesize expired;
+
 + (Platform *)from:(CGPolygon)polygon {
 	return [[Platform alloc] init:polygon];
 }
 
 - (id)init:(CGPolygon)_polygon {
 	if (self = [super init]) {
+		expired = false;
 		polygon = _polygon;
 
 		right = -FLT_MAX;
@@ -57,12 +60,15 @@
 - (void)collides:(SATResult)result with:(id <BoundedPolygon>)that {
 }
 
-- (BOOL)isExpired {
-	// TODO boom
-	return false;
+- (BOOL)expired {
+	return expired;
 }
 
 - (void)update:(ccTime)dt {
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+	return [[[self class] alloc] init:polygon];
 }
 
 - (void)dealloc {
@@ -73,10 +79,10 @@
 	if (object == self) return true;
 	if (![object isKindOfClass:[Platform class]]) return false;
 	Platform *that = object;
-	if (that.top  != self.top) return false;
-	if (that.bottom  != self.bottom) return false;
-	if (that.left  != self.left) return false;
-	if (that.right  != self.right) return false;
+	if (that.top != self.top) return false;
+	if (that.bottom != self.bottom) return false;
+	if (that.left != self.left) return false;
+	if (that.right != self.right) return false;
 	return true;
 }
 

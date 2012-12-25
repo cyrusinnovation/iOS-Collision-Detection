@@ -203,7 +203,7 @@ typedef enum {
 	}
 }
 
-- (BOOL)isExpired {
+- (BOOL)expired {
 	return dead;
 }
 

@@ -10,14 +10,17 @@
 	Camera *camera;
 
 	NSMutableSet *onScreenPlatforms;
+	id <EnvironmentOnScreenObserver> listener;
 }
 
-- (id)init:(Simulation *)_simulation camera:(Camera *)_camera {
+- (id)init:(Simulation *)_simulation camera:(Camera *)_camera listener:(id <EnvironmentOnScreenObserver>)_listener {
 	self = [super init];
 	if (!self) return self;
 
 	simulation = _simulation;
 	camera = _camera;
+	listener = _listener;
+
 	onScreenPlatforms = [[NSMutableSet alloc] initWithCapacity:10];
 
 	return self;
@@ -26,14 +29,20 @@
 - (void)update:(ccTime)dt {
 	CGRect cameraRect = [camera currentRect];
 
-	BOOL (^overlaps)(id, NSDictionary *) = ^BOOL(id<BoundedPolygon> platform, NSDictionary *dictionary) {
-		return [self overlaps:platform with:cameraRect];
+	BOOL (^overlaps)(id, NSDictionary *) = ^BOOL(id <BoundedPolygon> platform, NSDictionary *dictionary) {
+		return ![self overlaps:platform with:cameraRect];
 	};
-	[onScreenPlatforms filterUsingPredicate:[NSPredicate predicateWithBlock:overlaps]];
+	NSSet *deadPlatforms = [onScreenPlatforms filteredSetUsingPredicate:[NSPredicate predicateWithBlock:overlaps]];
+
+	for (id <BoundedPolygon> platform in deadPlatforms) {
+		[onScreenPlatforms removeObject:platform];
+		[listener platformLeftView:platform];
+	}
 
 	for (id <BoundedPolygon> platform in simulation.environment) {
 		if ([self overlaps:platform with:cameraRect] && ![onScreenPlatforms containsObject:platform]) {
 			[onScreenPlatforms addObject:platform];
+			[listener platformEnteredView:platform];
 		}
 	}
 }

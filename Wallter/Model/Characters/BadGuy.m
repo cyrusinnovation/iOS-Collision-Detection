@@ -34,7 +34,7 @@
 	return self;
 }
 
-- (BOOL)isExpired {
+- (BOOL)expired {
 	return dead;
 }
 

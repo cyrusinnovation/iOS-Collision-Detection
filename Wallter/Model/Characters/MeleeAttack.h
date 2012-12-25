@@ -9,5 +9,8 @@
 
 @interface MeleeAttack : NSObject<BoundedPolygon, SimulationActor>
 - (id)init:(Walter *)_guy;
+
+- (BOOL)expired;
+
 - (void)update:(ccTime)dt;
 @end

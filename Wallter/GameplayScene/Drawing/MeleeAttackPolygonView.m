@@ -29,7 +29,7 @@ ccColor4F color;
 }
 
 -(void) update:(ccTime) dt {
-	if (attack.isExpired) {
+	if (attack.expired) {
 		[self removeFromParentAndCleanup:true];
 	}
 }
