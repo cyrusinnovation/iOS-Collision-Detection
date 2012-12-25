@@ -69,4 +69,24 @@
 	free_polygon(polygon);
 }
 
+- (BOOL)isEqual:(id)object {
+	if (object == self) return true;
+	if (![object isKindOfClass:[Platform class]]) return false;
+	Platform *that = object;
+	if (that.top  != self.top) return false;
+	if (that.bottom  != self.bottom) return false;
+	if (that.left  != self.left) return false;
+	if (that.right  != self.right) return false;
+	return true;
+}
+
+- (NSUInteger)hash {
+	int x = 23 * left;
+	int y = 23 * bottom;
+	int w = 23 * width;
+	int h = 23 * height;
+	return (((x ^ ((y << 13) | (y >> 19))) ^ ((w << 26) | (w >> 6))) ^ ((h << 7) | (h >> 25)));
+}
+
+
 @end
