@@ -4,6 +4,7 @@
 //
 
 #import "AggregateWalterObserver.h"
+#import "MeleeAttack.h"
 
 @implementation AggregateWalterObserver {
 	NSArray *observers;
@@ -49,5 +50,10 @@
 - (void)dying {
 	for (id <WalterObserver> observer in observers) {[observer dying];}
 }
+
+- (void)attacking:(MeleeAttack *)attack {
+	for (id <WalterObserver> observer in observers) {[observer attacking:attack];}
+}
+
 
 @end

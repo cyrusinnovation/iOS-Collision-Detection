@@ -5,16 +5,13 @@
 
 
 #import "WalterWeapon.h"
-#import "WalterSimulationActor.h"
-#import "Simulation.h"
 #import "MeleeAttack.h"
-#import "WalterWeaponObserver.h"
 
 
 @implementation WalterWeapon {
 	WalterSimulationActor *walterActor;
 	Simulation *simulation;
-	id<WalterWeaponObserver> observer;
+	id<WalterObserver> observer;
 }
 
 @synthesize observer;

@@ -33,21 +33,16 @@
 
 	ccTime timeBuffer;
 	ccTime frameTime;
+	float timeScale;
 
-	CCLabelBMFont *scoreLabel;
+	BOOL transitioning;
 
 	float score;
+	CCLabelBMFont *scoreLabel;
 
 	Camera *camera;
 
-	BOOL transitioning;
-	CCSpriteBatchNode *batchNode;
-
 	AudioPlayer *audio;
-	ViewFactory *viewFactory;
-	float timeScale;
-
-	BadGuySound *badGuySound;
 }
 
 + (CCScene *)scene {
@@ -68,18 +63,18 @@
 	return scene;
 }
 
-- (id)init:(WalterSimulationActor *)_actor and:(WalterWeapon *)_weapon and:(Simulation *)_simulation {
+- (id)init:(WalterSimulationActor *)_walterActor and:(WalterWeapon *)_walterWeapon and:(Simulation *)_simulation {
 	self = ([self initLayer]);
 	if (self == nil) return nil;
 
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
 
-	walter = _actor;
-	walterWeapon = _weapon;
+	walter = _walterActor;
+	walterWeapon = _walterWeapon;
 	simulation = _simulation;
 
-	batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
+	CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
 
 	audio = [[AudioPlayer alloc] init];
@@ -92,15 +87,16 @@
 	camera = [[Camera alloc] init:walter];
 	camera.scale = 0.25;
 
-	viewFactory = [[ViewFactory alloc] init:camera batchNode:batchNode];
+	ViewFactory *viewFactory = [[ViewFactory alloc] init:camera batchNode:batchNode];
 
 	ActorView *walterView = [viewFactory createWalterView:walter];
 	[self addChild:walterView];
 
-	NSArray *observers = [NSArray arrayWithObjects:[[WalterViewAnimationChanger alloc] init:walterView factory:viewFactory], [[WalterSoundEffects alloc] init:audio], nil];
-	walter.observer = [[AggregateWalterObserver alloc] initWithObservers:observers];
+	WalterSoundEffects *walterSoundEffects = [[WalterSoundEffects alloc] init:audio];
 
-	walterWeapon.observer = ([[WalterSoundEffects alloc] init:audio]);
+	NSArray *observers = [NSArray arrayWithObjects:[[WalterViewAnimationChanger alloc] init:walterView factory:viewFactory], walterSoundEffects, nil];
+	walter.observer = [[AggregateWalterObserver alloc] initWithObservers:observers];
+	walterWeapon.observer = walterSoundEffects;
 
 	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
 

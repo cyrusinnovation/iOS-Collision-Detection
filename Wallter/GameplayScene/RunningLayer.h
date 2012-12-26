@@ -13,5 +13,5 @@
 
 @interface RunningLayer : CCLayerColor
 + (CCScene *)scene;
-- (id)init:(WalterSimulationActor *)_actor and:(WalterWeapon *)_weapon and:(Simulation *)_simulation;
+- (id)init:(WalterSimulationActor *)_walterActor and:(WalterWeapon *)_walterWeapon and:(Simulation *)_simulation;
 @end

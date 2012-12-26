@@ -3,6 +3,7 @@
 // copyright Cyrus Innovation
 //
 
+@class MeleeAttack;
 
 @protocol WalterObserver <NSObject>
 - (void)runningLeft;
@@ -12,4 +13,5 @@
 - (void)falling;
 - (void)running;
 - (void)dying;
+- (void)attacking:(MeleeAttack *)attack;
 @end

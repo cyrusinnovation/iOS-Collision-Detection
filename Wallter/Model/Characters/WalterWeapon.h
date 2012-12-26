@@ -3,12 +3,12 @@
 // copyright Cyrus Innovation
 //
 
+#import "WalterSimulationActor.h"
 #import "Simulation.h"
-#import "WalterWeaponObserver.h"
 
 @interface WalterWeapon : NSObject
 
-@property(nonatomic, retain) id<WalterWeaponObserver> observer;
+@property(nonatomic, retain) id<WalterObserver> observer;
 
 - (id)initFor:(WalterSimulationActor *)_walter in:(Simulation *)_simulation;
 
