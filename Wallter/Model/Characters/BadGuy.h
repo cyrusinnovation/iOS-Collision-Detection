@@ -2,7 +2,7 @@
 // Created by najati on 9/25/12.
 //
 
-
+#import "ProxyCollection.h"
 #import <Foundation/Foundation.h>
 #import "Polygon.h"
 #import "BoundedPolygon.h"
@@ -15,7 +15,7 @@
 @property(nonatomic, readonly) bool dead;
 @property(nonatomic, readonly) bool facingRight;
 
-@property(nonatomic) id <BadGuyObserver> observer;
+@property(nonatomic, readonly, strong) ProxyCollection<BadGuyObserver> *observer;
 
 - (id)init:(CGPoint)point facingRight:(BOOL)_facingRight;
 

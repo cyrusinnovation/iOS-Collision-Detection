@@ -40,7 +40,7 @@
 	} else if ([platform isKindOfClass:[BadGuy class]]) {
 		BadGuy *badGuy = (BadGuy *) platform;
 		view = [viewFactory createBadGuyView:badGuy];
-		badGuy.observer = badGuySound;
+		[badGuy.observer add:badGuySound];
 	} else if ([platform isKindOfClass:[MeleeAttack class]]) {
 		view = [viewFactory createMeleeAttackView:(MeleeAttack *) platform];
 	}

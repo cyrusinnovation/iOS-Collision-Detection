@@ -22,6 +22,8 @@
 	self = self = [super init];
 	if (!self) return self;
 
+	observer = (ProxyCollection <BadGuyObserver> *) [[ProxyCollection alloc] init];
+
 	dead = false;
 	facingRight = _facingRight;
 
@@ -42,11 +44,7 @@
 	if (dead) return;
 	if ([that isMemberOfClass:[MeleeAttack class]]) {
 		dead = true;
-
-		// TODO null pattern
-		if (observer) {
-			[observer badGuyDied];
-		}
+		[observer badGuyDied];
 	}
 }
 

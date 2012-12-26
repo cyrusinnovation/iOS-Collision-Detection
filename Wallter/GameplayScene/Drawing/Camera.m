@@ -65,7 +65,7 @@
 - (void)transform:(CCSprite *)sprite to:(id <BoundedPolygon>)location scale:(CGPoint)spriteScale {
 	CGPoint currentDelta = [self getOffset];
 
-	// TODO take as precondition?
+	// TODO assume as precondition?
 	[sprite setAnchorPoint:cgp(0.5, 0)];
 	CGPoint position = cgp_add(cgp((location.left + location.right) / 2, location.bottom), currentDelta);
 	cgp_scale(&position, scale);
