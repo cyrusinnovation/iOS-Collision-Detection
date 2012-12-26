@@ -33,11 +33,10 @@
 	ccTime frameTime;
 	float timeScale;
 
-	BOOL shouldPauseUpdate;
-
 	AudioPlayer *audioPlayer;
 	
 	CCAction *onEnterAction;
+	BOOL shouldPauseUpdate;
 }
 
 + (CCScene *)scene {
@@ -75,6 +74,7 @@
 	CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
 
+	shouldPauseUpdate = false;
 	timeBuffer = 0;
 	frameTime = 0.01;
 	timeScale = 0.6;
@@ -135,6 +135,8 @@
 }
 
 - (void)update:(ccTime)dt {
+	if (shouldPauseUpdate) return;
+
 	timeBuffer += dt * timeScale;
 	while (timeBuffer >= frameTime) {
 		timeBuffer -= frameTime;
@@ -143,18 +145,15 @@
 }
 
 - (void)updateInternal:(ccTime)dt {
-	if (shouldPauseUpdate) return;
-
 	[simulation update:dt];
 
 	if (walter.expired) {
+		shouldPauseUpdate = true;
 		[self transitionAfterPlayerDeath];
 	}
 }
 
 - (void)transitionAfterPlayerDeath {
-	shouldPauseUpdate = true;
-
 	[audioPlayer stopBackgroundMusic];
 
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameOverLayer scene] withColor:ccBLACK]];
