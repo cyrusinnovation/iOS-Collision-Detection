@@ -49,6 +49,10 @@
 		previous.next = entry.next;
 	}
 
+	if (entry == last) {
+		last = previous;
+	}
+
 	return entry.view;
 }
 

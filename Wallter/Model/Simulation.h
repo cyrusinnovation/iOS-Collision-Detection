@@ -16,8 +16,9 @@
 
 @property(nonatomic, retain) NSObject <SimulationObserver> *simulationObserver;
 
-@property(nonatomic, strong) NSMutableArray *characters;
 @property(nonatomic, strong) NSMutableArray *environment;
+@property(nonatomic, strong) NSMutableArray *characters;
+@property(nonatomic, strong) NSMutableArray *attacks;
 
 - (void)update:(ccTime)dt;
 

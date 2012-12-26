@@ -194,8 +194,6 @@
 }
 
 - (void)addedAttack:(id <BoundedPolygon, SimulationActor>)attack {
-	if (![attack isKindOfClass:[MeleeAttack class]]) return;
-	[self addChild:[viewFactory createMeleeAttackView:attack]];
 }
 
 - (void)addedEnvironmentElement:(id <BoundedPolygon, SimulationActor>)element {
@@ -209,21 +207,25 @@
 }
 
 - (void)platformEnteredView:(id <BoundedPolygon>)element {
+	ActorView *view;
 	if ([element isKindOfClass:[Platform class]]) {
-		ActorView *view = [viewFactory createPlatformView:(Platform *) element parent:self];
-
-		[self addChild:view];
-		[elementViews add:view of:element];
+		view = [viewFactory createPlatformView:(Platform *) element parent:self];
 	} else if ([element isKindOfClass:[BadGuy class]]) {
-		ActorView *view = [viewFactory createBadGuyView:(BadGuy *) element];
-
-		[self addChild:view];
-		[elementViews add:view of:element];
+		view = [viewFactory createBadGuyView:(BadGuy *) element];
+	} else if ([element isKindOfClass:[MeleeAttack class]]) {
+		view = [viewFactory createMeleeAttackView:(MeleeAttack *) element];
 	}
+
+	if (!view) return;
+
+	[self addChild:view];
+	[elementViews add:view of:element];
 }
 
 - (void)platformLeftView:(id <BoundedPolygon>)element {
-	BOOL isElementOfKnownClass = [element isKindOfClass:[Platform class]] || [element isKindOfClass:[BadGuy class]];
+	BOOL isElementOfKnownClass = [element isKindOfClass:[Platform class]] ||
+			[element isKindOfClass:[BadGuy class]] ||
+			[element isKindOfClass:[MeleeAttack class]];
 	if (!isElementOfKnownClass)
 		return;
 

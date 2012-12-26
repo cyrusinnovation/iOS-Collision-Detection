@@ -9,7 +9,7 @@
 	Simulation *simulation;
 	Camera *camera;
 
-	NSMutableSet *onScreenElements;
+	NSMutableArray *onScreenElements;
 	id <ElementOnScreenObserver> listener;
 }
 
@@ -21,7 +21,7 @@
 	camera = _camera;
 	listener = _listener;
 
-	onScreenElements = [[NSMutableSet alloc] initWithCapacity:10];
+	onScreenElements = [[NSMutableArray alloc] initWithCapacity:10];
 
 	return self;
 }
@@ -29,23 +29,22 @@
 - (void)update:(ccTime)dt {
 	CGRect cameraRect = [camera currentRect];
 
-	BOOL (^overlaps)(id, NSDictionary *) = ^BOOL(id <BoundedPolygon> platform, NSDictionary *dictionary) {
-		return ![self overlaps:platform with:cameraRect];
-	};
-	NSSet *deadElements = [onScreenElements filteredSetUsingPredicate:[NSPredicate predicateWithBlock:overlaps]];
-
-	for (id <BoundedPolygon> platform in deadElements) {
-		[onScreenElements removeObject:platform];
-		[listener platformLeftView:platform];
+	for (int i = onScreenElements.count - 1; i >= 0; i--) {
+		id <BoundedPolygon, SimulationActor> element = [onScreenElements objectAtIndex:i];
+		if ([element expired] || ![self overlaps:element with:cameraRect]) {
+			[listener platformLeftView:element];
+			[onScreenElements removeObjectAtIndex:i];
+		}
 	}
 
 	[self findElementsOnScreen:cameraRect elements:simulation.environment];
 	[self findElementsOnScreen:cameraRect elements:simulation.characters];
+	[self findElementsOnScreen:cameraRect elements:simulation.attacks];
 }
 
 - (void)findElementsOnScreen:(CGRect)cameraRect elements:(NSMutableArray *)elements {
-	for (id <BoundedPolygon> element in elements) {
-		if ([self overlaps:element with:cameraRect] && ![onScreenElements containsObject:element]) {
+	for (id <BoundedPolygon, SimulationActor> element in elements) {
+		if (![element expired] && [self overlaps:element with:cameraRect] && ![onScreenElements containsObject:element]) {
 			[onScreenElements addObject:element];
 			[listener platformEnteredView:element];
 		}

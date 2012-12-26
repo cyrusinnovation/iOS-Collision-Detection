@@ -11,7 +11,6 @@
 
 @implementation Simulation {
 	id <BoundedPolygon, SimulationActor> mainActor;
-	NSMutableArray *attacks;
 	NSMutableArray *tickers;
 }
 
@@ -19,6 +18,7 @@
 
 @synthesize environment;
 @synthesize characters;
+@synthesize attacks;
 
 - (id)initFor:(id <BoundedPolygon, SimulationActor>)_mainActor {
 	if (self = [super init]) {
