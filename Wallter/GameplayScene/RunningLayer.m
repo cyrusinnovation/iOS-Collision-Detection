@@ -36,8 +36,6 @@
 
 	BOOL transitioning;
 
-	ScoreLabel *scoreLabel;
-
 	Camera *camera;
 
 	AudioPlayer *audio;
@@ -83,6 +81,7 @@
 	timeScale = 0.6;
 
 	camera = [[Camera alloc] init:walter];
+	[simulation addTicker:camera];
 	camera.scale = 0.25;
 
 	ViewFactory *viewFactory = [[ViewFactory alloc] init:camera batchNode:batchNode];
@@ -149,7 +148,6 @@
 	if (transitioning) return;
 
 	[simulation update:dt];
-	[camera update];
 
 	if (walter.expired) {
 		[self transitionAfterPlayerDeath];

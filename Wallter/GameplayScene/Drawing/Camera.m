@@ -32,7 +32,7 @@
 
 // TODO this should probably be made aware of the update interval so the rate of
 // return is consistent across framerates
-- (void)update {
+- (void)update:(ccTime) dt {
 	[self moveCloserToDesiredOffset];
 }
 
@@ -105,4 +105,6 @@
 
 	return result;
 }
+
+
 @end

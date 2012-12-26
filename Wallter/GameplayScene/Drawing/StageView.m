@@ -4,6 +4,7 @@
 
 #import "StageView.h"
 #import "Simulation.h"
+#import "CCDrawingPrimitives.h"
 
 @implementation StageView {
 	ccColor4F color;
