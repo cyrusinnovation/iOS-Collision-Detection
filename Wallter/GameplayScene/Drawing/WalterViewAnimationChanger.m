@@ -48,4 +48,8 @@
 - (void)dying {
 }
 
+- (void)attacking:(MeleeAttack *)attack {
+}
+
+
 @end

@@ -38,6 +38,7 @@
 		0864B2EF167FC0E500DFBF27 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0864B2EE167FC0E500DFBF27 /* Default-568h@2x.png */; };
 		C13DA049CCF00D8D33DB445C /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8E5C9D2A3894034C780 /* Camera.m */; };
 		C13DA12DB8502CFDDCF8E867 /* WalterViewAnimationChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8D3B37A810875D6B3BA /* WalterViewAnimationChanger.m */; };
+		C13DA13740862840B9BBF0D2 /* ScoreLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAFAC90D4599C9A7DBEC5 /* ScoreLabel.m */; };
 		C13DA19617F7777FFF40B5F9 /* HighScoresLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA8CD3C475F4F6E553D82 /* HighScoresLayer.m */; };
 		C13DA1A2E5226B130ABB7D92 /* title.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C13DACCD96A0A99BFC618944 /* title.jpg */; };
 		C13DA1CDA463874E50BF6557 /* StageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA10FCCCEFB9DA0DDD5B5 /* StageView.m */; };
@@ -202,6 +203,7 @@
 		C13DAD86D609664E02DC4B14 /* BadGuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuy.h; sourceTree = "<group>"; };
 		C13DAD9DAA3C35C41FD32140 /* FileAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileAccess.m; sourceTree = "<group>"; };
 		C13DAD9E4FA18A741102AE3E /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
+		C13DADBCD04986D233E6AE31 /* ScoreLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreLabel.h; sourceTree = "<group>"; };
 		C13DADBEDFFF0603F7BB6AD6 /* stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stone.png; path = Resources/stone.png; sourceTree = "<group>"; };
 		C13DADF252B545D0A0B803D0 /* Simulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simulation.m; sourceTree = "<group>"; };
 		C13DAE0149979D7F1AD08FC0 /* HighScores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScores.m; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		C13DAF462675923577E06076 /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
 		C13DAF552C3FBFBB53AA95C3 /* MeleeAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeAttack.h; sourceTree = "<group>"; };
 		C13DAF70C2D30521DD83C609 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
+		C13DAFAC90D4599C9A7DBEC5 /* ScoreLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreLabel.m; sourceTree = "<group>"; };
 		C13DAFF98D4926B7EBF76DDC /* SimpleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -455,6 +458,8 @@
 				C13DAE43DDE3D741C1116D72 /* ElementViewMapEntry.h */,
 				C13DA212E16888CF50FAD9B4 /* CurrentSceneListener.m */,
 				C13DA0A364E56B17D7C87B5B /* CurrentSceneListener.h */,
+				C13DAFAC90D4599C9A7DBEC5 /* ScoreLabel.m */,
+				C13DADBCD04986D233E6AE31 /* ScoreLabel.h */,
 			);
 			path = GameplayScene;
 			sourceTree = "<group>";
@@ -638,6 +643,7 @@
 				C13DA65991F53CF321A77074 /* ElementViewMap.m in Sources */,
 				C13DA603FBEF37B3C602F034 /* ElementViewMapEntry.m in Sources */,
 				C13DAD64C3611941813A9D7E /* CurrentSceneListener.m in Sources */,
+				C13DA13740862840B9BBF0D2 /* ScoreLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

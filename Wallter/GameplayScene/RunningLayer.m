@@ -25,6 +25,7 @@
 #import "BadGuySound.h"
 #import "ElementViewMap.h"
 #import "CurrentSceneListener.h"
+#import "ScoreLabel.h"
 
 @implementation RunningLayer {
 	WalterSimulationActor *walter;
@@ -37,8 +38,7 @@
 
 	BOOL transitioning;
 
-	float score;
-	CCLabelBMFont *scoreLabel;
+	ScoreLabel *scoreLabel;
 
 	Camera *camera;
 
@@ -103,8 +103,7 @@
 	id <ElementOnScreenObserver> currentSceneListener = [[CurrentSceneListener alloc] init:self and:viewFactory and:audio];
 	[simulation addTicker:[[EnterAndExitTicker alloc] init:simulation camera:camera listener:currentSceneListener]];
 
-	score = 0;
-	[self setUpScoreLabel];
+	[self addChild:[[ScoreLabel alloc] initAt:cgp(75, 40)] z:INTERFACE_LAYER];
 
 	[self initButtons];
 
@@ -140,12 +139,6 @@
 	return [super initWithColor:prettyBlue width:s.width height:s.height];
 }
 
-- (void)setUpScoreLabel {
-	scoreLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"font.fnt"];
-	scoreLabel.position = cgp(75, 40);
-	[self addChild:scoreLabel z:INTERFACE_LAYER];
-}
-
 - (void)update:(ccTime)dt {
 	timeBuffer += dt * timeScale;
 	while (timeBuffer >= frameTime) {
@@ -159,10 +152,6 @@
 
 	[simulation update:dt];
 	[camera update];
-
-	score += dt * 21;
-	// TODO OPT don't update the score string every frame
-	[scoreLabel setString:[NSString stringWithFormat:@"%d", (int) score]];
 
 	if (walter.expired) {
 		[self transitionAfterPlayerDeath];
