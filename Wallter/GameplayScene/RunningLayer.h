@@ -3,11 +3,9 @@
 // copyright cyrus innovation
 //
 
-#import "ElementOnScreenObserver.h"
-
-#import "WalterSimulationActor.h"
-#import "Simulation.h"
-#import "WalterWeapon.h"
+@class WalterWeapon;
+@class WalterSimulationActor;
+@class Simulation;
 
 #define INTERFACE_LAYER 100
 

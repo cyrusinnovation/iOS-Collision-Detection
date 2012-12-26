@@ -5,27 +5,25 @@
 
 #import "cocos2d.h"
 
-#import "RunningLayer.h"
+#import "ScoreLabel.h"
+#import "Camera.h"
+#import "WalterWeapon.h"
 
-#import "StageView.h"
-#import "AddBadGuyToStageObserver.h"
-#import "BadGuyPolygonView.h"
-#import "WalterViewAnimationChanger.h"
-#import "SimpleButton.h"
-#import "ActorView.h"
 #import "AudioPlayer.h"
+#import "AddBadGuyToStageObserver.h"
+#import "WalterInTheSimulationTicker.h"
+#import "ViewFactory.h"
 #import "WalterSoundEffects.h"
+#import "WalterViewAnimationChanger.h"
 #import "AggregateWalterObserver.h"
 #import "WalterStuckednessTicker.h"
-#import "WalterInTheSimulationTicker.h"
-#import "GameOverLayer.h"
-#import "BlockOverTimeAction.h"
-#import "ViewFactory.h"
-#import "EnterAndExitTicker.h"
-#import "BadGuySound.h"
-#import "ElementViewMap.h"
 #import "CurrentSceneListener.h"
-#import "ScoreLabel.h"
+#import "EnterAndExitTicker.h"
+#import "SimpleButton.h"
+#import "BlockOverTimeAction.h"
+#import "GameOverLayer.h"
+
+#import "RunningLayer.h"
 
 @implementation RunningLayer {
 	WalterSimulationActor *walter;
@@ -100,7 +98,7 @@
 
 	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
 
-	id <ElementOnScreenObserver> currentSceneListener = [[CurrentSceneListener alloc] init:self and:viewFactory and:audio];
+	CurrentSceneListener *currentSceneListener = [[CurrentSceneListener alloc] init:self and:viewFactory and:audio];
 	[simulation addTicker:[[EnterAndExitTicker alloc] init:simulation camera:camera listener:currentSceneListener]];
 
 	[self addChild:[[ScoreLabel alloc] initAt:cgp(75, 40)] z:INTERFACE_LAYER];

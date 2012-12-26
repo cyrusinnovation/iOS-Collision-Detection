@@ -3,11 +3,14 @@
 //  copyright Cyrus Innovation 2012
 //
 
-#import <CoreGraphics/CoreGraphics.h>
-#import "IntroLayer.h"
+#import "cocos2d.h"
+
 #import "RunningLayer.h"
 #import "SettingsLayer.h"
 #import "SimpleButton.h"
+#import "CGPoint_ops.h"
+
+#import "IntroLayer.h"
 
 #pragma mark - IntroLayer
 
