@@ -6,7 +6,7 @@
 #import "Polygon.h"
 #import "PlatformAddedObserver.h"
 
-@class Walter;
+@class WalterSimulationActor;
 @class Platform;
 @class Simulation;
 
@@ -17,7 +17,7 @@
 - (id)init:(Simulation *)_simulation;
 
 - (void)addPlatform:(Platform *)platform;
-- (void)generateAround:(Walter *)guy;
+- (void)generateAround:(WalterSimulationActor *)guy;
 
 - (void)prime;
 @end

@@ -16,7 +16,7 @@ typedef enum {
 	wallJump
 } JumpType;
 
-@interface Walter : NSObject<BoundedPolygon, SimulationActor>
+@interface WalterSimulationActor : NSObject<BoundedPolygon, SimulationActor>
 @property(nonatomic) CGPoint location;
 
 @property(nonatomic,readonly) BOOL runningRight;

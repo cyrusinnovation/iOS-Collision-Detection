@@ -12,7 +12,7 @@
 #import "MeleeAttack.h"
 #import "AddBadGuyToStageObserver.h"
 #import "BadGuyPolygonView.h"
-#import "WalterView.h"
+#import "WalterViewAnimationChanger.h"
 #import "SimpleButton.h"
 #import "ActorView.h"
 #import "AudioPlayer.h"
@@ -29,10 +29,11 @@
 #import "ElementViewMap.h"
 
 @implementation RunningLayer {
-	Walter *walter;
+	WalterSimulationActor *walter;
+	WalterWeapon *walterWeapon;
 	Simulation *simulation;
 
-	ccTime buffer;
+	ccTime timeBuffer;
 	ccTime frameTime;
 
 	CCLabelBMFont *scoreLabel;
@@ -45,7 +46,6 @@
 	CCSpriteBatchNode *batchNode;
 
 	AudioPlayer *audio;
-	WalterWeapon *walterWeapon;
 	ViewFactory *viewFactory;
 	float timeScale;
 
@@ -77,18 +77,19 @@
 	audio = [[AudioPlayer alloc] init];
 	[audio playBackgroundMusic:@"music.mp3"];
 
-	buffer = 0;
+	timeBuffer = 0;
 	frameTime = 0.01;
 	timeScale = 0.6;
+
 	camera = [[Camera alloc] init:walter];
 	camera.scale = 0.25;
-	// TODO yucky that this in here
+
 	viewFactory = [[ViewFactory alloc] init:camera batchNode:batchNode];
 
 	ActorView *walterView = [viewFactory createWalterView:walter];
 	[self addChild:walterView];
 
-	NSArray *observers = [NSArray arrayWithObjects:[[WalterView alloc] init:walterView factory:viewFactory], [[WalterSoundEffects alloc] init:audio], nil];
+	NSArray *observers = [NSArray arrayWithObjects:[[WalterViewAnimationChanger alloc] init:walterView factory:viewFactory], [[WalterSoundEffects alloc] init:audio], nil];
 	walter.observer = [[AggregateWalterObserver alloc] initWithObservers:observers];
 
 	walterWeapon.observer = ([[WalterSoundEffects alloc] init:audio]);
@@ -111,7 +112,7 @@
 	void (^zoomBlock)(float) = ^(float t) {
 		camera.scale = 0.25 + 0.75 * t;
 	};
-	[self runAction:[[BlockOverTimeAction alloc] init:zoomBlock duration:4]];
+	[self runAction:[[BlockOverTimeAction alloc] init:zoomBlock duration:2]];
 }
 
 - (void)initButtons {
@@ -135,8 +136,9 @@
 }
 
 - (void)initSimulation {
-	walter = [[Walter alloc] initAt:cgp(30, 50)];
+	walter = [[WalterSimulationActor alloc] initAt:cgp(30, 50)];
 	simulation = [[Simulation alloc] initFor:walter];
+	walterWeapon = [[WalterWeapon alloc] initFor:walter in:simulation];
 
 	Stage *stage = [[Stage alloc] init:simulation];
 	stage.platformAddedObserver = ([[AddBadGuyToStageObserver alloc] init:simulation]);
@@ -144,7 +146,7 @@
 
 	[simulation addTicker:[[WalterInTheSimulationTicker alloc] init:walter in:stage]];
 
-	walterWeapon = [[WalterWeapon alloc] initFor:walter in:simulation];
+//	walter = [[Walter alloc] init:walterActor weapon:walterWeapon];
 }
 
 - (void)setUpScoreLabel {
@@ -154,9 +156,9 @@
 }
 
 - (void)update:(ccTime)dt {
-	buffer += dt * timeScale;
-	while (buffer >= frameTime) {
-		buffer -= frameTime;
+	timeBuffer += dt * timeScale;
+	while (timeBuffer >= frameTime) {
+		timeBuffer -= frameTime;
 		[self updateInternal:frameTime];
 	}
 }

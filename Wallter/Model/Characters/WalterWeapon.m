@@ -5,32 +5,32 @@
 
 
 #import "WalterWeapon.h"
-#import "Walter.h"
+#import "WalterSimulationActor.h"
 #import "Simulation.h"
 #import "MeleeAttack.h"
 #import "WalterWeaponObserver.h"
 
 
 @implementation WalterWeapon {
-	Walter *walter;
+	WalterSimulationActor *walterActor;
 	Simulation *simulation;
 	id<WalterWeaponObserver> observer;
 }
 
 @synthesize observer;
 
-- (id)initFor:(Walter *)_walter in:(Simulation *)_simulation {
+- (id)initFor:(WalterSimulationActor *)_walter in:(Simulation *)_simulation {
 	self = [super init];
 	if (!self) return self;
 
-	walter = _walter;
+	walterActor = _walter;
 	simulation = _simulation;
 	
 	return self;
 }
 
 - (void)attack {
-	MeleeAttack *attack = [[MeleeAttack alloc] init:walter];
+	MeleeAttack *attack = [[MeleeAttack alloc] init:walterActor];
 	[simulation addAttack:attack];
 
 	if (observer) {

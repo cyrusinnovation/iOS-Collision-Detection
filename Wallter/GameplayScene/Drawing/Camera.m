@@ -5,7 +5,7 @@
 #import "Camera.h"
 
 @implementation Camera {
-	Walter *guy;
+	WalterSimulationActor *guy;
 	CGPoint delta;
 
 	float yOffset;
@@ -16,7 +16,7 @@
 
 @synthesize scale;
 
-- (id)init:(Walter *)_guy {
+- (id)init:(WalterSimulationActor *)_guy {
 	if (self = [super init]) {
 		guy = _guy;
 		delta = cgp(160, 240);

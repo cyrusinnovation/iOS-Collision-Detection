@@ -3,9 +3,9 @@
 //
 
 #import "CCNode.h"
-#import "Walter.h"
+#import "WalterSimulationActor.h"
 #import "Camera.h"
 
 @interface WalterPolygonView : CCNode
-- (id)init:(Walter *)_guy following:(Camera *)_offset;
+- (id)init:(WalterSimulationActor *)_guy following:(Camera *)_offset;
 @end

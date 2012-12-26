@@ -4,8 +4,8 @@
 //
 
 #import "SimulationTicker.h"
-#import "Walter.h"
+#import "WalterSimulationActor.h"
 
 @interface WalterStuckednessTicker : NSObject <SimulationTicker>
-- (id)init:(Walter *)_walter;
+- (id)init:(WalterSimulationActor *)_walter;
 @end

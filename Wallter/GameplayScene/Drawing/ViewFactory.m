@@ -110,7 +110,7 @@
 	return view;
 }
 
-- (ActorView *)createWalterView:(Walter *)model {
+- (ActorView *)createWalterView:(WalterSimulationActor *)model {
 	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) initialFrame:@"run0.png" camera:camera parent:batchNode];
 	[view startRepeatingAnimation:walkingAnimation];
 	[view setFlipX:!model.runningRight];

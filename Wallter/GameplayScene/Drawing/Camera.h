@@ -4,14 +4,14 @@
 
 
 #import "cocos2d.h"
-#import "Walter.h"
+#import "WalterSimulationActor.h"
 
 @interface Camera : NSObject
 
 @property(nonatomic) float scale;
 
 // TODO not walter
-- (id)init:(Walter *)guy;
+- (id)init:(WalterSimulationActor *)guy;
 - (void)update;
 
 - (CGPoint)getOffset;

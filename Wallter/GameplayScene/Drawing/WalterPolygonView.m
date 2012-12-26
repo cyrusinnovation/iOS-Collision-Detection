@@ -7,14 +7,14 @@
 #import "CCSpriteFrameCache.h"
 
 @implementation WalterPolygonView {
-	Walter *walter;
+	WalterSimulationActor *walter;
 	ccColor4F color;
 
 	CGPolygon drawPoly;
 	Camera *offset;
 }
 
-- (id)init:(Walter *)_guy following:(Camera *) _offset {
+- (id)init:(WalterSimulationActor *)_guy following:(Camera *) _offset {
 	if (self = [super init]) {
 		walter = _guy;
 		offset = _offset;

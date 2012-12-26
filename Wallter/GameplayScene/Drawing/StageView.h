@@ -4,7 +4,7 @@
 
 #import "CCNode.h"
 #import "Stage.h"
-#import "Walter.h"
+#import "WalterSimulationActor.h"
 #import "Camera.h"
 
 @class Simulation;

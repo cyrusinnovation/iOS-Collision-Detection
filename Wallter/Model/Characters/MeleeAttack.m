@@ -5,7 +5,7 @@
 #import "MeleeAttack.h"
 
 @implementation MeleeAttack {
-	Walter *guy;
+	WalterSimulationActor *walterActor;
 	CGPolygon polygon;
 	ccTime age;
 	ccTime max_age;
@@ -13,9 +13,9 @@
 
 @synthesize polygon;
 
-- (id)init:(Walter *)_guy {
+- (id)init:(WalterSimulationActor *)_walterActor {
 	if (self = [super init]) {
-		guy = _guy;
+		walterActor = _walterActor;
 		polygon = make_block(0, 0, 0, 0);
 		max_age = 0.1;
 	}
@@ -53,8 +53,8 @@
 	age += dt;
 
 	int attack_width = MELEE_ATTACK_WIDTH;
-	if (guy.runningRight) {
-		CGPolygon guyPoly = guy.polygon;
+	if (walterActor.runningRight) {
+		CGPolygon guyPoly = walterActor.polygon;
 		polygon.points[0] = guyPoly.points[1];
 		polygon.points[1] = guyPoly.points[1];
 		polygon.points[1].x += attack_width;
@@ -63,7 +63,7 @@
 		polygon.points[2] = guyPoly.points[2];
 		polygon.points[2].x += attack_width;
 	} else {
-		CGPolygon guyPoly = guy.polygon;
+		CGPolygon guyPoly = walterActor.polygon;
 		polygon.points[0] = guyPoly.points[0];
 		polygon.points[0].x -= attack_width;
 		polygon.points[1] = guyPoly.points[0];

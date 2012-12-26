@@ -3,7 +3,7 @@
 //
 
 #import "CCNode.h"
-#import "Walter.h"
+#import "WalterSimulationActor.h"
 #import "Camera.h"
 #import "WalterObserver.h"
 
@@ -12,6 +12,6 @@
 @class ActorView;
 @class ViewFactory;
 
-@interface WalterView : CCNode <WalterObserver>
+@interface WalterViewAnimationChanger : CCNode <WalterObserver>
 - (id)init:(ActorView *)_view factory:(ViewFactory *) _viewFactory;
 @end

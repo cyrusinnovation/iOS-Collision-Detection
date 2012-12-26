@@ -2,11 +2,11 @@
 // Created by najati on 9/24/12.
 //
 
-#import "WalterView.h"
+#import "WalterViewAnimationChanger.h"
 #import "ActorView.h"
 #import "ViewFactory.h"
 
-@implementation WalterView {
+@implementation WalterViewAnimationChanger {
 	ActorView *view;
 	ViewFactory *viewFactory;
 }

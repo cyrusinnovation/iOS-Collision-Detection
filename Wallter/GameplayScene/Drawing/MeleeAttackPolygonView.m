@@ -3,7 +3,7 @@
 //
 
 #import "MeleeAttackPolygonView.h"
-#import "Walter.h"
+#import "WalterSimulationActor.h"
 #import "CCDrawingPrimitives.h"
 
 ccColor4F color;

@@ -2,7 +2,7 @@
 // Created by najati on 9/24/12.
 //
 
-#import "Walter.h"
+#import "WalterSimulationActor.h"
 #import "AggregateWalterObserver.h"
 #import "BadGuy.h"
 #import "Platform.h"
@@ -21,7 +21,7 @@ typedef enum {
 	walterIsFalling,
 } WalterAction;
 
-@implementation Walter {
+@implementation WalterSimulationActor {
 	CGPoint location;
 	CGPoint size;
 	CGPoint velocity;
