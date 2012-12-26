@@ -5,16 +5,11 @@
 #import "Simulation.h"
 
 #import "SeparatingAxisTest.h"
-#import "SATResult.h"
-#import "SimulationObserver.h"
-#import "SimulationTicker.h"
 
 @implementation Simulation {
 	id <BoundedPolygon, SimulationActor> mainActor;
 	NSMutableArray *tickers;
 }
-
-@synthesize simulationObserver;
 
 @synthesize environment;
 @synthesize characters;
@@ -75,17 +70,14 @@
 
 - (void)addAttack:(id <BoundedPolygon, SimulationActor>)attack {
 	[attacks addObject:attack];
-	[simulationObserver addedAttack:attack];
 }
 
 - (void)addEnemy:(id <BoundedPolygon, SimulationActor>)enemy {
 	[characters addObject:enemy];
-	[simulationObserver addedCharacter:enemy];
 }
 
 - (void)addEnvironmentElement:(id <BoundedPolygon, SimulationActor>)element {
 	[environment addObject:element];
-	[simulationObserver addedEnvironmentElement:element];
 }
 
 - (void)addTicker:(id <SimulationTicker>)ticker {

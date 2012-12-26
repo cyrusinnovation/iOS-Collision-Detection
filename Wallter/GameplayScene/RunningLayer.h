@@ -4,11 +4,10 @@
 //
 
 #import "cocos2d.h"
-#import "SimulationObserver.h"
 #import "ElementOnScreenObserver.h"
 
 #define INTERFACE_LAYER 100
 
-@interface RunningLayer : CCLayerColor<SimulationObserver, ElementOnScreenObserver>
+@interface RunningLayer : CCLayerColor<ElementOnScreenObserver>
 + (CCScene *)scene;
 @end

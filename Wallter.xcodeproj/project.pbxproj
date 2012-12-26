@@ -196,7 +196,6 @@
 		C13DACCD96A0A99BFC618944 /* title.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = title.jpg; path = Resources/title.jpg; sourceTree = "<group>"; };
 		C13DAD1503891DAAB4661AFA /* Walter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Walter.h; sourceTree = "<group>"; };
 		C13DAD4EE9721CFE15E04130 /* BadGuySound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuySound.m; sourceTree = "<group>"; };
-		C13DAD629E5D76CF7839C3D1 /* SimulationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationObserver.h; sourceTree = "<group>"; };
 		C13DAD62E4709EA93612BC08 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		C13DAD86D609664E02DC4B14 /* BadGuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadGuy.h; sourceTree = "<group>"; };
 		C13DAD9DAA3C35C41FD32140 /* FileAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileAccess.m; sourceTree = "<group>"; };
@@ -501,7 +500,6 @@
 				C13DA3BBAF9CD850916C625F /* Stage.m */,
 				C13DAE56EF1C7A3A92071EC1 /* Platform.m */,
 				C13DA72780F71E58C6DFC83A /* NullStageListener.m */,
-				C13DAD629E5D76CF7839C3D1 /* SimulationObserver.h */,
 				C13DA26819D80296C434DA06 /* BoundedPolygon.h */,
 				C13DAE91B9F2870774F52D98 /* BadGuyObserver.h */,
 			);

@@ -8,13 +8,9 @@
 #import "SimulationActor.h"
 #import "SimulationTicker.h"
 
-@protocol SimulationObserver;
-
 @interface Simulation : NSObject
 
 - (id)initFor:(id <BoundedPolygon, SimulationActor>)_mainActor;
-
-@property(nonatomic, retain) NSObject <SimulationObserver> *simulationObserver;
 
 @property(nonatomic, strong) NSMutableArray *environment;
 @property(nonatomic, strong) NSMutableArray *characters;

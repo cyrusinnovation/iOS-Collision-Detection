@@ -3,7 +3,6 @@
 // copyright Cyrus Innovation
 //
 
-
 #import "ElementViewMap.h"
 
 @implementation ElementViewMap {

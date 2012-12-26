@@ -124,7 +124,6 @@
 	stage.platformAddedObserver = addBadGuyToStageObserver;
 
 	walterWeapon = [[WalterWeapon alloc] initFor:walter in:simulation];
-	simulation.simulationObserver = self;
 
 	camera = [[Camera alloc] init:walter];
 	camera.scale = 0.25;
@@ -187,18 +186,6 @@
 
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameOverLayer scene] withColor:ccBLACK]];
 }
-
-#pragma mark SimulationObserver
-
-- (void)addedCharacter:(id <BoundedPolygon, SimulationActor>)character {
-}
-
-- (void)addedAttack:(id <BoundedPolygon, SimulationActor>)attack {
-}
-
-- (void)addedEnvironmentElement:(id <BoundedPolygon, SimulationActor>)element {
-}
-
 
 #pragma mark utils
 
