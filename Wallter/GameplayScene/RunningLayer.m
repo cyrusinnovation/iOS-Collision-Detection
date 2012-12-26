@@ -27,7 +27,6 @@
 
 @implementation RunningLayer {
 	WalterSimulationActor *walter;
-	WalterWeapon *walterWeapon;
 	Simulation *simulation;
 
 	ccTime timeBuffer;
@@ -60,7 +59,7 @@
 	return scene;
 }
 
-- (id)init:(WalterSimulationActor *)_walterActor and:(WalterWeapon *)_walterWeapon and:(Simulation *)_simulation audioPlayer:(AudioPlayer *)_audioPlayer {
+- (id)init:(WalterSimulationActor *)_walterActor and:(WalterWeapon *)walterWeapon and:(Simulation *)_simulation audioPlayer:(AudioPlayer *)_audioPlayer {
 	self = ([self initLayer]);
 	if (self == nil) return nil;
 
@@ -68,7 +67,6 @@
 	self.isTouchEnabled = YES;
 
 	walter = _walterActor;
-	walterWeapon = _walterWeapon;
 	simulation = _simulation;
 
 	audioPlayer = _audioPlayer;
@@ -105,7 +103,7 @@
 
 	[self addChild:[[ScoreLabel alloc] initAt:cgp(75, 40)] z:INTERFACE_LAYER];
 
-	[self initButtons];
+	[self initButtons:walter and:walterWeapon];
 
 	return self;
 }
@@ -116,11 +114,11 @@
 	[self runAction:onEnterAction];
 }
 
-- (void)initButtons {
+- (void)initButtons:(WalterSimulationActor *)_walterActor and:(WalterWeapon *)walterWeapon {
 	CGSize s = [self currentWindowSize];
 
 	SimpleButton *button = [[SimpleButton alloc] init:@"button.blue.png" downFrame:@"button.blue.down.png"];
-	[button setDepressCallbackTarget:walter selector:@selector(jump)];
+	[button setDepressCallbackTarget:_walterActor selector:@selector(jump)];
 	[button setPosition:cgp(s.width - 80, 16)];
 	[self addChild:button z:INTERFACE_LAYER];
 

@@ -6,6 +6,7 @@
 @class WalterWeapon;
 @class WalterSimulationActor;
 @class Simulation;
+@class AudioPlayer;
 
 #define INTERFACE_LAYER 100
 
