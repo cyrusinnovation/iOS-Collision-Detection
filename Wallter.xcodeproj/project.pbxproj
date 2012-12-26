@@ -75,7 +75,7 @@
 		C13DABE01052A92CF3C1189B /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C13DAF3C8D82BEAD85937866 /* music.mp3 */; };
 		C13DACC9B197EE3C8F544B2A /* DSPODTH3.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */; };
 		C13DAD4F5D5236CC58258270 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE56EF1C7A3A92071EC1 /* Platform.m */; };
-		C13DAD64C3611941813A9D7E /* CurrentSceneListener.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA212E16888CF50FAD9B4 /* CurrentSceneListener.m */; };
+		C13DAD64C3611941813A9D7E /* CurrentSceneSpritesAndSounds.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA212E16888CF50FAD9B4 /* CurrentSceneSpritesAndSounds.m */; };
 		C13DADB5B6F972C8AA3E16B1 /* AggregateWalterObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA1F665EFDBDD8992973F /* AggregateWalterObserver.m */; };
 		C13DADB7916E57EFEC9D77D0 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA41FA6A07836816BEFF0 /* GameOverLayer.m */; };
 		C13DADC0787616F1FCA5E770 /* EnterAndExitTicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA088AEA2E22D796A284D /* EnterAndExitTicker.m */; };
@@ -127,12 +127,12 @@
 		C13DA0635045D8000470DAD9 /* WalterStuckednessTicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterStuckednessTicker.m; sourceTree = "<group>"; };
 		C13DA07630AA078B61584534 /* SimpleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleButton.h; sourceTree = "<group>"; };
 		C13DA088AEA2E22D796A284D /* EnterAndExitTicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterAndExitTicker.m; sourceTree = "<group>"; };
-		C13DA0A364E56B17D7C87B5B /* CurrentSceneListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentSceneListener.h; sourceTree = "<group>"; };
+		C13DA0A364E56B17D7C87B5B /* CurrentSceneSpritesAndSounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentSceneSpritesAndSounds.h; sourceTree = "<group>"; };
 		C13DA1305F378EEA0092A2F4 /* AggregateWalterObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AggregateWalterObserver.h; sourceTree = "<group>"; };
 		C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPODTH3.WAV; path = Resources/Sounds/DSPODTH3.WAV; sourceTree = "<group>"; };
 		C13DA1AED6CE2E4B7C4C3329 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
 		C13DA1F665EFDBDD8992973F /* AggregateWalterObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AggregateWalterObserver.m; sourceTree = "<group>"; };
-		C13DA212E16888CF50FAD9B4 /* CurrentSceneListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentSceneListener.m; sourceTree = "<group>"; };
+		C13DA212E16888CF50FAD9B4 /* CurrentSceneSpritesAndSounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentSceneSpritesAndSounds.m; sourceTree = "<group>"; };
 		C13DA21E3C760AFE9D6B2438 /* instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions.png; path = Resources/instructions.png; sourceTree = "<group>"; };
 		C13DA229349A0CFB7C6E5F63 /* DSOOF.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSOOF.WAV; path = Resources/Sounds/DSOOF.WAV; sourceTree = "<group>"; };
 		C13DA22F6FF1B645A29926EF /* BlockOverTimeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockOverTimeAction.h; sourceTree = "<group>"; };
@@ -444,8 +444,8 @@
 				C13DA7CA858423BF7096F36A /* ElementViewMap.h */,
 				C13DA37967C25A5AD057785E /* ElementViewMapEntry.m */,
 				C13DAE43DDE3D741C1116D72 /* ElementViewMapEntry.h */,
-				C13DA212E16888CF50FAD9B4 /* CurrentSceneListener.m */,
-				C13DA0A364E56B17D7C87B5B /* CurrentSceneListener.h */,
+				C13DA212E16888CF50FAD9B4 /* CurrentSceneSpritesAndSounds.m */,
+				C13DA0A364E56B17D7C87B5B /* CurrentSceneSpritesAndSounds.h */,
 				C13DAFAC90D4599C9A7DBEC5 /* ScoreLabel.m */,
 				C13DADBCD04986D233E6AE31 /* ScoreLabel.h */,
 			);
@@ -618,7 +618,7 @@
 				C13DAAC14A7783CD51209324 /* BadGuySound.m in Sources */,
 				C13DA65991F53CF321A77074 /* ElementViewMap.m in Sources */,
 				C13DA603FBEF37B3C602F034 /* ElementViewMapEntry.m in Sources */,
-				C13DAD64C3611941813A9D7E /* CurrentSceneListener.m in Sources */,
+				C13DAD64C3611941813A9D7E /* CurrentSceneSpritesAndSounds.m in Sources */,
 				C13DA13740862840B9BBF0D2 /* ScoreLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

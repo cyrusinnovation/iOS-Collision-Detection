@@ -4,7 +4,7 @@
 //
 
 
-#import "CurrentSceneListener.h"
+#import "CurrentSceneSpritesAndSounds.h"
 #import "ActorView.h"
 #import "ViewFactory.h"
 #import "ElementViewMap.h"
@@ -12,7 +12,7 @@
 #import "RunningLayer.h"
 #import "AudioPlayer.h"
 
-@implementation CurrentSceneListener {
+@implementation CurrentSceneSpritesAndSounds {
 	ElementViewMap *elementViews;
 	
 	BadGuySound *badGuySound;
@@ -58,7 +58,8 @@
 	if (!isElementOfKnownClass)
 		return;
 
-	[layer removeChild:[elementViews removeViewFor:platform] cleanup:true];
+	ActorView *view = [elementViews removeViewFor:platform];
+	[layer removeChild:view cleanup:true];
 }
 
 @end

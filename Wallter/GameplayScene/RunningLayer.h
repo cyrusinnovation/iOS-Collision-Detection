@@ -11,5 +11,6 @@
 
 @interface RunningLayer : CCLayerColor
 + (CCScene *)scene;
-- (id)init:(WalterSimulationActor *)_walterActor and:(WalterWeapon *)_walterWeapon and:(Simulation *)_simulation;
+
+- (id)init:(WalterSimulationActor *)_walterActor and:(WalterWeapon *)_walterWeapon and:(Simulation *)_simulation audioPlayer:(AudioPlayer *)_audioPlayer;
 @end

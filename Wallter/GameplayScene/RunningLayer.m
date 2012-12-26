@@ -17,7 +17,7 @@
 #import "WalterViewAnimationChanger.h"
 #import "AggregateWalterObserver.h"
 #import "WalterStuckednessTicker.h"
-#import "CurrentSceneListener.h"
+#import "CurrentSceneSpritesAndSounds.h"
 #import "EnterAndExitTicker.h"
 #import "SimpleButton.h"
 #import "BlockOverTimeAction.h"
@@ -34,9 +34,10 @@
 	ccTime frameTime;
 	float timeScale;
 
-	BOOL transitioning;
+	BOOL shouldPauseUpdate;
 
-	AudioPlayer *audio;
+	AudioPlayer *audioPlayer;
+	
 	CCAction *onEnterAction;
 }
 
@@ -52,13 +53,14 @@
 	[stage prime];
 
 	[simulation addTicker:[[WalterInTheSimulationTicker alloc] init:walter in:stage]];
+	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
 
-	RunningLayer *layer = [[RunningLayer alloc] init:walter and:walterWeapon and:simulation];
+	RunningLayer *layer = [[RunningLayer alloc] init:walter and:walterWeapon and:simulation audioPlayer:[[AudioPlayer alloc] init]];
 	[scene addChild:layer];
 	return scene;
 }
 
-- (id)init:(WalterSimulationActor *)_walterActor and:(WalterWeapon *)_walterWeapon and:(Simulation *)_simulation {
+- (id)init:(WalterSimulationActor *)_walterActor and:(WalterWeapon *)_walterWeapon and:(Simulation *)_simulation audioPlayer:(AudioPlayer *)_audioPlayer {
 	self = ([self initLayer]);
 	if (self == nil) return nil;
 
@@ -69,11 +71,11 @@
 	walterWeapon = _walterWeapon;
 	simulation = _simulation;
 
+	audioPlayer = _audioPlayer;
+	[audioPlayer playBackgroundMusic:@"music.mp3"];
+
 	CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
-
-	audio = [[AudioPlayer alloc] init];
-	[audio playBackgroundMusic:@"music.mp3"];
 
 	timeBuffer = 0;
 	frameTime = 0.01;
@@ -92,15 +94,13 @@
 	ActorView *walterView = [viewFactory createWalterView:walter];
 	[self addChild:walterView];
 
-	WalterSoundEffects *walterSoundEffects = [[WalterSoundEffects alloc] init:audio];
+	WalterSoundEffects *walterSoundEffects = [[WalterSoundEffects alloc] init:audioPlayer];
 
 	NSArray *observers = [NSArray arrayWithObjects:[[WalterViewAnimationChanger alloc] init:walterView factory:viewFactory], walterSoundEffects, nil];
 	walter.observer = [[AggregateWalterObserver alloc] initWithObservers:observers];
 	walterWeapon.observer = walterSoundEffects;
 
-	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
-
-	CurrentSceneListener *currentSceneListener = [[CurrentSceneListener alloc] init:self and:viewFactory and:audio];
+	CurrentSceneSpritesAndSounds *currentSceneListener = [[CurrentSceneSpritesAndSounds alloc] init:self and:viewFactory and:audioPlayer];
 	[simulation addTicker:[[EnterAndExitTicker alloc] init:simulation camera:camera listener:currentSceneListener]];
 
 	[self addChild:[[ScoreLabel alloc] initAt:cgp(75, 40)] z:INTERFACE_LAYER];
@@ -145,7 +145,7 @@
 }
 
 - (void)updateInternal:(ccTime)dt {
-	if (transitioning) return;
+	if (shouldPauseUpdate) return;
 
 	[simulation update:dt];
 
@@ -155,9 +155,9 @@
 }
 
 - (void)transitionAfterPlayerDeath {
-	transitioning = true;
+	shouldPauseUpdate = true;
 
-	[audio stopBackgroundMusic];
+	[audioPlayer stopBackgroundMusic];
 
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameOverLayer scene] withColor:ccBLACK]];
 }
