@@ -28,8 +28,6 @@
 #import "EndGameObserver.h"
 
 @implementation RunningLayer {
-	WalterSimulationActor *walter;
-	Simulation *simulation;
 
 	CCAction *onEnterAction;
 
@@ -55,22 +53,19 @@
 	return scene;
 }
 
-- (id)init:(WalterSimulationActor *)_walterActor and:(WalterWeapon *)walterWeapon and:(Simulation *)_simulation audioPlayer:(AudioPlayer *)audioPlayer {
+- (id)init:(WalterSimulationActor *)walter and:(WalterWeapon *)walterWeapon and:(Simulation *)simulation audioPlayer:(AudioPlayer *)audioPlayer {
 	self = ([self initLayer]);
 	if (self == nil) return nil;
 
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
 
-	walter = _walterActor;
-	simulation = _simulation;
-
 	[audioPlayer playBackgroundMusic:@"music.mp3"];
 
 	CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
 
-	simulationTiming = [[SimulationTiming alloc] init:0.01 scale:0.6 simulation:_simulation];
+	simulationTiming = [[SimulationTiming alloc] init:0.01 scale:0.6 simulation:simulation];
 
 	Camera *camera = [[Camera alloc] init:walter];
 	[simulation addTicker:camera];
@@ -109,7 +104,6 @@
 
 - (void)onEnter {
 	[super onEnter];
-
 	[self runAction:onEnterAction];
 }
 
