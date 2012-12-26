@@ -3,13 +3,11 @@
 // copyright cyrus innovation
 //
 
+#import "cocos2d.h"
+
 #import "RunningLayer.h"
 
-#import "Stage.h"
-
 #import "StageView.h"
-#import "Simulation.h"
-#import "MeleeAttack.h"
 #import "AddBadGuyToStageObserver.h"
 #import "BadGuyPolygonView.h"
 #import "WalterViewAnimationChanger.h"
@@ -18,7 +16,6 @@
 #import "AudioPlayer.h"
 #import "WalterSoundEffects.h"
 #import "AggregateWalterObserver.h"
-#import "WalterWeapon.h"
 #import "WalterStuckednessTicker.h"
 #import "WalterInTheSimulationTicker.h"
 #import "GameOverLayer.h"
@@ -27,6 +24,7 @@
 #import "EnterAndExitTicker.h"
 #import "BadGuySound.h"
 #import "ElementViewMap.h"
+#import "CurrentSceneListener.h"
 
 @implementation RunningLayer {
 	WalterSimulationActor *walter;
@@ -49,27 +47,37 @@
 	ViewFactory *viewFactory;
 	float timeScale;
 
-	ElementViewMap *elementViews;
 	BadGuySound *badGuySound;
 }
 
 + (CCScene *)scene {
 	CCScene *scene = [CCScene node];
-	RunningLayer *layer = [RunningLayer node];
+
+	WalterSimulationActor *walter = [[WalterSimulationActor alloc] initAt:cgp(30, 50)];
+	Simulation *simulation = [[Simulation alloc] initFor:walter];
+	WalterWeapon *walterWeapon = [[WalterWeapon alloc] initFor:walter in:simulation];
+
+	Stage *stage = [[Stage alloc] init:simulation];
+	stage.platformAddedObserver = ([[AddBadGuyToStageObserver alloc] init:simulation]);
+	[stage prime];
+
+	[simulation addTicker:[[WalterInTheSimulationTicker alloc] init:walter in:stage]];
+
+	RunningLayer *layer = [[RunningLayer alloc] init:walter and:walterWeapon and:simulation];
 	[scene addChild:layer];
 	return scene;
 }
 
-- (id)init{
+- (id)init:(WalterSimulationActor *)_actor and:(WalterWeapon *)_weapon and:(Simulation *)_simulation {
 	self = ([self initLayer]);
 	if (self == nil) return nil;
 
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
 
-	[self initSimulation];
-
-	elementViews = [[ElementViewMap alloc] init];
+	walter = _actor;
+	walterWeapon = _weapon;
+	simulation = _simulation;
 
 	batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
@@ -95,12 +103,13 @@
 	walterWeapon.observer = ([[WalterSoundEffects alloc] init:audio]);
 
 	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
-	[simulation addTicker:[[EnterAndExitTicker alloc] init:simulation camera:camera listener:self]];
+
+	id <ElementOnScreenObserver> currentSceneListener = [[CurrentSceneListener alloc] init:self and:viewFactory and:audio];
+	[simulation addTicker:[[EnterAndExitTicker alloc] init:simulation camera:camera listener:currentSceneListener]];
 
 	score = 0;
 	[self setUpScoreLabel];
 
-	badGuySound = [[BadGuySound alloc] init:audio];
 	[self initButtons];
 
 	return self;
@@ -133,20 +142,6 @@
 	CGSize s = [self currentWindowSize];
 	ccColor4B prettyBlue = (ccColor4B) {194, 233, 249, 255};
 	return [super initWithColor:prettyBlue width:s.width height:s.height];
-}
-
-- (void)initSimulation {
-	walter = [[WalterSimulationActor alloc] initAt:cgp(30, 50)];
-	simulation = [[Simulation alloc] initFor:walter];
-	walterWeapon = [[WalterWeapon alloc] initFor:walter in:simulation];
-
-	Stage *stage = [[Stage alloc] init:simulation];
-	stage.platformAddedObserver = ([[AddBadGuyToStageObserver alloc] init:simulation]);
-	[stage prime];
-
-	[simulation addTicker:[[WalterInTheSimulationTicker alloc] init:walter in:stage]];
-
-//	walter = [[Walter alloc] init:walterActor weapon:walterWeapon];
 }
 
 - (void)setUpScoreLabel {
@@ -191,34 +186,5 @@
 - (CGSize)currentWindowSize {
 	return [[CCDirector sharedDirector] winSize];
 }
-
-- (void)elementEnteredView:(id <BoundedPolygon>)platform {
-	ActorView *view;
-	if ([platform isKindOfClass:[Platform class]]) {
-		view = [viewFactory createPlatformView:(Platform *) platform parent:self];
-	} else if ([platform isKindOfClass:[BadGuy class]]) {
-		BadGuy *badGuy = (BadGuy *) platform;
-		view = [viewFactory createBadGuyView:badGuy];
-		badGuy.observer = badGuySound;
-	} else if ([platform isKindOfClass:[MeleeAttack class]]) {
-		view = [viewFactory createMeleeAttackView:(MeleeAttack *) platform];
-	}
-
-	if (!view) return;
-
-	[self addChild:view];
-	[elementViews add:view of:platform];
-}
-
-- (void)elementLeftView:(id <BoundedPolygon>)platform {
-	BOOL isElementOfKnownClass = [platform isKindOfClass:[Platform class]] ||
-			[platform isKindOfClass:[BadGuy class]] ||
-			[platform isKindOfClass:[MeleeAttack class]];
-	if (!isElementOfKnownClass)
-		return;
-
-	[self removeChild:[elementViews removeViewFor:platform] cleanup:true];
-}
-
 
 @end
