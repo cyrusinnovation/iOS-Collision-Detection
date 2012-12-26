@@ -3,9 +3,9 @@
 // copyright Cyrus Innovation
 //
 
-#import "WalterDeathFallTicker.h"
+#import "WalterInTheSimulationTicker.h"
 
-@implementation WalterDeathFallTicker {
+@implementation WalterInTheSimulationTicker {
 	Walter *walter;
 	Stage *stage;
 }

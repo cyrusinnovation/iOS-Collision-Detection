@@ -20,17 +20,15 @@
 #import "AggregateWalterObserver.h"
 #import "WalterWeapon.h"
 #import "WalterStuckednessTicker.h"
-#import "WalterDeathFallTicker.h"
+#import "WalterInTheSimulationTicker.h"
 #import "GameOverLayer.h"
 #import "BlockOverTimeAction.h"
-#import "Platform.h"
 #import "ViewFactory.h"
 #import "EnterAndExitTicker.h"
 #import "BadGuySound.h"
 #import "ElementViewMap.h"
 
 @implementation RunningLayer {
-	Stage *stage;
 	Walter *walter;
 	Simulation *simulation;
 
@@ -62,12 +60,14 @@
 	return scene;
 }
 
-- (id)init {
+- (id)init{
 	self = ([self initLayer]);
 	if (self == nil) return nil;
 
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
+
+	[self initSimulation];
 
 	elementViews = [[ElementViewMap alloc] init];
 
@@ -80,7 +80,26 @@
 	buffer = 0;
 	frameTime = 0.01;
 	timeScale = 0.6;
-	[self initStage];
+	camera = [[Camera alloc] init:walter];
+	camera.scale = 0.25;
+	// TODO yucky that this in here
+	viewFactory = [[ViewFactory alloc] init:camera batchNode:batchNode];
+
+	ActorView *walterView = [viewFactory createWalterView:walter];
+	[self addChild:walterView];
+
+	NSArray *observers = [NSArray arrayWithObjects:[[WalterView alloc] init:walterView factory:viewFactory], [[WalterSoundEffects alloc] init:audio], nil];
+	walter.observer = [[AggregateWalterObserver alloc] initWithObservers:observers];
+
+	walterWeapon.observer = ([[WalterSoundEffects alloc] init:audio]);
+
+	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
+	[simulation addTicker:[[EnterAndExitTicker alloc] init:simulation camera:camera listener:self]];
+
+	score = 0;
+	[self setUpScoreLabel];
+
+	badGuySound = [[BadGuySound alloc] init:audio];
 	[self initButtons];
 
 	return self;
@@ -115,39 +134,17 @@
 	return [super initWithColor:prettyBlue width:s.width height:s.height];
 }
 
-- (void)initStage {
-
+- (void)initSimulation {
 	walter = [[Walter alloc] initAt:cgp(30, 50)];
 	simulation = [[Simulation alloc] initFor:walter];
 
-	stage = [[Stage alloc] init:simulation];
+	Stage *stage = [[Stage alloc] init:simulation];
 	stage.platformAddedObserver = ([[AddBadGuyToStageObserver alloc] init:simulation]);
+	[stage prime];
+
+	[simulation addTicker:[[WalterInTheSimulationTicker alloc] init:walter in:stage]];
 
 	walterWeapon = [[WalterWeapon alloc] initFor:walter in:simulation];
-
-	camera = [[Camera alloc] init:walter];
-	camera.scale = 0.25;
-	// TODO yucky that this in here
-	viewFactory = [[ViewFactory alloc] init:camera batchNode:batchNode];
-
-	ActorView *walterView = [viewFactory createWalterView:walter];
-	[self addChild:walterView];
-
-	NSArray *observers = [NSArray arrayWithObjects:[[WalterView alloc] init:walterView factory:viewFactory], [[WalterSoundEffects alloc] init:audio], nil];
-	walter.observer = [[AggregateWalterObserver alloc] initWithObservers:observers];
-
-	walterWeapon.observer = ([[WalterSoundEffects alloc] init:audio]);
-
-	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
-	[simulation addTicker:[[WalterDeathFallTicker alloc] init:walter in:stage]];
-	[simulation addTicker:[[EnterAndExitTicker alloc] init:simulation camera:camera listener:self]];
-
-	score = 0;
-	[self setUpScoreLabel];
-	
-	badGuySound = [[BadGuySound alloc] init:audio];
-
-	[stage prime];
 }
 
 - (void)setUpScoreLabel {

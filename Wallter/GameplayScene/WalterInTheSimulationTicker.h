@@ -7,6 +7,6 @@
 #import "Walter.h"
 #import "Stage.h"
 
-@interface WalterDeathFallTicker : NSObject<SimulationTicker>
+@interface WalterInTheSimulationTicker : NSObject<SimulationTicker>
 - (id)init:(Walter *)_walter in:(Stage *)_stage;
 @end
