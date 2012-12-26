@@ -15,7 +15,6 @@
 #import "ViewFactory.h"
 #import "WalterSoundEffects.h"
 #import "WalterViewAnimationChanger.h"
-#import "AggregateWalterObserver.h"
 #import "WalterStuckednessTicker.h"
 #import "CurrentSceneSpritesAndSounds.h"
 #import "EnterAndExitTicker.h"
@@ -24,6 +23,7 @@
 #import "GameOverLayer.h"
 
 #import "RunningLayer.h"
+#import "ProxyCollection.h"
 
 @implementation RunningLayer {
 	WalterSimulationActor *walter;
@@ -94,8 +94,8 @@
 
 	WalterSoundEffects *walterSoundEffects = [[WalterSoundEffects alloc] init:audioPlayer];
 
-	NSArray *observers = [NSArray arrayWithObjects:[[WalterViewAnimationChanger alloc] init:walterView factory:viewFactory], walterSoundEffects, nil];
-	walter.observer = [[AggregateWalterObserver alloc] initWithObservers:observers];
+	[walter.observer add:[[WalterViewAnimationChanger alloc] init:walterView factory:viewFactory]];
+	[walter.observer add:walterSoundEffects];
 	walterWeapon.observer = walterSoundEffects;
 
 	CurrentSceneSpritesAndSounds *currentSceneListener = [[CurrentSceneSpritesAndSounds alloc] init:self and:viewFactory and:audioPlayer];

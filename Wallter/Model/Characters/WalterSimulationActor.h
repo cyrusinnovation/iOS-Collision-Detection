@@ -10,6 +10,8 @@
 #import "BoundedPolygon.h"
 #import "SimulationActor.h"
 
+@class ProxyCollection;
+
 typedef enum {
 	noJump,
 	groundJump,
@@ -26,7 +28,7 @@ typedef enum {
 @property(nonatomic, readonly) CGFloat right;
 @property(nonatomic, readonly) CGFloat width;
 
-@property(nonatomic, retain) NSObject <WalterObserver> *observer;
+@property(nonatomic, readonly, strong) ProxyCollection<WalterObserver> *observer;
 
 - (id)initAt:(CGPoint)at;
 - (CGPolygon)polygon;

@@ -3,10 +3,8 @@
 //
 
 #import "WalterSimulationActor.h"
-#import "AggregateWalterObserver.h"
 #import "BadGuy.h"
-#import "Platform.h"
-#import "MeleeAttack.h"
+#import "ProxyCollection.h"
 
 typedef enum {
 	walterIsRunningLeft,
@@ -39,8 +37,6 @@ typedef enum {
 	CGFloat top;
 	CGFloat left;
 	CGFloat right;
-
-	NSObject <WalterObserver> *observer;
 }
 
 @synthesize location;
@@ -62,7 +58,7 @@ typedef enum {
 	self = [super init];
 	if (!self) return self;
 
-	self.observer = [[AggregateWalterObserver alloc] init];
+	observer = (ProxyCollection<WalterObserver> *) [[ProxyCollection alloc] init];
 
 	size = cgp(20, 30);
 	width = size.x;

@@ -76,10 +76,10 @@
 		C13DACC9B197EE3C8F544B2A /* DSPODTH3.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */; };
 		C13DAD4F5D5236CC58258270 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE56EF1C7A3A92071EC1 /* Platform.m */; };
 		C13DAD64C3611941813A9D7E /* CurrentSceneSpritesAndSounds.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA212E16888CF50FAD9B4 /* CurrentSceneSpritesAndSounds.m */; };
-		C13DADB5B6F972C8AA3E16B1 /* AggregateWalterObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA1F665EFDBDD8992973F /* AggregateWalterObserver.m */; };
 		C13DADB7916E57EFEC9D77D0 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA41FA6A07836816BEFF0 /* GameOverLayer.m */; };
 		C13DADC0787616F1FCA5E770 /* EnterAndExitTicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA088AEA2E22D796A284D /* EnterAndExitTicker.m */; };
 		C13DAE19651BD9268C1C41A5 /* BlockOverTimeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA44F4CB8EB80D8941D13 /* BlockOverTimeAction.m */; };
+		C13DAE551C09C045E6184E83 /* ProxyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAA1FB402DE62072D75D9 /* ProxyCollection.m */; };
 		C13DAF1AF285C328EF93D362 /* HighScores.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE0149979D7F1AD08FC0 /* HighScores.m */; };
 		C13DAF21BB7647FD50F41515 /* frames.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13DA4DE18E7E6D4B788CD52 /* frames.plist */; };
 		C13DAF35541F3B8365BC0363 /* ActorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA47B10239D01FFB6471F /* ActorView.m */; };
@@ -128,10 +128,8 @@
 		C13DA07630AA078B61584534 /* SimpleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleButton.h; sourceTree = "<group>"; };
 		C13DA088AEA2E22D796A284D /* EnterAndExitTicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterAndExitTicker.m; sourceTree = "<group>"; };
 		C13DA0A364E56B17D7C87B5B /* CurrentSceneSpritesAndSounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentSceneSpritesAndSounds.h; sourceTree = "<group>"; };
-		C13DA1305F378EEA0092A2F4 /* AggregateWalterObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AggregateWalterObserver.h; sourceTree = "<group>"; };
 		C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPODTH3.WAV; path = Resources/Sounds/DSPODTH3.WAV; sourceTree = "<group>"; };
 		C13DA1AED6CE2E4B7C4C3329 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
-		C13DA1F665EFDBDD8992973F /* AggregateWalterObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AggregateWalterObserver.m; sourceTree = "<group>"; };
 		C13DA212E16888CF50FAD9B4 /* CurrentSceneSpritesAndSounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentSceneSpritesAndSounds.m; sourceTree = "<group>"; };
 		C13DA21E3C760AFE9D6B2438 /* instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions.png; path = Resources/instructions.png; sourceTree = "<group>"; };
 		C13DA229349A0CFB7C6E5F63 /* DSOOF.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSOOF.WAV; path = Resources/Sounds/DSOOF.WAV; sourceTree = "<group>"; };
@@ -139,6 +137,7 @@
 		C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttack.m; sourceTree = "<group>"; };
 		C13DA26819D80296C434DA06 /* BoundedPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundedPolygon.h; path = Wallter/Model/BoundedPolygon.h; sourceTree = SOURCE_ROOT; };
 		C13DA2819599D03C41C9F27F /* WalterWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterWeapon.m; sourceTree = "<group>"; };
+		C13DA2BB78E1D012B532FB07 /* ProxyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProxyCollection.h; sourceTree = "<group>"; };
 		C13DA3703765C3BFF39B04B8 /* HighScoresLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresLayer.h; sourceTree = "<group>"; };
 		C13DA37967C25A5AD057785E /* ElementViewMapEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementViewMapEntry.m; sourceTree = "<group>"; };
 		C13DA38305816BF389092D82 /* WalterStuckednessTicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterStuckednessTicker.h; sourceTree = "<group>"; };
@@ -172,6 +171,7 @@
 		C13DA9C6C1BA867C67CBD1F2 /* BadGuy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadGuy.m; sourceTree = "<group>"; };
 		C13DA9F5C6E3738D2748E6CE /* SimulationActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationActor.h; sourceTree = "<group>"; };
 		C13DAA02EB11D06BD2C72CCA /* WalterWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterWeapon.h; sourceTree = "<group>"; };
+		C13DAA1FB402DE62072D75D9 /* ProxyCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProxyCollection.m; sourceTree = "<group>"; };
 		C13DAA44B915D358A079ADED /* DSPLDETH.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPLDETH.WAV; path = Resources/Sounds/DSPLDETH.WAV; sourceTree = "<group>"; };
 		C13DAA6983CE3CA648D3C011 /* EnterAndExitTicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterAndExitTicker.h; sourceTree = "<group>"; };
 		C13DAAA326E0DE729B95B624 /* ElementOnScreenObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementOnScreenObserver.h; sourceTree = "<group>"; };
@@ -280,6 +280,7 @@
 				C13DA4225D06259CD520F93D /* Model */,
 				C13DA5F954BB97C7D3ED0CEE /* Application */,
 				C13DA92F17C7EE49647ACFF9 /* Sound */,
+				C13DAA77158D1F514F2328BE /* Utility */,
 			);
 			path = Wallter;
 			sourceTree = "<group>";
@@ -355,8 +356,6 @@
 				C13DAF552C3FBFBB53AA95C3 /* MeleeAttack.h */,
 				C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */,
 				C13DA03469EAA3602DE0DCD1 /* WalterObserver.h */,
-				C13DA1F665EFDBDD8992973F /* AggregateWalterObserver.m */,
-				C13DA1305F378EEA0092A2F4 /* AggregateWalterObserver.h */,
 				C13DA2819599D03C41C9F27F /* WalterWeapon.m */,
 				C13DAA02EB11D06BD2C72CCA /* WalterWeapon.h */,
 			);
@@ -418,6 +417,15 @@
 				C13DAF70C2D30521DD83C609 /* AudioPlayer.h */,
 			);
 			path = Sound;
+			sourceTree = "<group>";
+		};
+		C13DAA77158D1F514F2328BE /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				C13DAA1FB402DE62072D75D9 /* ProxyCollection.m */,
+				C13DA2BB78E1D012B532FB07 /* ProxyCollection.h */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		C13DAC8042F0F4DAA48895A7 /* GameplayScene */ = {
@@ -601,7 +609,6 @@
 				C13DAB81204ED2E942A5BE31 /* HighScore.m in Sources */,
 				C13DA2C91DE5A727FD28770F /* AddBadGuyToStageObserver.m in Sources */,
 				C13DA12DB8502CFDDCF8E867 /* WalterViewAnimationChanger.m in Sources */,
-				C13DADB5B6F972C8AA3E16B1 /* AggregateWalterObserver.m in Sources */,
 				C13DA209331CF69FA0F297A3 /* SimpleButton.m in Sources */,
 				C13DAF35541F3B8365BC0363 /* ActorView.m in Sources */,
 				C13DA7FCD5FA88F0FEE8C2C7 /* Settings.m in Sources */,
@@ -620,6 +627,7 @@
 				C13DA603FBEF37B3C602F034 /* ElementViewMapEntry.m in Sources */,
 				C13DAD64C3611941813A9D7E /* CurrentSceneSpritesAndSounds.m in Sources */,
 				C13DA13740862840B9BBF0D2 /* ScoreLabel.m in Sources */,
+				C13DAE551C09C045E6184E83 /* ProxyCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
