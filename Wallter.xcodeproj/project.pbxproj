@@ -61,6 +61,7 @@
 		C13DA89E73232EF2099BF9D0 /* DSOOF.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DA229349A0CFB7C6E5F63 /* DSOOF.WAV */; };
 		C13DA8F3D3AB6875774DA61E /* WalterInTheSimulationTicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE5A67578EFA7B9FC148 /* WalterInTheSimulationTicker.m */; };
 		C13DA919629AA7DC77F47AB5 /* FileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD9DAA3C35C41FD32140 /* FileAccess.m */; };
+		C13DA930BB4D75E42DFE6823 /* SimulationTiming.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA44BD661D3042EC067C2 /* SimulationTiming.m */; };
 		C13DA9500816F608D0D5A22A /* font.fnt in Resources */ = {isa = PBXBuildFile; fileRef = C13DAC4D144518306031944D /* font.fnt */; };
 		C13DA96AE463B2785D342A3B /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA3BBAF9CD850916C625F /* Stage.m */; };
 		C13DAA2AA5584EB2189608DE /* ViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA439AFF2A6E84058756F /* ViewFactory.m */; };
@@ -77,6 +78,7 @@
 		C13DAD4F5D5236CC58258270 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE56EF1C7A3A92071EC1 /* Platform.m */; };
 		C13DAD64C3611941813A9D7E /* CurrentSceneSpritesAndSounds.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA212E16888CF50FAD9B4 /* CurrentSceneSpritesAndSounds.m */; };
 		C13DADB7916E57EFEC9D77D0 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA41FA6A07836816BEFF0 /* GameOverLayer.m */; };
+		C13DADBBA88E3CD093CBEE07 /* EndGameObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA5B30B5312D701B9B016 /* EndGameObserver.m */; };
 		C13DADC0787616F1FCA5E770 /* EnterAndExitTicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA088AEA2E22D796A284D /* EnterAndExitTicker.m */; };
 		C13DAE19651BD9268C1C41A5 /* BlockOverTimeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA44F4CB8EB80D8941D13 /* BlockOverTimeAction.m */; };
 		C13DAE551C09C045E6184E83 /* ProxyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAA1FB402DE62072D75D9 /* ProxyCollection.m */; };
@@ -137,6 +139,7 @@
 		C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttack.m; sourceTree = "<group>"; };
 		C13DA26819D80296C434DA06 /* BoundedPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundedPolygon.h; path = Wallter/Model/BoundedPolygon.h; sourceTree = SOURCE_ROOT; };
 		C13DA2819599D03C41C9F27F /* WalterWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterWeapon.m; sourceTree = "<group>"; };
+		C13DA2937FBCEE0152948856 /* SimulationTiming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationTiming.h; sourceTree = "<group>"; };
 		C13DA2BB78E1D012B532FB07 /* ProxyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProxyCollection.h; sourceTree = "<group>"; };
 		C13DA3703765C3BFF39B04B8 /* HighScoresLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresLayer.h; sourceTree = "<group>"; };
 		C13DA37967C25A5AD057785E /* ElementViewMapEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElementViewMapEntry.m; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 		C13DA413D923663BA9085DDB /* WalterSoundEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterSoundEffects.m; sourceTree = "<group>"; };
 		C13DA41FA6A07836816BEFF0 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		C13DA439AFF2A6E84058756F /* ViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFactory.m; sourceTree = "<group>"; };
+		C13DA44BD661D3042EC067C2 /* SimulationTiming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulationTiming.m; sourceTree = "<group>"; };
 		C13DA44F4CB8EB80D8941D13 /* BlockOverTimeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockOverTimeAction.m; sourceTree = "<group>"; };
 		C13DA47B10239D01FFB6471F /* ActorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActorView.m; sourceTree = "<group>"; };
 		C13DA4B1F006BA6F8983BF02 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
@@ -153,10 +157,12 @@
 		C13DA53EA54BC0E98062AC3D /* WalterViewAnimationChanger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalterViewAnimationChanger.h; sourceTree = "<group>"; };
 		C13DA56D84681BFF93B2DD13 /* FileAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAccess.h; sourceTree = "<group>"; };
 		C13DA5771AEFD91B29766378 /* ViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFactory.h; sourceTree = "<group>"; };
+		C13DA5B30B5312D701B9B016 /* EndGameObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameObserver.m; sourceTree = "<group>"; };
 		C13DA5F14CD66E872E8FE06E /* wtf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wtf.png; path = Resources/wtf.png; sourceTree = "<group>"; };
 		C13DA601C9BDD45869ECD67D /* HighScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScore.h; sourceTree = "<group>"; };
 		C13DA628E78B57594F107F65 /* ActorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActorView.h; sourceTree = "<group>"; };
 		C13DA72780F71E58C6DFC83A /* NullStageListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullStageListener.m; sourceTree = "<group>"; };
+		C13DA72E62BEFAFCD4FEC3CD /* EndGameObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameObserver.h; sourceTree = "<group>"; };
 		C13DA73281B6CEE82FE1BC7C /* Simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simulation.h; sourceTree = "<group>"; };
 		C13DA74ECD4552676249D903 /* WorldConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldConstants.m; sourceTree = "<group>"; };
 		C13DA7CA858423BF7096F36A /* ElementViewMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementViewMap.h; sourceTree = "<group>"; };
@@ -456,6 +462,10 @@
 				C13DA0A364E56B17D7C87B5B /* CurrentSceneSpritesAndSounds.h */,
 				C13DAFAC90D4599C9A7DBEC5 /* ScoreLabel.m */,
 				C13DADBCD04986D233E6AE31 /* ScoreLabel.h */,
+				C13DA44BD661D3042EC067C2 /* SimulationTiming.m */,
+				C13DA2937FBCEE0152948856 /* SimulationTiming.h */,
+				C13DA5B30B5312D701B9B016 /* EndGameObserver.m */,
+				C13DA72E62BEFAFCD4FEC3CD /* EndGameObserver.h */,
 			);
 			path = GameplayScene;
 			sourceTree = "<group>";
@@ -628,6 +638,8 @@
 				C13DAD64C3611941813A9D7E /* CurrentSceneSpritesAndSounds.m in Sources */,
 				C13DA13740862840B9BBF0D2 /* ScoreLabel.m in Sources */,
 				C13DAE551C09C045E6184E83 /* ProxyCollection.m in Sources */,
+				C13DA930BB4D75E42DFE6823 /* SimulationTiming.m in Sources */,
+				C13DADBBA88E3CD093CBEE07 /* EndGameObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

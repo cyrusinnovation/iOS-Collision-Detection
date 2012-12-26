@@ -24,20 +24,16 @@
 
 #import "RunningLayer.h"
 #import "ProxyCollection.h"
+#import "SimulationTiming.h"
+#import "EndGameObserver.h"
 
 @implementation RunningLayer {
 	WalterSimulationActor *walter;
 	Simulation *simulation;
 
-	ccTime timeBuffer;
-	ccTime frameTime;
-	float timeScale;
-
 	CCAction *onEnterAction;
-	BOOL shouldPauseUpdate;
 
-	void (^onExit)();
-
+	SimulationTiming *simulationTiming;
 }
 
 + (CCScene *)scene {
@@ -70,17 +66,11 @@
 	simulation = _simulation;
 
 	[audioPlayer playBackgroundMusic:@"music.mp3"];
-	onExit = ^() {
-		[audioPlayer stopBackgroundMusic];
-	};
 
 	CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
 
-	shouldPauseUpdate = false;
-	timeBuffer = 0;
-	frameTime = 0.01;
-	timeScale = 0.6;
+	simulationTiming = [[SimulationTiming alloc] init:0.01 scale:0.6 simulation:_simulation];
 
 	Camera *camera = [[Camera alloc] init:walter];
 	[simulation addTicker:camera];
@@ -97,6 +87,12 @@
 
 	WalterSoundEffects *walterSoundEffects = [[WalterSoundEffects alloc] init:audioPlayer];
 
+	void (^stopGame)() = ^() {
+		[simulationTiming pause];
+		[audioPlayer stopBackgroundMusic];
+		[self transitionAfterPlayerDeath];
+	};
+	[walter.observer add:[[EndGameObserver alloc] init:stopGame]];
 	[walter.observer add:[[WalterViewAnimationChanger alloc] init:walterView factory:viewFactory]];
 	[walter.observer add:walterSoundEffects];
 	walterWeapon.observer = walterSoundEffects;
@@ -138,26 +134,10 @@
 }
 
 - (void)update:(ccTime)dt {
-	if (shouldPauseUpdate) return;
-
-	timeBuffer += dt * timeScale;
-	while (timeBuffer >= frameTime) {
-		timeBuffer -= frameTime;
-		[self updateInternal:frameTime];
-	}
-}
-
-- (void)updateInternal:(ccTime)dt {
-	[simulation update:dt];
-
-	if (walter.expired) {
-		shouldPauseUpdate = true;
-		[self transitionAfterPlayerDeath];
-	}
+	[simulationTiming update:dt];
 }
 
 - (void)transitionAfterPlayerDeath {
-	onExit();
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameOverLayer scene] withColor:ccBLACK]];
 }
 
