@@ -33,10 +33,11 @@
 	ccTime frameTime;
 	float timeScale;
 
-	AudioPlayer *audioPlayer;
-	
 	CCAction *onEnterAction;
 	BOOL shouldPauseUpdate;
+
+	void (^onExit)();
+
 }
 
 + (CCScene *)scene {
@@ -58,7 +59,7 @@
 	return scene;
 }
 
-- (id)init:(WalterSimulationActor *)_walterActor and:(WalterWeapon *)walterWeapon and:(Simulation *)_simulation audioPlayer:(AudioPlayer *)_audioPlayer {
+- (id)init:(WalterSimulationActor *)_walterActor and:(WalterWeapon *)walterWeapon and:(Simulation *)_simulation audioPlayer:(AudioPlayer *)audioPlayer {
 	self = ([self initLayer]);
 	if (self == nil) return nil;
 
@@ -68,8 +69,10 @@
 	walter = _walterActor;
 	simulation = _simulation;
 
-	audioPlayer = _audioPlayer;
 	[audioPlayer playBackgroundMusic:@"music.mp3"];
+	onExit = ^() {
+		[audioPlayer stopBackgroundMusic];
+	};
 
 	CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
@@ -154,8 +157,7 @@
 }
 
 - (void)transitionAfterPlayerDeath {
-	[audioPlayer stopBackgroundMusic];
-
+	onExit();
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameOverLayer scene] withColor:ccBLACK]];
 }
 
