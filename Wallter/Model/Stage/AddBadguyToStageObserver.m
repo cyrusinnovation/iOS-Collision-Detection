@@ -2,7 +2,6 @@
 // Created by najati on 12/14/12.
 //
 
-
 #import "AddBadGuyToStageObserver.h"
 
 #import "Platform.h"
@@ -13,8 +12,6 @@
 	Simulation *simulation;
 	AudioPlayer *audio;
 }
-
-@synthesize observer;
 
 - (id)init:(Simulation *)_simulation {
 	self = [super init];
@@ -42,14 +39,8 @@
 
 - (void)addBadGuy:(CGPoint)location facingRight:(bool)facingRight {
 	BadGuy *badGuy = [[BadGuy alloc] init:location facingRight:facingRight];
-	badGuy.observer = self;
 	[simulation addEnemy:badGuy];
 }
 
-- (void)badGuyDied {
-	if (observer) {
-		[observer badGuyDied];
-	}
-}
 
 @end

@@ -32,7 +32,7 @@
 	for (int i = onScreenElements.count - 1; i >= 0; i--) {
 		id <BoundedPolygon, SimulationActor> element = [onScreenElements objectAtIndex:i];
 		if ([element expired] || ![self overlaps:element with:cameraRect]) {
-			[listener platformLeftView:element];
+			[listener elementLeftView:element];
 			[onScreenElements removeObjectAtIndex:i];
 		}
 	}
@@ -46,7 +46,7 @@
 	for (id <BoundedPolygon, SimulationActor> element in elements) {
 		if (![element expired] && [self overlaps:element with:cameraRect] && ![onScreenElements containsObject:element]) {
 			[onScreenElements addObject:element];
-			[listener platformEnteredView:element];
+			[listener elementEnteredView:element];
 		}
 	}
 }

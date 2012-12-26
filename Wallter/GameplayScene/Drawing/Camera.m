@@ -2,8 +2,6 @@
 // Created by najati on 9/26/12.
 //
 
-
-#import <mm_malloc.h>
 #import "Camera.h"
 
 @implementation Camera {

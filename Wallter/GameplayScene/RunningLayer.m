@@ -52,6 +52,7 @@
 	float timeScale;
 
 	ElementViewMap *elementViews;
+	BadGuySound *badGuySound;
 }
 
 + (CCScene *)scene {
@@ -120,8 +121,7 @@
 	simulation = [[Simulation alloc] initFor:walter];
 
 	stage = [[Stage alloc] init:simulation];
-	AddBadGuyToStageObserver *addBadGuyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation];
-	stage.platformAddedObserver = addBadGuyToStageObserver;
+	stage.platformAddedObserver = ([[AddBadGuyToStageObserver alloc] init:simulation]);
 
 	walterWeapon = [[WalterWeapon alloc] initFor:walter in:simulation];
 
@@ -144,8 +144,8 @@
 
 	score = 0;
 	[self setUpScoreLabel];
-
-	addBadGuyToStageObserver.observer = [[BadGuySound alloc] init:audio];
+	
+	badGuySound = [[BadGuySound alloc] init:audio];
 
 	[stage prime];
 }
@@ -193,30 +193,32 @@
 	return [[CCDirector sharedDirector] winSize];
 }
 
-- (void)platformEnteredView:(id <BoundedPolygon>)element {
+- (void)elementEnteredView:(id <BoundedPolygon>)platform {
 	ActorView *view;
-	if ([element isKindOfClass:[Platform class]]) {
-		view = [viewFactory createPlatformView:(Platform *) element parent:self];
-	} else if ([element isKindOfClass:[BadGuy class]]) {
-		view = [viewFactory createBadGuyView:(BadGuy *) element];
-	} else if ([element isKindOfClass:[MeleeAttack class]]) {
-		view = [viewFactory createMeleeAttackView:(MeleeAttack *) element];
+	if ([platform isKindOfClass:[Platform class]]) {
+		view = [viewFactory createPlatformView:(Platform *) platform parent:self];
+	} else if ([platform isKindOfClass:[BadGuy class]]) {
+		BadGuy *badGuy = (BadGuy *) platform;
+		view = [viewFactory createBadGuyView:badGuy];
+		badGuy.observer = badGuySound;
+	} else if ([platform isKindOfClass:[MeleeAttack class]]) {
+		view = [viewFactory createMeleeAttackView:(MeleeAttack *) platform];
 	}
 
 	if (!view) return;
 
 	[self addChild:view];
-	[elementViews add:view of:element];
+	[elementViews add:view of:platform];
 }
 
-- (void)platformLeftView:(id <BoundedPolygon>)element {
-	BOOL isElementOfKnownClass = [element isKindOfClass:[Platform class]] ||
-			[element isKindOfClass:[BadGuy class]] ||
-			[element isKindOfClass:[MeleeAttack class]];
+- (void)elementLeftView:(id <BoundedPolygon>)platform {
+	BOOL isElementOfKnownClass = [platform isKindOfClass:[Platform class]] ||
+			[platform isKindOfClass:[BadGuy class]] ||
+			[platform isKindOfClass:[MeleeAttack class]];
 	if (!isElementOfKnownClass)
 		return;
 
-	[self removeChild:[elementViews removeViewFor:element] cleanup:true];
+	[self removeChild:[elementViews removeViewFor:platform] cleanup:true];
 }
 
 

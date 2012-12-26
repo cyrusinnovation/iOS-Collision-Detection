@@ -6,6 +6,6 @@
 #import "BoundedPolygon.h"
 
 @protocol ElementOnScreenObserver <NSObject>
--(void) platformEnteredView:(id <BoundedPolygon>)platform;
--(void) platformLeftView:(id <BoundedPolygon>)platform;
+-(void)elementEnteredView:(id <BoundedPolygon>)platform;
+-(void)elementLeftView:(id <BoundedPolygon>)platform;
 @end
