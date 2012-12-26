@@ -7,6 +7,7 @@
 #import "WalterObserver.h"
 
 #import "EndGameObserver.h"
+#import "MeleeAttack.h"
 
 @implementation EndGameObserver {
 	void (^callback)();
@@ -25,5 +26,12 @@
 	return self;
 }
 
+- (void)runningLeft { }
+- (void)runningRight { }
+- (void)wallJumping { }
+- (void)groundJumping { }
+- (void)falling { }
+- (void)running { }
+- (void)attacking:(MeleeAttack *)attack { }
 
 @end
