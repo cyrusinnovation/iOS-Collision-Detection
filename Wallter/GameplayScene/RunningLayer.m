@@ -36,9 +36,8 @@
 
 	BOOL transitioning;
 
-	Camera *camera;
-
 	AudioPlayer *audio;
+	CCAction *onEnterAction;
 }
 
 + (CCScene *)scene {
@@ -80,9 +79,13 @@
 	frameTime = 0.01;
 	timeScale = 0.6;
 
-	camera = [[Camera alloc] init:walter];
+	Camera *camera = [[Camera alloc] init:walter];
 	[simulation addTicker:camera];
 	camera.scale = 0.25;
+	void (^zoomBlock)(float) = ^(float t) {
+		camera.scale = 0.25 + 0.75 * t;
+	};
+	onEnterAction = [[BlockOverTimeAction alloc] init:zoomBlock duration:2];
 
 	ViewFactory *viewFactory = [[ViewFactory alloc] init:camera batchNode:batchNode];
 
@@ -110,10 +113,7 @@
 - (void)onEnter {
 	[super onEnter];
 
-	void (^zoomBlock)(float) = ^(float t) {
-		camera.scale = 0.25 + 0.75 * t;
-	};
-	[self runAction:[[BlockOverTimeAction alloc] init:zoomBlock duration:2]];
+	[self runAction:onEnterAction];
 }
 
 - (void)initButtons {
