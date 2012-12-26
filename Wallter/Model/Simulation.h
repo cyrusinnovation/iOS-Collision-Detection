@@ -15,6 +15,8 @@
 - (id)initFor:(id <BoundedPolygon, SimulationActor>)_mainActor;
 
 @property(nonatomic, retain) NSObject <SimulationObserver> *simulationObserver;
+
+@property(nonatomic, strong) NSMutableArray *characters;
 @property(nonatomic, strong) NSMutableArray *environment;
 
 - (void)update:(ccTime)dt;

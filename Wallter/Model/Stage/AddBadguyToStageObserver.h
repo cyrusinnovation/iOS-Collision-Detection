@@ -11,5 +11,6 @@
 @class AudioPlayer;
 
 @interface AddBadGuyToStageObserver : NSObject<PlatformAddedObserver, BadGuyObserver>
-- (id)init:(Simulation *)_simulation audio:(AudioPlayer *)_audio;
+- (id)init:(Simulation *)_simulation;
+@property(nonatomic) id<BadGuyObserver> observer;
 @end

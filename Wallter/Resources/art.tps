@@ -227,6 +227,10 @@
             <filename>go.up.png</filename>
             <filename>settings.down.png</filename>
             <filename>settings.up.png</filename>
+            <filename>../../EggDrop/Resources/cloud1-hd.png</filename>
+            <filename>../../EggDrop/Resources/cloud2-hd.png</filename>
+            <filename>../../EggDrop/Resources/cloud3-hd.png</filename>
+            <filename>../../EggDrop/Resources/cloud4-hd.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

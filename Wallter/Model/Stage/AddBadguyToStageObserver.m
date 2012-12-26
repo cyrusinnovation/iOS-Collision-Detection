@@ -14,12 +14,13 @@
 	AudioPlayer *audio;
 }
 
-- (id)init:(Simulation *)_simulation audio:(AudioPlayer *)_audio {
+@synthesize observer;
+
+- (id)init:(Simulation *)_simulation {
 	self = [super init];
 	if (self == nil) return nil;
 	
 	simulation = _simulation;
-	audio = _audio;
 
 	return self;
 }
@@ -46,7 +47,9 @@
 }
 
 - (void)badGuyDied {
-	[audio playEffect:@"DSPODTH3.WAV"];
+	if (observer) {
+		[observer badGuyDied];
+	}
 }
 
 @end

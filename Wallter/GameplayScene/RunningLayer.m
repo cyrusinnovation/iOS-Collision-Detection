@@ -26,6 +26,8 @@
 #import "Platform.h"
 #import "ViewFactory.h"
 #import "EnterAndExitTicker.h"
+#import "BadGuySound.h"
+#import "ElementViewMap.h"
 
 @implementation RunningLayer {
 	Stage *stage;
@@ -48,7 +50,8 @@
 	WalterWeapon *walterWeapon;
 	ViewFactory *viewFactory;
 	float timeScale;
-	NSMutableDictionary *platformViews;
+
+	ElementViewMap *elementViews;
 }
 
 + (CCScene *)scene {
@@ -65,7 +68,7 @@
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
 
-	platformViews = [NSMutableDictionary dictionary];
+	elementViews = [[ElementViewMap alloc] init];
 
 	batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode z:10];
@@ -112,11 +115,14 @@
 }
 
 - (void)initStage {
-	score = 0;
 
 	walter = [[Walter alloc] initAt:cgp(30, 50)];
 	simulation = [[Simulation alloc] initFor:walter];
+
 	stage = [[Stage alloc] init:simulation];
+	AddBadGuyToStageObserver *addBadGuyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation];
+	stage.platformAddedObserver = addBadGuyToStageObserver;
+
 	walterWeapon = [[WalterWeapon alloc] initFor:walter in:simulation];
 	simulation.simulationObserver = self;
 
@@ -124,9 +130,6 @@
 	camera.scale = 0.25;
 	// TODO yucky that this in here
 	viewFactory = [[ViewFactory alloc] init:camera batchNode:batchNode];
-
-	AddBadGuyToStageObserver *addBadGuyToStageObserver = [[AddBadGuyToStageObserver alloc] init:simulation audio:audio];
-	stage.platformAddedObserver = addBadGuyToStageObserver;
 
 	ActorView *walterView = [viewFactory createWalterView:walter];
 	[self addChild:walterView];
@@ -140,9 +143,12 @@
 	[simulation addTicker:[[WalterDeathFallTicker alloc] init:walter in:stage]];
 	[simulation addTicker:[[EnterAndExitTicker alloc] init:simulation camera:camera listener:self]];
 
-	[stage prime];
-
+	score = 0;
 	[self setUpScoreLabel];
+
+	addBadGuyToStageObserver.observer = [[BadGuySound alloc] init:audio];
+
+	[stage prime];
 }
 
 - (void)setUpScoreLabel {
@@ -185,8 +191,6 @@
 #pragma mark SimulationObserver
 
 - (void)addedCharacter:(id <BoundedPolygon, SimulationActor>)character {
-	if (![character isKindOfClass:[BadGuy class]]) return;
-	[self addChild:[viewFactory createBadGuyView:character]];
 }
 
 - (void)addedAttack:(id <BoundedPolygon, SimulationActor>)attack {
@@ -205,21 +209,25 @@
 }
 
 - (void)platformEnteredView:(id <BoundedPolygon>)element {
-	if (![element isKindOfClass:[Platform class]]) return;
-	Platform *platform = (Platform *) element;
+	if ([element isKindOfClass:[Platform class]]) {
+		ActorView *view = [viewFactory createPlatformView:(Platform *) element parent:self];
 
-	ActorView *view = [viewFactory createPlatformView:platform parent:self];
-	[self addChild:view];
-	[platformViews setObject:view forKey:platform];
+		[self addChild:view];
+		[elementViews add:view of:element];
+	} else if ([element isKindOfClass:[BadGuy class]]) {
+		ActorView *view = [viewFactory createBadGuyView:(BadGuy *) element];
+
+		[self addChild:view];
+		[elementViews add:view of:element];
+	}
 }
 
 - (void)platformLeftView:(id <BoundedPolygon>)element {
-	if (![element isKindOfClass:[Platform class]]) return;
-	Platform *platform = (Platform *) element;
+	BOOL isElementOfKnownClass = [element isKindOfClass:[Platform class]] || [element isKindOfClass:[BadGuy class]];
+	if (!isElementOfKnownClass)
+		return;
 
-	ActorView *view = [platformViews objectForKey:platform];
-	[self removeChild:view cleanup:true];
-	[platformViews removeObjectForKey:platform];
+	[self removeChild:[elementViews removeViewFor:element] cleanup:true];
 }
 
 

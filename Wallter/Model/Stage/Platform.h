@@ -6,7 +6,7 @@
 #import "BoundedPolygon.h"
 #import "Polygon.h"
 
-@interface Platform : NSObject<BoundedPolygon,SimulationActor,NSCopying>
+@interface Platform : NSObject<BoundedPolygon,SimulationActor>
 
 @property(nonatomic, readonly) CGPolygon polygon;
 

@@ -9,11 +9,11 @@
 	Simulation *simulation;
 	Camera *camera;
 
-	NSMutableSet *onScreenPlatforms;
-	id <EnvironmentOnScreenObserver> listener;
+	NSMutableSet *onScreenElements;
+	id <ElementOnScreenObserver> listener;
 }
 
-- (id)init:(Simulation *)_simulation camera:(Camera *)_camera listener:(id <EnvironmentOnScreenObserver>)_listener {
+- (id)init:(Simulation *)_simulation camera:(Camera *)_camera listener:(id <ElementOnScreenObserver>)_listener {
 	self = [super init];
 	if (!self) return self;
 
@@ -21,7 +21,7 @@
 	camera = _camera;
 	listener = _listener;
 
-	onScreenPlatforms = [[NSMutableSet alloc] initWithCapacity:10];
+	onScreenElements = [[NSMutableSet alloc] initWithCapacity:10];
 
 	return self;
 }
@@ -32,17 +32,22 @@
 	BOOL (^overlaps)(id, NSDictionary *) = ^BOOL(id <BoundedPolygon> platform, NSDictionary *dictionary) {
 		return ![self overlaps:platform with:cameraRect];
 	};
-	NSSet *deadPlatforms = [onScreenPlatforms filteredSetUsingPredicate:[NSPredicate predicateWithBlock:overlaps]];
+	NSSet *deadElements = [onScreenElements filteredSetUsingPredicate:[NSPredicate predicateWithBlock:overlaps]];
 
-	for (id <BoundedPolygon> platform in deadPlatforms) {
-		[onScreenPlatforms removeObject:platform];
+	for (id <BoundedPolygon> platform in deadElements) {
+		[onScreenElements removeObject:platform];
 		[listener platformLeftView:platform];
 	}
 
-	for (id <BoundedPolygon> platform in simulation.environment) {
-		if ([self overlaps:platform with:cameraRect] && ![onScreenPlatforms containsObject:platform]) {
-			[onScreenPlatforms addObject:platform];
-			[listener platformEnteredView:platform];
+	[self findElementsOnScreen:cameraRect elements:simulation.environment];
+	[self findElementsOnScreen:cameraRect elements:simulation.characters];
+}
+
+- (void)findElementsOnScreen:(CGRect)cameraRect elements:(NSMutableArray *)elements {
+	for (id <BoundedPolygon> element in elements) {
+		if ([self overlaps:element with:cameraRect] && ![onScreenElements containsObject:element]) {
+			[onScreenElements addObject:element];
+			[listener platformEnteredView:element];
 		}
 	}
 }

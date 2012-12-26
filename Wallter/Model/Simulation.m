@@ -12,20 +12,20 @@
 @implementation Simulation {
 	id <BoundedPolygon, SimulationActor> mainActor;
 	NSMutableArray *attacks;
-	NSMutableArray *enemies;
 	NSMutableArray *tickers;
 }
 
 @synthesize simulationObserver;
 
 @synthesize environment;
+@synthesize characters;
 
 - (id)initFor:(id <BoundedPolygon, SimulationActor>)_mainActor {
 	if (self = [super init]) {
 		mainActor = _mainActor;
 		environment = [[NSMutableArray alloc] init];
 		attacks = [[NSMutableArray alloc] init];
-		enemies = [[NSMutableArray alloc] init];
+		characters = [[NSMutableArray alloc] init];
 		tickers = [[NSMutableArray alloc] init];
 	}
 	return self;
@@ -38,10 +38,10 @@
 	[self test:mainActor against:environment];
 
 	[self update:attacks dt:dt];
-	[self testMultiple:enemies against:attacks];
+	[self testMultiple:characters against:attacks];
 
-	[self update:enemies dt:dt];
-	[self test:mainActor against:enemies];
+	[self update:characters dt:dt];
+	[self test:mainActor against:characters];
 
 	for (id<SimulationTicker> ticker in tickers) {
 		[ticker update:dt];
@@ -79,7 +79,7 @@
 }
 
 - (void)addEnemy:(id <BoundedPolygon, SimulationActor>)enemy {
-	[enemies addObject:enemy];
+	[characters addObject:enemy];
 	[simulationObserver addedCharacter:enemy];
 }
 
