@@ -33,12 +33,15 @@
 
 	int padding = 15;
 
-	SimpleButton *goButton = [[SimpleButton alloc] init:@"go.up.png" downFrame:@"go.down.png"];
+	CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
+	[self addChild:batchNode z:10];
+
+	SimpleButton *goButton = [[SimpleButton alloc] init:@"go.up.png" downFrame:@"go.down.png" batch:batchNode];
 	[goButton setReleaseCallbackTarget:self selector:@selector(playGame)];
 	[goButton setPosition:cgp(size.width - padding - goButton.contentSize.width, padding)];
 	[self addChild:goButton z:10];
 
-	SimpleButton *settingsButton = [[SimpleButton alloc] init:@"settings.up.png" downFrame:@"settings.down.png"];
+	SimpleButton *settingsButton = [[SimpleButton alloc] init:@"settings.up.png" downFrame:@"settings.down.png" batch:batchNode];
 	[settingsButton setReleaseCallbackTarget:self selector:@selector(goToSettings)];
 	[settingsButton setPosition:cgp(padding, size.height - padding - settingsButton.contentSize.height)];
 	[self addChild:settingsButton z:10];

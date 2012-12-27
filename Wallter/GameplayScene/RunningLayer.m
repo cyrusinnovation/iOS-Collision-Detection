@@ -60,7 +60,7 @@
 	[audioPlayer playBackgroundMusic:@"music.mp3"];
 
 	CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
-	[self addChild:batchNode z:10];
+	[self addChild:batchNode];
 
 	simulationTiming = [[SimulationTiming alloc] init:0.01 scale:0.6 simulation:simulation];
 
@@ -105,15 +105,18 @@
 - (void)initButtons:(Walter *)walter {
 	CGSize s = [self currentWindowSize];
 
-	SimpleButton *button = [[SimpleButton alloc] init:@"button.blue.png" downFrame:@"button.blue.down.png"];
+	CCSpriteBatchNode *interfaceBatch = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
+	[self addChild:interfaceBatch z:INTERFACE_LAYER];
+
+	SimpleButton *button = [[SimpleButton alloc] init:@"button.blue.png" downFrame:@"button.blue.down.png" batch:interfaceBatch];
 	[button setDepressCallbackTarget:walter selector:@selector(jump)];
 	[button setPosition:cgp(s.width - 80, 16)];
-	[self addChild:button z:INTERFACE_LAYER];
+	[self addChild:button];
 
-	SimpleButton *attackButton = [[SimpleButton alloc] init:@"button.red.png" downFrame:@"button.red.down.png"];
+	SimpleButton *attackButton = [[SimpleButton alloc] init:@"button.red.png" downFrame:@"button.red.down.png" batch:interfaceBatch];
 	[attackButton setDepressCallbackTarget:walter selector:@selector(attack)];
 	[attackButton setPosition:cgp(s.width - 80 * 2, 16)];
-	[self addChild:attackButton z:INTERFACE_LAYER];
+	[self addChild:attackButton];
 }
 
 - (CCLayerColor *)initLayer {

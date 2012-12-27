@@ -52,12 +52,15 @@
 	CGFloat buttonSpacing = labelSpacing;
 	int buttonX = 30;
 
-	SimpleButton *editNameButton = [[SimpleButton alloc] init:@"pencil.png" downFrame:@"pencil.down.png"];
+	CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
+	[self addChild:batchNode z:10];
+
+	SimpleButton *editNameButton = [[SimpleButton alloc] init:@"pencil.png" downFrame:@"pencil.down.png" batch:batchNode];
 	[editNameButton setReleaseCallbackTarget:self selector:@selector(editPlayerName)];
 	[editNameButton setPosition:cgp(buttonX, topButtonHeight)];
 	[self addChild:editNameButton z:10];
 
-	musicOnOffButton = [[SimpleButton alloc] init:@"speaker.on.png" downFrame:@"speaker.off.png"];
+	musicOnOffButton = [[SimpleButton alloc] init:@"speaker.on.png" downFrame:@"speaker.off.png" batch:batchNode];
 	[musicOnOffButton setDepressCallbackTarget:self selector:@selector(changeMusicSetting)];
 	[musicOnOffButton setReleaseCallbackTarget:self selector:@selector(changeMusicSetting)];
 	[musicOnOffButton setPosition:cgp(buttonX, topButtonHeight - buttonSpacing)];
@@ -65,7 +68,7 @@
 	musicOnOffButton.depressed = ![Settings instance].musicOn;
 	[self addChild:musicOnOffButton z:10];
 
-	soundEffectsOnOffButton = [[SimpleButton alloc] init:@"speaker.on.png" downFrame:@"speaker.off.png"];
+	soundEffectsOnOffButton = [[SimpleButton alloc] init:@"speaker.on.png" downFrame:@"speaker.off.png" batch:batchNode];
 	[soundEffectsOnOffButton setDepressCallbackTarget:self selector:@selector(changeSoundSetting)];
 	[soundEffectsOnOffButton setReleaseCallbackTarget:self selector:@selector(changeSoundSetting)];
 	[soundEffectsOnOffButton setPosition:cgp(buttonX, topButtonHeight - buttonSpacing * 2)];
@@ -73,7 +76,7 @@
 	soundEffectsOnOffButton.depressed = ![Settings instance].soundEffectsOn;
 	[self addChild:soundEffectsOnOffButton z:10];
 
-	SimpleButton *saveAndExitButton = [[SimpleButton alloc] init:@"check.png" downFrame:@"check.down.png"];
+	SimpleButton *saveAndExitButton = [[SimpleButton alloc] init:@"check.png" downFrame:@"check.down.png" batch:batchNode];
 	[saveAndExitButton setReleaseCallbackTarget:self selector:@selector(transitionToHighScores)];
 	[saveAndExitButton setPosition:cgp(s.width - 80 * 1, 16)];
 	[self addChild:saveAndExitButton z:10];

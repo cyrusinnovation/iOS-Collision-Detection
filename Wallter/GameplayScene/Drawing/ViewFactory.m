@@ -120,9 +120,7 @@
 
 - (ActorView *)createPlatformView:(Platform *)model parent:(CCNode *)parent {
 	CCSprite *sprite = [CCSprite spriteWithFile:@"stone.png" rect:(CGRect) {0, 0, model.width, model.height}];
-
 	sprite.anchorPoint = ccp(0, 0);
-
 	[sprite setContentSize:(CGSize) {model.width, model.height}];
 
 	ccTexParams tp = {GL_NEAREST, GL_NEAREST, GL_REPEAT, GL_REPEAT};

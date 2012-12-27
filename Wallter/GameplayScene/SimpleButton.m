@@ -23,7 +23,7 @@
 
 @synthesize togglable;
 
-- (id)init:(NSString *)_upFrame downFrame:(NSString *)_downFrame {
+- (id)init:(NSString *)_upFrame downFrame:(NSString *)_downFrame batch:(CCSpriteBatchNode *)batch {
 	upFrame = _upFrame;
 	downFrame = _downFrame;
 
@@ -34,14 +34,20 @@
 	if (!self) return self;
 
 	self.isTouchEnabled = true;
-	[sprite setPosition:cgp(spriteSize.width / 2, spriteSize.height / 2)];
-	[self addChild:sprite];
+	[sprite setAnchorPoint:cgp(0, 0)];
+	[batch addChild:sprite];
 
 	_depressed = false;
 	togglable = false;
 
 	return self;
 }
+
+- (void)setPosition:(CGPoint)position {
+	[super setPosition:position];
+	[sprite setPosition:position];
+}
+
 
 - (void)setDepressCallbackTarget:(id)_target selector:(SEL)_selector {
 	depressTarget = _target;
