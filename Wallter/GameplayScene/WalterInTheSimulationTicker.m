@@ -6,11 +6,11 @@
 #import "WalterInTheSimulationTicker.h"
 
 @implementation WalterInTheSimulationTicker {
-	WalterSimulationActor *walter;
+	Walter *walter;
 	Stage *stage;
 }
 
-- (id)init:(WalterSimulationActor *)_walter in:(Stage *)_stage {
+- (id)init:(Walter *)_walter in:(Stage *)_stage {
 	self = [super init];
 	if (!self) return self;
 	

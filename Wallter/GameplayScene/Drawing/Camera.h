@@ -7,14 +7,14 @@
 
 #import "BoundedPolygon.h"
 #import "SimulationTicker.h"
-#import "WalterSimulationActor.h"
+#import "WalterSimulationActorImpl.h"
 
 @interface Camera : NSObject <SimulationTicker>
 
 @property(nonatomic) float scale;
 
 // TODO not walter
-- (id)init:(WalterSimulationActor *)guy;
+- (id)init:(Walter *)guy;
 
 - (CGPoint)getOffset;
 

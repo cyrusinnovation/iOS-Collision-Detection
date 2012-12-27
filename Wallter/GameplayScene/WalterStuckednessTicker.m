@@ -9,10 +9,10 @@
 	CGPoint waltersLocation;
 	ccTime timeAtCurrentPosition;
 
-	WalterSimulationActor *walter;
+	Walter *walter;
 }
 
-- (id)init:(WalterSimulationActor *)_walter {
+- (id)init:(Walter *)_walter {
 	self = [super init];
 	if (!self) return self;
 

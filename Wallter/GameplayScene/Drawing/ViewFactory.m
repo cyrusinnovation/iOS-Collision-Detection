@@ -9,6 +9,7 @@
 	Camera *camera;
 	CCSpriteBatchNode *batchNode;
 }
+
 @synthesize fireBallAnimation;
 @synthesize walkingAnimation;
 @synthesize runningAnimation;
@@ -110,9 +111,9 @@
 	return view;
 }
 
-- (ActorView *)createWalterView:(WalterSimulationActor *)model {
+- (ActorView *)createWalterView:(Walter *)model {
 	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) initialFrame:@"run0.png" camera:camera parent:batchNode];
-	[view startRepeatingAnimation:walkingAnimation];
+	[view startRepeatingAnimation:runningAnimation];
 	[view setFlipX:!model.runningRight];
 	return view;
 }

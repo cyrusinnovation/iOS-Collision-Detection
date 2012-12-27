@@ -5,7 +5,7 @@
 #import "MeleeAttack.h"
 
 @implementation MeleeAttack {
-	WalterSimulationActor *walterActor;
+	id<WalterSimulationActor> walterActor;
 	CGPolygon polygon;
 	ccTime age;
 	ccTime max_age;
@@ -13,7 +13,7 @@
 
 @synthesize polygon;
 
-- (id)init:(WalterSimulationActor *)_walterActor {
+- (id)init:(id<WalterSimulationActor>)_walterActor {
 	if (self = [super init]) {
 		walterActor = _walterActor;
 		polygon = make_block(0, 0, 0, 0);

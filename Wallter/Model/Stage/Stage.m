@@ -3,10 +3,11 @@
 //
 
 #import "Stage.h"
-#import "WalterSimulationActor.h"
+#import "WalterSimulationActorImpl.h"
 #import "Platform.h"
 #import "NullStageListener.h"
 #import "Simulation.h"
+#import "Walter.h"
 
 typedef enum {
 	generateLeft,
@@ -154,7 +155,7 @@ typedef enum {
 	return new_platform;
 }
 
-- (void)generateAround:(WalterSimulationActor *)guy {
+- (void)generateAround:(Walter *)guy {
 	if (guy.location.y > next_trigger_height) {
 		[self generateNextLevel];
 		next_trigger_height += height_between_levels;

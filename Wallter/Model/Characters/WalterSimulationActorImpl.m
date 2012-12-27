@@ -2,9 +2,8 @@
 // Created by najati on 9/24/12.
 //
 
-#import "WalterSimulationActor.h"
+#import "WalterSimulationActorImpl.h"
 #import "BadGuy.h"
-#import "ProxyCollection.h"
 
 typedef enum {
 	walterIsRunningLeft,
@@ -19,8 +18,7 @@ typedef enum {
 	walterIsFalling,
 } WalterAction;
 
-@implementation WalterSimulationActor {
-	CGPoint location;
+@implementation WalterSimulationActorImpl {
 	CGPoint size;
 	CGPoint velocity;
 	float jumpVelocity;
@@ -33,10 +31,6 @@ typedef enum {
 	bool dead;
 	CGPolygon base_polygon;
 	CGPolygon local_polygon;
-	CGFloat bottom;
-	CGFloat top;
-	CGFloat left;
-	CGFloat right;
 }
 
 @synthesize location;

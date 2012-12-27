@@ -3,7 +3,7 @@
 //
 
 #import "CCNode.h"
-#import "WalterSimulationActor.h"
+#import "WalterSimulationActorImpl.h"
 #import "Camera.h"
 #import "WalterObserver.h"
 

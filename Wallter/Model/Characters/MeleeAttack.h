@@ -4,12 +4,12 @@
 
 #import "BoundedPolygon.h"
 #import "SimulationActor.h"
-#import "WalterSimulationActor.h"
+#import "WalterSimulationActorImpl.h"
 
 #define MELEE_ATTACK_WIDTH 70
 
 @interface MeleeAttack : NSObject<BoundedPolygon, SimulationActor>
-- (id)init:(WalterSimulationActor *)_walterActor;
+- (id)init:(id<WalterSimulationActor>)walter;
 - (BOOL)expired;
 - (void)update:(ccTime)dt;
 @end

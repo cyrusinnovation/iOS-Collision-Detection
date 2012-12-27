@@ -31,6 +31,16 @@
 	}
 }
 
+- (BOOL)respondsToSelector:(SEL)aSelector {
+	for (id target in targets) {
+		if ([target respondsToSelector:aSelector]) {
+			return true;
+		}
+	}
+	return false;
+}
+
+
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
 	return [NSMethodSignature signatureWithObjCTypes:"@^v^c"];
 }

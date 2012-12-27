@@ -4,25 +4,27 @@
 //
 
 
-#import "WalterWeapon.h"
+#import "WalterWeaponImpl.h"
 #import "MeleeAttack.h"
+#import "ProxyCollection.h"
 
 
-@implementation WalterWeapon {
-	WalterSimulationActor *walterActor;
+@implementation WalterWeaponImpl {
+	id<WalterSimulationActor> walterActor;
 	Simulation *simulation;
-	id<WalterObserver> observer;
 }
 
 @synthesize observer;
 
-- (id)initFor:(WalterSimulationActor *)_walter in:(Simulation *)_simulation {
+- (id)initFor:(id<WalterSimulationActor>)_walter in:(Simulation *)_simulation {
 	self = [super init];
 	if (!self) return self;
 
+	observer = (ProxyCollection <WalterObserver> *) [[ProxyCollection alloc] init];
+
 	walterActor = _walter;
 	simulation = _simulation;
-	
+
 	return self;
 }
 
@@ -30,9 +32,7 @@
 	MeleeAttack *attack = [[MeleeAttack alloc] init:walterActor];
 	[simulation addAttack:attack];
 
-	if (observer) {
-		[observer attacking:attack];
-	}
+	[observer attacking];
 }
 
 @end
