@@ -39,7 +39,7 @@
 	Walter *walter = [Walter from:walterActor and:walterWeapon];
 
 	Stage *stage = [[Stage alloc] init:simulation];
-	stage.platformAddedObserver = ([[AddBadGuyToStageObserver alloc] init:simulation]);
+	stage.platformAddedObserver = [[AddBadGuyToStageObserver alloc] init:simulation];
 	[stage prime];
 
 	[simulation addTicker:[[WalterInTheSimulationTicker alloc] init:walter in:stage]];
@@ -57,12 +57,12 @@
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
 
+	simulationTiming = [[SimulationTiming alloc] init:0.01 scale:0.6 simulation:simulation];
+
 	[audioPlayer playBackgroundMusic:@"music.mp3"];
 
 	CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"frames.png"];
 	[self addChild:batchNode];
-
-	simulationTiming = [[SimulationTiming alloc] init:0.01 scale:0.6 simulation:simulation];
 
 	Camera *camera = [[Camera alloc] init:walter];
 	[simulation addTicker:camera];
