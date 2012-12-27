@@ -48,23 +48,21 @@
 	[sprite setFlipX:x];
 }
 
-- (void)startRepeatingAnimation:(CCAnimation *)animation {
+- (void)startRepeatingAnimation:(CCAnimate *)animation {
 	// TODO would it be possible to stop just the animation action
 	[sprite stopAllActions];
-	[sprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]]];
+	[sprite runAction:[CCRepeatForever actionWithAction:animation]];
 }
 
-- (void)startAnimation:(CCAnimation *)animation {
+- (void)startAnimation:(CCAnimate *)animation {
 	// TODO would it be possible to stop just the animation action
 	[sprite stopAllActions];
-	[sprite runAction:[CCAnimate actionWithAnimation:animation]];
+	[sprite runAction:animation];
 }
 
-- (void)playAnimations:(CCAnimation *)firstAnimation andThen:(CCAnimation *)secondAnimation {
+- (void)playAnimations:(CCAnimate *)firstAnimation andThen:(CCAnimate *)secondAnimation {
 	[sprite stopAllActions];
-	CCFiniteTimeAction *firstAnimationAction = [CCAnimate actionWithAnimation:firstAnimation];
-	CCFiniteTimeAction *secondAnimationAction = [CCAnimate actionWithAnimation:secondAnimation];
-	[sprite runAction:[CCSequence actionOne:firstAnimationAction two:secondAnimationAction]];
+	[sprite runAction:[CCSequence actionOne:firstAnimation two:secondAnimation]];
 }
 
 -(void)update:(ccTime) dt {

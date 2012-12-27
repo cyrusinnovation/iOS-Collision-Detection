@@ -21,68 +21,75 @@
 	{
 		float frameDelay = 0.008f;
 
-		fireBallAnimation = [[CCAnimation alloc] init];
+		CCAnimation *fireBall = [[CCAnimation alloc] init];
 		for (int i = 1; i <= 38; i += 2) {
 			NSString *frameName = [NSString stringWithFormat:@"explosion-%02d.png", i];
-			[fireBallAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
+			[fireBall addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
 		}
-		[fireBallAnimation setDelayPerUnit:frameDelay];
-		[fireBallAnimation setRestoreOriginalFrame:false];
-		[fireBallAnimation setLoops:1];
+		[fireBall setDelayPerUnit:frameDelay];
+		[fireBall setRestoreOriginalFrame:false];
+		[fireBall setLoops:1];
+		fireBallAnimation = [CCAnimate actionWithAnimation:fireBall];
 	}
 
 	{
 		float frameDelay = 0.2f;
 
-		walkingAnimation = [[CCAnimation alloc] init];
-		[walkingAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk1.png"]];
-		[walkingAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk2.png"]];
-		[walkingAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk3.png"]];
-		[walkingAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk4.png"]];
-		[walkingAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk5.png"]];
-		[walkingAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk6.png"]];
-		[walkingAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk7.png"]];
-		[walkingAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk0.png"]];
-		[walkingAnimation setDelayPerUnit:frameDelay];
-		[walkingAnimation setRestoreOriginalFrame:true];
-		[walkingAnimation setLoops:INFINITY];
+		CCAnimation *walking = [[CCAnimation alloc] init];
+		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk1.png"]];
+		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk2.png"]];
+		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk3.png"]];
+		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk4.png"]];
+		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk5.png"]];
+		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk6.png"]];
+		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk7.png"]];
+		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk0.png"]];
+		[walking setDelayPerUnit:frameDelay];
+		[walking setRestoreOriginalFrame:true];
+		[walking setLoops:INFINITY];
+
+		walkingAnimation = [CCAnimate actionWithAnimation:walking];
 	}
 
 	{
 		float frameDelay = 0.07f;
 
-		runningAnimation = [[CCAnimation alloc] init];
-		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run1.png"]];
-		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run2.png"]];
-		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run3.png"]];
-		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run4.png"]];
-		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run5.png"]];
-		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run6.png"]];
-		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run7.png"]];
-		[runningAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run0.png"]];
-		[runningAnimation setDelayPerUnit:frameDelay];
-		[runningAnimation setRestoreOriginalFrame:true];
-		[runningAnimation setLoops:INFINITY];
+		CCAnimation *running = [[CCAnimation alloc] init];
+		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run1.png"]];
+		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run2.png"]];
+		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run3.png"]];
+		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run4.png"]];
+		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run5.png"]];
+		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run6.png"]];
+		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run7.png"]];
+		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run0.png"]];
+		[running setDelayPerUnit:frameDelay];
+		[running setRestoreOriginalFrame:true];
+		[running setLoops:INFINITY];
+		runningAnimation = [CCAnimate actionWithAnimation:running];
 
-		jumpUpAnimation = [[CCAnimation alloc] init];
-		[jumpUpAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump0.png"]];
-		[jumpUpAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump1.png"]];
-		[jumpUpAnimation setDelayPerUnit:0.1f];
-		[jumpUpAnimation setRestoreOriginalFrame:false];
+		CCAnimation *jumpUp = [[CCAnimation alloc] init];
+		[jumpUp addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump0.png"]];
+		[jumpUp addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump1.png"]];
+		[jumpUp setDelayPerUnit:0.1f];
+		[jumpUp setRestoreOriginalFrame:false];
+		jumpUpAnimation = [CCAnimate actionWithAnimation:jumpUp];
 
-		jumpDownAnimation = [[CCAnimation alloc] init];
-		[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump2.png"]];
-		[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump3.png"]];
-		[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump4.png"]];
-		[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump5.png"]];
-		[jumpDownAnimation setDelayPerUnit:frameDelay];
-		[jumpDownAnimation setRestoreOriginalFrame:false];
+		CCAnimation *jumpDown = [[CCAnimation alloc] init];
+		[jumpDown addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump2.png"]];
+		[jumpDown addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump3.png"]];
+		[jumpDown addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump4.png"]];
+		[jumpDown addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump5.png"]];
+		[jumpDown setDelayPerUnit:frameDelay];
+		[jumpDown setRestoreOriginalFrame:false];
+		jumpDownAnimation = [CCAnimate actionWithAnimation:jumpDown];
 
-		landAnimation = [[CCAnimation alloc] init];
-		[landAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump6.png"]];
-		[landAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump7.png"]];
-		[landAnimation setDelayPerUnit:frameDelay / 2];
-		[landAnimation setRestoreOriginalFrame:false];
+		CCAnimation *land = [[CCAnimation alloc] init];
+		[land addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump6.png"]];
+		[land addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump7.png"]];
+		[land setDelayPerUnit:frameDelay / 2];
+		[land setRestoreOriginalFrame:false];
+		landAnimation = [CCAnimate actionWithAnimation:land];
 	}
 }
 

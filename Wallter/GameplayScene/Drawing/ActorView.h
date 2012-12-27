@@ -9,13 +9,13 @@
 
 - (id)init:(id <BoundedPolygon, SimulationActor>)_model _scale:(CGPoint)_scale initialFrame:(NSString *)_initialFrame camera:(Camera *)_camera parent:(CCNode *)_parent;
 
-- (void)startAnimation:(CCAnimation *)animation;
+- (void)startAnimation:(CCAnimate *)animation;
 
-- (void)startRepeatingAnimation:(CCAnimation *)animation;
+- (void)startRepeatingAnimation:(CCAnimate *)animation;
 
 - (void)setFlipX:(BOOL)x;
 
-- (void)playAnimations:(CCAnimation *)firstAnimation andThen:(CCAnimation *)secondAnimation;
+- (void)playAnimations:(CCAnimate *)firstAnimation andThen:(CCAnimate *)secondAnimation;
 
 
 @end
