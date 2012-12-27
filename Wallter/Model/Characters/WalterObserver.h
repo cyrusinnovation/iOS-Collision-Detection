@@ -13,5 +13,6 @@
 - (void)falling;
 - (void)running;
 - (void)dying;
-- (void)attacking:(MeleeAttack *)attack;
+
+- (void)attacking;
 @end
