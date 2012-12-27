@@ -18,6 +18,7 @@
 @property(nonatomic, strong) CCAnimate *jumpUpAnimation;
 @property(nonatomic, strong) CCAnimate *jumpDownAnimation;
 @property(nonatomic, strong) CCAnimate *landAnimation;
+@property(nonatomic, strong) CCSequence *landThenRun;
 
 - init:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode;
 

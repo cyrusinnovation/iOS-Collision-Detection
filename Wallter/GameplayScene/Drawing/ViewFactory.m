@@ -16,6 +16,7 @@
 @synthesize jumpUpAnimation;
 @synthesize jumpDownAnimation;
 @synthesize landAnimation;
+@synthesize landThenRun;
 
 - (void)initializeAnimations {
 	{
@@ -90,6 +91,8 @@
 		[land setDelayPerUnit:frameDelay / 2];
 		[land setRestoreOriginalFrame:false];
 		landAnimation = [CCAnimate actionWithAnimation:land];
+
+		landThenRun = [CCSequence actionOne:landAnimation two:runningAnimation];
 	}
 }
 

@@ -42,7 +42,7 @@
 }
 
 - (void)running {
-	[view playAnimations:viewFactory.landAnimation andThen:viewFactory.runningAnimation];
+	[view playAnimationSequence:viewFactory.landThenRun];
 }
 
 - (void)dying {

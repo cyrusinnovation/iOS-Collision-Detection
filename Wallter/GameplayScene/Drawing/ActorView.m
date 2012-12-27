@@ -60,9 +60,9 @@
 	[sprite runAction:animation];
 }
 
-- (void)playAnimations:(CCAnimate *)firstAnimation andThen:(CCAnimate *)secondAnimation {
+- (void)playAnimationSequence:(CCSequence *)animationSequenceAction {
 	[sprite stopAllActions];
-	[sprite runAction:[CCSequence actionOne:firstAnimation two:secondAnimation]];
+	[sprite runAction:animationSequenceAction];
 }
 
 -(void)update:(ccTime) dt {
