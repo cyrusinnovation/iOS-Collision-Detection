@@ -32,7 +32,6 @@
 - (void)groundJumping { }
 - (void)falling { }
 - (void)running { }
-
-- (void)attacking { }
+- (void)attacking:(MeleeAttack *)attack { }
 
 @end

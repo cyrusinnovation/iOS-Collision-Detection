@@ -83,6 +83,7 @@
 		[self transitionAfterPlayerDeath];
 	};
 	[walter.observer add:[[EndGameObserver alloc] init:stopGame]];
+
 	[walter.observer add:[[WalterViewAnimationChanger alloc] init:walterView factory:viewFactory]];
 	[walter.observer add:[[WalterSoundEffects alloc] init:audioPlayer]];
 

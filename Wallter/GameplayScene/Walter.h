@@ -3,9 +3,10 @@
 // copyright Cyrus Innovation
 //
 
-
 @protocol WalterObserver;
 @class ProxyCollection;
+@class WalterSimulationActorImpl;
+@class WalterWeaponImpl;
 
 typedef enum {
 	noJump,
@@ -32,9 +33,9 @@ typedef enum {
 
 @interface Walter : NSObject<WalterSimulationActor, WalterWeapon>
 
-+ (Walter *)from:(NSObject<WalterSimulationActor,WalterObserver> *)actor and:(NSObject<WalterWeapon,WalterObserver> *)weapon;
++ (Walter *)from:(WalterSimulationActorImpl *)actor and:(WalterWeaponImpl *)weapon;
 
-- (id)init:(NSObject<WalterSimulationActor,WalterObserver> *)actor weapon:(NSObject<WalterWeapon,WalterObserver> *)weapon;
+- (id)init:(WalterSimulationActorImpl *)_actor weapon:(WalterWeaponImpl *)_weapon;
 @property(nonatomic, readonly, strong) ProxyCollection<WalterObserver> *observer;
 
 @end

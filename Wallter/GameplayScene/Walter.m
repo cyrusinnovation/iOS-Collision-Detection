@@ -8,6 +8,7 @@
 
 #import "Walter.h"
 #import "WalterSimulationActorImpl.h"
+#import "WalterWeaponImpl.h"
 
 @implementation Walter {
 	NSObject<WalterSimulationActor,WalterObservable> *actor;
@@ -16,11 +17,11 @@
 
 @synthesize observer;
 
-+ (Walter *)from:(NSObject<WalterSimulationActor,WalterObservable> *)actor and:(NSObject<WalterWeapon,WalterObservable> *)weapon {
++ (Walter *)from:(WalterSimulationActorImpl *)actor and:(WalterWeaponImpl *)weapon {
 	return [[self alloc] init:actor weapon:weapon];
 }
 
-- (id)init:(NSObject<WalterSimulationActor,WalterObservable> *)_actor weapon:(NSObject<WalterWeapon,WalterObservable> *)_weapon {
+- (id)init:(WalterSimulationActorImpl *)_actor weapon:(WalterWeaponImpl *)_weapon {
 	self = [super init];
 	if (!self) return self;
 
@@ -40,6 +41,8 @@
 		[anInvocation invokeWithTarget:actor];
 	} else if ([weapon respondsToSelector:anInvocation.selector]) {
 		[anInvocation invokeWithTarget:weapon];
+	} else{
+		[super forwardInvocation:anInvocation];
 	}
 }
 

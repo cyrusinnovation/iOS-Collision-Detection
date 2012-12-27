@@ -46,7 +46,7 @@
 	[audio playEffect:@"DSPLDETH.WAV"];
 }
 
-- (void)attacking {
+- (void)attacking:(MeleeAttack *)attack {
 	[audio playEffect:@"DSPISTOL.WAV"];
 }
 

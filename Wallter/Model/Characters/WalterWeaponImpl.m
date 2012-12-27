@@ -32,7 +32,7 @@
 	MeleeAttack *attack = [[MeleeAttack alloc] init:walterActor];
 	[simulation addAttack:attack];
 
-	[observer attacking];
+	[observer attacking:attack];
 }
 
 @end
