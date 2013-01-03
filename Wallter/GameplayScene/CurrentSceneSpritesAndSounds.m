@@ -59,7 +59,7 @@
 		return;
 
 	ActorView *view = [elementViews removeViewFor:platform];
-	[layer removeChild:view cleanup:true];
+	[view remove];
 }
 
 @end

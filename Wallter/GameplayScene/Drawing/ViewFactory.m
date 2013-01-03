@@ -8,6 +8,8 @@
 @implementation ViewFactory {
 	Camera *camera;
 	CCSpriteBatchNode *batchNode;
+
+	NSMutableArray *platforms;
 }
 
 @synthesize fireBallAnimation;
@@ -105,6 +107,8 @@
 
 	[self initializeAnimations];
 
+	platforms = [[NSMutableArray alloc] initWithCapacity:10];
+
 	return self;
 }
 
@@ -129,14 +133,23 @@
 }
 
 - (ActorView *)createPlatformView:(Platform *)model parent:(CCNode *)parent {
-	CCSprite *sprite = [CCSprite spriteWithFile:@"stone.png" rect:(CGRect) {0, 0, model.width, model.height}];
-	sprite.anchorPoint = ccp(0, 0);
-	[sprite setContentSize:(CGSize) {model.width, model.height}];
+	if ([platforms count] > 0) {
+		ActorView *view = [platforms objectAtIndex:0];
+		[platforms removeObjectAtIndex:0];
 
-	ccTexParams tp = {GL_NEAREST, GL_NEAREST, GL_REPEAT, GL_REPEAT};
-	[sprite.texture setTexParameters:&tp];
+		[view setModel:model];
 
-	return [[ActorView alloc] init:model _scale:cgp(1, 1) sprite:sprite camera:camera parent:parent];
+		return [[ActorView alloc] init:model scale:cgp(1, 1) sprite:view.sprite camera:camera parent:parent pool:platforms];
+	} else {
+		CCSprite *sprite = [CCSprite spriteWithFile:@"stone.png" rect:(CGRect) {0, 0, model.width, model.height}];
+		sprite.anchorPoint = ccp(0, 0);
+		[sprite setContentSize:(CGSize) {model.width, model.height}];
+
+		ccTexParams tp = {GL_NEAREST, GL_NEAREST, GL_REPEAT, GL_REPEAT};
+		[sprite.texture setTexParameters:&tp];
+
+		return [[ActorView alloc] init:model scale:cgp(1, 1) sprite:sprite camera:camera parent:parent pool:platforms];
+	}
 }
 
 @end

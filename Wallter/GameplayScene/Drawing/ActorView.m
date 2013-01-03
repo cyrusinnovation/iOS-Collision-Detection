@@ -10,15 +10,18 @@
 #import "ActorView.h"
 
 @implementation ActorView {
-	id<BoundedPolygon,SimulationActor> model;
+	id <BoundedPolygon, SimulationActor> model;
 
 	Camera *camera;
 	CCSprite *sprite;
 	CCNode *parent;
 	CGPoint scale;
+	NSMutableArray *pool;
 }
 
-- (id)init:(id <BoundedPolygon, SimulationActor>)_model _scale:(CGPoint)_scale sprite:(CCSprite *)_sprite camera:(Camera *)_camera parent:(CCNode *)_parent {
+@synthesize sprite;
+
+- (id)init:(id <BoundedPolygon, SimulationActor>)_model scale:(CGPoint)_scale sprite:(CCSprite *)_sprite camera:(Camera *)_camera parent:(CCNode *)_parent pool:(NSMutableArray *)_pool {
 	self = [super init];
 	if (!self) return self;
 	[self scheduleUpdate];
@@ -29,6 +32,8 @@
 	parent = _parent;
 
 	sprite = _sprite;
+
+	pool = _pool;
 
 	[camera transform:sprite to:model scale:scale];
 	[parent addChild:sprite];
@@ -41,7 +46,7 @@
 	[_sprite setScaleX:scale.x * camera.scale];
 	[_sprite setScaleY:scale.y * camera.scale];
 
-	return [self init:_model _scale:_scale sprite:_sprite camera:_camera parent:_parent];
+	return [self init:_model scale:_scale sprite:_sprite camera:_camera parent:_parent pool:nil];
 }
 
 - (void)setFlipX:(BOOL)x {
@@ -65,14 +70,26 @@
 	[sprite runAction:animationSequenceAction];
 }
 
--(void)update:(ccTime) dt {
+- (void)setModel:(id <BoundedPolygon, SimulationActor>)_model {
+	model = _model;
+
+	float width = model.right - model.left;
+	float height = model.top - model.bottom;
+
+	[sprite setTextureRect:(CGRect) {0, 0, (width), (height)}];
+	sprite.anchorPoint = ccp(0, 0);
+	[sprite setContentSize:(CGSize) {(width), (height)}];
+}
+
+- (void)update:(ccTime)dt {
 	if (model.expired) {
 		[self remove];
 	}
 }
 
 - (void)remove {
-	[self removeFromParentAndCleanup:true];
+	[pool addObject:self];
+	[self removeFromParentAndCleanup:false];
 	[sprite removeFromParentAndCleanup:true];
 }
 
@@ -84,6 +101,5 @@
 - (void)dealloc {
 	[self remove];
 }
-
 
 @end
