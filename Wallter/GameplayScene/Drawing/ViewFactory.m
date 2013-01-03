@@ -139,7 +139,9 @@
 
 		[view setModel:model];
 
-		return [[ActorView alloc] init:model scale:cgp(1, 1) sprite:view.sprite camera:camera parent:parent pool:platforms];
+		[view update:0];
+		[parent addChild:view.sprite];
+		return view;
 	} else {
 		CCSprite *sprite = [CCSprite spriteWithFile:@"stone.png" rect:(CGRect) {0, 0, model.width, model.height}];
 		sprite.anchorPoint = ccp(0, 0);

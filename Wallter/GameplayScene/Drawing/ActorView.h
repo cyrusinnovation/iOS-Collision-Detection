@@ -23,4 +23,7 @@
 
 - (void)remove;
 
+- (void)update:(ccTime)dt;
+
+
 @end

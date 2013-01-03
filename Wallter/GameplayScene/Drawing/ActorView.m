@@ -84,6 +84,8 @@
 - (void)update:(ccTime)dt {
 	if (model.expired) {
 		[self remove];
+	} else {
+		[camera transform:sprite to:model scale:scale];
 	}
 }
 
@@ -91,11 +93,6 @@
 	[pool addObject:self];
 	[self removeFromParentAndCleanup:false];
 	[sprite removeFromParentAndCleanup:true];
-}
-
-- (void)draw {
-	[camera transform:sprite to:model scale:scale];
-	[super draw];
 }
 
 - (void)dealloc {
