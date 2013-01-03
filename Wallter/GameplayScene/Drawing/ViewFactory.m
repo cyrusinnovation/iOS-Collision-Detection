@@ -68,7 +68,7 @@
 		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run7.png"]];
 		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run0.png"]];
 		[running setDelayPerUnit:frameDelay];
-		[running setRestoreOriginalFrame:true];
+		[running setRestoreOriginalFrame:false];
 		[running setLoops:INFINITY];
 		runningAnimation = [CCAnimate actionWithAnimation:running];
 
