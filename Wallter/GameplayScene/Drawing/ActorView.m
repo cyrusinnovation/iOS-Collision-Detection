@@ -41,22 +41,16 @@
 	return self;
 }
 
-- (id)init:(id <BoundedPolygon, SimulationActor>)_model _scale:(CGPoint)_scale initialFrame:(NSString *)_initialFrame camera:(Camera *)_camera parent:(CCNode *)_parent pool:(NSMutableArray *)pool {
-	CCSprite *_sprite = [CCSprite spriteWithSpriteFrameName:_initialFrame];
+- (id)init:(id <BoundedPolygon, SimulationActor>)_model scale:(CGPoint)_scale initialFrame:(NSString *)initialFrame camera:(Camera *)camera parent:(CCNode *)parent pool:(NSMutableArray *)pool {
+	CCSprite *_sprite = [CCSprite spriteWithSpriteFrameName:initialFrame];
 	[_sprite setScaleX:scale.x * camera.scale];
 	[_sprite setScaleY:scale.y * camera.scale];
 
-	return [self init:_model scale:_scale sprite:_sprite camera:_camera parent:_parent pool:pool];
+	return [self init:_model scale:_scale sprite:_sprite camera:camera parent:parent pool:pool];
 }
 
 - (void)setFlipX:(BOOL)x {
 	[sprite setFlipX:x];
-}
-
-- (void)startRepeatingAnimation:(CCAnimate *)animation {
-	// TODO would it be possible to stop just the animation action
-	[sprite stopAllActions];
-	[sprite runAction:[CCRepeatForever actionWithAction:animation]];
 }
 
 - (void)startAnimation:(CCAnimate *)animation {

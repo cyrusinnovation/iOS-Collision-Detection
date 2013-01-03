@@ -11,6 +11,7 @@
 
 	NSMutableArray *platforms;
 	NSMutableArray *attacks;
+	NSMutableArray *badguys;
 }
 
 @synthesize fireBallAnimation;
@@ -49,7 +50,7 @@
 		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk7.png"]];
 		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk0.png"]];
 		[walking setDelayPerUnit:frameDelay];
-		[walking setRestoreOriginalFrame:true];
+		[walking setRestoreOriginalFrame:false];
 		[walking setLoops:INFINITY];
 
 		walkingAnimation = [CCAnimate actionWithAnimation:walking];
@@ -110,6 +111,7 @@
 
 	platforms = [[NSMutableArray alloc] initWithCapacity:10];
 	attacks = [[NSMutableArray alloc] initWithCapacity:10];
+	badguys = [[NSMutableArray alloc] initWithCapacity:10];
 
 	return self;
 }
@@ -126,22 +128,37 @@
 		[view startAnimation:fireBallAnimation];
 		return view;
 	} else {
-		ActorView *view = [[ActorView alloc] init:model _scale:cgp(2, 0.7) initialFrame:@"explosion-00.png" camera:camera parent:batchNode pool:attacks];
+		ActorView *view = [[ActorView alloc] init:model scale:cgp(2, 0.7) initialFrame:@"explosion-00.png" camera:camera parent:batchNode pool:attacks];
 		[view startAnimation:fireBallAnimation];
 		return view;
 	}
 }
 
 - (ActorView *)createBadGuyView:(BadGuy *)model {
-	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) initialFrame:@"walk0.png" camera:camera parent:batchNode pool:nil];
-	[view startRepeatingAnimation:walkingAnimation];
-	[view setFlipX:!model.facingRight];
-	return view;
+	if ([badguys count] > 0) {
+		ActorView *view = [badguys objectAtIndex:0];
+		[badguys removeObjectAtIndex:0];
+
+		[view setModel:model];
+
+		[view update:0];
+		[batchNode addChild:view.sprite];
+		[view startAnimation:walkingAnimation];
+		[view setFlipX:!model.facingRight];
+		return view;
+	} else {
+		ActorView *view = [[ActorView alloc] init:model scale:cgp(1.25, 1.25) initialFrame:@"walk0.png" camera:camera parent:batchNode pool:nil];
+		// TODO would it be possible to stop just the animation action
+		[view startAnimation:walkingAnimation];
+		[view setFlipX:!model.facingRight];
+		return view;
+	}
 }
 
 - (ActorView *)createWalterView:(Walter *)model {
-	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) initialFrame:@"run0.png" camera:camera parent:batchNode pool:nil];
-	[view startRepeatingAnimation:runningAnimation];
+	ActorView *view = [[ActorView alloc] init:model scale:cgp(1.25, 1.25) initialFrame:@"run0.png" camera:camera parent:batchNode pool:nil];
+	// TODO would it be possible to stop just the animation action
+	[view startAnimation:runningAnimation];
 	[view setFlipX:!model.runningRight];
 	return view;
 }
