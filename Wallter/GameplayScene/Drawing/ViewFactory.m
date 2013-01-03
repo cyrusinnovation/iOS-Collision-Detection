@@ -10,6 +10,7 @@
 	CCSpriteBatchNode *batchNode;
 
 	NSMutableArray *platforms;
+	NSMutableArray *attacks;
 }
 
 @synthesize fireBallAnimation;
@@ -108,25 +109,38 @@
 	[self initializeAnimations];
 
 	platforms = [[NSMutableArray alloc] initWithCapacity:10];
+	attacks = [[NSMutableArray alloc] initWithCapacity:10];
 
 	return self;
 }
 
 - (ActorView *)createMeleeAttackView:(MeleeAttack *)model {
-	ActorView *view = [[ActorView alloc] init:model _scale:cgp(2, 0.7) initialFrame:@"explosion-00.png" camera:camera parent:batchNode];
-	[view startAnimation:fireBallAnimation];
-	return view;
+	if ([attacks count] > 0) {
+		ActorView *view = [attacks objectAtIndex:0];
+		[attacks removeObjectAtIndex:0];
+
+		[view setModel:model];
+
+		[view update:0];
+		[batchNode addChild:view.sprite];
+		[view startAnimation:fireBallAnimation];
+		return view;
+	} else {
+		ActorView *view = [[ActorView alloc] init:model _scale:cgp(2, 0.7) initialFrame:@"explosion-00.png" camera:camera parent:batchNode pool:attacks];
+		[view startAnimation:fireBallAnimation];
+		return view;
+	}
 }
 
 - (ActorView *)createBadGuyView:(BadGuy *)model {
-	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) initialFrame:@"walk0.png" camera:camera parent:batchNode];
+	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) initialFrame:@"walk0.png" camera:camera parent:batchNode pool:nil];
 	[view startRepeatingAnimation:walkingAnimation];
 	[view setFlipX:!model.facingRight];
 	return view;
 }
 
 - (ActorView *)createWalterView:(Walter *)model {
-	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) initialFrame:@"run0.png" camera:camera parent:batchNode];
+	ActorView *view = [[ActorView alloc] init:model _scale:cgp(1.25, 1.25) initialFrame:@"run0.png" camera:camera parent:batchNode pool:nil];
 	[view startRepeatingAnimation:runningAnimation];
 	[view setFlipX:!model.runningRight];
 	return view;

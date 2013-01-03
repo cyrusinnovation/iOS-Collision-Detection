@@ -41,12 +41,12 @@
 	return self;
 }
 
-- (id)init:(id <BoundedPolygon, SimulationActor>)_model _scale:(CGPoint)_scale initialFrame:(NSString *)_initialFrame camera:(Camera *)_camera parent:(CCNode *)_parent {
+- (id)init:(id <BoundedPolygon, SimulationActor>)_model _scale:(CGPoint)_scale initialFrame:(NSString *)_initialFrame camera:(Camera *)_camera parent:(CCNode *)_parent pool:(NSMutableArray *)pool {
 	CCSprite *_sprite = [CCSprite spriteWithSpriteFrameName:_initialFrame];
 	[_sprite setScaleX:scale.x * camera.scale];
 	[_sprite setScaleY:scale.y * camera.scale];
 
-	return [self init:_model scale:_scale sprite:_sprite camera:_camera parent:_parent pool:nil];
+	return [self init:_model scale:_scale sprite:_sprite camera:_camera parent:_parent pool:pool];
 }
 
 - (void)setFlipX:(BOOL)x {
