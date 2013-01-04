@@ -409,6 +409,8 @@ typedef struct _ccBezierConfig {
 +(id) actionWithAnimation:(CCAnimation*)animation;
 /** initializes the action with an Animation and will restore the original frame when the animtion is over */
 -(id) initWithAnimation:(CCAnimation*)animation;
+
+-(void) reinit:(CCAnimation*)anim;
 @end
 
 /** Overrides the target of an action so that it always runs on the target

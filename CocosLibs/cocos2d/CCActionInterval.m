@@ -1289,6 +1289,38 @@ static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 	return self;
 }
 
+-(void) reinit:(CCAnimation*)anim
+{
+	NSAssert( anim!=nil, @"Animate: argument Animation must be non-nil");
+
+	float singleDuration = anim.duration;
+
+	duration_ = singleDuration * anim.loops;
+	if( duration_ == 0 )
+		duration_ = FLT_EPSILON;
+
+	elapsed_ = 0;
+	firstTick_ = YES;
+
+	nextFrame_ = 0;
+	self.animation = anim;
+	origFrame_ = nil;
+	executedLoops_ = 0;
+
+	splitTimes_ = [[NSMutableArray alloc] initWithCapacity:anim.frames.count];
+
+	float accumUnitsOfTime = 0;
+	float newUnitOfTimeValue = singleDuration / anim.totalDelayUnits;
+
+	for( CCAnimationFrame *frame in anim.frames ) {
+
+		NSNumber *value = [NSNumber numberWithFloat: (accumUnitsOfTime * newUnitOfTimeValue) / singleDuration];
+		accumUnitsOfTime += frame.delayUnits;
+
+		[splitTimes_ addObject:value];
+	}
+}
+
 
 -(id) copyWithZone: (NSZone*) zone
 {
