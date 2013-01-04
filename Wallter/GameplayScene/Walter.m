@@ -11,8 +11,8 @@
 #import "WalterWeaponImpl.h"
 
 @implementation Walter {
-	NSObject<WalterSimulationActor,WalterObservable> *actor;
-	NSObject<WalterWeapon,WalterObservable> *weapon;
+	NSObject<WalterObservable> *actor;
+	NSObject<WalterObservable> *weapon;
 }
 
 @synthesize observer;
