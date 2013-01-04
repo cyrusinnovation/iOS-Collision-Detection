@@ -18,6 +18,7 @@
 	CCNode *parent;
 	CGPoint scale;
 	NSMutableArray *pool;
+	CCAnimate *animation;
 }
 
 @synthesize sprite;
@@ -55,7 +56,7 @@
 	CCSprite *_sprite = [CCSprite spriteWithTexture:spriteFrame.texture rect:spriteFrame.rect];
 	ActorView *view = [self init:_model scale:_scale sprite:_sprite camera:_camera parent:_parent pool:_pool];
 
-	[view startAnimation:[CCAnimate actionWithAnimation:_animation]];
+	[view startAnimation:_animation];
 	[view setFlipX:!_model.facingRight];
 	return view;
 }
@@ -64,8 +65,12 @@
 	[sprite setFlipX:x];
 }
 
-- (void)startAnimation:(CCAnimate *)animation {
-	// TODO would it be possible to stop just the animation action
+- (void)startAnimation:(CCAnimation *)_animation {
+	if (!animation) {
+		animation = [CCAnimate actionWithAnimation:_animation];
+	} else {
+		[animation reinit:_animation];
+	}
 	[sprite stopAllActions];
 	[sprite runAction:animation];
 }

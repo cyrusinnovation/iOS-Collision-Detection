@@ -27,7 +27,6 @@ typedef enum {
 @protocol WalterSimulationActor<BoundedPolygon, SimulationActor, HasFacing>
 @property(nonatomic, readonly) CGFloat width;
 @property(nonatomic, readonly) CGPoint location;
-@property(nonatomic, readonly) bool facingRight;
 - (void)correct:(CGPoint)delta;
 - (JumpType)jump;
 - (void)kill;

@@ -70,21 +70,19 @@
 		[running setRestoreOriginalFrame:false];
 		[running setLoops:INFINITY];
 
-		CCAnimation *jumpUp = [[CCAnimation alloc] init];
-		[jumpUp addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump0.png"]];
-		[jumpUp addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump1.png"]];
-		[jumpUp setDelayPerUnit:0.1f];
-		[jumpUp setRestoreOriginalFrame:false];
-		jumpUpAnimation = [CCAnimate actionWithAnimation:jumpUp];
+		jumpUpAnimation = [[CCAnimation alloc] init];
+		[jumpUpAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump0.png"]];
+		[jumpUpAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump1.png"]];
+		[jumpUpAnimation setDelayPerUnit:0.1f];
+		[jumpUpAnimation setRestoreOriginalFrame:false];
 
-		CCAnimation *jumpDown = [[CCAnimation alloc] init];
-		[jumpDown addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump2.png"]];
-		[jumpDown addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump3.png"]];
-		[jumpDown addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump4.png"]];
-		[jumpDown addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump5.png"]];
-		[jumpDown setDelayPerUnit:frameDelay];
-		[jumpDown setRestoreOriginalFrame:false];
-		jumpDownAnimation = [CCAnimate actionWithAnimation:jumpDown];
+		jumpDownAnimation = [[CCAnimation alloc] init];
+		[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump2.png"]];
+		[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump3.png"]];
+		[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump4.png"]];
+		[jumpDownAnimation addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump5.png"]];
+		[jumpDownAnimation setDelayPerUnit:frameDelay];
+		[jumpDownAnimation setRestoreOriginalFrame:false];
 
 		CCAnimation *land = [[CCAnimation alloc] init];
 		[land addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump6.png"]];
@@ -122,7 +120,7 @@
 
 		[view update:0];
 		[batchNode addChild:view.sprite];
-		[view startAnimation:[CCAnimate actionWithAnimation:fireBall]];
+		[view startAnimation:fireBall];
 		return view;
 	} else {
 		return [[ActorView alloc] init:model scale:cgp(2, 0.7) animation:fireBall camera:camera parent:batchNode pool:attacks];
@@ -138,7 +136,7 @@
 
 		[view update:0];
 		[batchNode addChild:view.sprite];
-		[view startAnimation:[CCAnimate actionWithAnimation:walking]];
+		[view startAnimation:walking];
 		[view setFlipX:!model.facingRight];
 		return view;
 	} else {
