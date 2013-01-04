@@ -42,6 +42,10 @@
 	free_polygon(polygon);
 }
 
+- (BOOL)facingRight {
+	return walterActor.facingRight;
+}
+
 - (void)collides:(SATResult)result with:(id <BoundedPolygon>)that {
 }
 

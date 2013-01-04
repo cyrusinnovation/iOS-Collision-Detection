@@ -125,9 +125,7 @@
 		[view startAnimation:[CCAnimate actionWithAnimation:fireBall]];
 		return view;
 	} else {
-		ActorView *view = [[ActorView alloc] init:model scale:cgp(2, 0.7) initialFrame:@"explosion-00.png" camera:camera parent:batchNode pool:attacks];
-		[view startAnimation:[CCAnimate actionWithAnimation:fireBall]];
-		return view;
+		return [[ActorView alloc] init:model scale:cgp(2, 0.7) animation:fireBall camera:camera parent:batchNode pool:attacks];
 	}
 }
 
@@ -149,8 +147,7 @@
 }
 
 - (ActorView *)createWalterView:(Walter *)model {
-	ActorView *view = [[ActorView alloc] init:model scale:cgp(1.25, 1.25) animation:running camera:camera parent:batchNode pool:nil];
-	return view;
+	return [[ActorView alloc] init:model scale:cgp(1.25, 1.25) animation:running camera:camera parent:batchNode pool:nil];
 }
 
 - (ActorView *)createPlatformView:(Platform *)model parent:(CCNode *)parent {
