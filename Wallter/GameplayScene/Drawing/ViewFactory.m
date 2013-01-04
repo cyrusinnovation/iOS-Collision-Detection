@@ -13,10 +13,10 @@
 	NSMutableArray *attacks;
 	NSMutableArray *badGuys;
 
-	CCAnimate *runningAnimation;
 	CCAnimate *landAnimation;
 	CCAnimation *fireBall;
 	CCAnimation *walking;
+	CCAnimation *running;
 }
 
 @synthesize jumpUpAnimation;
@@ -57,7 +57,7 @@
 	{
 		float frameDelay = 0.07f;
 
-		CCAnimation *running = [[CCAnimation alloc] init];
+		running = [[CCAnimation alloc] init];
 		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run1.png"]];
 		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run2.png"]];
 		[running addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"run3.png"]];
@@ -69,7 +69,6 @@
 		[running setDelayPerUnit:frameDelay];
 		[running setRestoreOriginalFrame:false];
 		[running setLoops:INFINITY];
-		runningAnimation = [CCAnimate actionWithAnimation:running];
 
 		CCAnimation *jumpUp = [[CCAnimation alloc] init];
 		[jumpUp addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"jump0.png"]];
@@ -94,7 +93,7 @@
 		[land setRestoreOriginalFrame:false];
 		landAnimation = [CCAnimate actionWithAnimation:land];
 
-		landThenRun = [CCSequence actionOne:landAnimation two:runningAnimation];
+		landThenRun = [CCSequence actionOne:landAnimation two:[CCAnimate actionWithAnimation:running]];
 	}
 }
 
@@ -150,10 +149,7 @@
 }
 
 - (ActorView *)createWalterView:(Walter *)model {
-	ActorView *view = [[ActorView alloc] init:model scale:cgp(1.25, 1.25) initialFrame:@"run0.png" camera:camera parent:batchNode pool:nil];
-	// TODO would it be possible to stop just the animation action
-	[view startAnimation:runningAnimation];
-	[view setFlipX:!model.runningRight];
+	ActorView *view = [[ActorView alloc] init:model scale:cgp(1.25, 1.25) animation:running camera:camera parent:batchNode pool:nil];
 	return view;
 }
 

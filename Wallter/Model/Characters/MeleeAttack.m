@@ -53,7 +53,7 @@
 	age += dt;
 
 	int attack_width = MELEE_ATTACK_WIDTH;
-	if (walterActor.runningRight) {
+	if (walterActor.facingRight) {
 		CGPolygon guyPoly = walterActor.polygon;
 		polygon.points[0] = guyPoly.points[1];
 		polygon.points[1] = guyPoly.points[1];

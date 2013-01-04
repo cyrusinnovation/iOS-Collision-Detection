@@ -13,7 +13,7 @@
 @interface BadGuy : NSObject<BoundedPolygon, SimulationActor, HasFacing>
 
 @property(nonatomic, readonly) CGPolygon polygon;
-@property(nonatomic, readonly) bool facingRight;
+@property(nonatomic, readonly) BOOL facingRight;
 
 @property(nonatomic, readonly, strong) ProxyCollection<BadGuyObserver> *observer;
 

@@ -44,7 +44,7 @@ typedef enum {
 
 @synthesize observer;
 
-- (BOOL)runningRight {
+- (BOOL)facingRight {
 	return direction == walterIsRunningRight;
 }
 

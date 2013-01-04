@@ -48,7 +48,7 @@
 	float y = yOffset / scale;
 
 	float x;
-	if (guy.runningRight) {
+	if (guy.facingRight) {
 		x = xOffset;
 	} else {
 		x = screenSize.width / scale - xOffset;

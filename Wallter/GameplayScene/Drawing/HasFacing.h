@@ -5,5 +5,5 @@
 
 
 @protocol HasFacing <NSObject>
-@property(nonatomic, readonly) bool facingRight;
+@property(nonatomic, readonly) BOOL facingRight;
 @end

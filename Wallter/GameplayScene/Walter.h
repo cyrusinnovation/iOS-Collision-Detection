@@ -3,6 +3,8 @@
 // copyright Cyrus Innovation
 //
 
+#import "HasFacing.h"
+
 @protocol WalterObserver;
 @class ProxyCollection;
 @class WalterSimulationActorImpl;
@@ -22,16 +24,16 @@ typedef enum {
 - (void)attack;
 @end
 
-@protocol WalterSimulationActor<BoundedPolygon, SimulationActor>
+@protocol WalterSimulationActor<BoundedPolygon, SimulationActor, HasFacing>
 @property(nonatomic, readonly) CGFloat width;
 @property(nonatomic, readonly) CGPoint location;
-@property(nonatomic, readonly) BOOL runningRight;
+@property(nonatomic, readonly) bool facingRight;
 - (void)correct:(CGPoint)delta;
 - (JumpType)jump;
 - (void)kill;
 @end
 
-@interface Walter : NSObject<WalterSimulationActor, WalterWeapon>
+@interface Walter : NSObject<WalterSimulationActor, WalterWeapon, HasFacing>
 
 + (Walter *)from:(WalterSimulationActorImpl *)actor and:(WalterWeaponImpl *)weapon;
 

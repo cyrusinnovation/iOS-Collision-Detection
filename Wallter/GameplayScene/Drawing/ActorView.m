@@ -54,7 +54,7 @@
 	CCSpriteFrame *spriteFrame = [(CCAnimationFrame *) [_animation.frames objectAtIndex:0] spriteFrame];
 	CCSprite *_sprite = [CCSprite spriteWithTexture:spriteFrame.texture rect:spriteFrame.rect];
 	ActorView *view = [self init:_model scale:_scale sprite:_sprite camera:_camera parent:_parent pool:_pool];
-	// TODO would it be possible to stop just the animation action
+
 	[view startAnimation:[CCAnimate actionWithAnimation:_animation]];
 	[view setFlipX:!_model.facingRight];
 	return view;
