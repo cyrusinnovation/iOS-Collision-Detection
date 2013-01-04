@@ -57,7 +57,7 @@
 	[self scheduleUpdate];
 	self.isTouchEnabled = YES;
 
-	simulationTiming = [[SimulationTiming alloc] init:0.01 scale:0.6 simulation:simulation];
+	simulationTiming = [[SimulationTiming alloc] init:0.01 scale:0.3 simulation:simulation];
 
 	[audioPlayer playBackgroundMusic:@"music.mp3"];
 

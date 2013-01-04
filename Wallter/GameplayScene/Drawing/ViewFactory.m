@@ -13,10 +13,10 @@
 	NSMutableArray *attacks;
 	NSMutableArray *badGuys;
 
-	CCAnimate *fireBallAnimation;
-	CCAnimate *walkingAnimation;
 	CCAnimate *runningAnimation;
 	CCAnimate *landAnimation;
+	CCAnimation *fireBall;
+	CCAnimation *walking;
 }
 
 @synthesize jumpUpAnimation;
@@ -27,7 +27,7 @@
 	{
 		float frameDelay = 0.008f;
 
-		CCAnimation *fireBall = [[CCAnimation alloc] init];
+		fireBall = [[CCAnimation alloc] init];
 		for (int i = 1; i <= 38; i += 2) {
 			NSString *frameName = [NSString stringWithFormat:@"explosion-%02d.png", i];
 			[fireBall addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
@@ -35,13 +35,12 @@
 		[fireBall setDelayPerUnit:frameDelay];
 		[fireBall setRestoreOriginalFrame:false];
 		[fireBall setLoops:1];
-		fireBallAnimation = [CCAnimate actionWithAnimation:fireBall];
 	}
 
 	{
 		float frameDelay = 0.2f;
 
-		CCAnimation *walking = [[CCAnimation alloc] init];
+		walking = [[CCAnimation alloc] init];
 		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk1.png"]];
 		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk2.png"]];
 		[walking addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"walk3.png"]];
@@ -53,8 +52,6 @@
 		[walking setDelayPerUnit:frameDelay];
 		[walking setRestoreOriginalFrame:false];
 		[walking setLoops:INFINITY];
-
-		walkingAnimation = [CCAnimate actionWithAnimation:walking];
 	}
 
 	{
@@ -126,11 +123,11 @@
 
 		[view update:0];
 		[batchNode addChild:view.sprite];
-		[view startAnimation:fireBallAnimation];
+		[view startAnimation:[CCAnimate actionWithAnimation:fireBall]];
 		return view;
 	} else {
 		ActorView *view = [[ActorView alloc] init:model scale:cgp(2, 0.7) initialFrame:@"explosion-00.png" camera:camera parent:batchNode pool:attacks];
-		[view startAnimation:fireBallAnimation];
+		[view startAnimation:[CCAnimate actionWithAnimation:fireBall]];
 		return view;
 	}
 }
@@ -144,15 +141,11 @@
 
 		[view update:0];
 		[batchNode addChild:view.sprite];
-		[view startAnimation:walkingAnimation];
+		[view startAnimation:[CCAnimate actionWithAnimation:walking]];
 		[view setFlipX:!model.facingRight];
 		return view;
 	} else {
-		ActorView *view = [[ActorView alloc] init:model scale:cgp(1.25, 1.25) initialFrame:@"walk0.png" camera:camera parent:batchNode pool:nil];
-		// TODO would it be possible to stop just the animation action
-		[view startAnimation:walkingAnimation];
-		[view setFlipX:!model.facingRight];
-		return view;
+		return [[ActorView alloc] init:model scale:cgp(1.25, 1.25) animation:walking camera:camera parent:batchNode pool:nil];
 	}
 }
 

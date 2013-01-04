@@ -5,10 +5,11 @@
 #import "BadGuy.h"
 #import "MeleeAttack.h"
 
-@implementation BadGuy
+@implementation BadGuy {
+	bool dead;
+}
 
 @synthesize polygon;
-@synthesize dead;
 @synthesize facingRight;
 
 @synthesize top;

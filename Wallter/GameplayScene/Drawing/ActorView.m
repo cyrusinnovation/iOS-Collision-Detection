@@ -8,6 +8,7 @@
 #import "CCAnimation.h"
 #import "CCActionInterval.h"
 #import "ActorView.h"
+#import "HasFacing.h"
 
 @implementation ActorView {
 	id <BoundedPolygon, SimulationActor> model;
@@ -47,6 +48,16 @@
 	[_sprite setScaleY:scale.y * _camera.scale];
 
 	return [self init:_model scale:_scale sprite:_sprite camera:_camera parent:_parent pool:_pool];
+}
+
+- (id)init:(id <BoundedPolygon, SimulationActor, HasFacing>)_model scale:(CGPoint)_scale animation:(CCAnimation *)_animation camera:(Camera *)_camera parent:(CCSpriteBatchNode *)_parent pool:(NSMutableArray *)_pool {
+	CCSpriteFrame *spriteFrame = [(CCAnimationFrame *) [_animation.frames objectAtIndex:0] spriteFrame];
+	CCSprite *_sprite = [CCSprite spriteWithTexture:spriteFrame.texture rect:spriteFrame.rect];
+	ActorView *view = [self init:_model scale:_scale sprite:_sprite camera:_camera parent:_parent pool:_pool];
+	// TODO would it be possible to stop just the animation action
+	[view startAnimation:[CCAnimate actionWithAnimation:_animation]];
+	[view setFlipX:!_model.facingRight];
+	return view;
 }
 
 - (void)setFlipX:(BOOL)x {

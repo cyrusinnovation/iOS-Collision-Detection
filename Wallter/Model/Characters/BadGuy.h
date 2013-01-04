@@ -8,11 +8,11 @@
 #import "BoundedPolygon.h"
 #import "SimulationActor.h"
 #import "BadGuyObserver.h"
+#import "HasFacing.h"
 
-@interface BadGuy : NSObject<BoundedPolygon, SimulationActor>
+@interface BadGuy : NSObject<BoundedPolygon, SimulationActor, HasFacing>
 
 @property(nonatomic, readonly) CGPolygon polygon;
-@property(nonatomic, readonly) bool dead;
 @property(nonatomic, readonly) bool facingRight;
 
 @property(nonatomic, readonly, strong) ProxyCollection<BadGuyObserver> *observer;

@@ -132,6 +132,7 @@
 		C13DA07630AA078B61584534 /* SimpleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleButton.h; sourceTree = "<group>"; };
 		C13DA088AEA2E22D796A284D /* EnterAndExitTicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterAndExitTicker.m; sourceTree = "<group>"; };
 		C13DA0A364E56B17D7C87B5B /* CurrentSceneSpritesAndSounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentSceneSpritesAndSounds.h; sourceTree = "<group>"; };
+		C13DA145325D675085CC678D /* HasFacing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HasFacing.h; sourceTree = "<group>"; };
 		C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSPODTH3.WAV; path = Resources/Sounds/DSPODTH3.WAV; sourceTree = "<group>"; };
 		C13DA1AED6CE2E4B7C4C3329 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
 		C13DA212E16888CF50FAD9B4 /* CurrentSceneSpritesAndSounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentSceneSpritesAndSounds.m; sourceTree = "<group>"; };
@@ -497,6 +498,7 @@
 				C13DA47B10239D01FFB6471F /* ActorView.m */,
 				C13DA439AFF2A6E84058756F /* ViewFactory.m */,
 				C13DA5771AEFD91B29766378 /* ViewFactory.h */,
+				C13DA145325D675085CC678D /* HasFacing.h */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
