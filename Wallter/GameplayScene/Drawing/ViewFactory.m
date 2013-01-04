@@ -12,14 +12,15 @@
 	NSMutableArray *platforms;
 	NSMutableArray *attacks;
 	NSMutableArray *badGuys;
+
+	CCAnimate *fireBallAnimation;
+	CCAnimate *walkingAnimation;
+	CCAnimate *runningAnimation;
+	CCAnimate *landAnimation;
 }
 
-@synthesize fireBallAnimation;
-@synthesize walkingAnimation;
-@synthesize runningAnimation;
 @synthesize jumpUpAnimation;
 @synthesize jumpDownAnimation;
-@synthesize landAnimation;
 @synthesize landThenRun;
 
 - (void)initializeAnimations {
