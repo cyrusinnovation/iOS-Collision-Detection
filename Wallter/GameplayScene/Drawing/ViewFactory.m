@@ -11,7 +11,7 @@
 
 	NSMutableArray *platforms;
 	NSMutableArray *attacks;
-	NSMutableArray *badguys;
+	NSMutableArray *badGuys;
 }
 
 @synthesize fireBallAnimation;
@@ -111,7 +111,7 @@
 
 	platforms = [[NSMutableArray alloc] initWithCapacity:10];
 	attacks = [[NSMutableArray alloc] initWithCapacity:10];
-	badguys = [[NSMutableArray alloc] initWithCapacity:10];
+	badGuys = [[NSMutableArray alloc] initWithCapacity:10];
 
 	return self;
 }
@@ -135,9 +135,9 @@
 }
 
 - (ActorView *)createBadGuyView:(BadGuy *)model {
-	if ([badguys count] > 0) {
-		ActorView *view = [badguys objectAtIndex:0];
-		[badguys removeObjectAtIndex:0];
+	if ([badGuys count] > 0) {
+		ActorView *view = [badGuys objectAtIndex:0];
+		[badGuys removeObjectAtIndex:0];
 
 		[view setModel:model];
 
