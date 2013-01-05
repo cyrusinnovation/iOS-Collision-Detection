@@ -10,7 +10,7 @@
 @property(nonatomic, readonly) CCSprite *sprite;
 @property(nonatomic) CGPoint spriteScale;
 
-- (id)init:(id <BoundedPolygon, SimulationActor, HasFacing>)_model scale:(CGPoint)_scale sprite:(CCSprite *)_sprite camera:(Camera *)_camera parent:(CCNode *)_parent pool:(NSMutableArray *)pool;
+- (id)init:(id <BoundedPolygon, SimulationActor, HasFacing>)model scale:(CGPoint)scale sprite:(CCSprite *)sprite camera:(Camera *)camera parent:(CCNode *)parent pool:(NSMutableArray *)pool;
 - (id)init:(id <BoundedPolygon, SimulationActor, HasFacing>)model scale:(CGPoint)scale animation:(CCAnimation *)animation camera:(Camera *)camera parent:(CCSpriteBatchNode *)parent pool:(NSMutableArray *)pool;
 
 - (void)setModel:(id <BoundedPolygon, SimulationActor, HasFacing>)_model;

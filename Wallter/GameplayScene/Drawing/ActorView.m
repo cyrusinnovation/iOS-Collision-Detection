@@ -34,8 +34,8 @@
 	parent = _parent;
 	[parent addChild:sprite];
 
-	model = _model;
-	spriteScale = _scale;
+	[self setSpriteScale:_scale];
+	[self setModel:_model];
 
 	[self update:0];
 	return self;
@@ -56,7 +56,6 @@
 - (id)init:(id <BoundedPolygon, SimulationActor, HasFacing>)_model scale:(CGPoint)_scale spriteFileName:(NSString *)name camera:(Camera *)_camera parent:(CCNode *)_parent pool:(NSMutableArray *)_pool {
 	return [self init:_model scale:_scale sprite:[ActorView getSprite:name model:_model] camera:_camera parent:_parent pool:_pool];
 }
-
 
 - (void)startAnimation:(CCAnimation *)_animation {
 	if (!animation) {
