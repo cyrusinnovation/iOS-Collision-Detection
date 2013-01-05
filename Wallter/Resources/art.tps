@@ -178,45 +178,6 @@
             <filename>../../../../Downloads/button.blue.down.png</filename>
             <filename>../../../../Downloads/button.red.png</filename>
             <filename>../../../../Downloads/button.red.down.png</filename>
-            <filename>../../../../Desktop/flames/explosion-00.png</filename>
-            <filename>../../../../Desktop/flames/explosion-01.png</filename>
-            <filename>../../../../Desktop/flames/explosion-02.png</filename>
-            <filename>../../../../Desktop/flames/explosion-03.png</filename>
-            <filename>../../../../Desktop/flames/explosion-04.png</filename>
-            <filename>../../../../Desktop/flames/explosion-05.png</filename>
-            <filename>../../../../Desktop/flames/explosion-06.png</filename>
-            <filename>../../../../Desktop/flames/explosion-07.png</filename>
-            <filename>../../../../Desktop/flames/explosion-08.png</filename>
-            <filename>../../../../Desktop/flames/explosion-09.png</filename>
-            <filename>../../../../Desktop/flames/explosion-10.png</filename>
-            <filename>../../../../Desktop/flames/explosion-11.png</filename>
-            <filename>../../../../Desktop/flames/explosion-12.png</filename>
-            <filename>../../../../Desktop/flames/explosion-13.png</filename>
-            <filename>../../../../Desktop/flames/explosion-14.png</filename>
-            <filename>../../../../Desktop/flames/explosion-15.png</filename>
-            <filename>../../../../Desktop/flames/explosion-16.png</filename>
-            <filename>../../../../Desktop/flames/explosion-17.png</filename>
-            <filename>../../../../Desktop/flames/explosion-18.png</filename>
-            <filename>../../../../Desktop/flames/explosion-19.png</filename>
-            <filename>../../../../Desktop/flames/explosion-20.png</filename>
-            <filename>../../../../Desktop/flames/explosion-21.png</filename>
-            <filename>../../../../Desktop/flames/explosion-22.png</filename>
-            <filename>../../../../Desktop/flames/explosion-23.png</filename>
-            <filename>../../../../Desktop/flames/explosion-24.png</filename>
-            <filename>../../../../Desktop/flames/explosion-25.png</filename>
-            <filename>../../../../Desktop/flames/explosion-26.png</filename>
-            <filename>../../../../Desktop/flames/explosion-27.png</filename>
-            <filename>../../../../Desktop/flames/explosion-28.png</filename>
-            <filename>../../../../Desktop/flames/explosion-29.png</filename>
-            <filename>../../../../Desktop/flames/explosion-30.png</filename>
-            <filename>../../../../Desktop/flames/explosion-31.png</filename>
-            <filename>../../../../Desktop/flames/explosion-32.png</filename>
-            <filename>../../../../Desktop/flames/explosion-33.png</filename>
-            <filename>../../../../Desktop/flames/explosion-34.png</filename>
-            <filename>../../../../Desktop/flames/explosion-35.png</filename>
-            <filename>../../../../Desktop/flames/explosion-36.png</filename>
-            <filename>../../../../Desktop/flames/explosion-37.png</filename>
-            <filename>../../../../Desktop/flames/explosion-38.png</filename>
             <filename>speaker.off.png</filename>
             <filename>speaker.on.png</filename>
             <filename>pencil.png</filename>
@@ -231,6 +192,52 @@
             <filename>../../EggDrop/Resources/cloud2-hd.png</filename>
             <filename>../../EggDrop/Resources/cloud3-hd.png</filename>
             <filename>../../EggDrop/Resources/cloud4-hd.png</filename>
+            <filename>flames/explosion-00.png</filename>
+            <filename>flames/explosion-01.png</filename>
+            <filename>flames/explosion-02.png</filename>
+            <filename>flames/explosion-03.png</filename>
+            <filename>flames/explosion-04.png</filename>
+            <filename>flames/explosion-05.png</filename>
+            <filename>flames/explosion-06.png</filename>
+            <filename>flames/explosion-07.png</filename>
+            <filename>flames/explosion-08.png</filename>
+            <filename>flames/explosion-09.png</filename>
+            <filename>flames/explosion-10.png</filename>
+            <filename>flames/explosion-11.png</filename>
+            <filename>flames/explosion-12.png</filename>
+            <filename>flames/explosion-13.png</filename>
+            <filename>flames/explosion-14.png</filename>
+            <filename>flames/explosion-15.png</filename>
+            <filename>flames/explosion-16.png</filename>
+            <filename>flames/explosion-17.png</filename>
+            <filename>flames/explosion-18.png</filename>
+            <filename>flames/explosion-19.png</filename>
+            <filename>flames/explosion-20.png</filename>
+            <filename>flames/explosion-21.png</filename>
+            <filename>flames/explosion-22.png</filename>
+            <filename>flames/explosion-23.png</filename>
+            <filename>flames/explosion-24.png</filename>
+            <filename>flames/explosion-25.png</filename>
+            <filename>flames/explosion-26.png</filename>
+            <filename>flames/explosion-27.png</filename>
+            <filename>flames/explosion-28.png</filename>
+            <filename>flames/explosion-29.png</filename>
+            <filename>flames/explosion-30.png</filename>
+            <filename>flames/explosion-31.png</filename>
+            <filename>flames/explosion-32.png</filename>
+            <filename>flames/explosion-33.png</filename>
+            <filename>flames/explosion-34.png</filename>
+            <filename>flames/explosion-35.png</filename>
+            <filename>flames/explosion-36.png</filename>
+            <filename>flames/explosion-37.png</filename>
+            <filename>flames/explosion-38.png</filename>
+            <filename>sword.00.png</filename>
+            <filename>sword.01.png</filename>
+            <filename>sword.02.png</filename>
+            <filename>sword.03.png</filename>
+            <filename>sword.04.png</filename>
+            <filename>sword.05.png</filename>
+            <filename>sword.06.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

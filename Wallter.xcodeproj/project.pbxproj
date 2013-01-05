@@ -74,6 +74,7 @@
 		C13DAB87958E81815103A421 /* font.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA7DA065CD1CEC755DCBA /* font.png */; };
 		C13DAB8AAB4D321759295FF2 /* frames.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAF1A9F03E0F1ED35B515 /* frames.png */; };
 		C13DABE01052A92CF3C1189B /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C13DAF3C8D82BEAD85937866 /* music.mp3 */; };
+		C13DAC0EBEFB037F6DAEB195 /* animations.plist in Resources */ = {isa = PBXBuildFile; fileRef = C13DA43BBB7C5011C1A4E8EF /* animations.plist */; };
 		C13DACC9B197EE3C8F544B2A /* DSPODTH3.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */; };
 		C13DAD4F5D5236CC58258270 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DAE56EF1C7A3A92071EC1 /* Platform.m */; };
 		C13DAD64C3611941813A9D7E /* CurrentSceneSpritesAndSounds.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA212E16888CF50FAD9B4 /* CurrentSceneSpritesAndSounds.m */; };
@@ -152,6 +153,7 @@
 		C13DA413D923663BA9085DDB /* WalterSoundEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterSoundEffects.m; sourceTree = "<group>"; };
 		C13DA41FA6A07836816BEFF0 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		C13DA439AFF2A6E84058756F /* ViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFactory.m; sourceTree = "<group>"; };
+		C13DA43BBB7C5011C1A4E8EF /* animations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = animations.plist; path = Resources/animations.plist; sourceTree = "<group>"; };
 		C13DA44BD661D3042EC067C2 /* SimulationTiming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulationTiming.m; sourceTree = "<group>"; };
 		C13DA44F4CB8EB80D8941D13 /* BlockOverTimeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockOverTimeAction.m; sourceTree = "<group>"; };
 		C13DA47B10239D01FFB6471F /* ActorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActorView.m; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				C13DACCD96A0A99BFC618944 /* title.jpg */,
 				C13DA5F14CD66E872E8FE06E /* wtf.png */,
 				C13DADBEDFFF0603F7BB6AD6 /* stone.png */,
+				C13DA43BBB7C5011C1A4E8EF /* animations.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				C13DA1A2E5226B130ABB7D92 /* title.jpg in Resources */,
 				C13DA240429CCB02994B1D4A /* wtf.png in Resources */,
 				C13DAB6C5C8B26C115A13FB4 /* stone.png in Resources */,
+				C13DAC0EBEFB037F6DAEB195 /* animations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
