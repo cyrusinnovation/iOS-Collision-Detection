@@ -10,8 +10,8 @@
 	Camera *camera;
 	CCSpriteBatchNode *batchNode;
 
-	NSMutableArray *platforms;
-	NSMutableArray *attacks;
+	NSMutableArray *platformViews;
+	NSMutableArray *spriteSheetViews;
 
 	CCAnimation *fireBall;
 	CCAnimation *walk;
@@ -67,16 +67,16 @@
 
 	[self initializeAnimations];
 
-	platforms = [[NSMutableArray alloc] initWithCapacity:10];
-	attacks = [[NSMutableArray alloc] initWithCapacity:10];
+	platformViews = [[NSMutableArray alloc] initWithCapacity:10];
+	spriteSheetViews = [[NSMutableArray alloc] initWithCapacity:10];
 
 	return self;
 }
 
 - (ActorView *)getView:(id <BoundedPolygon, SimulationActor, HasFacing>)model scale:(CGPoint)scale animation:(CCAnimation *)animation parent:(CCSpriteBatchNode *)parent {
-	if ([attacks count] > 0) {
-		ActorView *view = [attacks objectAtIndex:0];
-		[attacks removeObjectAtIndex:0];
+	if ([spriteSheetViews count] > 0) {
+		ActorView *view = [spriteSheetViews objectAtIndex:0];
+		[spriteSheetViews removeObjectAtIndex:0];
 
 		[view setModel:model];
 		[view setSpriteScale:scale];
@@ -84,7 +84,7 @@
 		[parent addChild:view.sprite];
 		return view;
 	} else {
-		return [[ActorView alloc] init:model scale:scale animation:animation camera:camera parent:parent pool:attacks];
+		return [[ActorView alloc] init:model scale:scale animation:animation camera:camera parent:parent pool:spriteSheetViews];
 	}
 }
 
@@ -103,16 +103,16 @@
 - (ActorView *)createPlatformView:(Platform *)model parent:(CCNode *)parent {
 	CGPoint scale = cgp(1, 1);
 
-	if ([platforms count] > 0) {
-		ActorView *view = [platforms objectAtIndex:0];
-		[platforms removeObjectAtIndex:0];
+	if ([platformViews count] > 0) {
+		ActorView *view = [platformViews objectAtIndex:0];
+		[platformViews removeObjectAtIndex:0];
 
 		[view setModel:model];
 		[view setSpriteScale:scale];
 		[parent addChild:view.sprite];
 		return view;
 	} else {
-		return [[ActorView alloc] init:model scale:scale spriteFileName:@"stone.png" camera:camera parent:parent pool:platforms];
+		return [[ActorView alloc] init:model scale:scale spriteFileName:@"stone.png" camera:camera parent:parent pool:platformViews];
 	}
 }
 
