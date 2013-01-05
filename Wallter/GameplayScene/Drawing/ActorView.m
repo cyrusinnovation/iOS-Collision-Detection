@@ -8,7 +8,6 @@
 #import "CCAnimation.h"
 #import "CCActionInterval.h"
 #import "ActorView.h"
-#import "HasFacing.h"
 
 @implementation ActorView {
 	id <BoundedPolygon, SimulationActor, HasFacing> model;
@@ -28,27 +27,18 @@
 	if (!self) return self;
 	[self scheduleUpdate];
 
-	model = _model;
-	spriteScale = _scale;
-	camera = _camera;
-	parent = _parent;
-
 	sprite = _sprite;
 
+	camera = _camera;
 	pool = _pool;
-
-	[camera transform:sprite to:model scale:spriteScale];
+	parent = _parent;
 	[parent addChild:sprite];
 
-	return self;
-}
-
-- (void)reinit:(id <BoundedPolygon, SimulationActor, HasFacing>)_model scale:(CGPoint)_scale {
-	[self setModel:_model];
-
+	model = _model;
 	spriteScale = _scale;
 
 	[self update:0];
+	return self;
 }
 
 - (id)init:(id <BoundedPolygon, SimulationActor, HasFacing>)_model scale:(CGPoint)_scale animation:(CCAnimation *)_animation camera:(Camera *)_camera parent:(CCSpriteBatchNode *)_parent pool:(NSMutableArray *)_pool {
@@ -64,8 +54,10 @@
 	return self;
 }
 
-- (void)setFlipX:(BOOL)x {
-	[sprite setFlipX:x];
+- (void)reinit:(id <BoundedPolygon, SimulationActor, HasFacing>)_model scale:(CGPoint)_scale {
+	[self setModel:_model];
+	spriteScale = _scale;
+	[self update:0];
 }
 
 - (void)startAnimation:(CCAnimation *)_animation {

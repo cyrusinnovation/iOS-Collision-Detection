@@ -14,7 +14,6 @@
 - (id)init:(id <BoundedPolygon, SimulationActor, HasFacing>)model scale:(CGPoint)scale animation:(CCAnimation *)animation camera:(Camera *)camera parent:(CCSpriteBatchNode *)parent pool:(NSMutableArray *)pool;
 
 - (void)setModel:(id <BoundedPolygon, SimulationActor, HasFacing>)_model;
-- (void)setFlipX:(BOOL)x;
 
 - (void)startAnimation:(CCAnimation *)animation;
 - (void)playAnimationSequence:(CCSequence *)animationSequenceAction;

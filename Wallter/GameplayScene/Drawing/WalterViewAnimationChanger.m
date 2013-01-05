@@ -22,11 +22,9 @@
 }
 
 - (void)runningLeft {
-	[view setFlipX:true];
 }
 
 - (void)runningRight {
-	[view setFlipX:false];
 }
 
 - (void)wallJumping {
