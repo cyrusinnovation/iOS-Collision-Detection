@@ -12,8 +12,8 @@
 
 @interface ViewFactory : NSObject
 
-@property(nonatomic, strong) CCAnimation *jumpUpAnimation;
-@property(nonatomic, strong) CCAnimation *jumpDownAnimation;
+@property(nonatomic, strong) CCAnimation *jumpUp;
+@property(nonatomic, strong) CCAnimation *jumpDown;
 @property(nonatomic, strong) CCSequence *landThenRun;
 
 - init:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode;

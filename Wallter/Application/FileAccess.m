@@ -24,6 +24,15 @@ id readFromFile(NSString *filename) {
 	return nil;
 }
 
+NSDictionary *readPList(NSString *filename) {
+	NSString *filePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"plist"];
+
+	if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+		return [NSDictionary dictionaryWithContentsOfFile:filePath];
+	}
+	return nil;
+}
+
 void saveToFile(id obj, NSString *filename) {
 	NSMutableData *data = [[NSMutableData alloc] init];
 	NSKeyedArchiver *encoder = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];

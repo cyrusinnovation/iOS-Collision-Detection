@@ -28,15 +28,15 @@
 }
 
 - (void)wallJumping {
-	[view startAnimation:viewFactory.jumpUpAnimation];
+	[view startAnimation:viewFactory.jumpUp];
 }
 
 - (void)groundJumping {
-	[view startAnimation:viewFactory.jumpUpAnimation];
+	[view startAnimation:viewFactory.jumpUp];
 }
 
 - (void)falling {
-	[view startAnimation:viewFactory.jumpDownAnimation];
+	[view startAnimation:viewFactory.jumpDown];
 }
 
 - (void)running {
