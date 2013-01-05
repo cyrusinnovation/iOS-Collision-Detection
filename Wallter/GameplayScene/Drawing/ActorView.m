@@ -43,22 +43,19 @@
 	return self;
 }
 
-- (id)init:(id <BoundedPolygon, SimulationActor>)_model scale:(CGPoint)_scale initialFrame:(NSString *)initialFrame camera:(Camera *)_camera parent:(CCNode *)_parent pool:(NSMutableArray *)_pool {
-	CCSprite *_sprite = [CCSprite spriteWithSpriteFrameName:initialFrame];
+- (id)init:(id <BoundedPolygon, SimulationActor, HasFacing>)_model scale:(CGPoint)_scale animation:(CCAnimation *)_animation camera:(Camera *)_camera parent:(CCSpriteBatchNode *)_parent pool:(NSMutableArray *)_pool {
+	CCSpriteFrame *spriteFrame = [(CCAnimationFrame *) [_animation.frames objectAtIndex:0] spriteFrame];
+
+	CCSprite *_sprite = [CCSprite spriteWithTexture:spriteFrame.texture rect:spriteFrame.rect];
 	[_sprite setScaleX:scale.x * _camera.scale];
 	[_sprite setScaleY:scale.y * _camera.scale];
 
-	return [self init:_model scale:_scale sprite:_sprite camera:_camera parent:_parent pool:_pool];
-}
-
-- (id)init:(id <BoundedPolygon, SimulationActor, HasFacing>)_model scale:(CGPoint)_scale animation:(CCAnimation *)_animation camera:(Camera *)_camera parent:(CCSpriteBatchNode *)_parent pool:(NSMutableArray *)_pool {
-	CCSpriteFrame *spriteFrame = [(CCAnimationFrame *) [_animation.frames objectAtIndex:0] spriteFrame];
-	CCSprite *_sprite = [CCSprite spriteWithTexture:spriteFrame.texture rect:spriteFrame.rect];
-	ActorView *view = [self init:_model scale:_scale sprite:_sprite camera:_camera parent:_parent pool:_pool];
-
-	[view startAnimation:_animation];
-	[view setFlipX:!_model.facingRight];
-	return view;
+	self = [self init:_model scale:_scale sprite:_sprite camera:_camera parent:_parent pool:_pool];
+	if (self) {
+		[self startAnimation:_animation];
+		[self setFlipX:!_model.facingRight];
+	}
+	return self;
 }
 
 - (void)setFlipX:(BOOL)x {
