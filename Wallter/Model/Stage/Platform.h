@@ -5,16 +5,13 @@
 #import "SimulationActor.h"
 #import "BoundedPolygon.h"
 #import "Polygon.h"
+#import "HasFacing.h"
 
-@interface Platform : NSObject<BoundedPolygon,SimulationActor>
+@interface Platform : NSObject<BoundedPolygon,SimulationActor,HasFacing>
 
 @property(nonatomic, readonly) CGPolygon polygon;
 
-@property(nonatomic, readonly) float right;
-@property(nonatomic, readonly) float left;
 @property(nonatomic, readonly) float center;
-@property(nonatomic, readonly) float top;
-@property(nonatomic, readonly) float bottom;
 @property(nonatomic, readonly) float width;
 @property(nonatomic, readonly) float height;
 

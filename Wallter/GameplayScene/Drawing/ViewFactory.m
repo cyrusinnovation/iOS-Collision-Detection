@@ -109,18 +109,14 @@
 	return self;
 }
 
-- (ActorView *)getView:(MeleeAttack *)model scale:(CGPoint)scale animation:(CCAnimation *)animation {
+- (ActorView *)getView:(id <BoundedPolygon, SimulationActor, HasFacing>)model scale:(CGPoint)scale animation:(CCAnimation *)animation {
 	if ([attacks count] > 0) {
 		ActorView *view = [attacks objectAtIndex:0];
 		[attacks removeObjectAtIndex:0];
 
-		[view setModel:model];
-		view.spriteScale = scale;
-
-		[view update:0];
-		[batchNode addChild:view.sprite];
+		[view reinit:model scale:scale];
 		[view startAnimation:animation];
-		[view setFlipX:!model.facingRight];
+		[batchNode addChild:view.sprite];
 		return view;
 	} else {
 		return [[ActorView alloc] init:model scale:scale animation:animation camera:camera parent:batchNode pool:attacks];

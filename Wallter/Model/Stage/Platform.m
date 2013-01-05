@@ -10,9 +10,11 @@
 
 @synthesize right;
 @synthesize left;
-@synthesize center;
 @synthesize top;
 @synthesize bottom;
+@synthesize facingRight;
+
+@synthesize center;
 @synthesize width;
 @synthesize height;
 
