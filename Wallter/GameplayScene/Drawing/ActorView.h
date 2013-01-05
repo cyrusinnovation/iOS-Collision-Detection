@@ -15,13 +15,13 @@
 
 - (void)setModel:(id <BoundedPolygon, SimulationActor, HasFacing>)_model;
 
+- (id)init:(id <BoundedPolygon, SimulationActor, HasFacing>)_model scale:(CGPoint)_scale spriteFileName:(NSString *)name camera:(Camera *)camera parent:(CCNode *)_parent pool:(NSMutableArray *)pool;
+
 - (void)startAnimation:(CCAnimation *)animation;
 - (void)playAnimationSequence:(CCSequence *)animationSequenceAction;
 
 - (void)remove;
 - (void)update:(ccTime)dt;
-
-- (void)reinit:(id <BoundedPolygon, SimulationActor, HasFacing>)_model scale:(CGPoint)_scale;
 
 
 @end

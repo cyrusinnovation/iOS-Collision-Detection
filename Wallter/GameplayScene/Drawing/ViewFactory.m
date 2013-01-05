@@ -109,51 +109,46 @@
 	return self;
 }
 
-- (ActorView *)getView:(id <BoundedPolygon, SimulationActor, HasFacing>)model scale:(CGPoint)scale animation:(CCAnimation *)animation {
+- (ActorView *)getView:(id <BoundedPolygon, SimulationActor, HasFacing>)model scale:(CGPoint)scale animation:(CCAnimation *)animation parent:(CCSpriteBatchNode *)parent {
 	if ([attacks count] > 0) {
 		ActorView *view = [attacks objectAtIndex:0];
 		[attacks removeObjectAtIndex:0];
 
-		[view reinit:model scale:scale];
+		[view setModel:model];
+		[view setSpriteScale:scale];
 		[view startAnimation:animation];
-		[batchNode addChild:view.sprite];
+		[parent addChild:view.sprite];
 		return view;
 	} else {
-		return [[ActorView alloc] init:model scale:scale animation:animation camera:camera parent:batchNode pool:attacks];
+		return [[ActorView alloc] init:model scale:scale animation:animation camera:camera parent:parent pool:attacks];
 	}
 }
 
 - (ActorView *)createMeleeAttackView:(MeleeAttack *)model {
-	return [self getView:model scale:cgp(2, 0.7) animation:fireBall];
+	return [self getView:model scale:cgp(2, 0.7) animation:fireBall parent:batchNode];
 }
 
 - (ActorView *)createBadGuyView:(BadGuy *)model {
-	return [self getView:model scale:cgp(1.25, 1.25) animation:walking];
+	return [self getView:model scale:cgp(1.25, 1.25) animation:walking parent:batchNode];
 }
 
 - (ActorView *)createWalterView:(Walter *)model {
-	return [self getView:model scale:cgp(1.25, 1.25) animation:running];
+	return [self getView:model scale:cgp(1.25, 1.25) animation:running parent:batchNode];
 }
 
 - (ActorView *)createPlatformView:(Platform *)model parent:(CCNode *)parent {
+	CGPoint scale = cgp(1, 1);
+	
 	if ([platforms count] > 0) {
 		ActorView *view = [platforms objectAtIndex:0];
 		[platforms removeObjectAtIndex:0];
 
 		[view setModel:model];
-
-		[view update:0];
+		[view setSpriteScale:scale];
 		[parent addChild:view.sprite];
 		return view;
 	} else {
-		CCSprite *sprite = [CCSprite spriteWithFile:@"stone.png" rect:(CGRect) {0, 0, model.width, model.height}];
-		sprite.anchorPoint = ccp(0, 0);
-		[sprite setContentSize:(CGSize) {model.width, model.height}];
-
-		ccTexParams tp = {GL_NEAREST, GL_NEAREST, GL_REPEAT, GL_REPEAT};
-		[sprite.texture setTexParameters:&tp];
-
-		return [[ActorView alloc] init:model scale:cgp(1, 1) sprite:sprite camera:camera parent:parent pool:platforms];
+		return [[ActorView alloc] init:model scale:scale spriteFileName:@"stone.png" camera:camera parent:parent pool:platforms];
 	}
 }
 

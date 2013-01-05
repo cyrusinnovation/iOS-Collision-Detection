@@ -49,16 +49,14 @@
 	if (self) {
 		[self startAnimation:_animation];
 	}
-
-	[self update:0];
+	
 	return self;
 }
 
-- (void)reinit:(id <BoundedPolygon, SimulationActor, HasFacing>)_model scale:(CGPoint)_scale {
-	[self setModel:_model];
-	spriteScale = _scale;
-	[self update:0];
+- (id)init:(id <BoundedPolygon, SimulationActor, HasFacing>)_model scale:(CGPoint)_scale spriteFileName:(NSString *)name camera:(Camera *)_camera parent:(CCNode *)_parent pool:(NSMutableArray *)_pool {
+	return [self init:_model scale:_scale sprite:[ActorView getSprite:name model:_model] camera:_camera parent:_parent pool:_pool];
 }
+
 
 - (void)startAnimation:(CCAnimation *)_animation {
 	if (!animation) {
@@ -103,6 +101,15 @@
 
 - (void)dealloc {
 	[self remove];
+}
+
++ (CCSprite *)getSprite:(NSString *)filename model:(Platform *)model {
+	CCSprite *sprite = [CCSprite spriteWithFile:filename rect:(CGRect) {0, 0, model.width, model.height}];
+	sprite.anchorPoint = ccp(0, 0);
+	[sprite setContentSize:(CGSize) {model.width, model.height}];
+	ccTexParams tp = {GL_NEAREST, GL_NEAREST, GL_REPEAT, GL_REPEAT};
+	[sprite.texture setTexParameters:&tp];
+	return sprite;
 }
 
 @end
