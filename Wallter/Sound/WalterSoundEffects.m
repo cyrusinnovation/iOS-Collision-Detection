@@ -47,7 +47,7 @@
 }
 
 - (void)attacking {
-	[audio playEffect:@"DSPISTOL.WAV"];
+	[audio playEffect:@"DSPUNCH.WAV"];
 }
 
 

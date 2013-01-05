@@ -1,8 +1,31 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>jumpUp</key>
+	<dict>
+		<key>frames</key>
+		<array>
+			<string>jump0.png</string>
+			<string>jump1.png</string>
+		</array>
+		<key>looping</key>
+		<false/>
+		<key>delay</key>
+		<real>0.07000000000000001</real>
+	</dict>
+	<key>land</key>
+	<dict>
+		<key>frames</key>
+		<array>
+			<string>jump6.png</string>
+			<string>jump7.png</string>
+		</array>
+		<key>looping</key>
+		<false/>
+		<key>delay</key>
+		<real>0.07000000000000001</real>
+	</dict>
 	<key>run</key>
 	<dict>
 		<key>frames</key>
@@ -16,66 +39,10 @@
 			<string>run7.png</string>
 			<string>run0.png</string>
 		</array>
-		<key>delay</key>
-		<real>0.07000000000000001</real>
 		<key>looping</key>
 		<true/>
-	</dict>
-	<key>jumpUp</key>
-	<dict>
-		<key>frames</key>
-		<array>
-			<string>jump0.png</string>
-			<string>jump1.png</string>
-		</array>
 		<key>delay</key>
 		<real>0.07000000000000001</real>
-		<key>looping</key>
-		<false/>
-	</dict>
-	<key>jumpDown</key>
-	<dict>
-		<key>frames</key>
-		<array>
-			<string>jump2.png</string>
-			<string>jump3.png</string>
-			<string>jump4.png</string>
-			<string>jump5.png</string>
-		</array>
-		<key>delay</key>
-		<real>0.07000000000000001</real>
-		<key>looping</key>
-		<false/>
-	</dict>
-	<key>land</key>
-	<dict>
-		<key>frames</key>
-		<array>
-			<string>jump6.png</string>
-			<string>jump7.png</string>
-		</array>
-		<key>delay</key>
-		<real>0.07000000000000001</real>
-		<key>looping</key>
-		<false/>
-	</dict>
-	<key>walk</key>
-	<dict>
-		<key>frames</key>
-		<array>
-			<string>walk1.png</string>
-			<string>walk2.png</string>
-			<string>walk3.png</string>
-			<string>walk4.png</string>
-			<string>walk5.png</string>
-			<string>walk6.png</string>
-			<string>walk7.png</string>
-			<string>walk0.png</string>
-		</array>
-		<key>delay</key>
-		<real>0.2</real>
-		<key>looping</key>
-		<true/>
 	</dict>
 	<key>fireball</key>
 	<dict>
@@ -102,10 +69,42 @@
 			<string>explosion-36.png</string>
 			<string>explosion-38.png</string>
 		</array>
-		<key>delay</key>
-		<real>0.008</real>
 		<key>looping</key>
 		<false/>
+		<key>delay</key>
+		<real>0.008</real>
+	</dict>
+	<key>jumpDown</key>
+	<dict>
+		<key>frames</key>
+		<array>
+			<string>jump2.png</string>
+			<string>jump3.png</string>
+			<string>jump4.png</string>
+			<string>jump5.png</string>
+		</array>
+		<key>looping</key>
+		<false/>
+		<key>delay</key>
+		<real>0.07000000000000001</real>
+	</dict>
+	<key>walk</key>
+	<dict>
+		<key>frames</key>
+		<array>
+			<string>walk1.png</string>
+			<string>walk2.png</string>
+			<string>walk3.png</string>
+			<string>walk4.png</string>
+			<string>walk5.png</string>
+			<string>walk6.png</string>
+			<string>walk7.png</string>
+			<string>walk0.png</string>
+		</array>
+		<key>looping</key>
+		<true/>
+		<key>delay</key>
+		<real>0.2</real>
 	</dict>
 	<key>sword</key>
 	<dict>
@@ -119,10 +118,10 @@
 			<string>sword.05.png</string>
 			<string>sword.06.png</string>
 		</array>
-		<key>delay</key>
-		<real>0.08</real>
 		<key>looping</key>
 		<false/>
+		<key>delay</key>
+		<real>0.02</real>
 	</dict>
 </dict>
 </plist>

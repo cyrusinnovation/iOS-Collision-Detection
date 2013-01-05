@@ -21,6 +21,7 @@
 	audio = [SimpleAudioEngine sharedEngine];
 	[audio preloadBackgroundMusic:@"music.mp3"];
 	[audio preloadEffect:@"DSOOF.WAV"];
+	[audio preloadEffect:@"DSPUNCH.WAV"];
 	[audio preloadEffect:@"DSPISTOL.WAV"];
 	[audio preloadEffect:@"DSPLDETH.WAV"];
 	[audio preloadEffect:@"DSPODTH3.WAV"];

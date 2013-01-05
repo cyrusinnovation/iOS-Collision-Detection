@@ -45,6 +45,7 @@
 		C13DA240429CCB02994B1D4A /* wtf.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DA5F14CD66E872E8FE06E /* wtf.png */; };
 		C13DA2C91DE5A727FD28770F /* AddBadGuyToStageObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DABEB49BD00198D9B8C60 /* AddBadGuyToStageObserver.m */; };
 		C13DA3223DE6BE67FFC5F6D4 /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DADF252B545D0A0B803D0 /* Simulation.m */; };
+		C13DA32D4058CAD1EFF96C88 /* DSPUNCH.WAV in Resources */ = {isa = PBXBuildFile; fileRef = C13DA26373EC43799A5DA427 /* DSPUNCH.WAV */; };
 		C13DA3DE8588B7C7C96C5DBB /* MeleeAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */; };
 		C13DA44ED8710F83573F3BAC /* WalterSoundEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C13DA413D923663BA9085DDB /* WalterSoundEffects.m */; };
 		C13DA4AFFC86A6D20F1A98EA /* instructions~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C13DAEAB1BE133F202FFA30A /* instructions~ipad.png */; };
@@ -140,6 +141,7 @@
 		C13DA21E3C760AFE9D6B2438 /* instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instructions.png; path = Resources/instructions.png; sourceTree = "<group>"; };
 		C13DA229349A0CFB7C6E5F63 /* DSOOF.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DSOOF.WAV; path = Resources/Sounds/DSOOF.WAV; sourceTree = "<group>"; };
 		C13DA22F6FF1B645A29926EF /* BlockOverTimeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockOverTimeAction.h; sourceTree = "<group>"; };
+		C13DA26373EC43799A5DA427 /* DSPUNCH.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = DSPUNCH.WAV; sourceTree = "<group>"; };
 		C13DA267A4AC75C4F58E47A9 /* MeleeAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeAttack.m; sourceTree = "<group>"; };
 		C13DA26819D80296C434DA06 /* BoundedPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoundedPolygon.h; path = Wallter/Model/BoundedPolygon.h; sourceTree = SOURCE_ROOT; };
 		C13DA2819599D03C41C9F27F /* WalterWeaponImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalterWeaponImpl.m; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				C13DAA44B915D358A079ADED /* DSPLDETH.WAV */,
 				C13DA1A0ECF2B390C5E38C36 /* DSPODTH3.WAV */,
 				C13DAF3C8D82BEAD85937866 /* music.mp3 */,
+				C13DA26373EC43799A5DA427 /* DSPUNCH.WAV */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				C13DA240429CCB02994B1D4A /* wtf.png in Resources */,
 				C13DAB6C5C8B26C115A13FB4 /* stone.png in Resources */,
 				C13DAC0EBEFB037F6DAEB195 /* animations.plist in Resources */,
+				C13DA32D4058CAD1EFF96C88 /* DSPUNCH.WAV in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

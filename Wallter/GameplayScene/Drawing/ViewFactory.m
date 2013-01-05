@@ -16,16 +16,33 @@
 	CCAnimation *fireBall;
 	CCAnimation *walk;
 	CCAnimation *run;
+	CCAnimation *sword;
 }
 
 @synthesize jumpUp;
 @synthesize jumpDown;
 @synthesize landThenRun;
 
+- (id)init:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode {
+	self = [super init];
+	if (!self) return self;
+
+	camera = _camera;
+	batchNode = _batchNode;
+
+	[self initializeAnimations];
+
+	platformViews = [[NSMutableArray alloc] initWithCapacity:10];
+	spriteSheetViews = [[NSMutableArray alloc] initWithCapacity:10];
+
+	return self;
+}
+
 - (void)initializeAnimations {
 	NSDictionary *dictionary = readPList(@"animations");
 
 	fireBall = [self makeAnimationFromDictionary:dictionary[@"fireball"]];
+	sword = [self makeAnimationFromDictionary:dictionary[@"sword"]];
 	walk = [self makeAnimationFromDictionary:dictionary[@"walk"]];
 	run = [self makeAnimationFromDictionary:dictionary[@"run"]];
 	jumpUp = [self makeAnimationFromDictionary:dictionary[@"jumpUp"]];
@@ -58,21 +75,6 @@
 	return animation;
 }
 
-- (id)init:(Camera *)_camera batchNode:(CCSpriteBatchNode *)_batchNode {
-	self = [super init];
-	if (!self) return self;
-
-	camera = _camera;
-	batchNode = _batchNode;
-
-	[self initializeAnimations];
-
-	platformViews = [[NSMutableArray alloc] initWithCapacity:10];
-	spriteSheetViews = [[NSMutableArray alloc] initWithCapacity:10];
-
-	return self;
-}
-
 - (ActorView *)getView:(id <BoundedPolygon, SimulationActor, HasFacing>)model scale:(CGPoint)scale animation:(CCAnimation *)animation parent:(CCSpriteBatchNode *)parent {
 	if ([spriteSheetViews count] > 0) {
 		ActorView *view = [spriteSheetViews objectAtIndex:0];
@@ -89,7 +91,7 @@
 }
 
 - (ActorView *)createMeleeAttackView:(MeleeAttack *)model {
-	return [self getView:model scale:cgp(2, 0.7) animation:fireBall parent:batchNode];
+	return [self getView:model scale:cgp(2, 2) animation:sword parent:batchNode];
 }
 
 - (ActorView *)createBadGuyView:(BadGuy *)model {
