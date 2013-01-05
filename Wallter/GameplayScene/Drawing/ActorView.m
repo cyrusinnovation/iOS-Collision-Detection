@@ -16,12 +16,12 @@
 	Camera *camera;
 	CCSprite *sprite;
 	CCNode *parent;
-	CGPoint scale;
 	NSMutableArray *pool;
 	CCAnimate *animation;
 }
 
 @synthesize sprite;
+@synthesize spriteScale;
 
 - (id)init:(id <BoundedPolygon, SimulationActor>)_model scale:(CGPoint)_scale sprite:(CCSprite *)_sprite camera:(Camera *)_camera parent:(CCNode *)_parent pool:(NSMutableArray *)_pool {
 	self = [super init];
@@ -29,7 +29,7 @@
 	[self scheduleUpdate];
 
 	model = _model;
-	scale = _scale;
+	spriteScale = _scale;
 	camera = _camera;
 	parent = _parent;
 
@@ -37,7 +37,7 @@
 
 	pool = _pool;
 
-	[camera transform:sprite to:model scale:scale];
+	[camera transform:sprite to:model scale:spriteScale];
 	[parent addChild:sprite];
 
 	return self;
@@ -47,8 +47,7 @@
 	CCSpriteFrame *spriteFrame = [(CCAnimationFrame *) [_animation.frames objectAtIndex:0] spriteFrame];
 
 	CCSprite *_sprite = [CCSprite spriteWithTexture:spriteFrame.texture rect:spriteFrame.rect];
-	[_sprite setScaleX:scale.x * _camera.scale];
-	[_sprite setScaleY:scale.y * _camera.scale];
+	[self update:0];
 
 	self = [self init:_model scale:_scale sprite:_sprite camera:_camera parent:_parent pool:_pool];
 	if (self) {
@@ -92,7 +91,7 @@
 	if (model.expired) {
 		[self remove];
 	} else {
-		[camera transform:sprite to:model scale:scale];
+		[camera transform:sprite to:model scale:spriteScale];
 	}
 }
 

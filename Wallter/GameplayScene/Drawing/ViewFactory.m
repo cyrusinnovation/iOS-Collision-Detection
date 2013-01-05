@@ -11,7 +11,6 @@
 
 	NSMutableArray *platforms;
 	NSMutableArray *attacks;
-	NSMutableArray *badGuys;
 
 	CCAnimate *landAnimation;
 	CCAnimation *fireBall;
@@ -106,46 +105,38 @@
 
 	platforms = [[NSMutableArray alloc] initWithCapacity:10];
 	attacks = [[NSMutableArray alloc] initWithCapacity:10];
-	badGuys = [[NSMutableArray alloc] initWithCapacity:10];
 
 	return self;
 }
 
-- (ActorView *)createMeleeAttackView:(MeleeAttack *)model {
+- (ActorView *)getView:(MeleeAttack *)model scale:(CGPoint)scale animation:(CCAnimation *)animation {
 	if ([attacks count] > 0) {
 		ActorView *view = [attacks objectAtIndex:0];
 		[attacks removeObjectAtIndex:0];
 
 		[view setModel:model];
+		view.spriteScale = scale;
 
 		[view update:0];
 		[batchNode addChild:view.sprite];
-		[view startAnimation:fireBall];
-		return view;
-	} else {
-		return [[ActorView alloc] init:model scale:cgp(2, 0.7) animation:fireBall camera:camera parent:batchNode pool:attacks];
-	}
-}
-
-- (ActorView *)createBadGuyView:(BadGuy *)model {
-	if ([badGuys count] > 0) {
-		ActorView *view = [badGuys objectAtIndex:0];
-		[badGuys removeObjectAtIndex:0];
-
-		[view setModel:model];
-
-		[view update:0];
-		[batchNode addChild:view.sprite];
-		[view startAnimation:walking];
+		[view startAnimation:animation];
 		[view setFlipX:!model.facingRight];
 		return view;
 	} else {
-		return [[ActorView alloc] init:model scale:cgp(1.25, 1.25) animation:walking camera:camera parent:batchNode pool:nil];
+		return [[ActorView alloc] init:model scale:scale animation:animation camera:camera parent:batchNode pool:attacks];
 	}
 }
 
+- (ActorView *)createMeleeAttackView:(MeleeAttack *)model {
+	return [self getView:model scale:cgp(2, 0.7) animation:fireBall];
+}
+
+- (ActorView *)createBadGuyView:(BadGuy *)model {
+	return [self getView:model scale:cgp(1.25, 1.25) animation:walking];
+}
+
 - (ActorView *)createWalterView:(Walter *)model {
-	return [[ActorView alloc] init:model scale:cgp(1.25, 1.25) animation:running camera:camera parent:batchNode pool:nil];
+	return [self getView:model scale:cgp(1.25, 1.25) animation:running];
 }
 
 - (ActorView *)createPlatformView:(Platform *)model parent:(CCNode *)parent {

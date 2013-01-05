@@ -7,7 +7,9 @@
 @protocol HasFacing;
 
 @interface ActorView : CCNode
-@property(nonatomic, readonly, strong) CCSprite *sprite;
+@property(nonatomic, readonly) CCSprite *sprite;
+@property(nonatomic) CGPoint spriteScale;
+
 
 - (id)init:(id <BoundedPolygon, SimulationActor>)_model scale:(CGPoint)_scale sprite:(CCSprite *)_sprite camera:(Camera *)_camera parent:(CCNode *)_parent pool:(NSMutableArray *)pool;
 
