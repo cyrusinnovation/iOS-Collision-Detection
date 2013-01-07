@@ -33,8 +33,11 @@
 + (CCScene *)scene {
 	CCScene *scene = [CCScene node];
 
+	Simulation *simulation = [[Simulation alloc] init];
+
 	WalterSimulationActorImpl *walterActor = [[WalterSimulationActorImpl alloc] initAt:cgp(30, 50)];
-	Simulation *simulation = [[Simulation alloc] initFor:walterActor];
+	[simulation addActor:walterActor];
+
 	WalterWeaponImpl *walterWeapon = [[WalterWeaponImpl alloc] initFor:walterActor in:simulation];
 	Walter *walter = [Walter from:walterActor and:walterWeapon];
 

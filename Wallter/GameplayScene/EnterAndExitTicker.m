@@ -39,7 +39,7 @@
 
 	[self findElementsOnScreen:cameraRect elements:simulation.environment];
 	[self findElementsOnScreen:cameraRect elements:simulation.characters];
-	[self findElementsOnScreen:cameraRect elements:simulation.attacks];
+	[self findElementsOnScreen:cameraRect elements:simulation.actors];
 }
 
 - (void)findElementsOnScreen:(CGRect)cameraRect elements:(NSMutableArray *)elements {

@@ -7,69 +7,66 @@
 #import "SeparatingAxisTest.h"
 
 @implementation Simulation {
-	id <BoundedPolygon, SimulationActor> mainActor;
 	NSMutableArray *tickers;
 }
 
 @synthesize environment;
 @synthesize characters;
-@synthesize attacks;
+@synthesize actors;
 
-- (id)initFor:(id <BoundedPolygon, SimulationActor>)_mainActor {
-	if (self = [super init]) {
-		mainActor = _mainActor;
-		environment = [[NSMutableArray alloc] init];
-		attacks = [[NSMutableArray alloc] init];
-		characters = [[NSMutableArray alloc] init];
-		tickers = [[NSMutableArray alloc] init];
-	}
+- (id)init {
+	self = [super init];
+	if (!self) return self;
+
+	environment = [[NSMutableArray alloc] init];
+	actors = [[NSMutableArray alloc] init];
+	characters = [[NSMutableArray alloc] init];
+	tickers = [[NSMutableArray alloc] init];
+
 	return self;
 }
 
 - (void)update:(ccTime)dt {
-	[mainActor update:dt];
-
 	[self update:environment dt:dt];
-	[self test:mainActor against:environment];
-
-	[self update:attacks dt:dt];
-	[self testMultiple:characters against:attacks];
-
+	[self update:actors dt:dt];
 	[self update:characters dt:dt];
-	[self test:mainActor against:characters];
+
+	[self testMultiple:actors against:environment];
+	[self testMultiple:actors against:characters];
 
 	for (id<SimulationTicker> ticker in tickers) {
 		[ticker update:dt];
 	}
 }
 
-- (void)update:(NSMutableArray *)actors dt:(ccTime)dt {
-	for (int i = actors.count - 1; i >= 0; i--) {
-		id <BoundedPolygon, SimulationActor> actor = [actors objectAtIndex:i];
+- (void)update:(NSMutableArray *)subjects dt:(ccTime)dt {
+	for (int i = subjects.count - 1; i >= 0; i--) {
+		id <BoundedPolygon, SimulationActor> actor = [subjects objectAtIndex:i];
 		if (actor.expired) {
-			[actors removeObjectAtIndex:i];
+			[subjects removeObjectAtIndex:i];
 		} else {
 			[actor update:dt];
 		}
 	}
 }
 
-- (void)testMultiple:(NSMutableArray *)actors against:(NSMutableArray *)polygons {
-	for (id <BoundedPolygon, SimulationActor> actor in actors) {
+- (void)testMultiple:(NSMutableArray *)subjects against:(NSMutableArray *)polygons {
+	for (id <BoundedPolygon, SimulationActor> actor in subjects) {
 		[self test:actor against:polygons];
 	}
 }
 
-- (void)test:(id <BoundedPolygon, SimulationActor>)actor against:(NSMutableArray *)polygons {
-	for (id <BoundedPolygon> polygon in polygons) {
-		[Simulation test:actor against:polygon does:^(SATResult result) {
-			[actor collides:result with:polygon];
+- (void)test:(id <BoundedPolygon, SimulationActor>)this against:(NSMutableArray *)those {
+	for (id <BoundedPolygon, SimulationActor> that in those) {
+		[Simulation test:this against:that does:^(SATResult result) {
+			[this collides:result with:that];
+			[that collides:result with:this];
 		}];
 	}
 }
 
-- (void)addAttack:(id <BoundedPolygon, SimulationActor>)attack {
-	[attacks addObject:attack];
+- (void)addActor:(id <BoundedPolygon, SimulationActor>)actor {
+	[actors addObject:actor];
 }
 
 - (void)addEnemy:(id <BoundedPolygon, SimulationActor>)enemy {
