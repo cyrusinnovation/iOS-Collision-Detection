@@ -116,10 +116,6 @@
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-	if (![self isTouchInside:touch]) {
-		return;
-	}
-
 	if (!togglable) {
 		[self rrelease];
 	}
