@@ -6,23 +6,19 @@
 #import "Polygon.h"
 
 #import "BoundedPolygon.h"
+#import "HasFacing.h"
+#import "SimulationActor.h"
 #import "SimulationTicker.h"
-#import "WalterSimulationActorImpl.h"
 
 @interface Camera : NSObject <SimulationTicker>
 
+- (id)init:(id<BoundedPolygon,SimulationActor,HasFacing>)guy;
+
 @property(nonatomic) float scale;
-
-// TODO not walter
-- (id)init:(Walter *)guy;
-
-- (CGPoint)getOffset;
-
-- (void)transform:(CCSprite *)sprite to:(id <BoundedPolygon>)location scale:(CGPoint)scale;
-
-- (void)transform:(CGPolygon)polygon into:(CGPolygon)into;
-
 - (CGRect)currentRect;
 
+- (void)transform:(CCSprite *)sprite to:(id <BoundedPolygon,SimulationActor,HasFacing>)location scale:(CGPoint)scale;
+- (void)transform:(CGPolygon)polygon into:(CGPolygon)into __unused;
 - (CGRect)transform:(CGRect)rect;
+
 @end

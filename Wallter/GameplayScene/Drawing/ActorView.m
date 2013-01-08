@@ -102,10 +102,13 @@
 	[self remove];
 }
 
-+ (CCSprite *)getSprite:(NSString *)filename model:(Platform *)model {
-	CCSprite *sprite = [CCSprite spriteWithFile:filename rect:(CGRect) {0, 0, model.width, model.height}];
++ (CCSprite *)getSprite:(NSString *)filename model:(id<BoundedPolygon,SimulationActor,HasFacing>) model {
+	float width = model.right - model.left;
+	float height = model.top - model.bottom;
+
+	CCSprite *sprite = [CCSprite spriteWithFile:filename rect:(CGRect) {0, 0, width, height}];
 	sprite.anchorPoint = ccp(0, 0);
-	[sprite setContentSize:(CGSize) {model.width, model.height}];
+	[sprite setContentSize:(CGSize) {width, height}];
 	ccTexParams tp = {GL_NEAREST, GL_NEAREST, GL_REPEAT, GL_REPEAT};
 	[sprite.texture setTexParameters:&tp];
 	return sprite;

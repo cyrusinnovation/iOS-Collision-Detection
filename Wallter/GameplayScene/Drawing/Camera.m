@@ -3,10 +3,9 @@
 //
 
 #import "Camera.h"
-#import "Walter.h"
 
 @implementation Camera {
-	Walter *guy;
+	id<BoundedPolygon, SimulationActor, HasFacing> guy;
 	CGPoint delta;
 
 	float yOffset;
@@ -17,7 +16,7 @@
 
 @synthesize scale;
 
-- (id)init:(Walter *)_guy {
+- (id)init:(id<BoundedPolygon,SimulationActor,HasFacing>)_guy {
 	if (self = [super init]) {
 		guy = _guy;
 		delta = cgp(160, 240);
@@ -60,7 +59,7 @@
 
 - (CGPoint)getOffset {
 	// TODO maybe this should be computed in update
-	return cgp_subtract(delta, guy.location);
+	return cgp_subtract(delta, cgp(guy.left, guy.bottom));
 }
 
 - (void)transform:(CCSprite *)sprite to:(id <BoundedPolygon>)location scale:(CGPoint)spriteScale {
@@ -76,7 +75,7 @@
 	[sprite setScaleY:scale * spriteScale.y];
 }
 
-- (void)transform:(CGPolygon)polygon into:(CGPolygon)into {
+- (void)transform:(CGPolygon)polygon into:(CGPolygon)into __unused {
 	CGPoint currentDelta = [self getOffset];
 	transform_polygon(polygon, currentDelta, into);
 	scale_polygon(into, scale, into);
