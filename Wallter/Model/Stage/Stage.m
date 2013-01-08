@@ -42,7 +42,6 @@ typedef enum {
 @synthesize platformAddedObserver;
 @synthesize deathHeight;
 
-
 - (id)init:(Simulation *)_simulation {
 	if (self = [super init]) {
 		simulation = _simulation;

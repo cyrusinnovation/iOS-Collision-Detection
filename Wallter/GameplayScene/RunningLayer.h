@@ -3,8 +3,10 @@
 // copyright cyrus innovation
 //
 
+@class Walter;
+@class Simulation;
 #define INTERFACE_LAYER 100
 
 @interface RunningLayer : CCLayerColor
-+ (CCScene *)scene;
++ (CCScene *)scene:(Walter *)walter simulation:(Simulation *)simulation;
 @end

@@ -11,6 +11,12 @@
 #import "CGPoint_ops.h"
 
 #import "IntroLayer.h"
+#import "AddBadguyToStageObserver.h"
+#import "Stage.h"
+#import "Walter.h"
+#import "WalterWeaponImpl.h"
+#import "WalterInTheSimulationTicker.h"
+#import "WalterStuckednessTicker.h"
 
 #pragma mark - IntroLayer
 
@@ -50,7 +56,26 @@
 }
 
 - (void)playGame {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[RunningLayer scene] withColor:ccWHITE]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[self makeRunningLayer] withColor:ccWHITE]];
+}
+
+- (CCScene *)makeRunningLayer {
+	Simulation *simulation = [[Simulation alloc] init];
+
+	WalterSimulationActorImpl *walterActor = [[WalterSimulationActorImpl alloc] initAt:cgp(30, 50)];
+	[simulation addActor:walterActor];
+
+	WalterWeaponImpl *walterWeapon = [[WalterWeaponImpl alloc] initFor:walterActor in:simulation];
+	Walter *walter = [Walter from:walterActor and:walterWeapon];
+
+	Stage *stage = [[Stage alloc] init:simulation];
+	stage.platformAddedObserver = [[AddBadGuyToStageObserver alloc] init:simulation];
+	[stage prime];
+
+	[simulation addTicker:[[WalterInTheSimulationTicker alloc] init:walter in:stage]];
+	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
+
+	return [RunningLayer scene:walter simulation:simulation];
 }
 
 - (void)goToSettings {

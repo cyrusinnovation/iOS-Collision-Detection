@@ -9,7 +9,9 @@
 #import "Camera.h"
 #import "AudioPlayer.h"
 #import "AddBadGuyToStageObserver.h"
+#import "Walter.h"
 #import "WalterInTheSimulationTicker.h"
+#import "Simulation.h"
 #import "ViewFactory.h"
 #import "WalterSoundEffects.h"
 #import "WalterViewAnimationChanger.h"
@@ -30,24 +32,8 @@
 	SimulationTiming *simulationTiming;
 }
 
-+ (CCScene *)scene {
++ (CCScene *)scene:(Walter *)walter simulation:(Simulation *)simulation {
 	CCScene *scene = [CCScene node];
-
-	Simulation *simulation = [[Simulation alloc] init];
-
-	WalterSimulationActorImpl *walterActor = [[WalterSimulationActorImpl alloc] initAt:cgp(30, 50)];
-	[simulation addActor:walterActor];
-
-	WalterWeaponImpl *walterWeapon = [[WalterWeaponImpl alloc] initFor:walterActor in:simulation];
-	Walter *walter = [Walter from:walterActor and:walterWeapon];
-
-	Stage *stage = [[Stage alloc] init:simulation];
-	stage.platformAddedObserver = [[AddBadGuyToStageObserver alloc] init:simulation];
-	[stage prime];
-
-	[simulation addTicker:[[WalterInTheSimulationTicker alloc] init:walter in:stage]];
-	[simulation addTicker:[[WalterStuckednessTicker alloc] init:walter]];
-
 	RunningLayer *layer = [[RunningLayer alloc] init:walter and:simulation audioPlayer:[[AudioPlayer alloc] init]];
 	[scene addChild:layer];
 	return scene;

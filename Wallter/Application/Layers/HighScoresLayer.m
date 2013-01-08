@@ -2,7 +2,6 @@
 #import "HighScores.h"
 #import "HighScore.h"
 #import "CGPoint_ops.h"
-#import "RunningLayer.h"
 
 @implementation HighScoresLayer {
 }
@@ -23,14 +22,13 @@
 		NSString *score = [scr.name stringByAppendingFormat:@" : %d", (int) scr.score];
 		CCLabelBMFont *scoreLabel = [CCLabelBMFont labelWithString:score fntFile:@"font.fnt"];
 		CGSize s = [[CCDirector sharedDirector] winSize];
-		[scoreLabel setPosition:cgp(s.width/2, s.height/2)];
+		[scoreLabel setPosition:cgp(s.width / 2, s.height / 2)];
 		[self addChild:scoreLabel];
 	}
 	return self;
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[RunningLayer scene] withColor:ccBLACK]];
 }
 
 @end
