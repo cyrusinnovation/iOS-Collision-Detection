@@ -44,10 +44,6 @@ typedef enum {
 
 @synthesize observer;
 
-- (BOOL)facingRight {
-	return direction == walterIsRunningRight;
-}
-
 - (id)initAt:(CGPoint)at {
 	self = [super init];
 	if (!self) return self;
@@ -76,10 +72,13 @@ typedef enum {
 	return self;
 }
 
+- (BOOL)facingRight {
+	return direction == walterIsRunningRight;
+}
+
 - (void)updateLocation:(CGPoint)newLocation {
 	location = newLocation;
-	CGPoint delta = location;
-	transform_polygon(base_polygon, delta, local_polygon);
+	transform_polygon(base_polygon, location, local_polygon);
 
 	bottom = newLocation.y;
 	top = newLocation.y + size.y;
@@ -100,7 +99,7 @@ typedef enum {
 
 	if ((action == walterIsGroundJumping || action == walterIsWallJumping) && velocity.y < 0) {
 		[self updateAction:walterIsFalling];
-	} else if (action == walterIsRunning && frameCollisionCount == 0) {
+	} else if ((action == walterIsRunning || action == walterIsOnAWall) && frameCollisionCount == 0) {
 		[self updateAction:walterIsFalling];
 	}
 
@@ -158,24 +157,44 @@ typedef enum {
 	return jump;
 }
 
+-(void) logActionName {
+	switch (action) {
+		case walterIsRunning:
+			NSLog(@"running");
+			break;
+		case walterIsGroundJumping:
+			NSLog(@"ground jump");
+			break;
+		case walterIsOnAWall:
+			NSLog(@"on a wall");
+			break;
+		case walterIsWallJumping:
+			NSLog(@"wall jump");
+			break;
+		case walterIsFalling:
+			NSLog(@"falling");
+			break;
+	}
+}
+
 - (void)updateAction:(WalterAction)_action {
 	if (action == _action) return;
 	action = _action;
 
 	switch (action) {
-		case walterIsWallJumping:
-			[observer wallJumping];
+		case walterIsRunning:
+			[observer running];
 			break;
 		case walterIsGroundJumping:
 			[observer groundJumping];
 			break;
+		case walterIsOnAWall:
+			break;
+		case walterIsWallJumping:
+			[observer wallJumping];
+			break;
 		case walterIsFalling:
 			[observer falling];
-			break;
-		case walterIsRunning:
-			[observer running];
-			break;
-		case walterIsOnAWall:
 			break;
 	}
 }
